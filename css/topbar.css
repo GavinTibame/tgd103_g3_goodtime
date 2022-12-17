@@ -1,0 +1,229 @@
+.wrapper{
+    position: relative;
+    box-sizing: border-box;
+}
+.bg{
+    width: 100%;
+    height: 2000px;
+    background-color: antiquewhite;
+}
+
+/*-------- topbar -------*/
+/* top-area */
+.top-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg,rgb(240, 240, 240),#fff);
+    z-index: 100;
+}
+.logo-box{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s;
+}
+.logo-box:hover{
+    transform: scale(1.1);
+}
+.logo-box > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.logo-box > a > img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+    /* border-right: #533C1B solid 1px; */
+}
+.topbar-btn-group{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+}
+.topbar-btn-group > li{
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.topbar-btn-group > li:first-child{
+    margin-left: 40px;
+}
+.topbar-btn-group > li > a{
+    color: #533C1B;
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.topbar-btn-group > li > a:hover{
+    color: #C09351;
+}
+/* .dividing-line{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 40%;
+    height: 40px;
+    border-right: #533C1B 1px solid;
+} */
+.member-icon-box{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    border-radius: 4px 0 0 4px;
+    background-color: #533C1B;
+    transition: all 0.5s;
+}
+.member-icon-box:hover{
+    width: 60px;
+    background-color: #a57f47;
+}
+.member-icon-box > a{
+    display: block;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.member-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 24px;
+}
+
+/* left-area */
+.left-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(40deg,rgb(240, 240, 240),#fff);
+    z-index: 99;
+}
+.left-area > p{
+    position: absolute;
+    top: 50%;
+    left: -75px;
+    width: 200px;
+    color: #533C1B;
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 900;
+    transform: rotate(-90deg);
+}
+.social-btn-group{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+}
+.social-btn-group > a{
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 40px;
+}
+.social-btn-group > a > i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #533C1B;
+    font-size: 30px;
+    transition: all 0.3s;
+}
+.social-btn-group > a > i:hover{
+    color: #a57f47;
+    font-size: 32px;
+}
+
+/* right-area */
+.right-area{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(-40deg,rgb(240, 240, 240),#fff);
+    z-index: 99;
+}
+.right-area > p{
+    position: absolute;
+    top: 75%;
+    left: -75px;
+    width: 200px;
+    color: #533C1B;
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 900;
+    transform: rotate(90deg);
+}
+.right-area > a{
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 50px;
+    height: 40px;
+}
+.right-area > a > i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #533C1B;
+    font-size: 30px;
+    transition: all 0.3s;
+}
+.right-area > a > i:hover{
+    color: #a57f47;
+    font-size: 32px;
+}
+
+/* Bread-crumbs */
+.Bread-crumbs{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg,#fff,60%,#533C1B);
+    z-index: 98;
+}
+.Bread-crumbs > ul{
+    position: absolute;
+    top: -4px;
+    right: 60px;
+    width: 80%;
+}
+.Bread-crumbs > ul > li{
+    float: right;
+    margin-left: 10px;
+    color: #fff;
+}
+.Bread-crumbs > ul > li > a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.5s;
+}
+.Bread-crumbs > ul > li > a:hover{
+    font-size: 13px;
+}
