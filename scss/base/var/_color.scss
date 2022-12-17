@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap');
-
-$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis", cursive; // 手寫英文字體
 $brown-color: #533C1B; // 主色棕
 $carmel-color: #C09351; // 主色駝色
 $carmel-tgh-color: rgb(192, 147, 81, .5); // 主色半透明駝色
@@ -24,58 +20,3 @@ $secondary5-color: #B3B3B3; // 輔色5
 $secondary6-color: #C3BCB1; // 輔色6
 $spotlight-color: #618985; // 對比色1
 $warning-color: #CD4B21; // 警告色1
-
-h1,
-.xxl {
-    font-size: 64px;
-}
-
-h2,
-.xl {
-    font-size: 48px;
-}
-
-h3,
-.l {
-    font-size: 40px;
-}
-
-h4,
-.m {
-    font-size: 32px;
-}
-
-h5,
-.s {
-    font-size: 28px;
-}
-
-h6,
-.xs {
-    font-size: 24px;
-}
-
-p,
-.basic {
-    font-size: 16px;
-}
-
-small,
-.small {
-    font-size: 12px
-}
-
-//* ---font-weight
-.fw4,
-.regular {
-    font-weight: 400;
-}
-
-.fw7,
-.bold {
-    font-weight: 700;
-}
-
-%btn_hover {
-    // 左到右覆蓋顏色
-}
