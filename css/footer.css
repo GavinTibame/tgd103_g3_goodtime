@@ -5,21 +5,21 @@
     left: 0;
     bottom: 0;
 }
-.top-group-position{
+.footer .top-group-position{
     margin-left: 10%;
     margin-right: 10%;
 }
-.top-group{
+.footer .top-group{
     width: 100%;
     height: 200px;
     border-top: 2px solid #ccc;
     display: flex;
 }
-.logo-box{
+.footer .logo-box{
     width: 80px;
     height: 100%;
 }
-.logo-box > a{
+.footer .logo-box > a{
     position: absolute;
     top: 20px;
     display: block;
@@ -27,31 +27,31 @@
     height: 80px;
     transition: all 0.5s;
 }
-.logo-box > a:hover{
+.footer .logo-box > a:hover{
     transform: scale(1.1);
 }
-.logo-box > a > img{
+.footer .logo-box > a > img{
     width: 100%;
     height: 100%;
 }
 
-.footer-btn-group{
+.footer .footer-btn-group{
     display: inline-block;
     width: 40%;
     height: 100%;
 }
-.footer-btn-group > ul{
+.footer .footer-btn-group > ul{
     margin-top: 20px;
     margin-left: 40px;
     width: 100%;
     height: 90px;
 }
-.footer-btn-group > ul > li{
+.footer .footer-btn-group > ul > li{
     float: left;
     margin-left: 20px;
     margin-bottom: 20px;
 }
-.footer-btn-group > ul > li >a{
+.footer .footer-btn-group > ul > li >a{
     text-decoration: none;
     color: #533C1B;
     font-size: 20px;
@@ -59,13 +59,13 @@
     font-family: 'Noto Sans TC', sans-serif;
     transition: all 0.3s;
 }
-.footer-btn-group > ul > li > a:hover{
+.footer .footer-btn-group > ul > li > a:hover{
     color: #C09351;
 }
-.footer-btn-group > div{
+.footer .footer-btn-group > div{
     margin-left: 60px;
 }
-.footer-btn-group > div > p{
+.footer .footer-btn-group > div > p{
     color: #C09351;
     font-size: 14px;
     font-weight: 500;
@@ -75,23 +75,23 @@
     margin-bottom: 4px;
 }
 
-.map-box{
+.footer .map-box{
     display: flex;
     margin-top: 20px;
     margin-left: 60px;
     width: 40%;
     height: 80%;
 }
-.map-box > iframe{
+.footer .map-box > iframe{
     width: 100%;
     height: 100%;
 }
-.footer-loc{
+.footer .footer-loc{
     margin-top: 20px;
     margin-left: 20px;
     width: 20px;
 }
-.footer-loc > p{
+.footer .footer-loc > p{
     transform: rotate(90deg);
     font-size: 24px;
     font-weight: 900;
@@ -100,12 +100,12 @@
     color: #533C1B;
 }
 /* bottom-group */
-.bottom-group{
+.footer .bottom-group{
     width: 100%;
     height: 50px;
     background: linear-gradient(120deg,#533C1B,#3f2d15);
 }
-.text-box{
+.footer .text-box{
     margin-top: 10px;
     position: absolute;
     bottom: 0;
@@ -115,7 +115,7 @@
     height: 40px;
     text-align: center;
 }
-.text-box > p{
+.footer .text-box > p{
     font-weight: 500;
     font-size: 12px;
     font-family: 'Noto Sans TC', sans-serif;
