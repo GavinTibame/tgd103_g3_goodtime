@@ -1,0 +1,55 @@
+body{
+    position: relative;
+}
+
+.bg{
+    background-image: url(../img/log_in/bg.png);
+    background-repeat: no-repeat;
+    height: 1601px;
+}
+
+.login-box{
+    width: 30%;
+    margin-bottom: 60px;
+}
+
+.login-box .login{
+    margin-top: 150px;
+    margin-left: 26%;
+}
+
+.login-content{
+    margin: 0 auto;
+    width: 45%;
+    height: 1200px;
+    background-color: #fff;
+    padding-top: 60px;
+}
+
+.google-btn{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    height: 70px;
+    background-color: #CFB58F;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+.h3{
+    display: block;
+    position: relative;
+    width: 33%;
+    margin: 0 auto;
+}
+
+.h3::before{
+    content: url(../img/log_in/google\ icon.png);
+    position: absolute;
+    left: -55px;
+    top: 18%;
+}
+
+
+

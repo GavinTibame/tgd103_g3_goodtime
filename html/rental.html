@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venue Rental</title>
+    <title>場地租借</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,6 +13,7 @@
         rel="stylesheet">
     <script src="./source/vue.global.js"></script>
     <link rel="stylesheet" href="../css/rental/rental.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -81,10 +82,21 @@
                     <h3 class="rental__title"><em>其他服務</em></h3>
                     <dl class="rental-dl">
                         <dt><span>▴代售門票服務</span></dt>
-                        <dd>民壯午服童室出波蝴女黑雄記息鴨瓜！高玩植男鳥喜前吉字、卜合飯石話同常品言牠西己衣丁假牛蝶士神布，古皮雲屋羽課瓜衣錯像假嗎學占過英工點白，她羽歡美更秋甲？加飛造真立巾首金乾面跑花母爬老石士已古東木要。
+                        <dd>
+                            <ul>
+                                <li class="dd-pt"> 依主辦單位需求提供票務設定建議，於提供完整建檔資料後預計7至10個工作日完成售票頁面建置。</li>
+                                <li>配合相關票務規劃。</li>
+                                <li>提供各場次銷售報表並進行相關票務結案與票款給付。</li>
+                                <li>如展覽因故有取消、延期等異動狀況，將協助以e-mail、簡訊、園區公告等方式協助提供已購票觀眾異動訊息。
+                                </li>
+                            </ul>
                         </dd>
                         <dt><span>▴周邊商品網絡寄賣服務</span></dt>
-                        <dd>民壯午服童室出波蝴女黑雄記息鴨瓜！高玩植男鳥喜前吉字、卜合飯石話同常品言牠西己衣丁假牛蝶士神布，古皮雲屋羽課瓜衣錯像假嗎學占過英工點白，她羽歡美更秋甲？加飛造真立巾首金乾面跑花母爬老石士已古東木要。
+                        <dd>
+                            <ul>
+                                <li>依主辦單位需求提供商品代售服務，於提供完整建檔資料後預計7至10個工作日完成商品頁面建置。</li>
+                                <li>於韶光文創線上商城協助販售，提供銷售報表與進行相關商品結案及貨款給付。 </li>
+                            </ul>
                         </dd>
                     </dl>
                 </section>
@@ -96,6 +108,10 @@
         <footer id="footer"></footer>
     </div>
     <script>
+        $(() => {
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
+        });
         const createApp = Vue.createApp({
             data() {
                 return {
