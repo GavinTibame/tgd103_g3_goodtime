@@ -26,10 +26,15 @@ body{
     padding-top: 60px;
 }
 
-.google-btn{
+.login-width{
     display: block;
     margin: 0 auto;
     width: 80%;
+}
+
+.google-btn{
+    display: block;
+    margin: 0 auto;
     height: 70px;
     background-color: #CFB58F;
     text-align: center;
@@ -51,5 +56,31 @@ body{
     top: 18%;
 }
 
+.or{
+    text-align: center;
+}
 
+.dotted-line{
+    display: block;
+    margin: 0 auto;
+    border:1px black dashed;
+    border-radius: 5px;
+}
 
+.login-width button{
+    display: block;
+    margin: 0 auto;
+}
+
+.last-line{
+}
+
+.singin{
+    float: left;
+    text-decoration: none;
+}
+
+.foreget-pwd{
+    float: right;
+    text-decoration: none;
+}
