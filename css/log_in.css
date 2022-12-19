@@ -21,7 +21,7 @@ body{
 .login-content{
     margin: 0 auto;
     width: 45%;
-    height: 1200px;
+    height: 750px;    
     background-color: #fff;
     padding-top: 60px;
 }
@@ -63,8 +63,9 @@ body{
 .dotted-line{
     display: block;
     margin: 0 auto;
-    border:1px black dashed;
+    border:1px #9747FF dashed;
     border-radius: 5px;
+    margin-bottom: 78px;
 }
 
 .login-width button{
@@ -72,7 +73,43 @@ body{
     margin: 0 auto;
 }
 
+.login-width > p{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.dotted-line p{
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.dotted-line input{
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    height: 50px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-color: #261C0D;
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    background-color: #533C1B;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
 .last-line{
+    padding-top: 25px;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
 }
 
 .singin{
