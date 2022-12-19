@@ -85,8 +85,6 @@ main.rental a {
     background-color: rgba(256, 256, 256, .7);
 }
 
-main.rental div.banner__inner div.textarea {}
-
 .rental .banner__eng {
     font-size: 3.8rem;
     font-weight: bold;
@@ -115,20 +113,21 @@ main.rental div.banner__inner div.textarea {}
 }
 
 
-.rental article.apply {
+.rental article {
     padding: 3rem 0;
 }
 
-article.apply section {}
+.rental article section {}
 
-article.apply section h3,
-article.apply section p,
-article.apply section dl {
+.rental article section h3,
+.rental article section p,
+.rental article section dl {
     width: 75vw;
-    margin: 0 auto;
+    margin: 0 auto 25px;
 }
 
-article.apply section h3 {
+.rental article section h3 {
+    margin-top: 40px;
     font-size: 1.3rem;
     line-height: 1.5rem;
     font-weight: 600;
@@ -136,24 +135,68 @@ article.apply section h3 {
     border-left: solid 4px var(--carmel-color);
 }
 
-article.apply section em {
-    padding-left: .5rem
+.rental article section em {
+    padding-left: .5rem;
 }
 
-article.apply h3 small {}
+.rental article small {}
 
-article.apply section p {}
+.rental article section p {
+    padding-left: 1.3rem;
+    line-height: 2rem;
+}
 
-article.apply section dl {}
+.rental article section dl {
+    padding-left: 1.3rem;
+    line-height: 2.5rem;
 
-article.apply section dt {}
+}
 
-article.apply dt span {}
+.rental article section dt {}
 
-article.apply section dd {}
+.rental article dt span {
+    color: var(--lakeGreen-color)
+}
 
-article.apply .btn__ctn {}
+.rental article section dd {
+    line-height: 2rem;
+}
 
-article.apply .btn__ctn .btn__apply {}
+.rental article section ul {
+    padding-left: 2.3rem;
 
-main.rental article.apply div.map {}
+    list-style-type: disc;
+}
+
+.rental article .btn__ctn {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.rental article .btn__ctn .btn__apply {
+    padding: 15px 50px;
+    border: 0;
+    background-color: var(--brown-color);
+    border-radius: 3px;
+    color: #fff;
+}
+
+.rental article .btn__ctn .btn__apply :hover {
+    background-color: #fff;
+}
+
+.rental article .btn__ctn .btn__apply::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--brown-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .3s ease;
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    outline: 1px solid var(--red-color);
+}
+
+.rental article div.map {}

@@ -1,0 +1,219 @@
+/*-------- topbar -------*/
+/* top-area */
+.topbar .top-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg,rgb(240, 240, 240),#fff);
+    z-index: 100;
+}
+.topbar .logo-box{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s;
+}
+.topbar .logo-box:hover{
+    transform: scale(1.1);
+}
+.topbar .logo-box > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.topbar .logo-box > a > img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+    /* border-right: #533C1B solid 1px; */
+}
+.topbar .topbar-btn-group{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+}
+.topbar .topbar-btn-group > li{
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.topbar .topbar-btn-group > li:first-child{
+    margin-left: 40px;
+}
+.topbar .topbar-btn-group > li > a{
+    color: #533C1B;
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.topbar .topbar-btn-group > li > a:hover{
+    color: #C09351;
+}
+/* .dividing-line{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 40%;
+    height: 40px;
+    border-right: #533C1B 1px solid;
+} */
+.topbar .member-icon-box{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    border-radius: 4px 0 0 4px;
+    background-color: #533C1B;
+    transition: all 0.5s;
+}
+.topbar .member-icon-box:hover{
+    width: 60px;
+    background-color: #a57f47;
+}
+.topbar .member-icon-box > a{
+    display: block;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.topbar .member-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 24px;
+}
+
+/* left-area */
+.topbar .left-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(40deg,rgb(240, 240, 240),#fff);
+    z-index: 99;
+}
+.topbar .left-area > p{
+    position: absolute;
+    top: 50%;
+    left: -75px;
+    width: 200px;
+    color: #533C1B;
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 900;
+    transform: rotate(-90deg);
+}
+.topbar .social-btn-group{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+}
+.topbar .social-btn-group > a{
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 40px;
+}
+.topbar .social-btn-group > a > i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #533C1B;
+    font-size: 30px;
+    transition: all 0.3s;
+}
+.topbar .social-btn-group > a > i:hover{
+    color: #a57f47;
+    font-size: 32px;
+}
+
+/* right-area */
+.topbar .right-area{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(-40deg,rgb(240, 240, 240),#fff);
+    z-index: 99;
+}
+.topbar .right-area > p{
+    position: absolute;
+    top: 75%;
+    left: -75px;
+    width: 200px;
+    color: #533C1B;
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 900;
+    transform: rotate(90deg);
+}
+.topbar .right-area > a{
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 50px;
+    height: 40px;
+}
+.topbar .right-area > a > i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #533C1B;
+    font-size: 30px;
+    transition: all 0.3s;
+}
+.topbar .right-area > a > i:hover{
+    color: #a57f47;
+    font-size: 32px;
+}
+
+/* Bread-crumbs */
+.topbar .Bread-crumbs{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg,#fff,60%,#533C1B);
+    z-index: 98;
+}
+.topbar .Bread-crumbs > ul{
+    position: absolute;
+    top: -4px;
+    right: 60px;
+    width: 80%;
+}
+.topbar .Bread-crumbs > ul > li{
+    float: right;
+    margin-left: 10px;
+    color: #fff;
+}
+.topbar .Bread-crumbs > ul > li > a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.5s;
+}
+.topbar .Bread-crumbs > ul > li > a:hover{
+    font-size: 13px;
+}
