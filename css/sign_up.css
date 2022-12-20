@@ -1,0 +1,95 @@
+.sign_up-wrapper .sign_up-bg {
+  background-image: url(../img/log_in/bg.png);
+  background-repeat: no-repeat;
+  height: 1601px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-box {
+  width: 30%;
+  margin-bottom: 60px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-box .sign_up-login {
+  margin-top: 150px;
+  margin-left: 26%;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content {
+  margin: 0 auto;
+  width: 45%;
+  height: 1090px;
+  background-color: #fff;
+  padding-top: 60px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn {
+  display: block;
+  margin: 0 auto;
+  height: 70px;
+  background-color: #CFB58F;
+  text-align: center;
+  line-height: 70px;
+  text-decoration: none;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn .sign_up-h3 {
+  display: block;
+  position: relative;
+  width: 33%;
+  margin: 0 auto;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn .sign_up-h3::before {
+  content: url(../img/log_in/google\ icon.png);
+  position: absolute;
+  left: -55px;
+  top: 18%;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-or {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 78px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line p {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line input {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  height: 50px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-color: #261C0D;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width button {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+  background-color: #533C1B;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-last-line {
+  padding-top: 25px;
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-last-line .log_in-singin {
+  text-decoration: none;
+  color: #261C0D;
+}
+
+/*# sourceMappingURL=sign_up.css.map */

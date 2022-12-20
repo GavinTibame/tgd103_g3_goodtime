@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/sign_up.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <div id="header"></div>
+        <div class="sign_up-wrapper">
+            <div class="sign_up-bg">
+                <div class="sign_up-login-box">
+                    <img class="sign_up-login" src="../img/sign_up/signup.png" alt="">
+                </div>
+                <div class="sign_up-login-content">
+                    <div class="sign_up-login-width">
+                        <a href="" class="sign_up-google-btn" >
+                            <h3 class="sign_up-h3">使用Google帳號註冊</h3>
+                        </a>
+                        <p class="sign_up-or">or</p>
+                        <div class="sign_up-dotted-line">
+                            <div>
+                                <p>帳號</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>密碼</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>確認密碼</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>姓名</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>手機</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>Email</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <button>加入會員</button>
+                        <br>
+                        <div class="sign_up-last-line">
+                            <a href="" class="sign_up-singin">返回會員登入</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    <div id="footer"></div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+        $("#header").load("topbar.html");
+        $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+</html>

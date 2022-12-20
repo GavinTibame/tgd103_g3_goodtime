@@ -1,16 +1,6 @@
-.wrapper{
-    position: relative;
-    box-sizing: border-box;
-}
-.bg{
-    width: 100%;
-    height: 2000px;
-    background-color: antiquewhite;
-}
-
 /*-------- topbar -------*/
 /* top-area */
-.top-area{
+.topbar .top-area{
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +9,7 @@
     background: linear-gradient(180deg,rgb(240, 240, 240),#fff);
     z-index: 100;
 }
-.logo-box{
+.topbar .logo-box{
     display: inline-block;
     margin-top: 20px;
     margin-left: 50px;
@@ -27,37 +17,37 @@
     height: 40px;
     transition: all 0.5s;
 }
-.logo-box:hover{
+.topbar .logo-box:hover{
     transform: scale(1.1);
 }
-.logo-box > a{
+.topbar .logo-box > a{
     display: block;
     width: 100%;
     height: 100%;
 }
-.logo-box > a > img{
+.topbar .logo-box > a > img{
     display: inline-block;
     width: 100%;
     height: 100%;
     padding-right: 20px;
     /* border-right: #533C1B solid 1px; */
 }
-.topbar-btn-group{
+.topbar .topbar-btn-group{
     position: absolute;
     top: 0;
     right: 0;
     width: 65%;
     height: 100%;
 }
-.topbar-btn-group > li{
+.topbar .topbar-btn-group > li{
     display: inline-block;
     margin-top: 30px; /* 這邊好像可以少一點 跟logo對齊 20左右?*/
     margin-left: 20px;
 }
-.topbar-btn-group > li:first-child{
+.topbar .topbar-btn-group > li:first-child{
     margin-left: 40px;
 }
-.topbar-btn-group > li > a{
+.topbar .topbar-btn-group > li > a{
     color: #533C1B;
     text-decoration: none;
     font-family: 'Noto Sans TC', sans-serif;
@@ -65,7 +55,7 @@
     font-weight: 700;
     transition: all 0.5s;
 }
-.topbar-btn-group > li > a:hover{
+.topbar .topbar-btn-group > li > a:hover{
     color: #C09351;
 }
 /* .dividing-line{
@@ -76,7 +66,7 @@
     height: 40px;
     border-right: #533C1B 1px solid;
 } */
-.member-icon-box{
+.topbar .member-icon-box{
     position: absolute;
     top: 20px;
     right: 0;
@@ -86,17 +76,17 @@
     background-color: #533C1B;
     transition: all 0.5s;
 }
-.member-icon-box:hover{
+.topbar .member-icon-box:hover{
     width: 60px;
     background-color: #a57f47;
 }
-.member-icon-box > a{
+.topbar .member-icon-box > a{
     display: block;
     color: #fff;
     width: 100%;
     height: 100%;
 }
-.member-icon{
+.topbar .member-icon{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -105,7 +95,7 @@
 }
 
 /* left-area */
-.left-area{
+.topbar .left-area{
     position: fixed;
     top: 0;
     left: 0;
@@ -114,7 +104,7 @@
     background: linear-gradient(40deg,rgb(240, 240, 240),#fff);
     z-index: 99;
 }
-.left-area > p{
+.topbar .left-area > p{
     position: absolute;
     top: 50%;
     left: -75px;
@@ -126,20 +116,20 @@
     font-weight: 900;
     transform: rotate(-90deg);
 }
-.social-btn-group{
+.topbar .social-btn-group{
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 25%;
 }
-.social-btn-group > a{
+.topbar .social-btn-group > a{
     display: block;
     position: relative;
     width: 50px;
     height: 40px;
 }
-.social-btn-group > a > i{
+.topbar .social-btn-group > a > i{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -148,13 +138,13 @@
     font-size: 30px;
     transition: all 0.3s;
 }
-.social-btn-group > a > i:hover{
+.topbar .social-btn-group > a > i:hover{
     color: #a57f47;
     font-size: 32px;
 }
 
 /* right-area */
-.right-area{
+.topbar .right-area{
     position: fixed;
     top: 0;
     right: 0;
@@ -163,7 +153,7 @@
     background: linear-gradient(-40deg,rgb(240, 240, 240),#fff);
     z-index: 99;
 }
-.right-area > p{
+.topbar .right-area > p{
     position: absolute;
     top: 75%;
     left: -75px;
@@ -175,7 +165,7 @@
     font-weight: 900;
     transform: rotate(90deg);
 }
-.right-area > a{
+.topbar .right-area > a{
     display: block;
     position: absolute;
     bottom: 5px;
@@ -183,7 +173,7 @@
     width: 50px;
     height: 40px;
 }
-.right-area > a > i{
+.topbar .right-area > a > i{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -192,13 +182,13 @@
     font-size: 30px;
     transition: all 0.3s;
 }
-.right-area > a > i:hover{
+.topbar .right-area > a > i:hover{
     color: #a57f47;
     font-size: 32px;
 }
 
 /* Bread-crumbs */
-.Bread-crumbs{
+.topbar .Bread-crumbs{
     position: fixed;
     top: 80px;
     left: 0;
@@ -207,18 +197,18 @@
     background: linear-gradient(90deg,#fff,60%,#533C1B);
     z-index: 98;
 }
-.Bread-crumbs > ul{
+.topbar .Bread-crumbs > ul{
     position: absolute;
     top: -4px;
     right: 60px;
     width: 80%;
 }
-.Bread-crumbs > ul > li{
+.topbar .Bread-crumbs > ul > li{
     float: right;
     margin-left: 10px;
     color: #fff;
 }
-.Bread-crumbs > ul > li > a{
+.topbar .Bread-crumbs > ul > li > a{
     text-decoration: none;
     color: #fff;
     font-size: 10px;
@@ -226,6 +216,6 @@
     font-family: 'Noto Sans TC', sans-serif;
     transition: all 0.5s;
 }
-.Bread-crumbs > ul > li > a:hover{
+.topbar .Bread-crumbs > ul > li > a:hover{
     font-size: 13px;
 }
