@@ -6,19 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Center</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="./source/vue.global.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <header id="header"></header>
-        <main class="rental">
-
-
+        <main class="memberCenter">
+            <ul class="breadcrumb">
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">會員中心</a></li>
+            </ul>
+            <div class="banner">
+                <div class="banner-img">
+                    <div class="banner-textarea">
+                        <div class="banner-eng">MEMBER CENTER</div>
+                        <div class="banner-zh">會員中心</div>
+                    </div>
+                </div>
+            </div>
+            <section class="nav-tab">
+                <aside class="side-nav">
+                    <nav class="nav-bg">
+                        <ul class="nav-ctn">
+                            <li class="nav-block">
+                                <h6 class="title-eng">Account</h6>
+                                <p class="title-zh">帳號管理</p>
+                                <div></div>
+                            </li>
+                            <li class="nav-block">
+                                <h6 class="title-eng">Shopping List</h6>
+                                <p class="title-zh">購買清單</p>
+                                <div></div>
+                            </li>
+                            <li class="nav-block">
+                                <h6 class="title-eng">Coupon</h6>
+                                <p class="title-zh">優惠券</p>
+                                <div></div>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <aside class="side-tab">
+                    <div class="tab-block">
+                        <ul class="tab-list">
+                            <li><a href="#" data-tab="member-tab1" class="tab"></a></li>
+                            <li><a href="#" data-tab="member-tab2" class="tab"></a></li>
+                            <li><a href="#" data-tab="member-tab3" class="tab"></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="acc-tab">
+                            <label for="prevPwd">目前密碼<input type="password" name="prevPwd" id="prevPwd"></label>
+                            <label for="newPwd">新密碼<input type="password" name="newPwd" id="newPwd"></label>
+                            <label for="cfmPwd">確認新密碼<input type="password" name="cfmPwd" id="cfmPwd"></label>
+                            <button type="submit">確認修改</button>
+                        </div>
+                        <div class="addr-tab">
+                            <div class="addr-col">
+                                <label for="addr1">
+                                    <input type="ratio" name="addr1" id="addr1">
+                                    <input type="text" placeholder="member-addr1" id="addr">
+                                    <div id="memberAddr1">目前地址1</div>
+                                </label>
+                                <button class="edit-addr"></button>
+                                <button class="edit-addr"></button>
+                            </div>
+                            <label for="addr2"><input type="text" name="addr2" id="addr2">目前地址2</label>
+                            <button>新增地址</button>
+                        </div>
+                    </div>
+                </aside>
+            </section>
         </main>
         <footer id="footer"></footer>
     </div>
     <script>
+        $(() => {
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
+        });
         // const createApp = Vue.createApp({
         //     data() {
         //         return {
