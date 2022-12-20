@@ -51,7 +51,7 @@
 }
 .topbar-btn-group > li{
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 30px; /* 這邊好像可以少一點 跟logo對齊 20左右?*/
     margin-left: 20px;
 }
 .topbar-btn-group > li:first-child{
@@ -121,6 +121,7 @@
     width: 200px;
     color: #533C1B;
     font-family: 'Merriweather', serif;
+    /* font-family: 'Enriqueta', serif;; */
     font-size: 28px;
     font-weight: 900;
     transform: rotate(-90deg);
@@ -169,6 +170,7 @@
     width: 200px;
     color: #533C1B;
     font-family: 'Merriweather', serif;
+    /* font-family: 'Enriqueta', serif;; */
     font-size: 28px;
     font-weight: 900;
     transform: rotate(90deg);
