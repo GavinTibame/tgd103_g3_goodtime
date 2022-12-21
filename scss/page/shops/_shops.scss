@@ -1,0 +1,158 @@
+@import url('../../base/var/_breakpoint.scss');
+@import url('../../base/var/_color.scss');
+@import url('../../base/var/_font.scss');
+.shops{
+    box-sizing: border-box;
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 1280px;
+    height: 2000px;
+    overflow: hidden;
+    font-family: 'Noto Sans TC', sans-serif;
+    .title-box{
+        width: 100%;
+        height: 80px;
+        margin-left: 60px;
+        position: relative;
+        h2{
+            font-family: 'Enriqueta', serif;
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: .2rem;
+            color: #533C1B;
+        }
+        p{
+            margin-left: 150px;
+            font-size: 32px;
+            font-weight: 500;
+            color: #C09351;
+        }
+        .line{
+            position: absolute;
+            bottom: 15px;
+            width: 100px;
+            height: 4px;
+            background-color: #533C1B;
+            margin-left: 40px;
+        }
+    }
+    .shopsbox-area{
+        margin: 80px auto;
+        width: 80%;
+        height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+        }
+        .store1{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            &:hover{
+                img{
+                    filter: grayscale(0);
+                    left: 10%;
+                    transition: all 0.5s;
+                }
+                .store-textbox{
+                    left: 0%;
+                    transition: all 1s;
+                }
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                left: 0;
+                position: absolute;
+                filter: grayscale(1);
+                transition: all 1s;
+            }
+            .store-textbox{
+                width: 50%;
+                height: 100%;
+                background-color: rgb(231, 231, 231);
+                position: absolute;
+                left: -50%;
+                transition: all 1s;
+                h6{
+                    width: 80%;
+                    font-weight: 600;
+                    font-size: 24px;
+                    color: #533C1B;
+                    margin-top: 20%;
+                    margin-left: 10%;
+                    padding-bottom: 20px;
+                    border-bottom: 2px solid #533C1B;
+                }
+                p{
+                    width: 80%;
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-top: 10%;
+                    margin-left: 10%;
+                    line-height: 1.3;
+                }
+            }
+        }
+        .store2{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: grayscale(1);
+            }
+        }
+        .store3{
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: grayscale(1);
+            }
+        }
+        .store4{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: grayscale(1);
+            }
+        }
+        .store5{
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                filter: grayscale(1);
+            }
+        }
+    }
