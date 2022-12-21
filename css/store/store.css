@@ -12,7 +12,7 @@ body{
 
 ul.bread{
     display: flex;
-    margin-top: 10%;
+    margin-top: 100px;
     margin-left: 5%;
 }
 
@@ -62,7 +62,7 @@ ul.bread{
     width: 90%;
     display: block;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 10px;
     
 }
 
@@ -81,7 +81,7 @@ main.wrapper{
 }
 
 .title .title__eng h1{
-    font-size: 64px;
+    font-size: 48px;
     font-weight: bold;
     letter-spacing: .8rem;
 }
@@ -91,7 +91,7 @@ main.wrapper{
 }
 
 .title .title__zh h2{
-    font-size: 40px;
+    font-size: 32px;
     font-weight: bold;
     color: #C09351;
     padding-left: 23%;
@@ -161,7 +161,7 @@ nav.product__nav i.fa-chevron-down:hover{
     flex-wrap: wrap;
     align-items: center;
     /* padding: 10px; */
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin-bottom: 30%;
 
 }
@@ -190,7 +190,7 @@ nav.product__nav i.fa-chevron-down:hover{
 }
 
 .product__display ul li h6{
-    font-size: 24px;
+    font-size: 22px;
     color: #261C0D;
     font-weight: bold;
     margin-top: 10px;
