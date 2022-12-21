@@ -116,7 +116,7 @@
     margin-bottom: 10px;
 }
 .product-detail .function-btn-group_btn{
-    margin-right: 5px;
+    margin-right: 10px;
     width: 60px;
     height: 30px;
     position: relative;
@@ -131,7 +131,7 @@
     right: 0;
     bottom: 0;
     border-radius: 4px;
-    border: 2px solid #C3BCB1;
+    outline: 2px solid #C3BCB1;
     color: #C3BCB1;
     height: 30px;
     line-height: 30px;
@@ -146,7 +146,7 @@
   
 .function-btn-group_btn input[type="radio"]:checked + label {
     border-radius: 4px;
-    border: 2px solid #533C1B;
+    outline: 2px solid #533C1B;
     color: #533C1B;
 }
   
@@ -168,7 +168,6 @@
     color: #fff;
     background-color: #C09351;
     border: none;
-    outline: 2px solid #C09351;
     cursor: pointer;
 }
 .product-detail .qty{
