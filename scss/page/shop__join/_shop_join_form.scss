@@ -1,40 +1,3 @@
-@import url('../reset.css');
-
-@import url('https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap');
-
-$our-font: "Enriqueta",
-"Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis",
-cursive; // 手寫英文字體
-
-$h1: 64px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 28px;
-$h6: 24px;
-$p: 16px;
-$small: 12px;
-
-$fw4: 400;
-$fw7: 700;
-
-$brown-color: #533C1B; // 主色棕
-$carmel-color: #C09351; // 主色駝色
-$carmel-tgh-color: rgb(192, 147, 81, .5); // 主色半透明駝色
-$sub-skin-color: #f6e6cf; // 輔色淺膚色
-$sub-carmel-color: #CFB58F; // 輔色卡其色
-$sub-LTgray-color: #D9D9D9; // 輔色淺灰色
-$sub-gray-color: #C3BCB1; // 輔色粉灰色
-$sub-DKgray-color: #B3B3B3; // 輔色淺灰色
-$font-color: #261C0D; // 字體色
-$lakeGreen-color: #618985; // 對比色湖水綠色
-@import url(../../../scss/base/var/_color.scss);
-
-* {
-    font-family: $our-font;
-}
-
 main.shops__Join__form {
     max-width: calc(100vw - 120px);
     margin: 100px auto;
@@ -190,13 +153,13 @@ main.shops__Join__form {
 
         &:hover {
             background: $carmel-color;
-            border-color:$carmel-color;
-            color:  white;
+            border-color: $carmel-color;
+            color: white;
             text-decoration: none;
         }
     }
 
-    .Join__form .file__choose input{
+    .Join__form .file__choose input {
         position: absolute;
         font-size: 100px;
         right: 0;

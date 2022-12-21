@@ -1,9 +1,9 @@
-.rental article .btn__ctn .btn__apply {
-    font-size: 20px;
+.button {
+    font-size: $h6;
     margin-top: 40px;
     padding: 20px 75px 20px 90px;
     border: 0;
-    background-color: var(--brown-color);
+    background-color: $brown-color;
     border-radius: 3px;
     color: #fff;
     letter-spacing: 15px;
