@@ -4,19 +4,50 @@
         background-image: url(../img/log_in/bg.png);
         background-repeat: no-repeat;
         height: 1601px;
+        margin-top: 100px;
         .log_in-login-box{
-            width: 30%;
+            width: 40%;
+            height: 200px;
             margin-bottom: 60px;
+            margin-left: 9%;
 
-            .log_in-login{
-                margin-top: 150px;
-                margin-left: 26%;
+            h2{
+                font-size: 48px;
+                font-weight: bold;
+                color: #533C1B;
+                letter-spacing: .8rem;
+                padding: 4rem 5.2rem 1rem;
             }
+
+            h3{
+                font-size: 32px;
+                font-weight: bold;
+                color: #C09351;
+                padding-bottom: 2rem;
+                display: block;
+                padding-left: 18vw;
+                padding-right: 5.2rem;
+                letter-spacing: .68rem;
+                position: relative;
+
+                &::after{
+                    content: '';
+                    height: 3px;
+                    width: 120px;
+                    background-color: #261C0D;
+                    display: block;
+                    position: absolute;
+                    right: 58%;
+                    bottom: 37px;
+                
+                }
+            }
+
         }
         .log_in-login-content{
             margin: 0 auto;
             width: 45%;
-            height: 750px;    
+            height: 660px;    
             background-color: #fff;
             padding-top: 60px;
 
@@ -55,8 +86,6 @@
                 .log_in-dotted-line{
                     display: block;
                     margin: 0 auto;
-                    border:1px #9747FF dashed;
-                    border-radius: 5px;
                     margin-bottom: 78px;
 
                      p{

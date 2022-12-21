@@ -113,6 +113,7 @@ article ul {
 .tab-panels {
   margin: 0 30px;
 }
+
 .tabset>input[type="radio"] {
   position: absolute;
   left: -200vw;
@@ -130,8 +131,10 @@ article ul {
 
 
 
-.tab-panels{
-  text-align: left;
+.tab-panels {
+  margin: 0px auto;
+  width: 80%;
+  font-weight: bold;
 }
 
 .tab-panels li {
@@ -181,6 +184,7 @@ article ul {
   font-size: 12px;
   color: #555555;
   padding-left: 10px;
+  font-weight: normal;
 }
 
 .tab-panel li h4 {
