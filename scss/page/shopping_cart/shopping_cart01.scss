@@ -17,12 +17,12 @@ $warning-color: #CD4B21; // 警告色1
 $our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
 $our-font2: "Ephesis", cursive; // 手寫英文字體
 
-$h1: 64px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 28px;
-$h6: 24px;
+$h1: 48px;
+$h2: 40px;
+$h3: 32px;
+$h4: 28px;
+$h5: 24px;
+$h6: 18px;
 $p: 16px;
 $small: 12px;
 
@@ -174,8 +174,8 @@ $fw7: 700;
         }
 
         >li:nth-child(3){
-            padding-left: 3px;
-            flex-grow: 1;
+            padding-left: 10px;
+            flex-grow: 0.9;
         }
         >li:nth-child(4){
             flex-grow: 1.1;
@@ -189,12 +189,56 @@ $fw7: 700;
         p{
             color: $secondary5-color;
         }
+
+        // ==== 數量的input ====
+        ol.input__box{
+            display: flex;
+            align-items: center;
+            border: 1px solid red;
+
+            .minus, .plus{
+                border: 1px solid $secondary4-color;
+                display: block;
+                width: 25px;
+                height: 25px;
+                text-align: center;
+                line-height: 25px;
+                color: $secondary4-color;
+                background-color:#fff;
+                font-size: 20px;
+            }
+
+            .minus{
+                border-radius: 3px 0 0 3px;
+                cursor: pointer;
+            }
+
+            .plus{
+                border-radius: 0 3px 3px 0;
+                cursor: pointer;
+            }
+
+            .input__num{
+                outline: 0;
+                text-align: center;
+                border: 1px solid $secondary4-color;
+                // outline: 1px solid green;
+                color: $secondary4-color;
+                width: 100px;
+                line-height: 23px;
+                padding: 0 3px;
+            }
+        }
     }
 
 
 
-    
 }
+
+
+
+    
+
 
     
 

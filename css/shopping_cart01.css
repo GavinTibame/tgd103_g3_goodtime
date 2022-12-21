@@ -113,8 +113,8 @@
   cursor: pointer;
 }
 .shopping__cart__wrapper .cart__info .product__list > li:nth-child(3) {
-  padding-left: 3px;
-  flex-grow: 1;
+  padding-left: 10px;
+  flex-grow: 0.9;
 }
 .shopping__cart__wrapper .cart__info .product__list > li:nth-child(4) {
   flex-grow: 1.1;
@@ -125,6 +125,39 @@
 }
 .shopping__cart__wrapper .cart__info .product__list p {
   color: #B3B3B3;
+}
+.shopping__cart__wrapper .cart__info .product__list ol.input__box {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+}
+.shopping__cart__wrapper .cart__info .product__list ol.input__box .minus, .shopping__cart__wrapper .cart__info .product__list ol.input__box .plus {
+  border: 1px solid #261C0D;
+  display: block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #261C0D;
+  background-color: #fff;
+  font-size: 20px;
+}
+.shopping__cart__wrapper .cart__info .product__list ol.input__box .minus {
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+}
+.shopping__cart__wrapper .cart__info .product__list ol.input__box .plus {
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+.shopping__cart__wrapper .cart__info .product__list ol.input__box .input__num {
+  outline: 0;
+  text-align: center;
+  border: 1px solid #261C0D;
+  color: #261C0D;
+  width: 100px;
+  line-height: 23px;
+  padding: 0 3px;
 }
 
 /*# sourceMappingURL=shopping_cart01.css.map */
