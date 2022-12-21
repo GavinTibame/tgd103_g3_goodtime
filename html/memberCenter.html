@@ -6,19 +6,233 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Center</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="./source/vue.global.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
     <div class="wrapper">
         <header id="header"></header>
-        <main class="rental">
-
-
+        <main class="memberCenter">
+            <ul class="breadcrumb">
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">會員中心</a></li>
+            </ul>
+            <div class="banner">
+                <div class="banner-img">
+                    <div class="banner-textarea">
+                        <div class="banner-eng">MEMBER CENTER</div>
+                        <div class="banner-zh">會員中心</div>
+                    </div>
+                </div>
+            </div>
+            <section class="nav-tab">
+                <aside class="side-nav">
+                    <nav class="nav-bg">
+                        <ul class="nav-ctn">
+                            <li class="nav-block">
+                                <h6 class="title-eng">Account</h6>
+                                <p class="title-zh">帳號管理</p>
+                                <div></div>
+                            </li>
+                            <li class="nav-block">
+                                <h6 class="title-eng">Shopping List</h6>
+                                <p class="title-zh">購買清單</p>
+                                <div></div>
+                            </li>
+                            <li class="nav-block">
+                                <h6 class="title-eng">Coupon</h6>
+                                <p class="title-zh">優惠券</p>
+                                <div></div>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <aside class="side-tab">
+                    <div class="tab-block">
+                        <ul class="tab-list">
+                            <li><a href="#" data-tab="member-tab3" class="tab">修改個人資料</a></li>
+                            <li><a href="#" data-tab="member-tab2" class="tab">修改地址</a></li>
+                            <li><a href="#" data-tab="member-tab1" class="tab">修改密碼</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="addr-tab">
+                                <div class="addr-col">
+                                    <label for="addr1">
+                                        <input type="ratio" name="addr1" id="addr1">
+                                        <input type="text" placeholder="member-addr1" id="addr">
+                                        <div id="memberAddr1">目前地址1</div>
+                                    </label>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            edit_note
+                                        </span>
+                                    </button>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            delete
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="addr-col">
+                                    <label for="addr2"><input type="text" name="addr2" id="addr2">目前地址2</label>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            edit_note
+                                        </span>
+                                    </button>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            delete
+                                        </span>
+                                    </button>
+                                </div>
+                                <textarea name="" id="new-addr" cols="30" rows="10" placeholder="請輸入新增的地址"></textarea>
+                                <button>新增地址</button>
+                            </div>
+                            <div class="pwd-tab">
+                                <label for="prevPwd">目前密碼<input type="password" name="prevPwd" id="prevPwd"></label>
+                                <label for="newPwd">新密碼<input type="password" name="newPwd" id="newPwd"></label>
+                                <label for="cfmPwd">確認新密碼<input type="password" name="cfmPwd" id="cfmPwd"></label>
+                                <button type="submit">確認修改</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-block">
+                        <ul class="tab-list">
+                            <li><a href="#" data-tab="po-tab1" class="tab">訂單查詢</a></li>
+                            <li><a href="#" data-tab="po-tab2" class="tab">訂單明細</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="po-tab">
+                                <div class="po-list">
+                                    <dl class="po-single">
+                                        <dt class="po-key">購買日期</dt>
+                                        <dd class="po-value">2022-12-10 10:00</dd>
+                                        <dt class="po-key">主單編號</dt>
+                                        <dd class="po-value">MO20221210A00001</dd>
+                                        <dt class="po-key">子單編號</dt>
+                                        <dd class="po-value">MM20221210A00001</dd>
+                                        <dt class="po-key">購買金額</dt>
+                                        <dd class="po-value">TWD$ 1,000元</dd>
+                                        <dt class="po-key">付款方式</dt>
+                                        <dd class="po-value">線上刷卡</dd>
+                                        <dt class="po-key">訂單狀態</dt>
+                                        <dd class="po-value">訂單已確認</dd>
+                                    </dl>
+                                    <dl class="po-single">
+                                        <div class="po-col">
+                                            <dt class="po-key">購買日期</dt>
+                                            <dd class="po-value">2022-12-10 10:00</dd>
+                                        </div>
+                                        <div class="po-col">
+                                            <dt class="po-key">主單編號</dt>
+                                            <dd class="po-value">MO20221210A00001</dd>
+                                        </div>
+                                        <div class="po-col">
+                                            <dt class="po-key">子單編號</dt>
+                                            <dd class="po-value">MM20221210A00001</dd>
+                                        </div>
+                                        <div class="po-col">
+                                            <dt class="po-key">購買金額</dt>
+                                            <dd class="po-value">TWD$ 1,000元</dd>
+                                        </div>
+                                        <div class="po-col">
+                                            <dt class="po-key">付款方式</dt>
+                                            <dd class="po-value">線上刷卡</dd>
+                                        </div>
+                                        <div class="po-col">
+                                            <dt class="po-key">訂單狀態</dt>
+                                            <dd class="po-value">訂單已確認</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="podetail-tab">
+                                <div class="podetail-list">
+                                    <dl class="podetail">
+                                        <dt class="po-key">購買日期</dt>
+                                        <dd class="po-value">2022-12-10 10:00</dd>
+                                        <dt class="po-key">主單編號</dt>
+                                        <dd class="po-value">MO20221210A00001</dd>
+                                        <dt class="po-key">子單編號</dt>
+                                        <dd class="po-value">MM20221210A00001</dd>
+                                        <dt class="po-key">付款方式</dt>
+                                        <dd class="po-value">線上刷卡</dd>
+                                        <dt class="po-key">訂單狀態</dt>
+                                        <dd class="po-value">訂單已確認</dd>
+                                    </dl>
+                                    <dl class="po-item">
+                                        <div class="item-single">
+                                            <img src="" alt="">
+                                            <div class="item-detail">
+                                                <p>蒙娜麗莎貓掛畫</p>
+                                                <small>30” x 30”</small>
+                                                <small>數量：1</small>
+                                                <small>售價：NT$990</small>
+                                            </div>
+                                        </div>
+                                        <div class="item-single">
+                                            <img src="" alt="">
+                                            <div class="item-detail">
+                                                <p>蒙娜麗莎貓掛畫</p>
+                                                <small>30” x 30”</small>
+                                                <small>數量：1</small>
+                                                <small>售價：NT$990</small>
+                                            </div>
+                                        </div>
+                                        <div class="item-single">
+                                            <img src="" alt="">
+                                            <div class="item-detail">
+                                                <p>蒙娜麗莎貓掛畫</p>
+                                                <small>30” x 30”</small>
+                                                <small>數量：1</small>
+                                                <small>售價：NT$990</small>
+                                            </div>
+                                        </div>
+                                        <div class="item-single">
+                                            <img src="" alt="">
+                                            <div class="item-detail">
+                                                <p>蒙娜麗莎貓掛畫</p>
+                                                <small>30” x 30”</small>
+                                                <small>數量：1</small>
+                                                <small>售價：NT$990</small>
+                                            </div>
+                                        </div>
+                                        <div class="item-single">
+                                            <img src="" alt="">
+                                            <div class="item-detail">
+                                                <p>蒙娜麗莎貓掛畫</p>
+                                                <small>30” x 30”</small>
+                                                <small>數量：1</small>
+                                                <small>售價：NT$990</small>
+                                            </div>
+                                        </div>
+                                    </dl>
+                                    <dl class="posum">
+                                        <dt class="po-key">小計：</dt>
+                                        <dd class="po-value">1580元</dd>
+                                        <dt class="po-key">運費：</dt>
+                                        <dd class="po-value">60元</dd>
+                                        <dt class="po-key">總金額：</dt>
+                                        <dd class="po-value">1640元</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
         </main>
         <footer id="footer"></footer>
     </div>
     <script>
+        $(() => {
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
+        });
         // const createApp = Vue.createApp({
         //     data() {
         //         return {

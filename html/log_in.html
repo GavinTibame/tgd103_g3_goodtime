@@ -13,108 +13,46 @@
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
-    <div class="bg">
-        <div class="login-box">
-            <img class="login" src="../img/log_in/login.png" alt="">
-        </div>
-        <div class="login-content">
-            <a href="" class="google-btn" >
-                <!-- <img src="../img/log_in/google icon.png" alt=""> -->
-                <h3 class="h3">使用Google帳號登入</h3>
-            </a>
-            <p>or</p>
-            <div>
-                <div>
-                    <p>帳號</p>
-                    <input type="text">
+    <div id="header"></div>
+        <div class="log_in-wrapper">
+            <div class="log_in-bg">
+                <div class="log_in-login-box">
+                    <h2>LOG IN</h2>
+                    <h3>會員登入</h3>
                 </div>
-                <div>
-                    <p>帳號</p>
-                    <input type="text">
-                </div>
-            </div>
-            <button>會員登入</button>
-            <br>
-            <a href="">註冊會員</a>
-            <a href="">忘記密碼</a>
-        </div>
-    </div>
-    <div class="topbar">
-        <div class="top-area">
-            <div class="logo-box">
-                <a href="">
-                    <img src="../img/logo/logo.png" alt="">
-                </a>
-            </div>
-            <ul class="topbar-btn-group">
-                <li><a href="#">關於韶光</a></li>
-                <li><a href="#">最新消息</a></li>
-                <li><a href="#">展演活動</a></li>
-                <li><a href="#">場地租借</a></li>
-                <li><a href="#">風格好店</a></li>
-                <li><a href="#">文創商城</a></li>
-                <li><a href="#">常見問題</a></li>
-            </ul>
-            <div class="dividing-line"></div>
-            <div class="member-icon-box">
-                <a href="">
-                    <i class="fa-solid fa-user member-icon"></i>
-                </a>
-            </div>
-        </div>
-        <div class="left-area">
-            <p>FOLLOW US</p>
-            <div class="social-btn-group">
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="right-area">
-            <p>GO TO TOP</p>
-            <a href=""><i class="fa-solid fa-circle-up"></i></a>
-    </div>
-
-    
-
-    <div class="footer">
-        <div class="top-group-position">
-            <div class="top-group">
-                <div class="logo-box">
-                    <a href="">
-                        <img src="../img/logo/logo.png" alt="">
-                    </a>
-                </div>
-                <div class="footer-btn-group">
-                    <ul>
-                        <li><a href="#">關於韶光</a></li>
-                        <li><a href="#">最新消息</a></li>
-                        <li><a href="#">展演活動</a></li>
-                        <li><a href="#">場地租借</a></li>
-                        <li><a href="#">風格好店</a></li>
-                        <li><a href="#">文創商城</a></li>
-                        <li><a href="#">常見問題</a></li>
-                    </ul>
-                    <div >
-                        <p>地址：10488台北市中山區南京東路三段219號</p>
-                        <p>開放時間：平日10:00~18:00 | 假日10:00~20:00</p>
-                        <p>電話：(02) 2712-0589 </p>
+                <div class="log_in-login-content">
+                    <div class="log_in-login-width">
+                        <a href="" class="log_in-google-btn" >
+                            <h3 class="log_in-h3">使用Google帳號登入</h3>
+                        </a>
+                        <p class="log_in-or">or</p>
+                        <div class="log_in-dotted-line">
+                            <div>
+                                <p>帳號</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>密碼</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <button>會員登入</button>
+                        <br>
+                        <div class="log_in-last-line">
+                            <a href="" class="log_in-singin">註冊會員</a>
+                            <a href="" class="log_in-foreget-pwd">忘記密碼</a>
+                        </div>
                     </div>
                 </div>
-                <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.769612505944!2d121.52342931500641!3d25.04189148396858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a970a11a84ad%3A0x58e05f2528812097!2z5ZyL56uL6Ie65YyX5ZWG5qWt5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1670415769129!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="footer-loc">
-                    <p>LOCATION</p>
-                </div>
             </div>
-        </div>
-        <div class="bottom-group">
-            <div class="text-box">
-                <p>本網站為緯育TibaMe前端設計工程師班第80期第三組學員專題成果作品，本平台僅供學習、展示之用。參考資源：</p>
-            </div>
-        </div>
-    </div>
-
+        </div>    
+    <div id="footer"></div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+        $("#header").load("topbar.html");
+        $("#footer").load("footer.html");
+        });
+    </script>
 </body>
 </html>

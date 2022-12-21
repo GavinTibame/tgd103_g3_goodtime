@@ -1,0 +1,16 @@
+
+body{
+    font: 16px/1.5em 'Noto Serif TC', serif, 'Philosopher', 'sans-serif';
+    color: #333;
+    font-weight: 300;
+    position: relative;
+    .warpper-news-detail{
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: 107px;
+        .bread-news-detail{
+            position: relative;
+            margin-left: 20px;
+        }
+    }
+}
