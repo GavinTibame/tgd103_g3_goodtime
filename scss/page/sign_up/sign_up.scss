@@ -1,15 +1,15 @@
-.log_in-wrapper{
+.sign_up-wrapper{
     
-    .log_in-bg{
+    .sign_up-bg{
         background-image: url(../img/log_in/bg.png);
         background-repeat: no-repeat;
         height: 1601px;
         margin-top: 100px;
-        .log_in-login-box{
+        .sign_up-login-box{
             width: 40%;
             height: 200px;
             margin-bottom: 60px;
-            margin-left: 9%;
+            margin-left: 8%;
 
             h2{
                 font-size: 48px;
@@ -42,20 +42,20 @@
                 
                 }
             }
-
+      
         }
-        .log_in-login-content{
+        .sign_up-login-content{
             margin: 0 auto;
             width: 45%;
-            height: 660px;    
+            height: 1090px;    
             background-color: #fff;
             padding-top: 60px;
 
-            .log_in-login-width{
+            .sign_up-login-width{
                 display: block;
                 margin: 0 auto;
                 width: 80%;
-                .log_in-google-btn{
+                .sign_up-google-btn{
                     display: block;
                     margin: 0 auto;
                     height: 70px;
@@ -64,26 +64,26 @@
                     line-height: 70px;
                     text-decoration: none;
     
-                    .log_in-h3{
+                    .sign_up-h3{
                         display: block;
                         position: relative;
                         width: 33%;
                         margin: 0 auto;
                     }
     
-                    .log_in-h3::before{
+                    .sign_up-h3::before{
                         content: url(../img/log_in/google\ icon.png);
                         position: absolute;
                         left: -55px;
                         top: 18%;
                     }
                 }
-                .log_in-or{
+                .sign_up-or{
                     text-align: center;
                     margin-bottom: 20px;
                     margin-top: 20px;
                 }
-                .log_in-dotted-line{
+                .sign_up-dotted-line{
                     display: block;
                     margin: 0 auto;
                     margin-bottom: 78px;
@@ -117,20 +117,16 @@
                     color: #fff;
                     font-size: 16px;
                 }
-                .log_in-last-line{
+                .sign_up-last-line{
                     padding-top: 25px;
                     width: 200px;
                     display: block;
                     margin: 0 auto;
+                    text-align: center;
 
                     .log_in-singin{
-                        float: left;
                         text-decoration: none;
-                    }
-
-                    .log_in-foreget-pwd{
-                        float: right;
-                        text-decoration: none;
+                        color: #261C0D;
                     }
 
                 } 

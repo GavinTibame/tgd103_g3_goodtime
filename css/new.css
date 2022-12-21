@@ -6,12 +6,7 @@ body {
   font-weight: 300;
   position: relative;
 }
-iframe{
-  position:fixed;
-  left: 0;
-  top: 0;
-  z-index:-1;
-}
+
 .warpper {
   max-width: 1200px;
   display: block;
@@ -115,15 +110,15 @@ article ul {
   margin-top: 80px;
   text-align: center;
 }
+.tab-panels {
+  margin: 0 30px;
+}
 
 .tabset>input[type="radio"] {
   position: absolute;
   left: -200vw;
 }
 
-.tabset .tab-panel {
-  display: none;
-}
 
 .tabset>label {
   position: relative;
@@ -134,29 +129,20 @@ article ul {
   font-weight: 600;
 }
 
-.tabset>input:first-child:checked~.tab-panels>.tab-panel:first-child,
-.tabset>input:nth-child(3):checked~.tab-panels>.tab-panel:nth-child(2),
-.tabset>input:nth-child(5):checked~.tab-panels>.tab-panel:nth-child(3),
-.tabset>input:nth-child(7):checked~.tab-panels>.tab-panel:nth-child(4),
-.tabset>input:nth-child(9):checked~.tab-panels>.tab-panel:nth-child(5),
-.tabset>input:nth-child(11):checked~.tab-panels>.tab-panel:nth-child(6) {
-  display: block;
+
+
+.tab-panels {
+  margin: 0px auto;
+  width: 80%;
+  font-weight: bold;
 }
 
-section {
-  text-align: left;
-}
-
-section li {
+.tab-panels li {
   margin: 20px 0;
   padding-bottom: 20px;
   line-height: 2.6;
   border-bottom: 1px solid #ccc;
 }
-
-/* .tab-panels .tab-panel ul li:hover a{
-  color: #618985;
-} */
 
 .tab-panels .tab-panel li:hover h4{
   color: #618985;
@@ -198,6 +184,7 @@ section li {
   font-size: 12px;
   color: #555555;
   padding-left: 10px;
+  font-weight: normal;
 }
 
 .tab-panel li h4 {
@@ -232,8 +219,3 @@ section li {
   background-color: #261C0D;
 }
 
-
-
-iframe .fooder{
-
-}

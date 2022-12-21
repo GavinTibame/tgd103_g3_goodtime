@@ -1,23 +1,23 @@
-.log_in-wrapper .log_in-bg {
+.sign_up-wrapper .sign_up-bg {
   background-image: url(../img/log_in/bg.png);
   background-repeat: no-repeat;
   height: 1601px;
   margin-top: 100px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-box {
+.sign_up-wrapper .sign_up-bg .sign_up-login-box {
   width: 40%;
   height: 200px;
   margin-bottom: 60px;
-  margin-left: 9%;
+  margin-left: 8%;
 }
-.log_in-wrapper .log_in-bg .log_in-login-box h2 {
+.sign_up-wrapper .sign_up-bg .sign_up-login-box h2 {
   font-size: 48px;
   font-weight: bold;
   color: #533C1B;
   letter-spacing: 0.8rem;
   padding: 4rem 5.2rem 1rem;
 }
-.log_in-wrapper .log_in-bg .log_in-login-box h3 {
+.sign_up-wrapper .sign_up-bg .sign_up-login-box h3 {
   font-size: 32px;
   font-weight: bold;
   color: #C09351;
@@ -28,7 +28,7 @@
   letter-spacing: 0.68rem;
   position: relative;
 }
-.log_in-wrapper .log_in-bg .log_in-login-box h3::after {
+.sign_up-wrapper .sign_up-bg .sign_up-login-box h3::after {
   content: "";
   height: 3px;
   width: 120px;
@@ -38,19 +38,19 @@
   right: 58%;
   bottom: 37px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content {
   margin: 0 auto;
   width: 45%;
-  height: 660px;
+  height: 1090px;
   background-color: #fff;
   padding-top: 60px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width {
   display: block;
   margin: 0 auto;
   width: 80%;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn {
   display: block;
   margin: 0 auto;
   height: 70px;
@@ -59,35 +59,35 @@
   line-height: 70px;
   text-decoration: none;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn .log_in-h3 {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn .sign_up-h3 {
   display: block;
   position: relative;
   width: 33%;
   margin: 0 auto;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn .log_in-h3::before {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-google-btn .sign_up-h3::before {
   content: url(../img/log_in/google\ icon.png);
   position: absolute;
   left: -55px;
   top: 18%;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-or {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-or {
   text-align: center;
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-dotted-line {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line {
   display: block;
   margin: 0 auto;
   margin-bottom: 78px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-dotted-line p {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line p {
   font-size: 16px;
   margin-left: 20px;
   margin-top: 15px;
   margin-bottom: 25px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-dotted-line input {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-dotted-line input {
   display: block;
   margin: 0 auto;
   width: 95%;
@@ -97,7 +97,7 @@
   font-size: 16px;
   border-color: #261C0D;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width button {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width button {
   display: block;
   margin: 0 auto;
   width: 200px;
@@ -107,19 +107,16 @@
   color: #fff;
   font-size: 16px;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line {
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-last-line {
   padding-top: 25px;
   width: 200px;
   display: block;
   margin: 0 auto;
+  text-align: center;
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-singin {
-  float: left;
+.sign_up-wrapper .sign_up-bg .sign_up-login-content .sign_up-login-width .sign_up-last-line .log_in-singin {
   text-decoration: none;
-}
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-foreget-pwd {
-  float: right;
-  text-decoration: none;
+  color: #261C0D;
 }
 
-/*# sourceMappingURL=log_in.css.map */
+/*# sourceMappingURL=sign_up.css.map */
