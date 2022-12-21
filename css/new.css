@@ -7,31 +7,29 @@ body {
   position: relative;
 }
 
-.warpper {
+.warpper-news {
   max-width: 1200px;
-  display: block;
-  margin: auto;
-  z-index: -1;
+  margin: 0 auto;
   margin-top: 107px;
 }
 
 /* 麵包屑 */
-.bread {
+.bread-news {
   position: relative;
   margin-left: 20px;
 }
 
-.bread ol {
+.bread-news ol {
   display: flex;
 }
 
-.bread li {
+.bread-news li {
   margin: 9px 8px;
   font-size: 12px;
   font-weight: bolder;
 }
 
-.bread li:first-child::after {
+.bread-news li:first-child::after {
   content: "";
   position: absolute;
   left: 40px;
@@ -41,17 +39,20 @@ body {
   height: 12px;
 }
 
-.bread li a {
+.bread-news li a {
   text-decoration: none;
   color: #000;
 }
 
-.bread li a:hover {
+.bread-news li a:hover {
   color: #618985;
 }
 
 
 /* 最新消息 */
+.introduce.new-bg{
+  margin: 0 auto;
+}
 .introduce {
   width: 100%;
   height: 500px;
@@ -59,7 +60,8 @@ body {
 }
 
 .new-bg {
-  background-image: url(/img/new/new.png);
+  background-image: url(/img/new/new.jpg);
+  background-repeat: no-repeat;
 }
 
 article ul {
