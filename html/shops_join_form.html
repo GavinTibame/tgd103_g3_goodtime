@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>進駐申請</title>
+    <link rel="stylesheet" href="../css/topbar.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/shop_join_form.css" />
+  </head>
+  <body>
+    <body>
+      <div class="wrapper">
+        <header id="header"></header>
+        <main class="shops__Join__form">
+          <!--------------------麵包穴----------------------->
+          <ul class="breadcrumb">
+            <li class="breadcrumb__a"><a href="#">首頁</a></li>
+            <li class="breadcrumb__a"><a href="#">風格好店</a></li>
+            <li class="breadcrumb__b"><a href="#">進駐韶光</a></li>
+          </ul>
+          <!--------------------banner圖片----------------------->
+          <ul class="banner">
+            <li class="item1"></li>
+            <li class="item2"></li>
+          </ul>
+          <div class="join__application__title">
+            <div class="join__application__title__eng">
+              JOIN<br />APPLICATION
+            </div>
+            <div class="join__application__title__zh">進駐申請</div>
+          </div>
+          <!----------------------表單區------------------------->
+          <section class="Join__form">
+            <form action="">
+              <label for="shop__name">品牌名稱</label>
+              <input type="text" name="shop__name" class="shop__name" /><br />
+              <label for="name">負責人姓名</label>
+              <input type="text" name="name" class="name" /><br />
+              <label for="phone">負責人電話</label>
+              <input type="text" name="phone" class="phone" /><br />
+              <label for="email">負責人信箱</label>
+              <input type="text" name="email" class="email" /><br />
+              <div class="shopstay__time">
+                預計駐園時長
+                <div class="shopstay__time__1">
+                  <input
+                    class="with-gap validate[required]"
+                    name="ContactGender"
+                    type="radio"
+                    id="time_1"
+                    value="1"
+                  />
+                  <label for="time_1">半年</label>
+                </div>
+                <div class="shopstay__time__2">
+                  <input
+                    class="with-gap validate[required]"
+                    name="ContactGender"
+                    type="radio"
+                    id="time_2"
+                    value="2"
+                  />
+                  <label for="time_2">一年</label>
+                </div>
+                <div class="shopstay__time__3">
+                  <input
+                    class="with-gap validate[required]"
+                    name="ContactGender"
+                    type="radio"
+                    id="time_3"
+                    value="3"
+                  />
+                  <label for="time_3">兩年</label>
+                </div>
+              </div>
+              <label for="file__word" class="file__word"
+                >上傳證件影本 & 活動企劃書</label
+              ><br /><br />
+              <div class="file">
+                <input
+                  type="text"
+                  name="file__word"
+                  placeholder="Choose file to upload"
+                  class="file__word__log"
+                />
+                <a href="javascript:;" class="file__choose"
+                  >選擇檔案
+                  <input type="file" name="" id="" />
+                </a>
+              </div>
+              <p class="Opinion">意見回饋</p>
+              <textarea
+                name="note"
+                id="mote"
+                cols="30"
+                rows="10"
+                class="Opinion__text"
+                required
+              ></textarea
+              ><br />
+              <button type="submit" class="Join__form__btn">確認送出</button>
+            </form>
+          </section>
+        </main>
+        <footer id="footer"></footer>
+      </div>
+
+      <script src="../js/jquery-3.2.1.min.js"></script>
+      <script>
+        $(() => {
+          $("#header").load("topbar.html");
+          $("#footer").load("footer.html");
+        });
+      </script>
+    </body>
+  </body>
+</html>
