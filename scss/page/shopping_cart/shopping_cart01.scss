@@ -37,7 +37,7 @@ $fw7: 700;
 
     // ==== 上方進度條 ====
     .top__nav{
-        border: 1px solid red; 
+        // border: 1px solid red; 
         width: 1000px;
         margin: 0 auto;
         display: flex;
@@ -95,7 +95,7 @@ $fw7: 700;
     // ==== 購物車資料 ====
     .cart__info{
         h1{
-            font-size: 18px; // 待更新變數
+            font-size: $h6; // 待更新變數
             color: $primary1-color;
             font-weight: bold;
             line-height: 1.6;
@@ -147,7 +147,7 @@ $fw7: 700;
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        outline: 1px solid blue;
+        // outline: 1px solid blue;
         position: relative;
 
         >li{
@@ -194,7 +194,7 @@ $fw7: 700;
         ol.input__box{
             display: flex;
             align-items: center;
-            border: 1px solid red;
+            // border: 1px solid red;
 
             .minus, .plus{
                 border: 1px solid $secondary4-color;
@@ -228,6 +228,151 @@ $fw7: 700;
                 line-height: 23px;
                 padding: 0 3px;
             }
+        }
+
+    }
+
+    // ==== 送貨和訂單資訊 ====
+    .delivery__sum{
+        display: flex;
+
+        .delivery{
+            flex-grow: 1;
+            margin-top: 40px;
+
+            h1{
+                font-size: $h6;
+                color: $primary1-color;
+                font-weight: bold;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                margin-top: 30px;
+                padding-left: 8px;
+                position: relative;
+            }
+
+            h1:after{
+                content: '';
+                display: block;
+                width: 3px;
+                height: $h6;
+                background-color: $primary2-color;
+            
+                position: absolute;
+                left: 0px;
+                top: 6px;
+            }
+
+            li{
+                margin-bottom: 10px;
+                margin-left: 5px;
+
+                p{
+                    line-height: 1.6;
+                    color: $secondary4-color;
+                    margin-bottom: 3px;
+                }
+
+                select.method{
+                    outline: none;
+                    width: 300px;
+                    height: 30px;
+                    border: 1px solid $secondary4-color;
+                    padding-left: 2px;
+                    color: $secondary4-color;
+                    border-radius: 3px;
+                }
+
+                input.address{
+                    outline: none;
+                    width: 300px;
+                    line-height: 2;
+                    border: 1px solid $secondary4-color;
+                    padding-left: 5px;
+                    color: $secondary4-color;
+                    border-radius: 3px;
+                }
+            }
+        }
+
+        .summary{
+            flex-grow: 1;
+            /* border: 1px solid blue; */
+            margin-top: 40px;
+            color: $secondary4-color;
+
+            h1{
+                font-size: $h6;
+                color: $secondary4-color;
+                font-weight: bold;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                margin-top: 30px;
+                padding-left: 8px;
+            
+                position: relative;
+            }
+
+            h1:after{
+                content: '';
+                display: block;
+                width: 3px;
+                height: $h6;
+                background-color: $primary2-color;
+            
+                position: absolute;
+                left: 0px;
+                top: 6px;
+            }
+
+            .subtotal{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .freight{
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid $secondary5-color;
+                padding-bottom: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .total{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-top: 20px;
+                color: $primary2-color;
+                font-weight:600;
+            }
+
+            a{
+                text-decoration: none;
+                display: block;
+                width: 200px;
+                line-height: 2;
+                text-align: center;
+                margin: 30px auto;
+                background-color: $primary1-color;
+                color: #fff;
+                border-radius: 3px;
+                font-size: 18px;
+                transition: .3s;
+            }
+
+            a:hover{
+                background-color: $primary2-color;
+                outline: 1px solid $primary2-color;
+                // color: $primary1-color;
+            }
+
         }
     }
 
