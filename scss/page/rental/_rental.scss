@@ -1,6 +1,7 @@
 main.rental {
     max-width: calc(100vw - 100px);
     margin: 0 auto;
+    padding-top: 80px;
 
     a {
         color: var(--font-color);
@@ -35,51 +36,6 @@ main.rental {
             font-size: .8rem;
             line-height: 20px;
         }
-    }
-
-    .banner {
-        position: relative;
-    }
-
-    .banner__img {
-        background-image: url(../../img/banner/banner__rental.png);
-        height: 470px;
-        background-position: 15% center;
-    }
-
-    .banner__textarea {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        min-width: 57.5vw;
-        background-color: rgba(256, 256, 256, .7);
-    }
-
-    .banner__eng {
-        font-size: 3.8rem;
-        font-weight: bold;
-        color: var(--brown-color);
-        letter-spacing: .8rem;
-        padding: 4rem 5.2rem 2rem;
-    }
-
-    .banner__zh {
-        &::before {
-            content: "";
-            width: 18vw;
-            border-bottom: solid 3px var(--font-color);
-            display: inline-block;
-            margin-right: 2.8rem;
-        }
-
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: var(--carmel-color);
-        padding-bottom: 2rem;
-        display: block;
-        padding-left: 20vw;
-        padding-right: 5.2rem;
-        letter-spacing: .68rem;
     }
 
     article {

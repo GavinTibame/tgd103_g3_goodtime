@@ -1,40 +1,44 @@
-.rental .banner__img {
-    background-image: url(../../img/banner/banner__rental.png);
-    height: 400px;
-    background-position: 15% center;
-    box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
-}
+.banner {
+    position: relative;
 
-.rental .banner__eng {
-    font-size: 48px;
-    font-weight: bold;
-    color: var(--brown-color);
-    letter-spacing: .8rem;
-    padding: 3.2rem 4.2rem 2rem;
-}
+    .banner__img {
+        height: 400px;
+        background-position: 15% center;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
+    }
 
-.rental .banner__textarea {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(256, 256, 256, .7);
-}
+    .banner__textarea {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(256, 256, 256, .7);
+    }
 
-.rental .banner__zh {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--carmel-color);
-    padding-bottom: 2rem;
-    display: block;
-    padding-left: 20vw;
-    padding-right: 4.2rem;
-    letter-spacing: .68rem;
-}
+    .banner__eng {
+        font-size: $h1;
+        font-weight: bold;
+        color: $brown-color;
+        letter-spacing: .8rem;
+        padding: 3.2rem 4.2rem 2rem;
+    }
 
-.rental .banner__zh::before {
-    content: "";
-    width: 18vw;
-    border-bottom: solid 3px var(--font-color);
-    display: inline-block;
-    margin-right: 2.8rem;
+    .banner__zh {
+        &::before {
+            content: "";
+            width: 18vw;
+            border-bottom: solid 3px $font-color;
+            display: inline-block;
+            margin-right: 2.8rem;
+        }
+
+        font-size: $h3;
+        font-weight: bold;
+        color: $carmel-color;
+        padding-bottom: 2rem;
+        display: block;
+        padding-left: 20vw;
+        padding-right: 4.2rem;
+        letter-spacing: .68rem;
+    }
+
 }
