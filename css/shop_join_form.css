@@ -40,7 +40,7 @@ main.shops__Join__form {
   transition: 0.5s;
 }
 .shops__Join__form ul.banner li:hover {
-  flex-grow: 6;
+  flex-grow: 5;
 }
 .shops__Join__form li.item1 {
   background-image: url("../../../img/shops__Join__form/shops__Join__form_1.png");
@@ -52,7 +52,7 @@ main.shops__Join__form {
   background-position: left center;
 }
 .shops__Join__form .join__application__title {
-  margin: 50px 50px 100px;
+  margin: 50px 80px 100px;
 }
 .shops__Join__form .join__application__title div.join__application__title__eng {
   font-size: 32px;
@@ -85,7 +85,7 @@ main.shops__Join__form {
 .shops__Join__form .Join__form input.name,
 .shops__Join__form .Join__form input.phone,
 .shops__Join__form .Join__form input.email {
-  width: 400px;
+  width: 100%;
   height: 30px;
   border-color: #878787;
   border-bottom: solid;
@@ -93,63 +93,80 @@ main.shops__Join__form {
   border-right-width: 0px;
   border-bottom-width: 1px;
   border-left-width: 0px;
-  outline: 0;
-}
-.shops__Join__form .Join__form input {
+  outline: none;
+  margin-top: 20px;
   margin-bottom: 50px;
+}
+.shops__Join__form .Join__form input.shop__name:focus,
+.shops__Join__form .Join__form input.name:focus,
+.shops__Join__form .Join__form input.phone:focus,
+.shops__Join__form .Join__form input.email:focus {
+  border-color: #533C1B;
+  box-shadow: 0px 1.5px 0px #533C1B;
 }
 .shops__Join__form .Join__form label {
   letter-spacing: 1px;
-}
-.shops__Join__form .Join__form input.shop__name {
-  margin-left: 16px;
+  margin-right: 30px;
 }
 .shops__Join__form .Join__form div.shopstay__time {
   display: flex;
+  margin-bottom: 50px;
 }
 .shops__Join__form .Join__form div.shopstay__time__1,
 .shops__Join__form .Join__form div.shopstay__time__2,
 .shops__Join__form .Join__form div.shopstay__time__3 {
-  margin-left: 15px;
+  margin-left: 19px;
 }
-.shops__Join__form .Join__form div.file {
-  background-color: #D9D9D9;
-  width: 500px;
-  height: 40px;
-  margin: auto;
-  text-align: center;
+.shops__Join__form .Join__form .file-box {
+  max-width: 58%;
+  padding-top: 14px;
+  padding-left: 16px;
 }
-.shops__Join__form .Join__form .file__choose {
+.shops__Join__form .Join__form .file-box__out {
+  background-color: rgb(239, 239, 239);
+  width: 65%;
+  height: 60px;
   position: relative;
-  display: inline-block;
-  background: #533C1B;
-  border: 1px solid #533C1B;
-  border-radius: 4px;
-  padding: 4px 12px;
-  overflow: hidden;
-  color: white;
-  text-decoration: none;
-  text-indent: 0;
-  line-height: 20px;
 }
-.shops__Join__form .Join__form .file__choose:hover {
-  background: #C09351;
-  border-color: #C09351;
-  color: white;
-  text-decoration: none;
+.shops__Join__form .Join__form .file-box input.filename {
+  width: 140%;
+  height: 30px;
+  padding-left: 8px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  color: #666666;
 }
-.shops__Join__form .Join__form .file__choose input {
+.shops__Join__form .Join__form .file-box input.button {
+  width: 82px;
+  height: 30px;
+  padding-left: 13px;
+  background-color: #533C1B;
+  border: 0;
+  border-radius: 0 5px 5px 0;
   position: absolute;
-  font-size: 100px;
-  right: 0;
+  top: 14px;
+  right: 5%;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.shops__Join__form .Join__form .file-box input.file {
+  width: 100%;
+  height: 60px;
+  position: absolute;
   top: 0;
+  left: 0;
+  filter: alpha(opacity=0);
   opacity: 0;
+  font-size: 20px;
+  cursor: pointer;
 }
 .shops__Join__form .Join__form p.Opinion {
   margin: 50px auto 20px;
 }
 .shops__Join__form .Join__form textarea.Opinion__text {
-  width: 500px;
+  width: 690px;
   resize: none;
 }
 .shops__Join__form .Join__form button.Join__form__btn {
@@ -160,11 +177,9 @@ main.shops__Join__form {
   color: #533C1B;
   font-size: 16px;
   border-radius: 5px;
-  cursor: pointer;
   font-weight: bold;
   display: block;
   text-align: center;
-  transition: 0.3s;
   margin: 50px auto 50px;
 }
 

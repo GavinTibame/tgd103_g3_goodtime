@@ -34,7 +34,7 @@
           <!----------------------表單區------------------------->
           <section class="Join__form">
             <form action="">
-              <label for="shop__name">品牌名稱</label>
+              <label for="shop__name">品 牌 名 稱</label>
               <input type="text" name="shop__name" class="shop__name" /><br />
               <label for="name">負責人姓名</label>
               <input type="text" name="name" class="name" /><br />
@@ -78,17 +78,23 @@
               <label for="file__word" class="file__word"
                 >上傳證件影本 & 活動企劃書</label
               ><br /><br />
-              <div class="file">
-                <input
-                  type="text"
-                  name="file__word"
-                  placeholder="Choose file to upload"
-                  class="file__word__log"
-                />
-                <a href="javascript:;" class="file__choose"
-                  >選擇檔案
-                  <input type="file" name="" id="" />
-                </a>
+              <div class="file-box__out">
+                <div class="file-box">
+                  <!--檔案名稱-->
+                  <input name="textfield" id="textfield" class="filename" />
+
+                  <!--上傳按鈕-->
+                  <input type="button" class="button" value="選取檔案 " />
+
+                  <!--原按鈕隱藏-->
+                  <input
+                    type="file"
+                    name="file"
+                    class="file"
+                    multiple="multiple"
+                    onchange="document.getElementById('textfield').value=this.value"
+                  />
+                </div>
               </div>
               <p class="Opinion">意見回饋</p>
               <textarea
