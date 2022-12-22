@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap");
 * {
   font-family: "Enriqueta", "Noto Sans TC";
@@ -146,6 +147,16 @@ h6 {
   font-size: 18px;
 }
 
+/**
+<div class="banner">
+    <div class="banner__img" style="background-image: url(../img/banner/banner__rental.png);">
+        <div class="banner__textarea">
+            <div class="banner__eng">VENUE RENTAL</div>
+            <div class="banner__zh">場地租借</div>
+        </div>
+    </div>
+</div>
+*/
 .banner {
   position: relative;
 }
@@ -185,25 +196,79 @@ h6 {
   margin-right: 2.8rem;
 }
 
-.rental .breadcrumb {
+/**
+<ul class="breadcrumb">
+    <li><a href="#">首頁</a></li>
+    <li><a href="#">場地租借</a></li>
+</ul>
+*/
+.breadcrumb {
   display: flex;
   min-width: 100%;
   padding: 10px 2%;
   position: relative;
   z-index: 1;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
-  color: var(--font-color);
+  color: #261C0D;
+}
+.breadcrumb li:nth-child(even)::before {
+  content: "";
+  height: 0.6rem;
+  border-left: solid 1px #261C0D;
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.breadcrumb li:nth-child(even) a {
+  color: #618985;
+}
+.breadcrumb a {
+  font-size: 12px;
+  line-height: 18px;
 }
 
+/**
+<div class="btn__ctn">
+    <button id="goApplyForm" class="button">
+        <span>開始申請</span>
+    </button>
+</div>
+*/
 .button {
   font-size: 18px;
   margin-top: 40px;
   padding: 20px 75px 20px 90px;
-  border: 0;
+  outline: 0;
+  border: solid 0.8px #533C1B;
   background-color: #533C1B;
   border-radius: 3px;
-  color: #fff;
   letter-spacing: 15px;
+  transition: all 0.3s;
+  position: relative;
+}
+.button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition: all 0.3s;
+  transform: scaleX(0);
+  background-color: #fff;
+  transform-origin: 0% 50%;
+}
+.button span {
+  color: #fff;
+  position: relative;
+  z-index: 3;
+}
+.button:hover span {
+  color: #533C1B;
+}
+.button:hover::before {
+  background-color: #fff;
+  transform: scaleX(1);
 }
 
 h1,
@@ -256,6 +321,11 @@ small,
   font-weight: 700;
 }
 
+/**
+<h3 class="subtitle">
+    <em>其他服務</em>
+</h3>
+*/
 .subtitle {
   margin-top: 40px;
   font-size: 18px;
@@ -264,7 +334,6 @@ small,
   letter-spacing: 0.2rem;
   border-left: solid 4px #C09351;
 }
-
 .subtitle > * {
   padding-left: 0.5rem;
 }
@@ -696,30 +765,7 @@ main.rental {
   padding-top: 80px;
 }
 main.rental a {
-  color: var(--font-color);
-}
-main.rental .breadcrumb {
-  display: flex;
-  min-width: 100%;
-  padding: 5px 8%;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
-  color: var(--font-color);
-}
-main.rental .breadcrumb li:nth-child(even)::before {
-  content: "";
-  height: 0.6rem;
-  border-left: solid 1px black;
-  display: inline-block;
-  margin: 0 0.5rem;
-}
-main.rental .breadcrumb li:nth-child(even) a {
-  color: var(--lakeGreen-color);
-}
-main.rental .breadcrumb a {
-  font-size: 0.8rem;
-  line-height: 20px;
+  color: #261C0D;
 }
 main.rental article {
   padding: 3rem 0;
@@ -727,6 +773,10 @@ main.rental article {
 main.rental article section h3 {
   width: 75vw;
   margin: 0 auto 25px;
+}
+main.rental article section h3 small {
+  color: #CD4B21;
+  font-size: 12px;
 }
 main.rental article section p {
   width: 75vw;
@@ -749,35 +799,19 @@ main.rental article section dd {
 main.rental article section ul {
   padding-left: 2.3rem;
 }
+main.rental article .map {
+  margin: -140px 0 -100px;
+}
+main.rental article .map svg {
+  width: calc(100vw - 100px);
+  margin: 0 auto;
+}
 main.rental article dt span {
-  color: var(--lakeGreen-color);
+  color: #618985;
 }
 main.rental article .btn__ctn {
   width: fit-content;
   margin: 0 auto;
-}
-main.rental article .btn__ctn .btn__apply {
-  padding: 15px 50px;
-  border: 0;
-  background-color: var(--brown-color);
-  border-radius: 3px;
-  color: #fff;
-}
-main.rental article .btn__ctn .btn__apply:hover {
-  background-color: #fff;
-}
-main.rental article .btn__ctn .btn__apply::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: var(--brown-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 0.3s ease;
-  transform: scaleX(0);
-  transform-origin: 0% 50%;
-  outline: 1px solid var(--red-color);
 }
 
 main.shops__Join__form {

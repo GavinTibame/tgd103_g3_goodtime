@@ -1,3 +1,9 @@
+/**
+<h3 class="subtitle">
+    <em>其他服務</em>
+</h3>
+*/
+
 .subtitle {
     margin-top: 40px;
     font-size: $h6;
@@ -5,8 +11,8 @@
     font-weight: 600;
     letter-spacing: .2rem;
     border-left: solid 4px $carmel-color;
-}
 
-.subtitle>* {
-    padding-left: 0.5rem;
+    &>* {
+        padding-left: 0.5rem;
+    }
 }
