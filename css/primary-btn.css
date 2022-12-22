@@ -1,16 +1,19 @@
-.btn-primary{
+.btn-primary {
     position: relative;
     width: 160px;
     height: 40px;
     transition: all 0.5s;
 }
-.btn-primary:hover{
-    transform: scale(1.1);
+
+.btn-primary:hover {
+    /* transform: scale(1.1); */
 }
-.btn-primary > a{
+
+.btn-primary>a {
     display: block;
 }
-.btn-circle{
+
+.btn-circle {
     position: absolute;
     bottom: 0;
     right: 4px;
@@ -19,27 +22,33 @@
     outline: 2px solid #533C1B;
     border-radius: 50%;
 }
-.btn-line{
+
+.btn-line {
     position: absolute;
     bottom: 20px;
     width: 140px;
     height: 2px;
     background-color: #533C1B;
 }
-.btn-primary:hover .btn-line{
+
+.btn-primary:hover .btn-line {
     animation-name: go;
     animation-duration: .5s;
-	animation-timing-function: linear;
+    animation-timing-function: linear;
 }
-@keyframes go{
-	0%{
-		width: 0px;;
-	}
-	100%{
-		width: 140px;
-	}
+
+@keyframes go {
+    0% {
+        width: 0px;
+        ;
+    }
+
+    100% {
+        width: 140px;
+    }
 }
-.btn-arrow{
+
+.btn-arrow {
     position: absolute;
     bottom: 17px;
     right: 20px;
@@ -49,24 +58,29 @@
     height: 6px;
     transform: rotate(45deg);
 }
-.btn-primary:hover .btn-arrow{
+
+.btn-primary:hover .btn-arrow {
     animation-name: go2;
     animation-duration: .5s;
-	animation-timing-function: linear;
+    animation-timing-function: linear;
 }
-@keyframes go2{
-	0%{
+
+@keyframes go2 {
+    0% {
         right: 160px;
-	}
-	100%{
+    }
+
+    100% {
         right: 20px;
-	}
+    }
 }
-.btn-text{
+
+.btn-text {
     position: absolute;
     bottom: 5px;
 }
-.btn-text p{
+
+.btn-text p {
     color: #533C1B;
     font-size: 16px;
     font-weight: 500;

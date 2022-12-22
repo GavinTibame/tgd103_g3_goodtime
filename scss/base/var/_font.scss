@@ -3,16 +3,18 @@
 $our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
 $our-font2: "Ephesis", cursive; // 手寫英文字體
 
-$h1: 64px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 28px;
-$h6: 24px;
-$p: 16px;    // I need 18px~~~~~
+$h1: 48px;
+$h2: 40px;
+$h3: 32px;
+$h4: 26px;
+$h5: 22px;
+$h6: 18px;
+$p: 16px; // I need 18px~~~~~
 $small: 12px;
-h6{
+
+h6 {
     font-size: $h6;
 }
+
 $fw4: 400;
 $fw7: 700;
