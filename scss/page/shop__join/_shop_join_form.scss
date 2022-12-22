@@ -153,13 +153,13 @@ main.shops__Join__form {
 
         &:hover {
             background: $carmel-color;
-            border-color: $carmel-color;
-            color: white;
+            border-color:$carmel-color;
+            color:  white;
             text-decoration: none;
         }
     }
 
-    .Join__form .file__choose input {
+    .Join__form .file__choose input{
         position: absolute;
         font-size: 100px;
         right: 0;
@@ -193,17 +193,15 @@ main.shops__Join__form {
         margin: 50px auto 50px;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
