@@ -86,16 +86,16 @@
   height: 40px;
   font-size: 20px;
 }
-.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .ticket-type {
+.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .event_detail-ticket-type {
   border: 1px solid #C09351;
   color: #261C0D;
   outline: none;
 }
-.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .number-button {
+.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .event_detail-number-button {
   width: 100%;
   height: 40px;
 }
-.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .number-button .qtyminus, .event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .number-button .qtyplus {
+.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .event_detail-number-button .qtyminus, .event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .event_detail-number-button .qtyplus {
   margin: 0px;
   padding: 0px;
   width: 40px;
@@ -105,7 +105,7 @@
   border: none;
   cursor: pointer;
 }
-.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .number-button .qty {
+.event_detail-wrapper main .event_detail-main-content .event_detail-main-content-right .event_detail-main-content-right-wrap .event_detail-number-button .qty {
   margin: -5px;
   padding: 0px;
   height: 100%;
@@ -114,25 +114,25 @@
   border: 1px solid #C09351;
   outline: none;
 }
-.event_detail-wrapper .ticket-price, .event_detail-wrapper .ticket-info, .event_detail-wrapper .attention {
+.event_detail-wrapper .event_detail-ticket-price, .event_detail-wrapper .event_detail-ticket-info, .event_detail-wrapper .event_detail-attention {
   margin-left: 5%;
   width: 90%;
 }
-.event_detail-wrapper .ticket-price h3, .event_detail-wrapper .ticket-info h3, .event_detail-wrapper .attention h3 {
+.event_detail-wrapper .event_detail-ticket-price h3, .event_detail-wrapper .event_detail-ticket-info h3, .event_detail-wrapper .event_detail-attention h3 {
   font-weight: bold;
   font-size: 32px;
   line-height: 60px;
   color: #533C1B;
 }
-.event_detail-wrapper .ticket-price li, .event_detail-wrapper .ticket-info li, .event_detail-wrapper .attention li {
+.event_detail-wrapper .event_detail-ticket-price li, .event_detail-wrapper .event_detail-ticket-info li, .event_detail-wrapper .event_detail-attention li {
   line-height: 3;
   font-size: 24px;
   color: #261C0D;
 }
-.event_detail-wrapper .ticket-price li:last-child, .event_detail-wrapper .ticket-info li:last-child, .event_detail-wrapper .attention li:last-child {
+.event_detail-wrapper .event_detail-ticket-price li:last-child, .event_detail-wrapper .event_detail-ticket-info li:last-child, .event_detail-wrapper .event_detail-attention li:last-child {
   margin-bottom: 100px;
 }
-.event_detail-wrapper .attention li:last-child {
+.event_detail-wrapper .event_detail-attention li:last-child {
   margin-bottom: 300px;
 }
 

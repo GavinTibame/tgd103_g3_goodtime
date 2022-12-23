@@ -1,0 +1,168 @@
+@charset "UTF-8";
+h6 {
+  font-size: 24px;
+}
+
+ul.rental_join_form__breadcrumb {
+  display: flex;
+  padding-top: 100px;
+  padding-left: 50px;
+}
+ul.rental_join_form__breadcrumb li a {
+  text-decoration: none;
+  color: #261C0D;
+  line-height: 2;
+  letter-spacing: 2px;
+}
+ul.rental_join_form__breadcrumb .breadcrumb__a a::after {
+  content: "";
+  height: 14px;
+  border-left: solid 1px black;
+  display: inline-block;
+  margin: 0 5px;
+}
+ul.rental_join_form__breadcrumb .breadcrumb__b a {
+  color: #618985;
+}
+
+.rental_join_form__banner {
+  position: relative;
+}
+.rental_join_form__banner img {
+  width: 100%;
+}
+.rental_join_form__banner .join__application__title {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+}
+.rental_join_form__banner div.join__application__title__eng {
+  font-size: 48px;
+  color: #533C1B;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.rental_join_form__banner div.join__application__title__zh {
+  font-size: 40px;
+  color: #C09351;
+  position: relative;
+  display: block;
+  margin-left: 280px;
+  font-weight: bold;
+}
+.rental_join_form__banner div.join__application__title__zh::before {
+  content: "";
+  position: absolute;
+  top: 74%;
+  left: -124%;
+  background: #533C1B;
+  width: 121%;
+  height: 2px;
+}
+
+main.rental_join_form {
+  max-width: 65%;
+  margin: 0 auto;
+  margin-top: 80px;
+  outline: 2px solid red;
+}
+main.rental_join_form .Join__form {
+  /*檔案名稱*/
+  /*選取檔案按鈕*/
+  /*隱藏原按鈕*/
+}
+main.rental_join_form .Join__form div.unit,
+main.rental_join_form .Join__form div.place,
+main.rental_join_form .Join__form div.nature__activity,
+main.rental_join_form .Join__form div.ornamental__nature,
+main.rental_join_form .Join__form div.other__demands,
+main.rental_join_form .Join__form div.activity__name__out,
+main.rental_join_form .Join__form div.applicant__unit__out,
+main.rental_join_form .Join__form div.principal__name__out {
+  margin: 50px auto;
+  display: flex;
+}
+main.rental_join_form .Join__form div.word {
+  margin-right: 15px;
+}
+main.rental_join_form .Join__form div.block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 34px;
+}
+main.rental_join_form .Join__form .activity__name__out input,
+main.rental_join_form .Join__form .applicant__unit__out input,
+main.rental_join_form .Join__form .principal__name__out input {
+  width: 500px;
+  height: 30px;
+  border-color: #878787;
+  border-bottom: solid;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  outline: 0;
+  font-size: 16px;
+}
+main.rental_join_form .Join__form .activity__name__out input:focus,
+main.rental_join_form .Join__form .applicant__unit__out input:focus,
+main.rental_join_form .Join__form .principal__name__out input:focus {
+  border-color: #533C1B;
+  box-shadow: 0px 1.5px 0px #533C1B;
+}
+main.rental_join_form .Join__form div.block > div {
+  margin-right: 15px;
+}
+main.rental_join_form .Join__form .block div.nature__activity__6 {
+  margin-right: 31px;
+}
+main.rental_join_form .Join__form .file-box__out {
+  background-color: rgb(239, 239, 239);
+  width: 65%;
+  height: 60px;
+  position: relative;
+}
+main.rental_join_form .Join__form div.file-box {
+  max-width: 58%;
+  padding-top: 14px;
+  padding-left: 16px;
+}
+main.rental_join_form .Join__form .file-box input.filename {
+  width: 140%;
+  height: 30px;
+  padding-left: 8px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  color: #666666;
+}
+main.rental_join_form .Join__form input.button {
+  width: 82px;
+  height: 30px;
+  padding-left: 13px;
+  background-color: #533C1B;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  top: 14px;
+  right: 5%;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+main.rental_join_form .Join__form input.file {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=rental-form.css.map */

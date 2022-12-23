@@ -1,0 +1,249 @@
+$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
+$our-font2: "Ephesis", cursive; // 手寫英文字體
+
+$h1: 64px;
+$h2: 48px;
+$h3: 40px;
+$h4: 32px;
+$h5: 28px;
+$h6: 24px;
+$p: 16px;    // I need 18px~~~~~
+$small: 12px;
+h6{
+    font-size: $h6;
+}
+$fw4: 400;
+$fw7: 700;
+
+$brown-color: #533C1B; // 主色棕
+$carmel-color: #C09351; // 主色駝色
+$carmel-tgh-color: rgb(192, 147, 81, .5); // 主色半透明駝色
+$sub-skin-color: #f6e6cf; // 輔色淺膚色
+$sub-carmel-color: #CFB58F; // 輔色卡其色
+$sub-LTgray-color: #D9D9D9; // 輔色淺灰色
+$sub-gray-color: #C3BCB1; // 輔色粉灰色
+$sub-DKgray-color: #B3B3B3; // 輔色淺灰色
+$font-color: #261C0D; // 字體色
+$lakeGreen-color: #618985; // 對比色湖水綠色
+
+
+ul.rental_join_form__breadcrumb {
+    display: flex;
+    padding-top: 100px;
+    padding-left: 50px;
+
+    li a {
+        text-decoration: none;
+        color: $font-color;
+        line-height: 2;
+        letter-spacing: 2px;
+    }
+
+    .breadcrumb__a a {
+        &::after {
+            content: "";
+            height: 14px;
+            border-left: solid 1px black;
+            display: inline-block;
+            margin: 0 5px;
+
+        }
+    }
+
+    .breadcrumb__b a {
+        color: $lakeGreen-color
+    }
+}
+
+.rental_join_form__banner {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+
+    .join__application__title {
+        position: absolute;
+        bottom: 0;
+        right: 50px;
+        background-color: rgb(255, 255, 255, 0.7);
+        padding: 30px;
+    }
+
+    div.join__application__title__eng {
+        font-size: $h2;
+        color: $brown-color;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+    div.join__application__title__zh {
+        font-size: $h3;
+        color: $carmel-color;
+        position: relative;
+        display: block;
+        margin-left: 280px;
+        font-weight: bold;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 74%;
+            left: -124%;
+            background: #533C1B;
+            width: 121%;
+            height: 2px;
+        }
+    }
+}
+
+
+main.rental_join_form {
+    // max-width: calc(100vw - 120px);
+    max-width: 65%;
+    // max-width: fit-content;
+    margin: 0 auto;
+    margin-top: 80px;
+    outline: 2px solid red;
+
+    .Join__form {
+
+        div.unit,
+        div.place,
+        div.nature__activity,
+        div.ornamental__nature,
+        div.other__demands,
+        div.activity__name__out,
+        div.applicant__unit__out,
+        div.principal__name__out {
+            margin: 50px auto;
+            display: flex;
+        }
+
+        div.word {
+            margin-right: 15px;
+        }
+
+        div.block {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-left: 34px;
+        }
+
+        .activity__name__out input,
+        .applicant__unit__out input,
+        .principal__name__out input {
+            width: 500px;
+            height: 30px;
+            border-color: #878787;
+            border-bottom: solid;
+            border-top-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
+            border-left-width: 0px;
+            outline: 0;
+            font-size: $p;
+
+            &:focus {
+                border-color: $brown-color;
+                box-shadow: 0px 1.5px 0px $brown-color;
+            }
+        }
+
+        div.block>div{
+            margin-right: 15px;
+        }
+        
+        .block div.nature__activity__6{
+            margin-right: 31px;
+        }
+
+        .file-box__out {
+            background-color: rgb(239, 239, 239);
+            width: 65%;
+            height: 60px;
+            position: relative;
+        }
+
+        div.file-box {
+            max-width: 58%;
+            padding-top: 14px;
+            padding-left: 16px;
+        }
+
+        /*檔案名稱*/
+        .file-box input.filename {
+            width: 140%;
+            height: 30px;
+            padding-left: 8px;
+
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+
+            color: #666666;
+
+        }
+
+        /*選取檔案按鈕*/
+        input.button {
+            width: 82px;
+            height: 30px;
+            padding-left: 13px;
+
+            background-color: $brown-color;
+            border: 0;
+            border-radius: 0 5px 5px 0;
+
+            position: absolute;
+            top: 14px;
+            right: 5%;
+
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /*隱藏原按鈕*/
+        input.file {
+            width: 100%;
+            height: 60px;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            filter: alpha(opacity=0);
+            opacity: 0;
+
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
