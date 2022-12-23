@@ -1,3 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap");
+* {
+  font-family: "Enriqueta", "Noto Sans TC";
+  box-sizing: border-box;
+}
 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h6 {
+  font-size: 24px;
+}
+
+.warpper-event-all {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 107px;
+}
+.warpper-event-all .bread-event {
+  position: relative;
+  margin-left: 20px;
+}
+.warpper-event-all .bread-event ol {
+  display: flex;
+}
+.warpper-event-all .bread-event li {
+  margin: 9px 8px;
+  font-size: 12px;
+  font-weight: bolder;
+}
+.warpper-event-all .bread-event li:first-child::after {
+  content: "";
+  position: absolute;
+  left: 40px;
+  bottom: 10px;
+  width: 1px;
+  background: black;
+  height: 12px;
+}
+.warpper-event-all .bread-event li a {
+  text-decoration: none;
+  color: #000;
+}
+.warpper-event-all .bread-event li a:hover {
+  color: #618985;
+}
+.warpper-event-all .swiper-carousel-event {
+  width: 100%;
+}
+.warpper-event-all .carousel-wrapper-event .event-slide1 {
+  background-image: url(/img/event/event-main1.png);
+  height: 500px;
+  background-position: right center;
+}
+.warpper-event-all .exhibition {
+  width: 45%;
+  margin: 40px;
+  font-weight: bold;
+  position: relative;
+}
+.warpper-event-all .exhibition .exhib-1 {
+  font-size: 64px;
+  color: #533C1B;
+}
+.warpper-event-all .exhibition .exhib-2 {
+  font-size: 40px;
+  color: #C09351;
+  text-align: right;
+}
+.warpper-event-all .exhibition .exhib-2::after {
+  position: absolute;
+  content: "";
+  left: 98px;
+  bottom: 9px;
+  width: 235px;
+  height: 3px;
+  background: #533C1B;
+}
+.warpper-event-all .exhibition-event .eventshow-1 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-2 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-3 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-4 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-5 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-6 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-7 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-8 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-9 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-10 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-11 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event .eventshow-12 {
+  width: 33%;
+  border: 1px solid green;
+}
+.warpper-event-all .exhibition-event img {
+  width: 100%;
+}
+.warpper-event-all .exhibition-event p {
+  font-size: 12px;
+  color: #D9D9D9;
+}
+.warpper-event-all .exhibition-event p:nth-child(2) {
+  background-color: #618985;
+}
+.warpper-event-all .exhibition-event small {
+  font-size: 12px;
+  color: #D9D9D9;
+  background-color: #CFB58F;
+}
 
 /*# sourceMappingURL=event.css.map */
