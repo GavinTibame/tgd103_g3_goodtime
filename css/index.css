@@ -1,0 +1,12 @@
+.index-wrapper {
+  position: relative;
+}
+.index-wrapper .subtract {
+  position: absolute;
+  right: 0;
+  bottom: -245px;
+  z-index: 3;
+  width: 100%;
+}
+
+/*# sourceMappingURL=index.css.map */

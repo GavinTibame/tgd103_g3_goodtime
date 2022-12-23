@@ -1,16 +1,116 @@
-
+@import'../../base/reset';
+@import'../../base/var/color';
+@import'../../base/var/font';
 body{
-    font: 16px/1.5em 'Noto Serif TC', serif, 'Philosopher', 'sans-serif';
-    color: #333;
-    font-weight: 300;
-    position: relative;
+    $our-font: "Enriqueta", "Noto Sans TC";
+    $our-font2: "Ephesis", cursive;
+    $font-color: #261C0D;
+    $fw4: 400;
+    position: relative; //?
     .warpper-news-detail{
         max-width: 1200px;
+        height: 100%;
         margin: 0 auto;
         margin-top: 107px;
-        .bread-news-detail{
+        .bread-news-detail{  //麵包屑
             position: relative;
             margin-left: 20px;
         }
+        .bread-news-detail ol{
+            display: flex;
+            }
+        .bread-news-detail li{
+            margin: 9px 8px;
+            font-size: 12px;
+            font-weight: bolder;
+            &:first-child::after{
+                content: "";
+            position: absolute;
+            left: 40px;
+            bottom: 10px;
+            width: 1px;
+            background: black;
+            height: 12px;
+            }
+            }
+        .bread-news-detail li a {
+            text-decoration: none;
+            color: #000;
+            &:hover{
+                color: #618985;
+            }
+            }
     }
+    .detail-information{
+        padding:10px 0 0 20px;
+        line-height: 2;// 消息區   
+    }
+    .detail-information small{
+        font-size: 16px;
+        color: #B3B3B3;
+        padding-left: 15px;
+    }
+    .detail-information h4{
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .detail-information img{
+        width: 100%;
+    }
+    .detail-information p{
+        font-size: 28px;
+        padding-top: 60px;
+    }
+
+    .change-next-page{  //換頁 
+        
+    }
+    .change-next-page ul{
+        display: flex;
+        margin: 70px auto;
+        margin-left: 20px;
+        align-items: center;
+        justify-content: space-around;
+        &::before{
+            content: "";
+            width: 3px;
+            height: 103px;
+            background-color: black;
+            transform: rotate(-90deg) translate(0px, 155px);
+        }
+        &::after{
+            content: "";
+            width: 3px;
+            height: 103px;
+            background-color: black;
+            transform: rotate(-90deg) translate(0px, -155px);
+    }
+    }
+    .change-next-page li{
+        
+       &.arrow-left{
+        border: solid black;
+        border-width: 0px 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(135deg);
+        margin-bottom: 5px;
+        margin-right: 145px;
+         
+       }
+       
+       &.arrow-right{
+        border: solid black;
+        border-width: 0px 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-bottom: 5px;
+        margin-left: 145px;
+        transform: rotate(-45deg);
+       }
+    }
+    .change-next-page a{
+        font-size: 30px;
+        color: #261C0D;;
+}
 }
