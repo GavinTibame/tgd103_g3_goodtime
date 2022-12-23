@@ -1,0 +1,132 @@
+// @import'../../base/reset';
+
+.warpper-event-all {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 107px;
+
+    .bread-event {
+        //麵包屑
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .bread-event ol {
+        display: flex;
+    }
+
+    .bread-event li {
+        margin: 9px 8px;
+        font-size: 12px;
+        font-weight: bolder;
+
+        &:first-child::after {
+            content: "";
+            position: absolute;
+            left: 40px;
+            bottom: 10px;
+            width: 1px;
+            background: black;
+            height: 12px;
+        }
+    }
+
+    .bread-event li a {
+        text-decoration: none;
+        color: #000;
+
+        &:hover {
+            color: #618985;
+        }
+    }
+
+    .swiper-carousel-event {
+        width: 100%;
+    }
+
+    .carousel-wrapper-event {
+        .event-slide1 {
+            background-image: url(/img/event/event-main1.png);
+            height: 500px;
+            background-position: right center;
+        }
+    }
+
+    .exhibition {
+        //展演活動
+        width: 45%;
+        margin: 40px;
+        font-weight: bold;
+        position: relative;
+        .exhib-1 {
+            font-size: 64px;
+            color: #533C1B;
+        }
+        .exhib-2 {
+            font-size: 40px;
+            color: #C09351;
+            text-align: right;
+
+            &::after {
+                position: absolute;
+                content: "";
+                left: 98px;
+                bottom: 9px;
+                width: 235px;
+                height: 3px;
+                background: #533C1B;
+            }
+        }
+    }
+
+    .exhibition-event{
+        //展演區
+        line-height: 1.5;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 5px;
+        margin-top: 95px;
+        $grid-columns: 12fr;
+        @for $i from 1 through $grid-columns {
+            .eventshow-#{$i} {
+                width: 30%;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-size: 12px;
+            color: #D9D9D9;
+            width: 35%;
+            &:nth-child(2) {
+            background-color: #618985;
+            font-size: 15px;
+            text-align: center;
+            margin: 10px;
+            margin-left: revert;
+            }
+            &:nth-child(3){
+            font-size: 15px;
+            background-color: #CFB58F;
+            text-align: center;
+            } 
+        }
+
+        h6 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #261C0D;
+            margin-top: 30px;
+        }
+        ul{
+            margin-bottom: 70px;
+        }
+        
+    }
+
+}
