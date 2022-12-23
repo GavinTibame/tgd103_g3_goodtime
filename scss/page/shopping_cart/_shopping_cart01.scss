@@ -1,43 +1,11 @@
-@import url(../scss/base/var/_color.scss);
-@import url(../scss/base/var/_font.scss);
-
-
-$primary1-color: #533C1B; // 主色1
-$primary2-color: #C09351; // 主色2
-$primary3-color: rgb(192, 147, 81, .5); // 主色3
-$secondary1-color: #f6e6cf; // 輔色1
-$secondary2-color: #CFB58F; // 輔色2
-$secondary3-color: #D9D9D9; // 輔色3
-$secondary4-color: #261C0D; // 輔色4
-$secondary5-color: #B3B3B3; // 輔色5
-$secondary6-color: #C3BCB1; // 輔色6
-$spotlight-color: #618985; // 對比色1
-$warning-color: #CD4B21; // 警告色1
-
-$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis", cursive; // 手寫英文字體
-
-$h1: 64px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 28px;
-$h6: 24px;
-$p: 16px;
-$small: 12px;
-
-$fw4: 400;
-$fw7: 700;
-
-
-.shopping__cart__wrapper{
+.shopping__cart__wrapper {
     font-family: $our-font;
     width: 80%;
     margin: 0 auto;
 
     // ==== 上方進度條 ====
-    .top__nav{
-        border: 1px solid red; 
+    .top__nav {
+        border: 1px solid red;
         width: 1000px;
         margin: 0 auto;
         display: flex;
@@ -45,11 +13,11 @@ $fw7: 700;
         justify-content: space-around;
         margin-top: 120px;
 
-        li{
+        li {
             // border: 1px solid blue;
             width: 33%;
 
-            .top__nav__num{
+            .top__nav__num {
                 width: 32px;
                 height: 32px;
                 line-height: 2;
@@ -60,7 +28,7 @@ $fw7: 700;
             }
 
 
-            p{
+            p {
                 line-height: 1.6;
                 color: #b3b3b3;
                 margin-top: 10px;
@@ -68,33 +36,34 @@ $fw7: 700;
         }
 
         // 偽元素
-        li:first-child, li:nth-child(2){
+        li:first-child,
+        li:nth-child(2) {
             position: relative;
 
-                :before{
-                    content: '';
-                    width: 310px;
-                    height: 2px;
-                    background-color: $secondary3-color;
-                    position: absolute;
-                    left: 55%;
-                    top: 20%;
-                }
+            :before {
+                content: '';
+                width: 310px;
+                height: 2px;
+                background-color: $secondary3-color;
+                position: absolute;
+                left: 55%;
+                top: 20%;
+            }
         }
 
         // 此頁進度標示
-        li:first-child .top__nav__num{
-            background-color: $primary1-color; 
+        li:first-child .top__nav__num {
+            background-color: $primary1-color;
         }
 
-        li:first-child p{
+        li:first-child p {
             color: $primary1-color;
         }
-    }  
+    }
 
     // ==== 購物車資料 ====
-    .cart__info{
-        h1{
+    .cart__info {
+        h1 {
             font-size: 18px; // 待更新變數
             color: $primary1-color;
             font-weight: bold;
@@ -105,13 +74,13 @@ $fw7: 700;
             position: relative;
         }
 
-        h1:after{
+        h1:after {
             content: '';
             display: block;
             width: 3px;
             height: 16px;
             background-color: $primary2-color;
-        
+
             position: absolute;
             left: 0px;
             top: 6px;
@@ -119,82 +88,81 @@ $fw7: 700;
     }
 
     // ==== 導覽列 ====
-    .cart__info .cart__info__nav{
+    .cart__info .cart__info__nav {
         // border: 1px solid red;
         display: flex;
         justify-content: space-around;
         border-bottom: 1px solid $secondary5-color;
 
-        li{
+        li {
             color: $secondary4-color;
             flex-grow: 1;
             margin-bottom: 10px;
         }
 
-        li:first-child{
+        li:first-child {
             flex-grow: 1.13;
             margin-left: 30px;
         }
 
-        li:nth-child(2){
+        li:nth-child(2) {
             flex-grow: 1.1;
         }
 
     }
 
     // ==== 商品明細 ====
-    .cart__info .product__list{
+    .cart__info .product__list {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
         outline: 1px solid blue;
         position: relative;
 
-        >li{
+        >li {
             flex-basis: 0;
             flex-grow: 1;
             // outline: 1px solid red;
         }
-        >li:first-child{
+
+        >li:first-child {
             position: absolute;
             left: 0;
             top: 30%;
         }
-        
-        >li:nth-child(2){
+
+        >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
         }
 
-        >li:last-child{
+        >li:last-child {
             position: absolute;
             top: 2px;
             right: 0px;
             cursor: pointer;
         }
 
-        >li:nth-child(3){
+        >li:nth-child(3) {
             padding-left: 3px;
             flex-grow: 1;
         }
-        >li:nth-child(4){
+
+        >li:nth-child(4) {
             flex-grow: 1.1;
         }
 
-        h2{
+        h2 {
             line-height: 1.6;
             color: $secondary4-color;
         }
 
-        p{
+        p {
             color: $secondary5-color;
         }
     }
 
 
 
-    
+
 }
-
-    
-

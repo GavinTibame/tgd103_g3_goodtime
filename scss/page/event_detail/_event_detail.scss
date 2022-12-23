@@ -1,0 +1,166 @@
+
+.event_detail-wrapper{
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: calc(100vw - 120px);
+    //麵包屑
+    .event_detail-breadcrumb{
+        display: flex;
+        list-style-type: none;
+        font-size: 12px;
+
+        li{
+            padding-left: 20px;
+            color: #261C0D;
+            position: relative;
+        }
+
+        li::after{
+            content: '';
+            display: block;
+            height: 12px;
+            width: 1px;
+            background-color: #261C0D;
+            position: absolute;
+            top: 0px;
+            left: 10px;
+        }
+
+        li:first-child::after{
+            display: none;
+        }
+
+        li:last-child{
+            color: #618985;
+        }
+    }
+    main{
+        margin-bottom: 230px;
+        
+        // banner
+        .event_detail-banner{
+
+            img{
+                width: 100%;
+                margin-bottom: 50px;
+            } 
+        }
+        .event_detail-main-content{
+            margin-bottom: 230px;
+            height: 380px;
+        
+                .event_detail-main-content-left{
+                    width: 50%;
+                    float: left;
+                    color: #261C0D;
+                    h3{
+                        font-size: 45px;
+                        text-align: center;
+                        margin-bottom: 80px;
+                    }
+        
+                    p{
+                        font-size: 24px;
+                        width: 80%;
+                        margin: 0 auto;
+                        line-height: 45px;
+                    }
+                }
+                .event_detail-main-content-right{
+                    width: 50%;
+                    float: right;
+        
+                    .event_detail-main-content-right-wrap{
+                        width: 65%;
+                        margin: 0 auto;
+                        padding-top: 35px;
+                        margin-bottom: 275px;
+                        
+                        .event_detail-price{
+                            display: block;
+                            float: right;
+                            font-size: 40px;
+                            color: #618985;
+                            font-weight: bold;
+                            margin-right: 8%;
+                        }
+        
+                        div{
+                            font-size: 24px;
+                            margin-top: 40px;
+                            margin-bottom: 15px;
+                            color:#261C0D;
+                        }
+        
+                        select{
+                            width: calc(79% + 80px);
+                            height: 40px;
+                            font-size: 20px;
+                        }
+                        .ticket-type{
+                            border: 1px solid #C09351;
+                            color: #261C0D;
+                            outline: none;
+                        }
+                        .number-button{
+                            width: 100%;
+                            height: 40px;
+        
+                            .qtyminus, .qtyplus{
+                                margin: 0px;
+                                padding: 0px;
+                                width: 40px;
+                                height: 100%;
+                                color: #fff;
+                                background-color: #C09351;
+                                border: none;
+                                cursor: pointer;
+                            }
+        
+                            .qty{
+                                margin: -5px;
+                                padding: 0px;
+                                height: 100%;
+                                width: 79%;
+                                text-align: center;
+                                border: 1px solid #C09351;
+                                outline: none;
+                            }
+        
+                        }
+                    }
+        
+                }
+        
+        
+            }
+        
+
+    }
+    .ticket-price, .ticket-info, .attention{
+        margin-left: 5%;
+        width: 90%;
+        h3{
+            font-weight: bold;
+            font-size: 32px;
+            line-height: 60px;
+            color: #533C1B;
+        }
+        li{
+            line-height: 3;
+            font-size: 24px;
+            color: #261C0D;
+        }
+        li:last-child{
+            margin-bottom: 100px;
+        }
+    }
+
+    .attention{
+        li:last-child{
+            margin-bottom: 300px;
+        }
+    }
+
+}

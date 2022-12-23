@@ -1,0 +1,73 @@
+main.rental {
+    max-width: calc(100vw - 100px);
+    margin: 0 auto;
+    padding-top: 80px;
+
+    a {
+        color: $font-color;
+    }
+
+    article {
+        padding: 3rem 0;
+
+        section {
+            h3 {
+                width: 75vw;
+                margin: 0 auto 25px;
+
+                small {
+                    color: $warning-color;
+                    font-size: $small;
+                }
+            }
+
+            p {
+                width: 75vw;
+                margin: 0 auto 25px;
+                padding-left: 1.3rem;
+                line-height: 2rem;
+            }
+
+            dl {
+                width: 75vw;
+                margin: 0 auto 25px;
+                padding-left: 1.3rem;
+                line-height: 2.5rem;
+            }
+
+            em {
+                padding-left: .5rem;
+            }
+
+            dd {
+                line-height: 2rem;
+            }
+
+            ul {
+                padding-left: 2.3rem;
+            }
+        }
+
+        .map {
+            margin: -140px 0 -100px;
+
+            svg {
+                width: calc(100vw - 100px);
+                margin: 0 auto;
+            }
+        }
+
+        dt {
+            span {
+                color: $lakeGreen-color;
+            }
+        }
+
+        .btn__ctn {
+            width: fit-content;
+            margin: 0 auto;
+
+
+        }
+    }
+}
