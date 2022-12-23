@@ -11,8 +11,9 @@ main.aboutAs * {
 /* ---------------------banner----------------------- */
 
 .banner{
-    max-width: 1200px;
-    margin: auto;
+
+    max-width: fit-content;
+    margin: 0 auto;
     
 }
 
@@ -30,32 +31,37 @@ main.aboutAs * {
 }
 
 .banner h1.banner__zh{
-    font-size: 64px;
+    font-size: 48px;
     color: #533C1B;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 80px;
     margin-top: 80px;
 }
 
 .banner h2.banner__en{
-    font-size: 48px;
+    font-size: 36px;
     color: #C09351;
     font-weight: bold;
-    margin-left: 45px;
+    margin-left: 135px;
     line-height: 2;
+    position: relative;
+    z-index: -1;
 }
 
 .banner h2.banner__en::after{
     content: "";
-    border: 2px solid black;
+    border-bottom: 2px solid black;
     display: block;
+    width: 190%;
+    position: absolute;
+    left: -60px;
 }
 
 .banner h3.banner__slogn__zh{
-    font-size: 40px;
+    font-size: 24px;
     color: #261C0D;
     font-weight: bold;
-    margin-left: 170px;
+    margin-left: 290px;
     line-height: 1.6;
     margin-top: 15px;
 }
@@ -69,8 +75,8 @@ main.aboutAs * {
     display: flex;
 }
 .banner .banner__img img{
-    max-width: 100%;
-    padding-left: 15px;
+    max-width: 90%;
+    /* padding-left: 15px; */
 }
 
 /* slogn區塊 */
@@ -83,10 +89,9 @@ main.aboutAs * {
 
 /* ---------------------關於韶光區塊----------------------- */
 
-.about__goodtime,.getting__here,.contact__us{
-    max-width: 1000px;
-    margin: auto;
-    /* outline: 2px solid red; */
+.about__goodtime,.getting__here{
+    max-width: fit-content;
+    margin: 0 auto;
 }
 
 .about__goodtime__title__eng,.getting__here__title__eng,.contact__us__title__eng{
@@ -205,30 +210,36 @@ main.aboutAs * {
     line-height: 3;
 }
 
-.para{
+.aboutAs .para{
     margin-left: 100px;
-    margin: 100px auto 0;
+    margin: 60px auto 0;
 }
 
-.para td{
-    line-height: 2;
+.aboutAs .para li{
+    display: flex;
+    margin-bottom: 50px;
+    /* outline: 2px solid red; */
 }
 
-.para__bus p,.para__train p{
-    padding-left: 14px;
+.aboutAs div.para__a{
+    text-align: center;
+    margin-left: 130px;
 }
 
-.para__bus i,.para__train i{
-    margin-left: 8px;
+.aboutAs div.para__a .fa-solid{
+    margin-left: 100px;
 }
 
-.para__car i{
-    margin-left: 6px;
+.aboutAs div.para__b{
+    line-height:2;
+
 }
 
-.para__parking i{
-    margin-left: 10px;
+.aboutAs .para__parking .fa-solid,
+.aboutAs .para__car .fa-solid{
+    margin-top: 50px;
 }
+
 
 
 /* ---------------------表單區塊----------------------- */
@@ -309,4 +320,9 @@ main.aboutAs * {
     text-align: center;
     transition: 0.3s;
     margin: 0 auto 50px;
+}
+
+.contact__us{
+    max-width: 950px;
+    margin: 0 auto;
 }

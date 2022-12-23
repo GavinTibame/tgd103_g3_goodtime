@@ -45,11 +45,11 @@ $fw7: 700;
         justify-content: space-around;
         margin-top: 120px;
 
-        li{
+        li {
             // border: 1px solid blue;
             width: 33%;
 
-            .top__nav__num{
+            .top__nav__num {
                 width: 32px;
                 height: 32px;
                 line-height: 2;
@@ -60,7 +60,7 @@ $fw7: 700;
             }
 
 
-            p{
+            p {
                 line-height: 1.6;
                 color: #b3b3b3;
                 margin-top: 10px;
@@ -68,18 +68,19 @@ $fw7: 700;
         }
 
         // 偽元素
-        li:first-child, li:nth-child(2){
+        li:first-child,
+        li:nth-child(2) {
             position: relative;
 
-                :before{
-                    content: '';
-                    width: 310px;
-                    height: 2px;
-                    background-color: $secondary3-color;
-                    position: absolute;
-                    left: 55%;
-                    top: 20%;
-                }
+            :before {
+                content: '';
+                width: 310px;
+                height: 2px;
+                background-color: $secondary3-color;
+                position: absolute;
+                left: 55%;
+                top: 20%;
+            }
         }
 
         // 此頁進度標示
@@ -90,7 +91,7 @@ $fw7: 700;
         li .text__now{
             color: $primary1-color;
         }
-    }  
+    }
 
     // ==== 購物車資料 ====
     .cart__info{
@@ -105,13 +106,13 @@ $fw7: 700;
             position: relative;
         }
 
-        h1:after{
+        h1:after {
             content: '';
             display: block;
             width: 3px;
             height: 16px;
             background-color: $primary2-color;
-        
+
             position: absolute;
             left: 0px;
             top: 6px;
@@ -119,54 +120,55 @@ $fw7: 700;
     }
 
     // ==== 導覽列 ====
-    .cart__info .cart__info__nav{
+    .cart__info .cart__info__nav {
         // border: 1px solid red;
         display: flex;
         justify-content: space-around;
         border-bottom: 1px solid $secondary5-color;
 
-        li{
+        li {
             color: $secondary4-color;
             flex-grow: 1;
             margin-bottom: 10px;
         }
 
-        li:first-child{
+        li:first-child {
             flex-grow: 1.13;
             margin-left: 30px;
         }
 
-        li:nth-child(2){
+        li:nth-child(2) {
             flex-grow: 1.1;
         }
 
     }
 
     // ==== 商品明細 ====
-    .cart__info .product__list{
+    .cart__info .product__list {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
         // outline: 1px solid blue;
         position: relative;
 
-        >li{
+        >li {
             flex-basis: 0;
             flex-grow: 1;
             // outline: 1px solid red;
         }
-        >li:first-child{
+
+        >li:first-child {
             position: absolute;
             left: 0;
             top: 30%;
         }
-        
-        >li:nth-child(2){
+
+        >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
         }
 
-        >li:last-child{
+        >li:last-child {
             position: absolute;
             top: 2px;
             right: 0px;
@@ -177,16 +179,17 @@ $fw7: 700;
             padding-left: 10px;
             flex-grow: 0.9;
         }
-        >li:nth-child(4){
+
+        >li:nth-child(4) {
             flex-grow: 1.1;
         }
 
-        h2{
+        h2 {
             line-height: 1.6;
             color: $secondary4-color;
         }
 
-        p{
+        p {
             color: $secondary5-color;
         }
 

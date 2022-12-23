@@ -10,16 +10,17 @@
     <script src="./source/vue.global.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header id="header"></header>
-        <main class="memberCenter">
-            <ul class="breadcrumb">
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">會員中心</a></li>
-            </ul>
+    <header id="header"></header>
+    <main class="memberCenter">
+        <ul class="breadcrumb">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">會員中心</a></li>
+        </ul>
+        <div class="wrapper">
             <div class="banner">
                 <div class="banner-img">
                     <div class="banner-textarea">
@@ -32,42 +33,57 @@
                 <aside class="side-nav">
                     <nav class="nav-bg">
                         <ul class="nav-ctn">
-                            <li class="nav-block">
-                                <h6 class="title-eng">Account</h6>
-                                <p class="title-zh">帳號管理</p>
-                                <div></div>
+                            <li class="nav-block" data-nav="acc-block">
+                                <div>
+                                    <h6 class="title-eng">Account</h6>
+                                    <p class="title-zh">帳號管理</p>
+                                    <div class="">
+                                    </div>
+                                </div>
                             </li>
-                            <li class="nav-block">
-                                <h6 class="title-eng">Shopping List</h6>
-                                <p class="title-zh">購買清單</p>
-                                <div></div>
+                            <li class="nav-block" data-nav="po-block">
+                                <div>
+                                    <h6 class="title-eng">Shopping List</h6>
+                                    <p class="title-zh">購買清單</p>
+                                    <div class="-active">
+                                    </div>
+                                </div>
                             </li>
-                            <li class="nav-block">
-                                <h6 class="title-eng">Coupon</h6>
-                                <p class="title-zh">優惠券</p>
-                                <div></div>
+                            <li class="nav-block" data-nav="cpn-block">
+                                <div>
+                                    <h6 class="title-eng">Coupon</h6>
+                                    <p class="title-zh">優惠券</p>
+                                    <div class="">
+                                    </div>
+                                </div>
+
                             </li>
                         </ul>
                     </nav>
                 </aside>
                 <aside class="side-tab">
-                    <div class="tab-block">
+                    <div class="tab-block" id="acc-block">
                         <ul class="tab-list">
-                            <li><a href="#" data-tab="member-tab3" class="tab">修改個人資料</a></li>
-                            <li><a href="#" data-tab="member-tab2" class="tab">修改地址</a></li>
-                            <li><a href="#" data-tab="member-tab1" class="tab">修改密碼</a></li>
+                            <li><a href="#" data-tab="acc-tab1" class="tab -current">修改個人資料</a></li>
+                            <li><a href="#" data-tab="acc-tab2" class="tab">修改地址</a></li>
+                            <li><a href="#" data-tab="acc-tab3" class="tab">修改密碼</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="addr-tab">
                                 <div class="addr-col">
                                     <label for="addr1">
-                                        <input type="ratio" name="addr1" id="addr1">
-                                        <input type="text" placeholder="member-addr1" id="addr">
+                                        <input type="radio" name="addr" value="addr1" id="addr1">
                                         <div id="memberAddr1">目前地址1</div>
                                     </label>
+                                    <input type="text" name="" id="" placeholder="目前地址1">
                                     <button class="edit-addr">
                                         <span class="material-symbols-outlined">
                                             edit_note
+                                        </span>
+                                    </button>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            select_check_box
                                         </span>
                                     </button>
                                     <button class="edit-addr">
@@ -77,10 +93,18 @@
                                     </button>
                                 </div>
                                 <div class="addr-col">
-                                    <label for="addr2"><input type="text" name="addr2" id="addr2">目前地址2</label>
+                                    <label for="addr2"><input type="radio" name="addr" value="addr2" id="addr2">
+                                        <div id="memberAddr2">104台北市中山區南京東路三段219號5樓</div>
+                                    </label>
+                                    <input type="text" name="" id="" placeholder="104台北市中山區南京東路三段219號5樓">
                                     <button class="edit-addr">
                                         <span class="material-symbols-outlined">
                                             edit_note
+                                        </span>
+                                    </button>
+                                    <button class="edit-addr">
+                                        <span class="material-symbols-outlined">
+                                            select_check_box
                                         </span>
                                     </button>
                                     <button class="edit-addr">
@@ -89,20 +113,37 @@
                                         </span>
                                     </button>
                                 </div>
-                                <textarea name="" id="new-addr" cols="30" rows="10" placeholder="請輸入新增的地址"></textarea>
-                                <button>新增地址</button>
+                                <div class="btn__ctn">
+                                    <textarea name="" id="new-addr" cols="30" rows="10"
+                                        placeholder="請輸入新增的地址"></textarea>
+                                </div>
+                                <div class="btn__ctn">
+                                    <button id="add-addr" class="button">
+                                        <span>新增地址</span>
+                                    </button>
+                                </div>
                             </div>
                             <div class="pwd-tab">
-                                <label for="prevPwd">目前密碼<input type="password" name="prevPwd" id="prevPwd"></label>
-                                <label for="newPwd">新密碼<input type="password" name="newPwd" id="newPwd"></label>
-                                <label for="cfmPwd">確認新密碼<input type="password" name="cfmPwd" id="cfmPwd"></label>
-                                <button type="submit">確認修改</button>
+                                <div>
+                                    <label for="prevPwd">目前密碼</label><input type="password" name="prevPwd" id="prevPwd">
+                                </div>
+                                <div>
+                                    <label for="newPwd">新密碼</label><input type="password" name="newPwd" id="newPwd">
+                                </div>
+                                <div>
+                                    <label for="cfmPwd">確認新密碼</label><input type="password" name="cfmPwd" id="cfmPwd">
+                                </div>
+                                <div class="btn__ctn">
+                                    <button id="add-addr" class="button" type="submit">
+                                        <span>確認修改</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-block">
+                    <div class="tab-block" id="po-block">
                         <ul class="tab-list">
-                            <li><a href="#" data-tab="po-tab1" class="tab">訂單查詢</a></li>
+                            <li><a href="#" data-tab="po-tab1" class="tab -current">訂單查詢</a></li>
                             <li><a href="#" data-tab="po-tab2" class="tab">訂單明細</a></li>
                         </ul>
                         <div class="tab-content">
@@ -223,11 +264,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-block" id="cpn-block">
+                        <ul class="tab-list">
+                            <li><a href="#" data-tab="coupon-tab" class="tab -current">優惠券</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="coupon-tab">
+                                <div class="coupon-list">
+                                    <dl class="coupon-item">
+                                        <div class="coupon-single">
+                                            <img src="" alt="">
+                                            <div class="coupon-detail">
+                                                <p>《崖上的波妞》十周年特展</p>
+                                                <small>使用此票券滿300折50元</small>
+                                            </div>
+                                        </div>
+                                        <div class="coupon-single">
+                                            <img src="" alt="">
+                                            <div class="coupon-detail">
+                                                <p>水族展</p>
+                                                <small>使用此票券滿500，總價9折</small>
+                                            </div>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </aside>
             </section>
-        </main>
-        <footer id="footer"></footer>
-    </div>
+        </div>
+    </main>
+    <footer id="footer"></footer>
     <script>
         $(() => {
             $("#header").load("topbar.html");
