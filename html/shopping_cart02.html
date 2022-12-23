@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填寫資料 - 韶光文創園區</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            
+    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&family=Ephesis&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        
+    <!-- my css -->
+    <link rel="stylesheet" href="../css/shopping_cart02.css">
+</head>
+<body>
+
+    <header id="header"></header>
+
+    <main class="shopping__cart02__wrapper">
+        <!-- 上方進度條 -->
+        <div class="top">
+            <ul class="top__nav">
+                <li>
+                    <div class="top__nav__num num__now">1</div>
+                    <p class="text__now">購物車</p>
+                </li>
+        
+                <li>
+                    <div class="top__nav__num num__now">2</div>
+                    <p class="text__now">填寫資料</p>
+                </li>
+        
+                <li>
+                    <div class="top__nav__num">3</div>
+                    <p>訂單確認</p>
+                </li>
+            </ul>
+        
+        </div>
+
+    </main>
+
+
+    <footer id="footer"></footer>
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        // header & footer
+        $(() => {
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    
+</body>
+</html>

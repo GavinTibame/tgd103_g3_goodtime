@@ -30,7 +30,7 @@ $fw4: 400;
 $fw7: 700;
 
 
-.shopping__cart__wrapper{
+.shopping__cart01__wrapper{
     font-family: $our-font;
     width: 80%;
     margin: 0 auto;
@@ -83,11 +83,11 @@ $fw7: 700;
         }
 
         // 此頁進度標示
-        li:first-child .top__nav__num{
+        li .num__now{
             background-color: $primary1-color; 
         }
 
-        li:first-child p{
+        li .text__now{
             color: $primary1-color;
         }
     }  
