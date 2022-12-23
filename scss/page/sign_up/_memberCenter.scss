@@ -1,7 +1,7 @@
 main.memberCenter {
     width: calc(100vw - 112px);
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 32px;
 
     a {
         color: $font-color;
@@ -138,7 +138,8 @@ main.memberCenter {
     }
 
     .pwd-tab {
-        display: none;
+        // TODO
+        // display: none;
     }
 
     div.addr-col {
@@ -188,6 +189,7 @@ main.memberCenter {
         input+button>span {
             font-size: $h3;
         }
+
     }
 
     textarea {
@@ -205,15 +207,79 @@ main.memberCenter {
     }
 
     div.pwd-tab>div {
-        width: 20vw;
+        width: 30vw;
         margin: 0 auto 2rem;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        input {
+            border: solid 2px $brown-color;
+            border-radius: 3px;
+            line-height: 1.5rem;
+            min-width: 50%;
+            color: $brown-color;
+        }
 
         .button {
             margin: 40px auto 0;
         }
     }
 
+    div.tab-content>div.po-tab {
+        padding-top: 1rem;
+        // display: none; // TODO
+    }
 
+    .po-single {
+        border-bottom: solid 2px $brown-color;
+
+        &>div {
+            display: flex;
+            width: 30vw;
+            margin: 0 auto 1.5rem;
+
+            &:first-child {
+                margin-top: 1.5rem;
+            }
+
+            &>* {
+                min-width: 50%
+            }
+        }
+
+        &:last-child {
+            border: 0
+        }
+    }
+
+    .podetail {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &>div {
+            min-width: 30%;
+            margin-bottom: 1.5rem;
+
+            &>* {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+
+    .item-single {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        margin: 0 auto 1.2rem;
+
+        img {
+            width: 10vw;
+        }
+
+        &>* {
+            margin-right: 2rem;
+        }
+    }
 }
