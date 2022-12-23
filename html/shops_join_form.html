@@ -34,16 +34,24 @@
           <!----------------------表單區------------------------->
           <section class="Join__form">
             <form action="">
-              <label for="shop__name">品 牌 名 稱</label>
-              <input type="text" name="shop__name" class="shop__name" /><br />
+              <div class="shop__name__out">
+                <label for="shop__name">品 牌 名 稱</label>
+                <input type="text" name="name" class="shop__name" />
+              </div>
+                <div class="name__out">
               <label for="name">負責人姓名</label>
-              <input type="text" name="name" class="name" /><br />
+              <input type="text" name="name" class="name" />
+                </div>
+                <div class="phone__out">
               <label for="phone">負責人電話</label>
-              <input type="text" name="phone" class="phone" /><br />
+              <input type="text" name="phone" class="phone" />
+                </div>
+                <div class="email__out">
               <label for="email">負責人信箱</label>
-              <input type="text" name="email" class="email" /><br />
+              <input type="text" name="email" class="email" />
+                </div>
               <div class="shopstay__time">
-                預計駐園時長
+                <p>預計駐園時長</p>
                 <div class="shopstay__time__1">
                   <input
                     class="with-gap validate[required]"
@@ -119,6 +127,8 @@
           $("#header").load("topbar.html");
           $("#footer").load("footer.html");
         });
+
+        
       </script>
     </body>
   </body>

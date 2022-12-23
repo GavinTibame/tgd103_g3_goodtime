@@ -1,13 +1,7 @@
-@import url("../reset.css");
-@import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap");
-@import url(../../../scss/base/var/_color.scss);
-* {
-  font-family: "Enriqueta", "Noto Sans TC";
-}
-
+@charset "UTF-8";
 main.shops__Join__form {
   max-width: calc(100vw - 120px);
-  margin: 100px auto;
+  margin: 0 auto;
 }
 
 .shops__Join__form .breadcrumb {
@@ -40,7 +34,7 @@ main.shops__Join__form {
   transition: 0.5s;
 }
 .shops__Join__form ul.banner li:hover {
-  flex-grow: 5;
+  flex-grow: 6;
 }
 .shops__Join__form li.item1 {
   background-image: url("../../../img/shops__Join__form/shops__Join__form_1.png");
@@ -55,13 +49,13 @@ main.shops__Join__form {
   margin: 50px 80px 100px;
 }
 .shops__Join__form .join__application__title div.join__application__title__eng {
-  font-size: 32px;
+  font-size: 26px;
   color: #533C1B;
   font-weight: bold;
   line-height: 1.6;
 }
 .shops__Join__form .join__application__title div.join__application__title__zh {
-  font-size: 28px;
+  font-size: 22px;
   color: #C09351;
   position: relative;
   display: block;
@@ -80,12 +74,27 @@ main.shops__Join__form {
 .shops__Join__form .Join__form {
   max-width: fit-content;
   margin: 0 auto;
+  /*檔案名稱*/
+  /*選取檔案按鈕*/
+  /*隱藏原按鈕*/
+}
+.shops__Join__form .Join__form div.shop__name__out,
+.shops__Join__form .Join__form div.name__out,
+.shops__Join__form .Join__form div.phone__out,
+.shops__Join__form .Join__form div.email__out {
+  display: flex;
+}
+.shops__Join__form .Join__form .shop__name__out label,
+.shops__Join__form .Join__form .name__out label,
+.shops__Join__form .Join__form .phone__out label,
+.shops__Join__form .Join__form .email__out label {
+  width: 115px;
 }
 .shops__Join__form .Join__form input.shop__name,
 .shops__Join__form .Join__form input.name,
 .shops__Join__form .Join__form input.phone,
 .shops__Join__form .Join__form input.email {
-  width: 100%;
+  width: 500px;
   height: 30px;
   border-color: #878787;
   border-bottom: solid;
@@ -93,40 +102,45 @@ main.shops__Join__form {
   border-right-width: 0px;
   border-bottom-width: 1px;
   border-left-width: 0px;
-  outline: none;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  outline: 0;
+  font-size: 16px;
 }
 .shops__Join__form .Join__form input.shop__name:focus,
 .shops__Join__form .Join__form input.name:focus,
 .shops__Join__form .Join__form input.phone:focus,
-.shops__Join__form .Join__form input.email:focus {
+.shops__Join__form .Join__form input.email:focus,
+.shops__Join__form .Join__form textarea.Opinion__text:focus {
   border-color: #533C1B;
   box-shadow: 0px 1.5px 0px #533C1B;
 }
+.shops__Join__form .Join__form div.file-box__out {
+  position: relative;
+}
+.shops__Join__form .Join__form input {
+  margin-bottom: 50px;
+  outline: none;
+}
 .shops__Join__form .Join__form label {
   letter-spacing: 1px;
-  margin-right: 30px;
+  padding-top: 9px;
 }
 .shops__Join__form .Join__form div.shopstay__time {
   display: flex;
-  margin-bottom: 50px;
 }
 .shops__Join__form .Join__form div.shopstay__time__1,
 .shops__Join__form .Join__form div.shopstay__time__2,
 .shops__Join__form .Join__form div.shopstay__time__3 {
   margin-left: 19px;
 }
-.shops__Join__form .Join__form .file-box {
-  max-width: 58%;
-  padding-top: 14px;
-  padding-left: 16px;
-}
 .shops__Join__form .Join__form .file-box__out {
   background-color: rgb(239, 239, 239);
   width: 65%;
   height: 60px;
-  position: relative;
+}
+.shops__Join__form .Join__form div.file-box {
+  max-width: 58%;
+  padding-top: 14px;
+  padding-left: 16px;
 }
 .shops__Join__form .Join__form .file-box input.filename {
   width: 140%;
@@ -137,7 +151,7 @@ main.shops__Join__form {
   border-radius: 5px;
   color: #666666;
 }
-.shops__Join__form .Join__form .file-box input.button {
+.shops__Join__form .Join__form input.button {
   width: 82px;
   height: 30px;
   padding-left: 13px;
@@ -151,7 +165,7 @@ main.shops__Join__form {
   font-size: 14px;
   cursor: pointer;
 }
-.shops__Join__form .Join__form .file-box input.file {
+.shops__Join__form .Join__form input.file {
   width: 100%;
   height: 60px;
   position: absolute;
@@ -166,7 +180,7 @@ main.shops__Join__form {
   margin: 50px auto 20px;
 }
 .shops__Join__form .Join__form textarea.Opinion__text {
-  width: 690px;
+  width: 600px;
   resize: none;
 }
 .shops__Join__form .Join__form button.Join__form__btn {
@@ -177,9 +191,11 @@ main.shops__Join__form {
   color: #533C1B;
   font-size: 16px;
   border-radius: 5px;
+  cursor: pointer;
   font-weight: bold;
   display: block;
   text-align: center;
+  transition: 0.3s;
   margin: 50px auto 50px;
 }
 
