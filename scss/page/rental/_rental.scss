@@ -1,85 +1,10 @@
 main.rental {
     max-width: calc(100vw - 100px);
     margin: 0 auto;
+    padding-top: 80px;
 
     a {
-        color: var(--font-color);
-    }
-
-    .breadcrumb {
-        display: flex;
-        min-width: 100%;
-        padding: 5px 8%;
-        position: relative;
-        z-index: 1;
-        box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
-        color: var(--font-color);
-
-        li {
-            &:nth-child(even) {
-                &::before {
-                    content: "";
-                    height: .6rem;
-                    border-left: solid 1px black;
-                    display: inline-block;
-                    margin: 0 .5rem;
-                }
-
-                a {
-                    color: var(--lakeGreen-color);
-                }
-            }
-        }
-
-        a {
-            font-size: .8rem;
-            line-height: 20px;
-        }
-    }
-
-    .banner {
-        position: relative;
-    }
-
-    .banner__img {
-        background-image: url(../../img/banner/banner__rental.png);
-        height: 470px;
-        background-position: 15% center;
-    }
-
-    .banner__textarea {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        min-width: 57.5vw;
-        background-color: rgba(256, 256, 256, .7);
-    }
-
-    .banner__eng {
-        font-size: 3.8rem;
-        font-weight: bold;
-        color: var(--brown-color);
-        letter-spacing: .8rem;
-        padding: 4rem 5.2rem 2rem;
-    }
-
-    .banner__zh {
-        &::before {
-            content: "";
-            width: 18vw;
-            border-bottom: solid 3px var(--font-color);
-            display: inline-block;
-            margin-right: 2.8rem;
-        }
-
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: var(--carmel-color);
-        padding-bottom: 2rem;
-        display: block;
-        padding-left: 20vw;
-        padding-right: 5.2rem;
-        letter-spacing: .68rem;
+        color: $font-color;
     }
 
     article {
@@ -89,12 +14,11 @@ main.rental {
             h3 {
                 width: 75vw;
                 margin: 0 auto 25px;
-                margin-top: 40px;
-                font-size: 1.3rem;
-                line-height: 1.5rem;
-                font-weight: 600;
-                letter-spacing: .2rem;
-                border-left: solid 4px var(--carmel-color);
+
+                small {
+                    color: $warning-color;
+                    font-size: $small;
+                }
             }
 
             p {
@@ -121,13 +45,21 @@ main.rental {
 
             ul {
                 padding-left: 2.3rem;
-                list-style-type: disc;
+            }
+        }
+
+        .map {
+            margin: -140px 0 -100px;
+
+            svg {
+                width: calc(100vw - 100px);
+                margin: 0 auto;
             }
         }
 
         dt {
             span {
-                color: var(--lakeGreen-color);
+                color: $lakeGreen-color;
             }
         }
 
@@ -135,31 +67,7 @@ main.rental {
             width: fit-content;
             margin: 0 auto;
 
-            .btn__apply {
-                padding: 15px 50px;
-                border: 0;
-                background-color: var(--brown-color);
-                border-radius: 3px;
-                color: #fff;
 
-                &:hover {
-                    background-color: #fff;
-                }
-
-                &::before {
-                    content: "";
-                    width: 100%;
-                    height: 100%;
-                    background-color: var(--brown-color);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    transition: transform .3s ease;
-                    transform: scaleX(0);
-                    transform-origin: 0% 50%;
-                    outline: 1px solid var(--red-color);
-                }
-            }
         }
     }
 }

@@ -75,6 +75,8 @@ body{
         } 
     }
     .exhibition-event{ //展演區
+        line-height: 1.5;
+        margin-left: 25px;
         $grid-columns:12;
         @for $i from 1 through $grid-columns{
             .eventshow-#{$i}{
@@ -90,12 +92,21 @@ body{
         color: #D9D9D9;
         &:nth-child(2){
             background-color: #618985;
+            font-size: 15px;
+            width: 20%;
+            text-align: center;
         }
     }
     small{
-        font-size: 12px;
+        font-size: 15px;
         color: #D9D9D9;
-        background-color: #CFB58F; ;
+        background-color: #CFB58F;
+        padding: 2px;
+        text-align: center;
+    }
+    h6{
+        font-size: 24px;
+        color: #261C0D;
     }
     }
     

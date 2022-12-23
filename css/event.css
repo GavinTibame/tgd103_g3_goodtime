@@ -212,6 +212,10 @@ h6 {
   height: 3px;
   background: #533C1B;
 }
+.warpper-event-all .exhibition-event {
+  line-height: 1.5;
+  margin-left: 25px;
+}
 .warpper-event-all .exhibition-event .eventshow-1 {
   width: 33%;
   border: 1px solid green;
@@ -269,11 +273,20 @@ h6 {
 }
 .warpper-event-all .exhibition-event p:nth-child(2) {
   background-color: #618985;
+  font-size: 15px;
+  width: 20%;
+  text-align: center;
 }
 .warpper-event-all .exhibition-event small {
-  font-size: 12px;
+  font-size: 15px;
   color: #D9D9D9;
   background-color: #CFB58F;
+  padding: 2px;
+  text-align: center;
+}
+.warpper-event-all .exhibition-event h6 {
+  font-size: 24px;
+  color: #261C0D;
 }
 
 /*# sourceMappingURL=event.css.map */
