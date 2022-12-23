@@ -38,13 +38,13 @@
                             <div class="event_detail-price">NT$300</div>
                             <div style="clear: both;"></div>
                             <div>票種</div>
-                            <select name="ticket-type" id="ticket-type" class="ticket-type">
+                            <select name="ticket-type" id="ticket-type" class="event_detail-ticket-type">
                                 <option value="一般票">一般票</option>
                                 <option value="團體票">團體票</option>
                                 <option value="競老票">競老票</option>
                             </select>
                             <div>數量</div>
-                                <form class="number-button" >
+                                <form class="event_detail-number-button" >
                                     <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'>
                                     <input type='text' name='quantity' value='0' class='qty' />
                                     <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </main>
-            <section class="ticket-price">
+            <section class="event_detail-ticket-price">
                 <h3>票務資訊</h3>
                 <ul>
                     <li>一般票300元</li>
@@ -63,7 +63,7 @@
                     <li>團體票230元</li>
                 </ul>
             </section>
-            <section class="ticket-info">
+            <section class="event_detail-ticket-info">
                 <h3>展覽資訊</h3>
                 <ul>
                     <li>展覽日期：2022/12/16(五)-2022/12/31(六)</li>
@@ -75,7 +75,7 @@
                     <li>官方粉專：https://www.facebook.com/AAA</li>
                 </ul>
             </section>
-            <section class="attention">
+            <section class="event_detail-attention">
                 <h3>注意事項</h3>
                 <ol>
                     <li>1.本票券為無記名之有價票券，未經主辦單位許可，禁止轉售，違者將追究法律責任。</li>
@@ -92,7 +92,7 @@
         </div>    
     <div id="footer"></div>
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/product_detail.js"></script>
+    <script src="../js/event_detail.js"></script>
     <script>
         $(() => {
         $("#header").load("topbar.html");
