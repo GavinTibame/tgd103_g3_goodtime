@@ -1,6 +1,19 @@
 .index-wrapper{
     position: relative;
 
+    .owl-carousel{
+        margin-top: 100px;
+        
+        .owl-theme .owl-nav.disabled+.owl-dots{
+            margin-top: -136px;
+        }
+        .owl-dots{
+            margin-top: 20%;
+            margin-left: 63%;
+            position: absolute;
+            z-index: 1000 !important;
+        }
+    }
     .subtract{
         position: absolute;
         right: 0;
@@ -8,6 +21,7 @@
         z-index: 3;
         width: 100%;
     }
+
 
 
 
