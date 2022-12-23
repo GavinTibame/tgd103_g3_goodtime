@@ -39,6 +39,7 @@
     .banner-zh {
         &::before {
             content: "";
+            // 黑色底線長度調整
             width: 18vw;
             border-bottom: solid 3px $font-color;
             display: inline-block;
