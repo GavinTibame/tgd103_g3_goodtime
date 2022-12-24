@@ -6,53 +6,48 @@
     margin: 0 auto;
     margin-top: 107px;
 
-    .bread-event {
-        //麵包屑
-        position: relative;
-        margin-left: 20px;
-    }
-
-    .bread-event ol {
-        display: flex;
-    }
-
-    .bread-event li {
-        margin: 9px 8px;
-        font-size: 12px;
-        font-weight: bolder;
-
-        &:first-child::after {
-            content: "";
-            position: absolute;
-            left: 40px;
-            bottom: 10px;
-            width: 1px;
-            background: black;
-            height: 12px;
-        }
-    }
-
-    .bread-event li a {
-        text-decoration: none;
-        color: #000;
-
-        &:hover {
-            color: #618985;
-        }
-    }
-
-    .swiper-carousel-event {
+    .swiper{  //輪播圖
         width: 100%;
+        height: 500px;
     }
+    .swiper-slide {
+        /* text-align: center; */
+        font-size: 18px;
+        /* background: #fff; */
 
-    .carousel-wrapper-event {
-        .event-slide1 {
-            background-image: url(/img/event/event-main1.png);
-            height: 500px;
-            background-position: right center;
-        }
-    }
-
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .swiper-button-next{
+        color: rgba(0, 0, 0, 0);
+        background-color: #533C1B;
+        width: 4%;
+        border-radius: 50%;
+      }
+      .swiper-button-prev{
+        color: rgba(0, 0, 0, 0);
+        background-color: #533C1B;
+        width: 4%;
+        border-radius: 50%;
+      }
+      
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     .exhibition {
         //展演活動
         width: 45%;
