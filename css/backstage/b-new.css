@@ -1,0 +1,242 @@
+.b-news {
+  max-width: 1280px;
+  margin-top: 90px;
+}
+
+.b-news p {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #333;
+}
+
+.b-news h6 {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #333;
+}
+
+.b-news h5 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #333;
+}
+
+.b-news .text {
+  display: inline-block;
+  margin-left: 40px;
+  font-size: 20px;
+}
+
+.b-news .gray-text {
+  display: inline-block;
+  margin-left: 20px;
+  color: #666;
+  font-size: 20px;
+}
+
+.b-news .sub-text {
+  display: inline-block;
+  margin-left: 80px;
+  padding-left: 10px;
+  color: #333;
+  border-left: 4px solid #333;
+}
+
+.news_search-bar {
+  margin-top: 20px;
+  border-radius: 4px;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+}
+.news_search-bar p {
+  width: 100px;
+  margin: 20px auto;
+  padding-top: 30px;
+  font-weight: 800;
+}
+.news_search-bar ul {
+  width: 60%;
+  margin-top: 20px;
+  margin-left: 30%;
+  margin-bottom: 40px;
+  height: 100%;
+}
+.news_search-bar ul li {
+  margin: 20px auto;
+  height: 30px;
+}
+.news_search-bar ul li p {
+  display: inline-block;
+  padding-top: 0px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.news_search-bar ul li .news-kind {
+  margin-left: 20px;
+  outline: #ccc solid 2px;
+  border: none;
+  border-radius: 2px;
+  width: 300px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.news_search-bar ul li .news-kind:focus {
+  outline: 2px solid #333;
+  border-radius: 2px;
+}
+.news_search-bar ul li form {
+  display: inline-block;
+  margin-left: 20px;
+  font-weight: 600;
+}
+.news_search-bar ul li form input:checked {
+  background-color: rgb(146, 81, 81);
+}
+.news_search-bar ul li i {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.news_search-bar ul li .timeform {
+  border: none;
+  outline: 2px solid #fff;
+  transition: all 0.3s;
+}
+.news_search-bar ul li .timeform:focus {
+  outline: 2px solid #333;
+  border-radius: 2px;
+}
+.news_search-bar ul li .long-input {
+  margin-left: 20px;
+  outline: #ccc solid 2px;
+  border: none;
+  border-radius: 2px;
+  width: 300px;
+  transition: all 0.3s;
+}
+.news_search-bar ul li input:focus {
+  outline: 2px solid #333;
+  border-radius: 2px;
+}
+.news_search-bar .search-btn {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 2px;
+  margin-left: 46%;
+  margin-bottom: 40px;
+  transition: all 0.3s;
+  box-shadow: 0 0 0px #ccc;
+}
+.news_search-bar .search-btn:hover {
+  box-shadow: 0 0 20px #ccc;
+}
+
+.info-box {
+  background-color: #ccc;
+  margin-bottom: 60px;
+}
+.info-box p {
+  width: 100%;
+  padding: 10px 30px;
+  background-color: #333;
+  color: #fff;
+}
+.info-box ul {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.info-box ul .first-title {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 0px;
+  border: none;
+  background-color: #ccc;
+  height: 70px;
+}
+.info-box ul .first-title div {
+  display: flex;
+  width: 100%;
+}
+.info-box ul .first-title div div {
+  display: flex;
+}
+.info-box ul .first-title div div h6 {
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+}
+.info-box ul li {
+  display: flex;
+  width: 90%;
+  height: 190px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  outline: 2px #333 solid;
+}
+.info-box ul li:first-child {
+  outline: 0px #333 solid;
+}
+.info-box ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.info-box ul li a .flex-box {
+  display: flex;
+  border-color: #ccc;
+  height: 80px;
+  width: 100%;
+}
+.info-box ul li a .flex-box .fakeimg {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+  border: none;
+  background-color: aquamarine;
+}
+.info-box ul li a .flex-box div {
+  width: 16.6666%;
+  text-align: center;
+  border: 1px solid #333;
+  height: 190px;
+}
+.info-box ul li a .flex-box div h6 {
+  height: 100%;
+  line-height: 30px;
+  padding: 5px;
+}
+.info-box ul li a .flex-box div input {
+  margin-top: 10px;
+}
+.info-box ul li a .flex-box div button {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ccc;
+  padding: 2px 10px;
+  margin: 0 auto;
+  border: #ccc 2px solid;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+.info-box ul li a .flex-box div button:hover {
+  border: #333 2px solid;
+  color: #333;
+}
+.info-box ul li:last-child {
+  border-bottom: none;
+}
+
+/*# sourceMappingURL=b-new.css.map */
