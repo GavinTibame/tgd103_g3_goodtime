@@ -2,48 +2,20 @@
 .event_detail-wrapper{
     display: block;
     margin: 0 auto;
-    margin-top: 100px;
-    max-width: calc(100vw - 120px);
-    //麵包屑
-    .event_detail-breadcrumb{
-        display: flex;
-        list-style-type: none;
-        font-size: 12px;
-
-        li{
-            padding-left: 20px;
-            color: #261C0D;
-            position: relative;
-        }
-
-        li::after{
-            content: '';
-            display: block;
-            height: 12px;
-            width: 1px;
-            background-color: #261C0D;
-            position: absolute;
-            top: 0px;
-            left: 10px;
-        }
-
-        li:first-child::after{
-            display: none;
-        }
-
-        li:last-child{
-            color: #618985;
-        }
+    margin-top: 80px;
+    max-width: calc(100vw - 116px);
     }
     main{
         margin-bottom: 230px;
         
         // banner
         .event_detail-banner{
+            margin-bottom: 50px;
 
             img{
-                width: 100%;
-                margin-bottom: 50px;
+                width: 80%;
+                display: block;
+                margin: 0 auto;
             } 
         }
         .event_detail-main-content{
@@ -55,7 +27,7 @@
                     float: left;
                     color: #261C0D;
                     h3{
-                        font-size: 45px;
+                        font-size: $h2;
                         text-align: center;
                         margin-bottom: 80px;
                     }
@@ -129,6 +101,26 @@
                             }
         
                         }
+                        .btn__ctn .button, .btn-ctn .button{
+                            padding: 10px 50px 10px 65px;
+                            transition: none;
+
+                            &::before{
+                                transition: none;
+                            }
+
+                            &:hover {
+
+                                span {
+                                    color: #fff;
+                                }
+                    
+                                &::before {
+                                    background-color:$brown-color ;
+                                    transform: scaleX(1);
+                                }
+                            }
+                        }
                     }
         
                 }
@@ -143,9 +135,10 @@
         width: 90%;
         h3{
             font-weight: bold;
-            font-size: 32px;
-            line-height: 60px;
+            font-size: $h3;
             color: #533C1B;
+            line-height: 26.8px;
+            margin: 20px 0 ;
         }
         li{
             line-height: 3;
@@ -163,4 +156,3 @@
         }
     }
 
-}
