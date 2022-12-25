@@ -1,110 +1,121 @@
-$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis", cursive; // 手寫英文字體
-
-$h1: 64px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 28px;
-$h6: 24px;
-$p: 16px;    // I need 18px~~~~~
-$small: 12px;
-h6{
-    font-size: $h6;
-}
-$fw4: 400;
-$fw7: 700;
-
-$brown-color: #533C1B; // 主色棕
-$carmel-color: #C09351; // 主色駝色
-$carmel-tgh-color: rgb(192, 147, 81, .5); // 主色半透明駝色
-$sub-skin-color: #f6e6cf; // 輔色淺膚色
-$sub-carmel-color: #CFB58F; // 輔色卡其色
-$sub-LTgray-color: #D9D9D9; // 輔色淺灰色
-$sub-gray-color: #C3BCB1; // 輔色粉灰色
-$sub-DKgray-color: #B3B3B3; // 輔色淺灰色
-$font-color: #261C0D; // 字體色
-$lakeGreen-color: #618985; // 對比色湖水綠色
-
-
-ul.rental_join_form__breadcrumb {
+ul.rental_join_form____breadcrumb {
     display: flex;
-    padding-top: 100px;
-    padding-left: 50px;
+    min-width: 100%;
+    padding: 10px 2%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
+    color: $font-color;
+    margin-top: 80px;
+    margin-left: 40px;
 
-    li a {
-        text-decoration: none;
-        color: $font-color;
-        line-height: 2;
-        letter-spacing: 2px;
-    }
+    li {
+        &:nth-child(1) {
+            &::before {
+                content: "";
+                height: .6rem;
+                display: inline-block;
+                margin: 0 .5rem;
+            }
 
-    .breadcrumb__a a {
-        &::after {
-            content: "";
-            height: 14px;
-            border-left: solid 1px black;
-            display: inline-block;
-            margin: 0 5px;
+            a {
+                color: $font-color;
+            }
+        }
 
+        &:nth-child(2) {
+            &::before {
+                content: "";
+                height: .6rem;
+                border-left: solid 1px $font-color;
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+
+            a {
+                color: $font-color;
+            }
+        }
+
+        &:nth-child(3) {
+            &::before {
+                content: "";
+                height: .6rem;
+                border-left: solid 1px $font-color;
+                display: inline-block;
+                margin: 0 .5rem;
+
+            }
+
+            a {
+                color: $lakeGreen-color;
+            }
         }
     }
 
-    .breadcrumb__b a {
-        color: $lakeGreen-color
+    a {
+        font-size: $small;
+        line-height: 18px;
     }
 }
 
 .rental_join_form__banner {
     position: relative;
 
-    img {
-        width: 100%;
+    .banner__img,
+    .banner-img {
+        height: 400px;
+        background-position: 3% center;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
     }
 
-    .join__application__title {
+    .banner__textarea,
+    .banner-textarea {
         position: absolute;
         bottom: 0;
-        right: 50px;
-        background-color: rgb(255, 255, 255, 0.7);
-        padding: 30px;
+        right: 0;
+        background-color: rgba(256, 256, 256, .7);
     }
 
-    div.join__application__title__eng {
-        font-size: $h2;
-        color: $brown-color;
+    .banner__eng,
+    .banner-eng {
+        font-size: $h1;
         font-weight: bold;
+        color: $brown-color;
+        letter-spacing: .8rem;
+        padding: 2rem 4rem 1rem;
         line-height: 1.2;
     }
 
-    div.join__application__title__zh {
-        font-size: $h3;
-        color: $carmel-color;
-        position: relative;
-        display: block;
-        margin-left: 280px;
-        font-weight: bold;
-
+    .banner__zh,
+    .banner-zh {
         &::before {
-            content: '';
-            position: absolute;
-            top: 74%;
-            left: -124%;
-            background: #533C1B;
-            width: 121%;
-            height: 2px;
+            content: "";
+            // 黑色底線長度調整
+            width: 18vw;
+            border-bottom: solid 3px $font-color;
+            display: inline-block;
+            margin-right: 2.8rem;
         }
-    }
-}
 
+        font-size: $h3;
+        font-weight: bold;
+        color: $carmel-color;
+        padding-bottom: 1.5rem;
+        display: block;
+        padding-left: 20vw;
+        padding-right: 5.2rem;
+        letter-spacing: .68rem;
+    }
+
+}
 
 main.rental_join_form {
     // max-width: calc(100vw - 120px);
-    max-width: 65%;
+    max-width: 50%;
     // max-width: fit-content;
-    margin: 0 auto;
+    margin: auto;
     margin-top: 80px;
-    outline: 2px solid red;
 
     .Join__form {
 
@@ -116,19 +127,24 @@ main.rental_join_form {
         div.activity__name__out,
         div.applicant__unit__out,
         div.principal__name__out {
-            margin: 50px auto;
             display: flex;
         }
 
-        div.word {
-            margin-right: 15px;
+        div.place {
+            margin-top: 50px;
+        }
+
+        div.nature__activity,
+        div.activity__name__out,
+        div.applicant__unit__out,
+        div.principal__name__out {
+            margin-bottom: 50px;
         }
 
         div.block {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            padding-left: 34px;
+            height: 70px;
         }
 
         .activity__name__out input,
@@ -151,17 +167,32 @@ main.rental_join_form {
             }
         }
 
-        div.block>div{
-            margin-right: 15px;
+        .activity__name__out label,
+        .applicant__unit__out label,
+        .principal__name__out label,
+        div.word {
+            min-width: 110px;
         }
-        
-        .block div.nature__activity__6{
-            margin-right: 31px;
+
+        .unit div.unit__spacing,
+        .place div.place__spacing,
+        .nature__activity div.nature__activity__spacing,
+        .ornamental__nature div.ornamental__nature__spacing,
+        .other__demands div.other__demands__spacing {
+            margin-right: 10px;
+        }
+
+        .nature__activity div.nature__activity__spacing {
+            margin-bottom: 10px;
+        }
+
+        .nature__activity div.block {
+            width: 450px;
         }
 
         .file-box__out {
             background-color: rgb(239, 239, 239);
-            width: 65%;
+            width: 430px;
             height: 60px;
             position: relative;
         }
@@ -170,6 +201,19 @@ main.rental_join_form {
             max-width: 58%;
             padding-top: 14px;
             padding-left: 16px;
+        }
+
+        .date_pick div {
+            margin-bottom: 50px;
+        }
+
+        .date_pick label {
+            margin-right: 13px;
+        }
+
+        .date_pick input {
+            width: 315px;
+            ;
         }
 
         /*檔案名稱*/
@@ -220,6 +264,14 @@ main.rental_join_form {
             font-size: 20px;
             cursor: pointer;
         }
+
+        .Opinion textarea.Opinion__text {
+            width: 600px;
+            margin-top: 20px;
+            resize: none;
+        }
+
+
 
 
 
