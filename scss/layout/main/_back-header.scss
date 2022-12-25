@@ -73,7 +73,7 @@
     left: -200px;
     width: 200px;
     height: calc(100% - 60px);
-    background-color: #F6E6CF;
+    background-color: #618985;
     transition: all 1s;
     z-index: 90;
     ul{
@@ -85,19 +85,21 @@
             height: 40px;
             padding-bottom: 10px;
             margin-bottom: 20px;
-            border-bottom: #666 2px solid;
+            border-bottom: #fff 2px solid;
             position: relative;
+            transition: all 0.5s;
             &:hover{
+                border-bottom: #ceb897 2px solid;
                 i{
-                    color: #333;
+                    color: #ceb897;
                 }
                 a{
-                    color: #333;
+                    color: #ceb897;
                 }
             }
             i{
                 font-size: 20px;
-                color: #666;
+                color: #fff;
                 position: absolute;
                 top: 2px;
                 left: 20px;
@@ -110,7 +112,7 @@
                 font-size: 20px;
                 font-weight: 600;
                 font-family: 'Noto Sans TC', sans-serif;
-                color: #666;
+                color: #fff;
                 transition: all 0.5s;
             }
         }

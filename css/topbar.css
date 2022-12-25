@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   height: 80px;
-  box-shadow: 0px 10px 20px 0px rgba(160, 160, 160, 0.5);
+  box-shadow: 0px 10px 20px 0px rgba(160, 160, 160, 0.2);
 }
 
 .topbar .top-area {
@@ -50,7 +50,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 65%;
+  width: 60%;
   height: 100%;
 }
 
@@ -68,7 +68,7 @@
   color: #533C1B;
   text-decoration: none;
   font-family: "Noto Sans TC", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   transition: all 0.5s;
 }
@@ -117,7 +117,7 @@
   height: 100%;
   background: linear-gradient(40deg, rgb(240, 240, 240), #fff);
   z-index: 99;
-  box-shadow: 0px 10px 20px 0px rgba(137, 137, 137, 0.5);
+  box-shadow: 0px 10px 20px 0px rgba(137, 137, 137, 0.2);
   background-color: white;
 }
 
@@ -173,7 +173,7 @@
   height: 100%;
   background: linear-gradient(-40deg, rgb(240, 240, 240), #fff);
   z-index: 99;
-  box-shadow: 0px 10px 20px 0px rgba(127, 127, 127, 0.5);
+  box-shadow: 0px 10px 20px 0px rgba(127, 127, 127, 0.2);
   background-color: white;
 }
 
@@ -193,6 +193,7 @@
 }
 .right-area .cart-icon-box a:hover {
   transform: scale(1.1);
+  color: #C09351;
 }
 
 .right-area .anchor-box {
@@ -223,8 +224,9 @@
   transition: all 0.5s;
 }
 .right-area .anchor-box li .a-g:hover:after {
-  content: "G";
-  width: 70px;
+  content: "Good Time";
+  width: 120px;
+  white-space: nowrap;
 }
 .right-area .anchor-box li .a-news:after {
   content: "";
@@ -297,7 +299,7 @@
   bottom: 0px;
   left: 0;
   width: 50px;
-  height: 180px;
+  height: 120px;
 }
 
 .topbar .right-area > a > p {
@@ -310,23 +312,24 @@
   font-family: "Enriqueta", serif;
   transform: rotate(90deg);
   letter-spacing: 0.2rem;
+  /*// // ← */
 }
 
-.topbar .right-area > a > i {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #533C1B;
-  font-size: 30px;
-  transition: all 0.3s;
+.topbar .logo-box {
+  display: block;
+  margin-top: 8px;
+  /* margin: auto 0; */
+  margin-left: 50px;
+  /* width: 40px; */
+  /* height: 40px; */
+  transition: all 0.5s;
 }
 
-.topbar .right-area > a > i:hover {
-  color: #a57f47;
-  font-size: 32px;
+.topbar .logo-box > a > img {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  /* border-right: #533C1B solid 1px; */
 }
-
-/* Bread-crumbs */
 
 /*# sourceMappingURL=topbar.css.map */

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/backstage/grid.css">
+    <link rel="stylesheet" href="../css/backstage/b-member-detail.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="b-member-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="member-name">會員明細</p>
+                    <div class="b-member-detail_infobox">
+                        <ul>
+                            <li>
+                                <p>會員編號</p>
+                                <span>00001</span>
+                            </li>
+                            <li>
+                                <p>會員名稱</p>
+                                <span>Bryan</span>
+                            </li>
+                            <li>
+                                <p>會員狀態</p>
+                                <span>開啟</span>
+                            </li>
+                            <li>
+                                <p>權限代碼</p>
+                                <span>普通會員</span>
+                            </li>
+                            <li>
+                                <p>電郵信箱</p>
+                                <span>AAA@gmail.com</span>
+                            </li>
+                            <li>
+                                <p>會員電話</p>
+                                <span>0922555444</span>
+                            </li>
+                            <li>
+                                <p>會員地址</p>
+                                <span>新北市淡水區</span>
+                            </li>
+                            <li>
+                                <p>會員密碼</p> <!-- 這可以顯示嗎? -->
+                                <span>555555</span>
+                            </li>
+                        </ul>
+                        <div class="btn-group">
+                            <button class="big-btn"><i class="fa-solid fa-pen"></i> 編輯會員狀態</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#header").load("./back-header.html");
+        });
+    </script>
+</body>
+</html>
