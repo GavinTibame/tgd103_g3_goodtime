@@ -1,38 +1,8 @@
-@import url(../scss/base/var/_color.scss);
-@import url(../scss/base/var/_font.scss);
-
-
-$primary1-color: #533C1B; // 主色1
-$primary2-color: #C09351; // 主色2
-$primary3-color: rgb(192, 147, 81, .5); // 主色3
-$secondary1-color: #f6e6cf; // 輔色1
-$secondary2-color: #CFB58F; // 輔色2
-$secondary3-color: #D9D9D9; // 輔色3
-$secondary4-color: #261C0D; // 輔色4
-$secondary5-color: #B3B3B3; // 輔色5
-$secondary6-color: #C3BCB1; // 輔色6
-$spotlight-color: #618985; // 對比色1
-$warning-color: #CD4B21; // 警告色1
-
-$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis", cursive; // 手寫英文字體
-
-$h1: 48px;
-$h2: 40px;
-$h3: 32px;
-$h4: 28px;
-$h5: 24px;
-$h6: 18px;
-$p: 16px;
-$small: 12px;
-
-$fw4: 400;
-$fw7: 700;
-
 .shopping__cart02__wrapper{
     font-family: $our-font;
     width: 80%;
     margin: 0 auto;
+
     // ==== 上方進度條 ====
     .top__nav{
         // border: 1px solid red; 
@@ -44,8 +14,8 @@ $fw7: 700;
         margin-top: 120px;
     
         li{
-        // border: 1px solid blue;
-        width: 33%;
+            // border: 1px solid blue;
+            width: 33%;
     
             .top__nav__num{
                 width: 32px;
@@ -102,8 +72,236 @@ $fw7: 700;
         li .text__now{
             color: $primary1-color;
         }
-        
-    
     }
+
+    // ==== 購物車資料 ====
+    .cart__info{
+    
+    // ==== 導覽列 ====
+        .cart__info__nav{
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid $secondary5-color;
+
+            li{
+                color: $secondary4-color;
+                flex-grow: 1;
+                margin-bottom: 10px;
+    
+            }
+
+            li:first-child {
+                flex-grow: 1.13;
+            }
+
+            li:nth-child(2) {
+                flex-grow: 1.1;
+            }
+        }
+
+    // ==== 商品明細 ====
+        .product__list{
+            display: flex;
+            margin-top: 20px;
+        
+            > li{
+                flex-basis: 0;
+            }
+
+            > li:first-child{
+                flex-grow: 0;
+            }
+            
+            > li:nth-child(2){
+                flex-grow: 0.89;
+                padding-left: 3px;
+            }
+            
+            > li:nth-child(3){
+                flex-grow: 1;            
+            }
+            
+            > li:nth-child(4){
+                flex-grow: 0.9;   
+            }
+            
+            > li:last-child{
+                flex-grow: 0.9;
+            }
+
+            > li .none{
+                display: none;
+            }
+
+            h2{              
+                line-height: 1.6;
+                color: $secondary4-color;
+            }
+
+            p{
+                color: $secondary5-color;
+            }
+        }
+
+    }
+
+    // ==== 訂單資訊(總計) ====
+    .summary{
+        width: 30%;
+        margin-top: 40px;
+        margin-left: 70%;
+        color: $secondary4-color;
+    
+        .subtotal,
+        .freight,
+        .total{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .freight{
+            border-bottom: 1px solid $secondary5-color;
+            padding-bottom: 20px;
+        }
+
+        .total{
+            color: $primary2-color;
+            font-weight: $fw7;
+        }            
+    }
+
+    // ==== 下方詳細資訊 ====
+    section.detail{
+        display: flex;
+        
+        // ==== 左方資訊 ====
+        .left{
+            flex-grow: 1.2;
+
+            // ==== 顧客資料 ====
+            .name,
+            .email,
+            .mobile{
+                display: flex;
+                color: $secondary4-color;
+                margin-bottom: 20px;
+                margin-left: 3%;
+            }
+
+            .member__info{
+                color: $secondary5-color;
+                margin-left: 30px;
+            }
+
+            // ==== 訂單備註 ====
+            .remark{
+                width: 80%;
+                height: 100px;
+                outline: 0;
+                border: 1px solid $secondary5-color;
+                color: $secondary4-color;
+                padding: 5px;
+                border-radius: 3px;
+                resize: none;
+            }
+
+            // ==== 訂購須知 ====
+            .notice{
+                list-style: square;
+                width: 80%;
+                font-size: 14px;
+                color: $secondary4-color;
+                line-height: 1.6;
+                padding-left: 30px;
+                margin-bottom: 20px;
+
+                li{
+                    margin-bottom: 10px;
+                }
+            }
+
+        }
+
+        // ==== 右方資訊 ====
+        .right{
+            flex-grow: 1;
+
+            h2{
+                margin: 20px auto;
+            }
+
+            h2 > span{
+                color: $secondary5-color;
+                margin-left: 30px;
+            }
+
+            .check{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                color: $secondary4-color;            
+            }
+
+            input.name,
+            input.phone{
+                outline: 0;
+                width: 90%;
+                height: 30px;
+                border: 1px solid $secondary5-color;
+                color: $secondary4-color;
+                padding-left: 5px;
+                border-radius: 3px;            
+            }
+
+            .name p{
+                font-size: 14px;
+                color: $secondary5-color;
+                line-height: 1.6;
+            }
+
+            p.time__text{
+                font-size: 14px;
+                color: $secondary5-color;
+
+            }
+
+            input.date{
+                margin-top: 10px;
+                outline: 0;
+                width: 90%;
+                height: 30px;
+                color: $secondary4-color;
+                border: 1px solid $secondary5-color;
+                padding-left: 5px;
+                border-radius: 3px;
+            }
+
+            .credit li{
+                margin-bottom: 20px;
+
+                .pay,
+                input{
+                    outline: none;
+                    width: 90%;
+                    height: 30px;
+                    border: 1px solid $secondary5-color;
+                    padding-left: 2px;
+                    color: $secondary4-color;
+                    border-radius: 3px;
+                }
+
+                input{
+                    padding-left: 5px;
+                }
+            }
+
+        }
+    
+            
+    }
+    
+
 
 }

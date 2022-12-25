@@ -1,0 +1,175 @@
+.store__wrapper{
+    font-family: $our-font;
+    width: 80%;
+    margin: 0 auto;
+
+    // ==== 麵包屑 ====
+    .crumb{
+        margin-top: 80px;
+    }
+
+    // ==== banner輪播圖 ====
+    #slideshow-container {
+        position: relative;
+        margin: auto;
+    }
+    
+    #slideshow-container img{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        // margin-top: 10px;
+    }
+
+    // === 文字標題 ====
+    .banner{
+        position: static;
+
+        .banner__textarea,
+        .banner-textarea{
+            background-color: transparent;
+            position: static;
+        }
+
+        .banner__eng{
+            padding: 2rem 4.2rem 0;
+        }
+
+        .banner__zh{
+            padding-left: 11vw;
+
+            &::before {
+                content: "";
+                // 黑色底線長度調整
+                width: 11vw;
+                margin-right: 1.8rem;
+            }
+        }
+    }
+
+    // ==== 商品導覽列 ====
+    .product__nav{
+        margin-top: 5%;
+        padding-bottom: 1%;
+        border-bottom: 1px solid #888888;
+
+        ul{
+            display: flex;
+
+            li{
+                margin-left: 5%;
+                font-size: $h6;
+                cursor: pointer;
+
+                &:first-child{
+                    margin-left: 3%;
+                }
+
+                &:last-child{
+                    margin-left: auto;
+                }
+
+                &:hover{
+                    color: $spotlight-color;
+                }
+            }
+        }
+    }
+
+    // ==== 商品陳列區 ====
+    .product__display{
+
+        ul{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-items: center;
+            // padding: 10px;
+            // border: 1px solid blue;
+            margin-top: 3%;
+            margin-bottom: 30%;
+            
+            li{
+                // margin: 5% 2% 0 2%;
+                width: 25%;
+                margin-top: 5%;
+                // border: 1px solid red;
+
+                a{
+                    text-decoration: none;
+                    display: block;
+
+                    .shop__pic{
+                        position: relative;
+
+                        img{
+                            width: 90%;
+                            display: block;
+                            margin: 0 auto;
+                        }
+
+                        .shop__type{
+                            position: absolute;
+                            top: 3%;
+                            left: 5%;
+                        
+                            width: 60px;
+                            line-height: 1.6;
+                            color: white;
+                            background-color: $spotlight-color;
+                            padding-left: 2%;
+                            font-size: $small;                        
+                        }
+
+                        .countdown{
+                            position: absolute;
+                            top: 20%;
+                            left: 5%;
+                        
+                            width: 60px;
+                            line-height: 1.6;
+                            color: white;
+                            background-color: #CFB58F;
+                            padding-left: 2%;
+                            font-size: $small;
+                        
+                        }
+                    }
+
+                    .shop__text{
+                        padding-right: 15px;
+                        padding-left: 15px;
+
+                        small{
+                            display: block;
+                            margin-top: 5px;
+                            font-size: 14px;
+                            color: #B3B3B3;         
+                        }
+    
+                        h6{
+                            font-size: $p;
+                            color: $secondary4-color;
+                            font-weight: $fw7;
+                            margin-top: 10px;
+    
+                            & + h6{
+                                font-size: $h6;
+                                color: #C09351;
+                                text-align: right;
+                            }
+                        }
+    
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+
+
+    
+}

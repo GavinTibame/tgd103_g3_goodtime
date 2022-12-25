@@ -1,35 +1,3 @@
-@import url(../scss/base/var/_color.scss);
-@import url(../scss/base/var/_font.scss);
-
-
-$primary1-color: #533C1B; // 主色1
-$primary2-color: #C09351; // 主色2
-$primary3-color: rgb(192, 147, 81, .5); // 主色3
-$secondary1-color: #f6e6cf; // 輔色1
-$secondary2-color: #CFB58F; // 輔色2
-$secondary3-color: #D9D9D9; // 輔色3
-$secondary4-color: #261C0D; // 輔色4
-$secondary5-color: #B3B3B3; // 輔色5
-$secondary6-color: #C3BCB1; // 輔色6
-$spotlight-color: #618985; // 對比色1
-$warning-color: #CD4B21; // 警告色1
-
-$our-font: "Enriqueta", "Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis", cursive; // 手寫英文字體
-
-$h1: 48px;
-$h2: 40px;
-$h3: 32px;
-$h4: 28px;
-$h5: 24px;
-$h6: 18px;
-$p: 16px;
-$small: 12px;
-
-$fw4: 400;
-$fw7: 700;
-
-
 .shopping__cart01__wrapper{
     font-family: $our-font;
     width: 80%;
@@ -94,31 +62,6 @@ $fw7: 700;
     }
 
     // ==== 購物車資料 ====
-    .cart__info{
-        h1{
-            font-size: $h6; // 待更新變數
-            color: $primary1-color;
-            font-weight: bold;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            margin-top: 30px;
-            padding-left: 8px;
-            position: relative;
-        }
-
-        h1:after {
-            content: '';
-            display: block;
-            width: 3px;
-            height: 16px;
-            background-color: $primary2-color;
-
-            position: absolute;
-            left: 0px;
-            top: 6px;
-        }
-    }
-
     // ==== 導覽列 ====
     .cart__info .cart__info__nav {
         // border: 1px solid red;
@@ -243,29 +186,6 @@ $fw7: 700;
             flex-grow: 1;
             margin-top: 40px;
 
-            h1{
-                font-size: $h6;
-                color: $primary1-color;
-                font-weight: bold;
-                line-height: 1.6;
-                margin-bottom: 30px;
-                margin-top: 30px;
-                padding-left: 8px;
-                position: relative;
-            }
-
-            h1:after{
-                content: '';
-                display: block;
-                width: 3px;
-                height: $h6;
-                background-color: $primary2-color;
-            
-                position: absolute;
-                left: 0px;
-                top: 6px;
-            }
-
             li{
                 margin-bottom: 10px;
                 margin-left: 5px;
@@ -304,30 +224,6 @@ $fw7: 700;
             margin-top: 40px;
             color: $secondary4-color;
 
-            h1{
-                font-size: $h6;
-                color: $secondary4-color;
-                font-weight: bold;
-                line-height: 1.6;
-                margin-bottom: 30px;
-                margin-top: 30px;
-                padding-left: 8px;
-            
-                position: relative;
-            }
-
-            h1:after{
-                content: '';
-                display: block;
-                width: 3px;
-                height: $h6;
-                background-color: $primary2-color;
-            
-                position: absolute;
-                left: 0px;
-                top: 6px;
-            }
-
             .subtotal{
                 display: flex;
                 justify-content: space-between;
@@ -354,26 +250,6 @@ $fw7: 700;
                 margin-top: 20px;
                 color: $primary2-color;
                 font-weight:600;
-            }
-
-            a{
-                text-decoration: none;
-                display: block;
-                width: 200px;
-                line-height: 2;
-                text-align: center;
-                margin: 30px auto;
-                background-color: $primary1-color;
-                color: #fff;
-                border-radius: 3px;
-                font-size: 18px;
-                transition: .3s;
-            }
-
-            a:hover{
-                background-color: $primary2-color;
-                outline: 1px solid $primary2-color;
-                // color: $primary1-color;
             }
 
         }

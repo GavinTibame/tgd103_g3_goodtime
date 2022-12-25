@@ -6,6 +6,7 @@
 
 .subtitle {
     margin-top: 40px;
+    margin-bottom: 30px;
     font-size: $h6;
     line-height: $h6 * 1.1;
     font-weight: 600;
@@ -14,5 +15,6 @@
 
     &>* {
         padding-left: 0.5rem;
+        color:$primary1-color;
     }
 }

@@ -1,15 +1,122 @@
+/*-------- topbar -------*/
+/* top-area */
+.top-area_shadowbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 10px 20px 0px rgba(160, 160, 160, 0.5);
+}
+.topbar .top-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg,rgb(240, 240, 240),#fff);
+    z-index: 100;
+}
+.topbar .logo-box{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 50px;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+}
+.topbar .logo-box:hover{
+    transform: scale(1.1);
+}
+.topbar .logo-box > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.topbar .logo-box > a > img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    /* border-right: #533C1B solid 1px; */
+}
+.topbar .topbar-btn-group{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+}
+.topbar .topbar-btn-group > li{
+    display: inline-block;
+    margin-top: 30px; /* 這邊好像可以少一點 跟logo對齊 20左右?*/
+    margin-left: 20px;
+}
+.topbar .topbar-btn-group > li:first-child{
+    margin-left: 40px;
+}
+.topbar .topbar-btn-group > li > a{
+    color: #533C1B;
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.topbar .topbar-btn-group > li > a:hover{
+    color: #C09351;
+}
+.topbar .member-icon-box{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    border-radius: 4px 0 0 4px;
+    background-color: #533C1B;
+    transition: all 0.5s;
+}
+.topbar .member-icon-box:hover{
+    width: 60px;
+    background-color: #a57f47;
+}
+.topbar .member-icon-box > a{
+    display: block;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.topbar .member-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 24px;
+}
+
+/* left-area */
 .topbar .left-area {
     position: fixed;
     top: 0;
     left: 0;
     width: 50px;
     height: 100%;
-    /* background: linear-gradient(40deg,rgb(240, 240, 240),#fff); */
+    background: linear-gradient(40deg,rgb(240, 240, 240),#fff);
     z-index: 99;
-    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
+    box-shadow: 0px 10px 20px 0px rgba(137, 137, 137, 0.5);
     background-color: white;
 }
-
+.topbar .left-area > p{
+    position: absolute;
+    top: 55%;
+    left: -75px;
+    width: 200px;
+    color: #533C1B;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Enriqueta', serif;
+    transform: rotate(-90deg);
+    letter-spacing: .2rem;
+}
 .topbar .social-btn-group {
     position: absolute;
     bottom: 0;
@@ -17,44 +124,169 @@
     width: 100%;
     height: 18%;
 }
+.topbar .social-btn-group > a{
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 40px;
+}
+.topbar .social-btn-group > a > i{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #533C1B;
+    font-size: 30px;
+    transition: all 0.3s;
+}
+.topbar .social-btn-group > a > i:hover{
+    color: #a57f47;
+    font-size: 32px;
+}
 
+/* right-area */
 .topbar .right-area {
     position: fixed;
     top: 0;
     right: 0;
     width: 50px;
     height: 100%;
-    /* background: linear-gradient(-40deg,rgb(240, 240, 240),#fff); */
+    background: linear-gradient(-40deg,rgb(240, 240, 240),#fff);
     z-index: 99;
-    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
+    box-shadow: 0px 10px 20px 0px rgba(127, 127, 127, 0.5);
     background-color: white;
 }
-
-.topbar .left-area>p {
+.right-area .cart-icon-box{
     position: absolute;
-    top: 65%;
-    left: -75px;
-    width: 200px;
-    color: #533C1B;
-    /* font-family: 'Merriweather', serif; */
-    font-size: 24px;
-    font-weight: 400;
-    transform: rotate(-90deg);
-    letter-spacing: .2rem;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    a{
+        display: block;
+        color: #533C1B;
+        text-align: center;
+        font-size: 20px;
+        transition: all 0.5s;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
 }
-
-.topbar .right-area>p {
+.right-area .anchor-box{
     position: absolute;
-    top: 84%;
-    left: -75px;
-    width: 200px;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    li{
+        text-align: center;
+        margin-bottom: 10px;
+        a{
+            color: #533C1B;
+            font-weight: 700;
+            font-family: 'Enriqueta', serif;
+            position: relative;
+        }
+        .a-g:after{
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color: #C09351;
+            transition: all 0.5s;
+        }
+        .a-g:hover:after{
+            content: "G";
+            width: 70px;
+        }
+        .a-news:after{
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color: #C09351;
+            transition: all 0.5s;
+        }
+        .a-news:hover:after{
+            content: "News";
+            width: 70px;
+        }
+        .a-events:after{
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color: #C09351;
+            transition: all 0.5s;
+        }
+        .a-events:hover:after{
+            content: "Events";
+            width: 70px;
+        }
+        .a-aboutus:after{
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color: #C09351;
+            transition: all 0.5s;
+        }
+        .a-aboutus:hover:after{
+            content: "About";
+            width: 70px;
+        }
+        .a-shops:after{
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color: #C09351;
+            transition: all 0.5s;
+        }
+        .a-shops:hover:after{
+            content: "Shops";
+            width: 70px;
+        }
+    }
+    .hide-box{
+        position: absolute;
+        width: 10px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+    }
+}
+.topbar .right-area > a{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 50px;
+    height: 180px;
+}
+.topbar .right-area > a > p{
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 250px;
     color: #533C1B;
-    /* font-family: 'Merriweather', serif; */
     font-size: 24px;
-    /* font-weight: 700; */
+    font-family: 'Enriqueta', serif;
     transform: rotate(90deg);
     letter-spacing: .2rem;
-    // ←
+    /*// // ← */
 }
 
 .topbar .logo-box {
