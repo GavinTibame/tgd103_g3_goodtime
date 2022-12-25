@@ -1,0 +1,412 @@
+main.FAQ {
+    width: calc(100vw - 112px);
+    margin: 0 auto;
+    padding-top: 80px;
+
+    .banner {
+        position: relative;
+
+
+        .banner__img,
+        .banner-img {
+            height: 450px;
+            background-position: 15% center;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
+            background-repeat: no-repeat;
+        }
+
+        .banner__textarea,
+        .banner-textarea {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(256, 256, 256, .7);
+        }
+
+        .banner__eng,
+        .banner-eng {
+            font-size: $h1;
+            font-weight: bold;
+            color: $brown-color;
+            letter-spacing: .8rem;
+            padding: 2.2rem 4.2rem 2rem;
+        }
+
+        .banner__zh,
+        .banner-zh {
+            &::before {
+                content: "";
+                // 黑色底線長度調整
+                width: 11vw;
+                border-bottom: solid 3px $font-color;
+                display: inline-block;
+                margin-right: 2.8rem;
+            }
+
+            font-size: $h3;
+            font-weight: bold;
+            color: $carmel-color;
+            padding-bottom: 2rem;
+            display: block;
+            padding-left: 10vw;
+            padding-right: 4.2rem;
+            letter-spacing: .68rem;
+        }
+
+    }
+
+    div.navTab__faq__left{
+        outline: 2px solid red;
+        position: relative;
+    }
+    section.nav-tab {
+
+        aside.side-nav {
+            
+            width: 280px;
+
+            nav.nav-bg {
+                padding: 2rem 2rem 2rem;
+                height: fit-content;
+                position: sticky;
+                top: 120px;
+                background: #EEEEEE;
+                box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+                margin-left: 40px;
+            }
+        }
+    }
+
+    .nav-block {
+
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            width: 10rem;
+            border-top: solid 3px $font-color;
+            display: inline-block;
+        }
+
+        div {
+            padding: 1rem 2rem 1rem 0;
+            position: relative;
+
+            div {
+                display: none;
+            }
+
+            div.-active {
+                background-color: $sub-skin-color;
+                width: 10rem;
+                height: 3rem;
+                position: absolute;
+                z-index: -1;
+                top: 28px;
+                display: block;
+                left: .2rem;
+            }
+        }
+
+        .title-eng {
+            font-size: $h5;
+            color: $brown-color;
+        }
+
+        .title-zh {
+            padding-top: .3rem;
+            font-size: $h6;
+            color: $carmel-color;
+        }
+    }
+
+    div.navTab__faq {
+        display: flex;
+    }
+
+
+    section.ticket__out{
+
+        h3.ticket__smallTitle {
+            margin-left: 4.2rem;
+            font-size: $h1;
+            color: $sub-gray-color;
+            font-weight: 700;
+            letter-spacing: 5px;
+            top: 0;
+            right: 0;
+            margin-top: 80px;
+        }
+
+        div.ticket {
+            background-color: $sub-LTgray-color;
+            padding-bottom: 50px;
+            padding-left: 35px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding-right: 40px;
+        }
+
+        div.container {
+            padding-top: 30px;
+
+            h5 {
+                font-size: $h5;
+                margin-bottom: 30px;
+            }
+        }
+
+        .faq-drawer {
+            margin-bottom: 30px;
+        }
+
+        .faq-drawer__content-wrapper {
+            font-size: $p;
+            max-height: 0px;
+            overflow: hidden;
+            transition: 0.25s ease-in-out;
+            line-height: 2;
+            margin-top: 20px;
+        }
+
+        .faq-drawer__title {
+            background-color: $brown-color;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: 1.25em;
+            font-weight: 700;
+            line-height: 2;
+            position: relative;
+            margin-bottom: 0;
+            transition: all 0.25s ease-out;
+            padding-left: 15px;
+
+            &::after {
+                border-style: solid;
+                border-width: 1px 1px 0 0;
+                content: " ";
+                display: inline-block;
+                float: right;
+                height: 10px;
+                left: -25px;
+                position: relative;
+                right: 20px;
+                top: 12.5px;
+                transform: rotate(135deg);
+                transition: 0.35s ease-in-out;
+                vertical-align: top;
+                width: 10px;
+            }
+
+            &:hover{
+                background-color:$carmel-color;
+            }
+            
+        }
+    
+        .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
+            max-height: 350px;
+        }
+
+        .faq-drawer__trigger:checked+.faq-drawer__title::after {
+            transform: rotate(-45deg);
+            transition: 0.25s ease-in-out;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    }
+
+    section.Venue_Rental__out{
+
+        h3.Venue_Rental__smallTitle {
+            margin-left: 4.2rem;
+            font-size: $h1;
+            color: $sub-gray-color;
+            font-weight: 700;
+            letter-spacing: 5px;
+            top: 0;
+            right: 0;
+            margin-top: 80px;
+        }
+
+        div.Venue_Rental {
+            background-color: $sub-LTgray-color;
+            padding-bottom: 50px;
+            padding-left: 35px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding-right: 40px;
+        }
+
+        div.container {
+            padding-top: 30px;
+
+            h5 {
+                font-size: $h5;
+                margin-bottom: 30px;
+            }
+        }
+
+        .faq-drawer {
+            margin-bottom: 30px;
+        }
+
+        .faq-drawer__content-wrapper {
+            font-size: $p;
+            max-height: 0px;
+            overflow: hidden;
+            transition: 0.25s ease-in-out;
+            line-height: 2;
+            margin-top: 20px;
+        }
+
+        .faq-drawer__title {
+            background-color: $brown-color;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: 1.25em;
+            font-weight: 700;
+            line-height: 2;
+            position: relative;
+            margin-bottom: 0;
+            transition: all 0.25s ease-out;
+            padding-left: 15px;
+
+            &::after {
+                border-style: solid;
+                border-width: 1px 1px 0 0;
+                content: " ";
+                display: inline-block;
+                float: right;
+                height: 10px;
+                left: -25px;
+                position: relative;
+                right: 20px;
+                top: 12.5px;
+                transform: rotate(135deg);
+                transition: 0.35s ease-in-out;
+                vertical-align: top;
+                width: 10px;
+            }
+
+            &:hover{
+                background-color:$carmel-color;
+            }
+            
+        }
+    
+        .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
+            max-height: 350px;
+        } 
+
+        .faq-drawer__trigger:checked+.faq-drawer__title::after {
+            transform: rotate(-45deg);
+            transition: 0.25s ease-in-out;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    }
+
+    section.Product__out{
+
+        h3.Product__smallTitle {
+            margin-left: 4.2rem;
+            font-size: $h1;
+            color: $sub-gray-color;
+            font-weight: 700;
+            letter-spacing: 5px;
+            top: 0;
+            right: 0;
+            margin-top: 80px;
+        }
+
+        div.Product {
+            background-color: $sub-LTgray-color;
+            padding-bottom: 50px;
+            padding-left: 35px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding-right: 40px;
+        }
+
+        div.container {
+            padding-top: 30px;
+
+            h5 {
+                font-size: $h5;
+                margin-bottom: 30px;
+            }
+        }
+
+        .faq-drawer {
+            margin-bottom: 30px;
+        }
+
+        .faq-drawer__content-wrapper {
+            font-size: $p;
+            max-height: 0px;
+            overflow: hidden;
+            transition: 0.25s ease-in-out;
+            line-height: 2;
+            margin-top: 20px;
+        }
+
+        .faq-drawer__title {
+            background-color: $brown-color;
+            color: white;
+            cursor: pointer;
+            display: block;
+            font-size: 1.25em;
+            font-weight: 700;
+            line-height: 2;
+            position: relative;
+            margin-bottom: 0;
+            transition: all 0.25s ease-out;
+            padding-left: 15px;
+
+            &::after {
+                border-style: solid;
+                border-width: 1px 1px 0 0;
+                content: " ";
+                display: inline-block;
+                float: right;
+                height: 10px;
+                left: -25px;
+                position: relative;
+                right: 20px;
+                top: 12.5px;
+                transform: rotate(135deg);
+                transition: 0.35s ease-in-out;
+                vertical-align: top;
+                width: 10px;
+            }
+
+            &:hover{
+                background-color:$carmel-color;
+            }
+            
+        }
+    
+        .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
+            max-height: 350px;
+        }
+
+        .faq-drawer__trigger:checked+.faq-drawer__title::after {
+            transform: rotate(-45deg);
+            transition: 0.25s ease-in-out;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    }
+
+
+}
