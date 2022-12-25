@@ -4,55 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
-    <style>
-    /* .owl-carousel{
-        margin-top: 100px;
-    }
-    .subtract{
-        position: absolute;
-        right: 0;
-        bottom: -50px;
-        z-index: 1;
-        width: 100%;
-    }
-    .owl-theme .owl-nav.disabled+.owl-dots{
-        margin-top: -136px;
-    }
-    .owl-dots{
-        margin-top: 20%;
-        margin-left: 63%;
-        position: absolute;
-        z-index: 1000 !important;
-    } */
-    </style>
 </head>
 <body>
     <div id="header"></div>
-        <div class="index-wrapper"></div>
+        <div class="index-wrapper">
             <div class="owl-carousel owl-theme">
                 <div class="item"><img src="../img/index/bannerimg1.png" alt=""></div>
                 <div class="item"><img src="../img/index/bannerimg2.png" alt=""></div>
                 <div class="item"><img src="../img/index/bannerimg3.png" alt=""></div>
             </div>
-            <img class= "subtract" src="../img/index/Subtract.png" alt="">
+            <img class= "index-subtract" src="../img/index/Subtract.png" alt="">
+            <h3>韶光</h3>
+            <h4>體會悠閒的傭懶午後<br>&emsp;&emsp;享受美好的黃金時光</h4>
+            <div class="index-vediobox">
+                <div class="index-vediobox-title">韶光形象影片公開中！</div>
+                <h5>Play Movie</h5>
+                <a href="https://www.youtube.com/watch?v=U0TXIXTzJEY&ab_channel=YugoKanno-Topic">
+                    <img src="../img/index/videologo.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="index-news">
+            <div class="title">
+                <h2 class="title-1">NEWS</h2>
+                <h2 class="title-2">最新消息</h2>    
+            </div>
+            <div class="index-content-wrap">
+                <div class="content">
+                    <div class="date-info">
+                        <div class="date">2022-11-29</div>
+                        <div class="info">展演資訊</div>
+                    </div>
+                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                </div>
+                <div class="content">
+                    <div class="date-info">
+                        <div class="date">2022-11-29</div>
+                        <div class="info">展演資訊</div>
+                    </div>
+                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                </div>
+                <div class="content">
+                    <div class="date-info">
+                        <div class="date">2022-11-29</div>
+                        <div class="info">展演資訊</div>
+                    </div>
+                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                </div>
+                <div class="content">
+                    <div class="date-info">
+                        <div class="date">2022-11-29</div>
+                        <div class="info">展演資訊</div>
+                    </div>
+                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                </div>
+            </div>
 
-
+        </div>
+        <!-- <div id="calendar"></div> -->
+        <div class="index-aboutus">
+            <div class="aboutus-left">
+                <img src="../img/index/Aboutus.jpg" alt="">
+            </div>
+            <div class="aboutus-right">
+                <h3>ABOUT US</h3>
+                <h3>關於韶光</h3>
+                <p>韶光文創園區成立的初衷，來自一份「溫暖」的心意
+                    希望來此的遊客能體會單純美好的幸福
+                    並在駐足的過程中
+                    創造只屬於自己的溫馨時光與回憶。</p>
+            </div>
+        </div>
 
     <div id="footer"></div>
-    
+    <!-- <script src="../js/moment.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script> -->
     <script>
+
+        // $('#calendar').fullCalendar();
+
         $(() => {
         $("#header").load("topbar.html");
-        $("#footer").load("footer.html");
+        // $("#footer").load("footer.html");
         });
 
         $('.owl-carousel').owlCarousel({
@@ -71,7 +112,7 @@
                     items:2.3
                 }
             }
-        })
+        });
 
     </script>
 </body>

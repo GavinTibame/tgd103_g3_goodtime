@@ -1,0 +1,343 @@
+main.aboutAs {
+    max-width: calc(100vw - 120px);
+    margin: 0 auto;
+
+    .banner {
+        max-width: fit-content;
+        margin: 0 auto;
+
+        .banner__word__img {
+            display: flex;
+            max-width: 100%;
+            margin: 120px auto 0;
+        }
+
+        .banner__word {
+            width: 800px;
+
+        }
+
+        h1.banner__zh {
+            font-size: 48px;
+            color: #533C1B;
+            font-weight: bold;
+            padding: 30px;
+
+            &::before {
+                width: 0;
+            }
+        }
+
+        h2.banner__en {
+            font-size: 36px;
+            color: #C09351;
+            font-weight: bold;
+            margin-left: 135px;
+            line-height: 2;
+            position: relative;
+            z-index: -1;
+
+            &::after {
+                content: "";
+                border-bottom: 2px solid black;
+                display: block;
+                width: 190%;
+                position: absolute;
+                left: -60px;
+                margin-top: 20px;
+            }
+        }
+
+        h3.banner__slogn__zh {
+            font-size: 24px;
+            color: #261C0D;
+            font-weight: bold;
+            margin-left: 290px;
+            line-height: 1.6;
+            margin-top: 50px;
+
+            span {
+                margin-left: 95px;
+            }
+        }
+
+        .banner__img {
+            box-shadow: none;
+        }
+
+        .banner__img ul {
+            display: flex;
+        }
+
+        .banner__img img {
+            max-width: 90%;
+        }
+
+        h2.banner__slogn_en {
+            color: #618985;
+            text-align: center;
+            line-height: 3;
+            font-size: 48px;
+        }
+    }
+
+    .about__goodtime,
+    .getting__here {
+        max-width: fit-content;
+        margin: 0 auto;
+    }
+
+    .about__goodtime__title__eng,
+    .getting__here__title__eng,
+    .contact__us__title__eng {
+        font-size: 32px;
+        color: #533C1B;
+        font-weight: bold;
+        margin-top: 100px;
+    }
+
+    .about__goodtime__title__zh,
+    .getting__here__title__zh,
+    .gcontact__us__title__zh {
+        font-size: 28px;
+        color: #C09351;
+        position: relative;
+        display: block;
+        margin-left: 180px;
+        font-weight: bold;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: -17%;
+            background: #533C1B;
+            width: 16%;
+            height: 2px;
+        }
+    }
+
+
+    .about__goodtime__para1para2 {
+        display: flex;
+        position: relative;
+    }
+
+    .about__goodtime__para1 {
+        p {
+            line-height: 2;
+            margin: 100px auto 60px;
+            width: 290px;
+        }
+
+        img {
+            margin-left: 15px;
+        }
+    }
+
+
+    .about__goodtime__para2 {
+        margin-left: 120px;
+
+        p {
+            line-height: 2;
+            margin: 100px auto 60px;
+            padding: 10px;
+            width: 520px;
+            position: absolute;
+            bottom: 20px;
+            right: 100px;
+            background-color: rgba(255, 255, 255, .5);
+        }
+    }
+
+    .about__goodtime__para3 {
+        img {
+            margin: 50px auto 0px;
+            display: block;
+        }
+
+        p {
+            line-height: 2;
+            margin: 30px auto 10px;
+            width: 760px;
+        }
+    }
+
+    .about__goodtime img {
+        max-width: 100%;
+    }
+
+    .getting__here__title__eng {
+        font-size: 32px;
+        color: #533C1B;
+        font-weight: bold;
+        margin-top: 100px;
+    }
+
+    .getting__here__title__zh {
+        font-size: 28px;
+        color: #C09351;
+        position: relative;
+        display: block;
+        margin-left: 250px;
+        font-weight: bold;
+        margin-bottom: 50px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: -21%;
+            background: #533C1B;
+            width: 20%;
+            height: 2px;
+        }
+    }
+
+
+
+    .getting__here__map iframe {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .getting__here .para {
+        .fa-solid {
+            font-size: 50px;
+            color: #533C1B;
+            margin-right: 100px;
+        }
+
+        p {
+            color: #C09351;
+            line-height: 3;
+            padding-left: 5px;
+        }
+    }
+
+
+    .para {
+        margin: 80px 200px 0;
+        line-height: 2;
+
+        li {
+            display: flex;
+            margin-bottom: 50px;
+        }
+
+        .para__car p,
+        .para__parking p {
+            padding-right: 5px;
+        }
+    }
+
+
+    .aboutAs div.para__a {
+        text-align: center;
+        margin-left: 130px;
+
+        .fa-solid {
+            margin-left: 100px;
+        }
+    }
+
+    div.para__b {
+        line-height: 2;
+
+    }
+
+    .para__parking .fa-solid,
+    .para__car .fa-solid {
+        margin-top: 50px;
+    }
+
+
+
+
+    .contact__us__title__eng {
+        font-size: 32px;
+        color: #533C1B;
+        font-weight: bold;
+        margin-top: 100px;
+    }
+
+    .contact__us__title__zh {
+        font-size: 28px;
+        color: #C09351;
+        position: relative;
+        display: block;
+        margin-left: 215px;
+        font-weight: bold;
+        margin-bottom: 50px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: -15%;
+            background: #533C1B;
+            width: 14%;
+            height: 2px;
+        }
+    }
+
+    .contact__us__form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        margin: auto;
+
+        label {
+            color: #261C0D;
+            margin-bottom: 5px;
+        }
+
+        input {
+            height: 30px;
+            margin-bottom: 15px;
+            color: #533C1B;
+        }
+
+        .email input {
+            border: 2px solid red;
+        }
+
+        textarea {
+            resize: none;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        input.valid {
+            border: 2px solid green;
+        }
+
+        input.invalid {
+            border: 2px solid red;
+        }
+
+        button {
+            background-color: white;
+            border: 1.5px solid #533C1B;
+            width: 200px;
+            height: 50px;
+            color: #533C1B;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            transition: 0.3s;
+            margin: 0 auto 50px;
+        }
+    }
+
+    .contact__us {
+        max-width: 950px;
+        margin: 0 auto;
+    }
+
+}

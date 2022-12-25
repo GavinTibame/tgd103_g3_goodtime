@@ -1,128 +1,35 @@
-@import url(reset.css);
-
-body {
-  font: 16px/1.5em 'Noto Serif TC', serif, 'Philosopher', 'sans-serif';
-  color: #333;
-  font-weight: 300;
-  position: relative;
-}
-
+@charset "UTF-8";
 .warpper-news {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 107px;
 }
-
-/* 麵包屑 */
-.bread-news {
-  position: relative;
-  margin-left: 20px;
-}
-
-.bread-news ol {
-  display: flex;
-}
-
-.bread-news li {
-  margin: 9px 8px;
-  font-size: 12px;
-  font-weight: bolder;
-}
-
-.bread-news li:first-child::after {
-  content: "";
-  position: absolute;
-  left: 40px;
-  bottom: 10px;
-  width: 1px;
-  background: black;
-  height: 12px;
-}
-
-.bread-news li a {
-  text-decoration: none;
-  color: #000;
-}
-
-.bread-news li a:hover {
-  color: #618985;
-}
-
-
-/* 最新消息 */
-.introduce.new-bg{
-  margin: 0 auto;
-}
-.introduce {
+.warpper-news .introduce { /* 最新消息 */
   width: 100%;
   height: 500px;
   position: relative;
 }
-
-.new-bg {
+.warpper-news .introduce.new-bg {
+  margin: 0 auto;
+}
+.warpper-news .new-bg {
   background-image: url(/img/new/new.jpg);
   background-repeat: no-repeat;
 }
-
-article ul {
-  background-color: rgb(255 255 255 / 57%);
-  width: 452px;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 160px;
-}
-
-.introduce li {
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 1.8;
-  letter-spacing: 8px;
-}
-
-.introduce .new-font {
-  color: #533C1B;
-  margin-left: 90px;
-  margin-top: 35px;
-}
-
-.introduce .new-font::after {
-  position: absolute;
-  content: "";
-  left: 133px;
-  bottom: 33px;
-  width: 73px;
-  height: 2px;
-  background: #533C1B;
-}
-
-.introduce .new-font1 {
-  color: #C09351;
-  margin-left: 225px;
-}
-
-.introduce .new-bg>li {
-  margin: 100px 0 0 0;
-}
-
-/* 公告區 */
-.tabset {
+.warpper-news .tabset { /* 公告區 */
   max-width: 65em;
   margin: 0 auto;
   margin-top: 80px;
   text-align: center;
 }
-.tab-panels {
+.warpper-news .tab-panels {
   margin: 0 30px;
 }
-
-.tabset>input[type="radio"] {
+.warpper-news .tabset > input[type=radio] {
   position: absolute;
   left: -200vw;
 }
-
-
-.tabset>label {
+.warpper-news .tabset > label {
   position: relative;
   display: inline-block;
   padding: 15px 85px 25px;
@@ -130,32 +37,24 @@ article ul {
   cursor: pointer;
   font-weight: 600;
 }
-
-
-
-.tab-panels {
+.warpper-news .tab-panels {
   margin: 0px auto;
   width: 80%;
   font-weight: bold;
 }
-
-.tab-panels li {
+.warpper-news .tab-panels li {
   margin: 20px 0;
   padding-bottom: 20px;
   line-height: 2.6;
   border-bottom: 1px solid #ccc;
 }
-
-.tab-panels .tab-panel li:hover h4{
+.warpper-news .tab-panels .tab-panel li:hover h4 {
   color: #618985;
 }
-
-.tab-panels .tab-panel li:hover small{
+.warpper-news .tab-panels .tab-panel li:hover small {
   color: #618985;
 }
-
-
-.tabset>label::after {
+.warpper-news .tabset > label::after {
   content: "";
   position: absolute;
   left: 85px;
@@ -163,61 +62,54 @@ article ul {
   width: 65px;
   height: 4px;
 }
-
-.tabset>label:hover {
+.warpper-news .tabset > label:hover {
   color: #618985;
 }
-
-.tabset>input:focus+label::after,
-.tabset>input:checked+label::after {
+.warpper-news .tabset > input:focus + label::after,
+.warpper-news .tabset > input:checked + label::after {
   background: #618985;
 }
-
-.tab-panels.tab-panel>li:hover {
+.warpper-news .tab-panels.tab-panel > li:hover {
   color: #618985;
 }
-
-.tab-panels .tab-panel li a {
+.warpper-news .tab-panels .tab-panel li a {
   text-decoration: none;
   letter-spacing: 1;
 }
-
-.tab-panel li small {
+.warpper-news .tab-panel li small {
   font-size: 12px;
   color: #555555;
   padding-left: 10px;
   font-weight: normal;
 }
-
-.tab-panel li h4 {
+.warpper-news .tab-panel li h4 {
   font-size: 16px;
   color: #261C0D;
 }
-
-/* 按紐 */
-.pagination{
+.warpper-news .pagination { /*-- 按紐 --*/
   justify-content: center;
 }
-.pagination li{
+.warpper-news .pagination li {
   margin-left: 15px;
 }
-.page-link{
+.warpper-news .page-link {
   color: #000;
   font-weight: bold;
   border: 1px solid #261C0D;
 }
-.page-item:first-child .page-link{
+.warpper-news .page-item:first-child .page-link {
   border-top-left-radius: 0rem;
   border-bottom-left-radius: 0rem;
 }
-.page-item:last-child .page-link {
+.warpper-news .page-item:last-child .page-link {
   border-top-right-radius: 0rem;
   border-bottom-right-radius: 0rem;
   border: none;
   font-weight: bold;
 }
-.page-link:hover {
+.warpper-news .page-link:hover {
   color: #fff;
   background-color: #261C0D;
 }
 
+/*# sourceMappingURL=new.css.map */

@@ -15,9 +15,11 @@
     <div id="header"></div>
         <div class="event_detail-wrapper">
             <div class="event_detail-breadcrumb">
-                <li>首頁</li>
-                <li>展演活動</li>
-                <li>《Lindsayooo》新興畫家特展</li>
+                <ul class="breadcrumb">
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">展演活動</a></li>
+                    <li><a href="#">《Lindsayooo》新興畫家特展</a></li>
+                </ul>
             </div>
             <main>
                 <div class="event_detail-banner">
@@ -49,13 +51,19 @@
                                     <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'>
                                 </form>   
                                     <br>
-                            <button>加入購物車</button>
+                                <div class="btn__ctn">
+                                    <button id="goApplyForm" class="button">
+                                        <span>加入購物車</span>
+                                    </button>
+                                </div>
                         </div>
                     </div>
                 </div>
             </main>
             <section class="event_detail-ticket-price">
-                <h3>票務資訊</h3>
+                <h3 class="subtitle">
+                    <em>票務資訊</em>
+                </h3>
                 <ul>
                     <li>一般票300元</li>
                     <li>學生票250元</li>
@@ -63,7 +71,9 @@
                 </ul>
             </section>
             <section class="event_detail-ticket-info">
-                <h3>展覽資訊</h3>
+                <h3 class="subtitle">
+                    <em>展覽資訊</em>
+                </h3>
                 <ul>
                     <li>展覽日期：2022/12/16(五)-2022/12/31(六)</li>
                     <li>展覽時間：週一至日11:00-19:00（17:30停止售票及入場）</li>
@@ -75,7 +85,9 @@
                 </ul>
             </section>
             <section class="event_detail-attention">
-                <h3>注意事項</h3>
+                <h3 class="subtitle">
+                    <em>注意事項</em>
+                </h3>
                 <ol>
                     <li>1.本票券為無記名之有價票券，未經主辦單位許可，禁止轉售，違者將追究法律責任。</li>
                     <li>2.本票券限單次入場，入場聯撕除後即無效；如遇遺失毀損恕不補發退換，請妥善保管。</li>
