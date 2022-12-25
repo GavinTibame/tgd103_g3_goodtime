@@ -1,6 +1,12 @@
-@import url("../../base/var/_breakpoint.scss");
-@import url("../../base/var/_color.scss");
-@import url("../../base/var/_font.scss");
+@import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url("./main/_banner.scss");
+@import url("./main/_breadcrumb.scss");
+@import url("./main/_button.scss");
+@import url("./main/_font.scss");
+h6 {
+  font-size: 24px;
+}
+
 .shops {
   box-sizing: border-box;
   margin-left: 50px;
@@ -13,7 +19,8 @@
 .shops .title-box {
   width: 100%;
   height: 80px;
-  margin-left: 60px;
+  margin-left: 120px;
+  margin-bottom: 80px;
   position: relative;
 }
 .shops .title-box h2 {
@@ -38,7 +45,7 @@
   margin-left: 40px;
 }
 .shops .shopsbox-area {
-  margin: 80px auto;
+  margin: 10px auto;
   width: 80%;
   height: 400px;
   display: grid;
@@ -46,41 +53,111 @@
   grid-template-rows: 1fr 1fr;
   gap: 10px;
 }
-.shops .store1 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
+.shops .shopsbox-area .store {
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
 }
-.shops .store1:hover img {
+.shops .shopsbox-area .store img {
+  filter: grayscale(1);
+  left: 0%;
+  transition: all 0.5s;
+}
+.shops .shopsbox-area .store .store-textbox {
+  left: 50%;
+  transition: all 1s;
+}
+.shops .shopsbox-area .store .store-textbox2 {
+  left: 50%;
+  transition: all 1s;
+}
+.shops .shopsbox-area .store:hover img {
   filter: grayscale(0);
   left: 10%;
   transition: all 0.5s;
 }
-.shops .store1:hover .store-textbox {
+.shops .shopsbox-area .store:hover .store-textbox {
   left: 0%;
   transition: all 1s;
 }
-.shops .store1 img {
+.shops .shopsbox-area .store:hover .store-textbox2 {
+  left: 0%;
+  transition: all 1s;
+}
+.shops .shopsbox-area .store1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area .store2 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.shops .shopsbox-area .store3 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.shops .shopsbox-area .store4 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area .store5 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area .store6 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.shops .shopsbox-area .store7 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area .store8 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area .store9 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.shops .shopsbox-area div.store {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.shops .shopsbox-area div.store img {
   width: 100%;
   height: 100%;
   left: 0;
   position: absolute;
   filter: grayscale(1);
-  transition: all 1s;
+  transition: all 1.5s;
 }
-.shops .store1 .store-textbox {
+.shops .shopsbox-area div.store .store-textbox {
   width: 50%;
   height: 100%;
   background-color: rgb(231, 231, 231);
   position: absolute;
   left: -50%;
-  transition: all 1s;
+  transition: all 1.5s;
 }
-.shops .store1 .store-textbox h6 {
+.shops .shopsbox-area div.store .store-textbox h6 {
   width: 80%;
   font-weight: 600;
   font-size: 24px;
@@ -90,7 +167,7 @@
   padding-bottom: 20px;
   border-bottom: 2px solid #533C1B;
 }
-.shops .store1 .store-textbox p {
+.shops .shopsbox-area div.store .store-textbox p {
   width: 80%;
   font-size: 16px;
   font-weight: 500;
@@ -98,61 +175,113 @@
   margin-left: 10%;
   line-height: 1.3;
 }
-.shops .store2 {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  position: relative;
-  overflow: hidden;
-}
-.shops .store2 img {
-  width: 100%;
+.shops .shopsbox-area div.store .store-textbox2 {
+  width: 50%;
   height: 100%;
+  background-color: rgb(231, 231, 231);
   position: absolute;
-  filter: grayscale(1);
+  left: -50%;
+  transition: all 1.5s;
 }
-.shops .store3 {
+.shops .shopsbox-area div.store .store-textbox2 h6 {
+  width: 80%;
+  font-weight: 600;
+  font-size: 20px;
+  color: #533C1B;
+  margin-top: 20%;
+  margin-left: 10%;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #533C1B;
+}
+.shops .shopsbox-area div.store .store-textbox2 p {
+  width: 80%;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 10%;
+  margin-left: 10%;
+  line-height: 1.3;
+}
+.shops .title-box-pos2 {
+  margin-top: 160px;
+}
+.shops .joinus-area {
+  margin: 10px auto;
+  width: 80%;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.shops .joinus-area .infobox {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background-color: rgb(234, 234, 234);
+  box-shadow: 3px 3px 4px rgb(160, 160, 160);
+  padding-top: 40px;
+  padding-left: 40px;
+}
+.shops .joinus-area .infobox h6 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #533C1B;
+  margin-bottom: 20px;
+  border-left: 4px solid #CFB58F;
+  padding-left: 10px;
+}
+.shops .joinus-area .infobox p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.shops .joinus-area .imgbox {
   grid-column-start: 4;
+  grid-column-end: 6;
+  background-image: url(../../../img/shops/j01.png);
+  background-position: center;
+  background-size: cover;
+}
+.shops .joinus-area-2 {
+  margin: 10px auto;
+  width: 80%;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+}
+.shops .joinus-area-2 .infobox {
+  grid-column-start: 2;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
-  position: relative;
-  overflow: hidden;
+  background-color: rgb(234, 234, 234);
+  box-shadow: 3px 3px 4px rgb(160, 160, 160);
+  padding-top: 40px;
+  padding-left: 40px;
 }
-.shops .store3 img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  filter: grayscale(1);
+.shops .joinus-area-2 .infobox h6 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #533C1B;
+  margin-bottom: 20px;
+  border-left: 4px solid #CFB58F;
+  padding-left: 10px;
 }
-.shops .store4 {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  position: relative;
-  overflow: hidden;
+.shops .joinus-area-2 .infobox p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2;
+  margin-bottom: 20px;
 }
-.shops .store4 img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  filter: grayscale(1);
-}
-.shops .store5 {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  position: relative;
-  overflow: hidden;
-}
-.shops .store5 img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  filter: grayscale(1);
+.shops .joinus-area-2 .imgbox {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-image: url(../../../img/shops/j02.png);
+  background-position: center;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=shops.css.map */

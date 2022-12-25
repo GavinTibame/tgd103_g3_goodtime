@@ -11,20 +11,23 @@
 .banner {
     position: relative;
 
-    .banner__img {
+    .banner__img,
+    .banner-img {
         height: 400px;
         background-position: 15% center;
         box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
     }
 
-    .banner__textarea {
+    .banner__textarea,
+    .banner-textarea {
         position: absolute;
         bottom: 0;
         left: 0;
         background-color: rgba(256, 256, 256, .7);
     }
 
-    .banner__eng {
+    .banner__eng,
+    .banner-eng {
         font-size: $h1;
         font-weight: bold;
         color: $brown-color;
@@ -32,9 +35,11 @@
         padding: 3.2rem 4.2rem 2rem;
     }
 
-    .banner__zh {
+    .banner__zh,
+    .banner-zh {
         &::before {
             content: "";
+            // 黑色底線長度調整
             width: 18vw;
             border-bottom: solid 3px $font-color;
             display: inline-block;
