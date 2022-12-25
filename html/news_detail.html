@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Philosopher:ital@1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/news_detail.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
     <title>news_detail</title>
 </head>
 <body>
@@ -13,21 +13,19 @@
 
     <div class="warpper-news-detail">
         <!-- 麵包屑 -->
-        <nav class="bread-news-detail">
-            <ol>
+        <ul class="breadcrumb">
             <li><a href="#">首頁</a></li>
             <li><a href="#">最新消息</a></li>
-            </ol>
-        </nav>
+        </ul>
     
         <!-- 消息區 -->
         <div class="detail-information">
             <small>2022-11-29</small>
-            <h4>【延期公告】漫畫展延期至12/06</h4>
+            <h3>【延期公告】漫畫展延期至12/06</h3>
             <img src="/img/new/new_detail.png" alt="">
-            <p>因應政府防疫政策，園區配合政府提供場地作為疫苗施打場地。<br>
+            <h4>因應政府防疫政策，園區配合政府提供場地作為疫苗施打場地。<br>
             日期與11/29漫畫展衝突，因此漫畫展順延至12/6號，並贈送已購票民眾一份小禮物做為補償，<br>
-            如造成不便敬請見諒。</p>
+            如造成不便敬請見諒。</h4>
         </div>
         <!-- 換頁 -->
         <div class="change-next-page">
@@ -41,7 +39,6 @@
 
     <footer id="footer"></footer>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         // header and footer
@@ -50,8 +47,5 @@
         $("#footer").load("footer.html");
       });
     </script>
-
-
-
 </body>
 </html>

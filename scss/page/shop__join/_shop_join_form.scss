@@ -1,31 +1,3 @@
-$brown-color: #533C1B; // 主色棕
-$carmel-color: #C09351; // 主色駝色
-$carmel-tgh-color: rgb(192, 147, 81, .5); // 主色半透明駝色
-$sub-skin-color: #f6e6cf; // 輔色淺膚色
-$sub-carmel-color: #CFB58F; // 輔色卡其色
-$sub-LTgray-color: #D9D9D9; // 輔色淺灰色
-$sub-gray-color: #C3BCB1; // 輔色粉灰色
-$sub-DKgray-color: #B3B3B3; // 輔色淺灰色
-$font-color: #261C0D; // 字體色
-$lakeGreen-color: #618985; // 對比色湖水綠色
-
-$our-font: "Enriqueta",
-"Noto Sans TC"; // 英文 & 中文字體
-$our-font2: "Ephesis",
-cursive; // 手寫英文字體
-
-$h1: 48px;
-$h2: 40px;
-$h3: 32px;
-$h4: 26px;
-$h5: 22px;
-$h6: 18px;
-$p: 16px; // I need 18px~~~~~
-$small: 12px;
-
-$fw4: 400;
-$fw7: 700;
-
 main.shops__Join__form {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
