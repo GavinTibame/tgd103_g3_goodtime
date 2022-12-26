@@ -75,17 +75,21 @@
     .exhibition-event{
         //展演區
         line-height: 1.5;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        // display: flex;
+        // justify-content: space-around;
+        // flex-wrap: wrap;
         margin: 5px;
         margin-top: 95px;
-        $grid-columns: 12fr;
-        @for $i from 1 through $grid-columns {
-            .eventshow-#{$i} {
-                width: 30%;
-            }
-        }
+        display:grid;
+        grid-template-columns: repeat(3, minmax(0px, 1fr));
+        gap: 20px 10px;
+        padding: 0 auto;
+        // $grid-columns: 12fr;
+        // @for $i from 1 through $grid-columns {
+        //     .eventshow-#{$i} {
+        //         width: 30%;
+        //     }
+        // }
 
         img {
             width: 100%;
