@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="../js/index.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 <body>
     <div id="header"></div>
         <div class="index-wrapper">
-            <div class="owl-carousel owl-theme">
+            <div class="owl-one owl-carousel owl-theme">
                 <div class="item"><img src="../img/index/bannerimg1.png" alt=""></div>
+                <div class="item"><img src="../img/index/bannerimg2.png" alt=""></div>
+                <div class="item"><img src="../img/index/bannerimg3.png" alt=""></div>
                 <div class="item"><img src="../img/index/bannerimg2.png" alt=""></div>
                 <div class="item"><img src="../img/index/bannerimg3.png" alt=""></div>
             </div>
@@ -43,46 +46,69 @@
                         <div class="date">2022-11-29</div>
                         <div class="info">展演資訊</div>
                     </div>
-                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                    <a><div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div></a>
                 </div>
                 <div class="content">
                     <div class="date-info">
                         <div class="date">2022-11-29</div>
                         <div class="info">展演資訊</div>
                     </div>
-                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                    <a><div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div></a>
                 </div>
                 <div class="content">
                     <div class="date-info">
                         <div class="date">2022-11-29</div>
                         <div class="info">展演資訊</div>
                     </div>
-                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                    <a><div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div></a>
                 </div>
                 <div class="content">
                     <div class="date-info">
                         <div class="date">2022-11-29</div>
                         <div class="info">展演資訊</div>
                     </div>
-                    <div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div> 
+                    <a><div class="announcement">【園區公告】假日休館假日休館假日休館假日休館</div></a>
                 </div>
             </div>
-
         </div>
         <!-- <div id="calendar"></div> -->
+        
         <div class="index-aboutus">
             <div class="aboutus-left">
                 <img src="../img/index/Aboutus.jpg" alt="">
             </div>
             <div class="aboutus-right">
-                <h3>ABOUT US</h3>
-                <h3>關於韶光</h3>
-                <p>韶光文創園區成立的初衷，來自一份「溫暖」的心意
-                    希望來此的遊客能體會單純美好的幸福
-                    並在駐足的過程中
+                <h3 class="title-1">ABOUT US</h3>
+                <h3 class="title-2">關於韶光</h3>
+                <p>韶光文創園區2立的初衷，來自一份「溫暖」的心意<br>
+                    希望來此的遊客能體會單純美好的幸福<br>
+                    並在駐足的過程中<br>
                     創造只屬於自己的溫馨時光與回憶。</p>
             </div>
         </div>
+        <div class="index-shops">
+            <h3 class="title-1">SHOPS</h3>
+            <h3 class="title-2">風格好店</h3>
+            <div class="owl-two owl-carousel">
+                <div class="item"><a><img src="../img/index/shop1.png" alt=""></a></div>
+                <div class="item" data-hash="slide1"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop3.png" alt=""></a></div>
+                <div class="item"><a><img src="../img/index/shop2.png" alt=""></a></div>
+            </div>    
+        </div>
+<img src="../img/index/nextarrow.png" alt="">
 
     <div id="footer"></div>
     <!-- <script src="../js/moment.js"></script>
@@ -93,27 +119,63 @@
 
         $(() => {
         $("#header").load("topbar.html");
-        // $("#footer").load("footer.html");
+        $("#footer").load("footer.html");
         });
 
-        $('.owl-carousel').owlCarousel({
-            center:true,
-            loop:true,
-            margin:40,
-            nav:false,
-            responsive:{
-                0:{
-                    items:2.3
-                },
-                600:{
-                    items:2.3
-                },
-                1000:{
-                    items:2.3
-                }
+$(document).ready(function(){
+    $('.owl-one').owlCarousel({
+        autoplay:true,
+        autoplayTimeout:4000,
+        autoplayHoverPause:true,
+        center:true,
+        loop:true,
+        margin:40,
+        nav:true,
+        navText:[
+            prvIcon,
+            nextIcon
+        ],
+        responsive:{
+            0:{
+                items:2.2,
+            },
+            600:{
+                items:2.2,
+
+            },
+            1000:{
+                items:2.2,
             }
-        });
+        }
+    });
 
+    $('.owl-two').owlCarousel({
+
+        items:5,
+        loop:false,
+        center:true,
+        margin:60,
+        URLhashListener:true,
+        autoplayHoverPause:true,
+        startPosition: 1,
+        nav:true,
+        navText:[
+            prvIcon,
+            shopNextIcon 
+        ]
+        // responsive:{
+        //     0:{
+        //         items:1
+        //     },
+        //     600:{
+        //         items:2
+        //     },
+        //     1000:{
+        //         items:3
+        //     }
+        // }
+    });
+});
     </script>
 </body>
 </html>
