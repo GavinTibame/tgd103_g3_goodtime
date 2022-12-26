@@ -30,7 +30,7 @@ main.memberCenter {
         width: 83vw;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0px, 1fr));
+        grid-template-columns: repeat(4, minmax(0px, 1fr));
         gap: 2rem;
 
         aside.side-nav {
@@ -48,7 +48,7 @@ main.memberCenter {
         }
 
         aside.side-tab {
-            grid-column: span 2 / span 2;
+            grid-column: span 3 / span 3;
         }
     }
 
