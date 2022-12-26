@@ -1,44 +1,44 @@
-.index-wrapper{
+.index-wrapper {
     display: block;
     margin: 0 auto;
     width: calc(100% - 100px);
     position: relative;
     margin-top: 80px;
 
-    .owl-theme .owl-nav.disabled+.owl-dots{
+    .owl-theme .owl-nav.disabled+.owl-dots {
         margin-top: -7%;
     }
 
-    .owl-dots{
+    .owl-dots {
         margin-top: -10%;
         margin-left: 63%;
         position: absolute;
         z-index: 10000000 !important;
     }
 
-    .owl-prev{
+    .owl-prev {
         position: absolute;
         left: 26%;
         top: 28%;
         color: #261C0D;
 
-        &:hover{
+        &:hover {
             background: none !important;
         }
     }
 
-    .owl-next{
+    .owl-next {
         position: absolute;
         top: 28%;
         right: 26%;
         color: #261C0D;
 
-        &:hover{
+        &:hover {
             background: none !important;
         }
     }
 
-    .index-subtract{
+    .index-subtract {
         position: absolute;
         right: 0;
         bottom: -210px;
@@ -47,7 +47,7 @@
         pointer-events: none;
     }
 
-    h3{
+    h3 {
         font-size: $h1;
         color: $brown-color;
         font-weight: bold;
@@ -56,7 +56,7 @@
         left: 16%;
     }
 
-    h4{
+    h4 {
         font-size: $h2;
         color: $carmel-color;
         font-weight: bold;
@@ -67,7 +67,7 @@
         line-height: 1.4;
     }
 
-    .index-vediobox{
+    .index-vediobox {
         width: 280px;
         height: 70px;
         border-radius: 6px;
@@ -79,24 +79,24 @@
         color: #FFFFFF;
 
 
-        .index-vediobox-title{
+        .index-vediobox-title {
             font-size: 14px;
             background-color: #618985;
-            border-radius: 6px 0 0 0 ;
+            border-radius: 6px 0 0 0;
             width: 66%;
             height: 36%;
             text-align: center;
             line-height: 2.1;
         }
 
-        h5{
+        h5 {
             width: 66%;
             font-size: 20px;
             margin-left: 20px;
             margin-top: 4%;
             float: right;
 
-            &::before{
+            &::before {
                 display: block;
                 content: "";
                 background-color: #fff;
@@ -108,14 +108,15 @@
             }
         }
 
-        a{
+        a {
             position: absolute;
             right: 12px;
             bottom: 3px;
         }
     }
 }
-.index-news{
+
+.index-news {
     display: block;
     width: calc(100% - 100px);
     margin: 0 auto;
@@ -124,19 +125,20 @@
     background-repeat: no-repeat;
     margin-top: 210px;
 
-    .title{
+    .title {
         float: left;
         width: 30%;
         font-weight: bold;
         letter-spacing: 8px;
 
-        .title-1{
+        .title-1 {
             color: $brown-color;
             font-size: $h1;
             margin-top: 450px;
             margin-left: 50px;
         }
-        .title-2{
+
+        .title-2 {
             color: $carmel-color;
             font-size: $h2;
             margin-top: 30px;
@@ -144,29 +146,32 @@
         }
     }
 
-    .index-content-wrap{
+    .index-content-wrap {
 
         padding-top: 300px;
-        .content{
+
+        .content {
             float: right;
             width: 70%;
-    
-            .date-info{
+
+            .date-info {
                 display: flex;
                 color: #B3B3B3;
                 font-size: 24px;
                 margin: 10px 0;
-                div{
+
+                div {
                     margin-right: 20px;
                 }
             }
-            .announcement{
+
+            .announcement {
                 color: #261C0D;
                 font-size: 30px;
                 margin: 30px 0;
                 position: relative;
 
-                &::after{
+                &::after {
                     display: block;
                     content: "";
                     background-color: #B3B3B3;
@@ -176,22 +181,23 @@
                     margin-left: -8px;
                 }
 
-                &::before{
+                &::before {
                     display: block;
                     content: "→";
                     position: absolute;
                     left: 700px;
                 }
-    
+
             }
-    
-    
+
+
         }
-    
+
     }
 
 }
-.index-aboutus{
+
+.index-aboutus {
     display: block;
     // width: calc(100% - 100px);
     width: 1280px;
@@ -200,40 +206,40 @@
     margin-top: 100px;
 
 
-    .aboutus-left{
+    .aboutus-left {
         float: left;
         width: 39%;
 
-        img{
+        img {
             width: 60%;
             display: block;
             margin: 0 auto;
         }
     }
 
-    .aboutus-right{
+    .aboutus-right {
         float: right;
         width: 59%;
         // margin-left: 3%;
 
-        h3{
+        h3 {
             font-size: $h1;
             font-weight: bold;
             margin: 15px 0;
         }
 
-        .title-1{
+        .title-1 {
             color: $brown-color;
             letter-spacing: 6px;
         }
 
-        .title-2{
+        .title-2 {
             color: $carmel-color;
             letter-spacing: 20px;
             margin-left: 100px;
         }
-        
-        p{
+
+        p {
             font-size: $h5;
             letter-spacing: 6px;
             margin-top: 30px;
@@ -242,40 +248,117 @@
         }
     }
 }
-.index-shops
-{
+
+.index-shops {
     display: block;
     margin: 0 auto;
     width: calc(100% - 100px);
 
-    h3{
+    h3 {
         font-size: $h1;
         font-weight: bold;
-        margin: 15px 20% ;
+        margin: 15px 20%;
     }
 
-    .title-1{
+    .title-1 {
         color: $brown-color;
         letter-spacing: 15px;
         margin-top: 180px;
     }
 
-    .title-2{
+    .title-2 {
         color: $carmel-color;
         letter-spacing: 15px;
         margin-left: 25%;
         margin-bottom: 50px;
     }
 
-    .owl-next{
+    .owl-next {
         position: absolute;
         top: 46%;
         left: 17.5%;
-        }
+    }
 
-    .owl-prev{
+    .owl-prev {
         display: none;
     }
 }
 
+.index-wrapper h4 {
+    font-size: 40px;
+    color: #533C1B;
+    font-weight: bold;
+    position: absolute;
+    bottom: -32%;
+    left: 13%;
+    z-index: 3;
+    line-height: 1.4;
+    letter-spacing: 0.5rem;
+}
 
+.index-wrapper h3 {
+    font-size: 48px;
+    color: #533C1B;
+    font-weight: bold;
+    position: absolute;
+    bottom: -15%;
+    left: 16%;
+    display: none;
+}
+
+.index-news {
+    display: block;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    height: 1120px;
+    background-image: url(../../../img/index/halfcercle.png);
+    background-repeat: no-repeat;
+    margin-top: 210px;
+    background-position: 80px center;
+}
+
+.index-news {
+    display: block;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    height: 1120px;
+    background-image: url(../../../img/index/halfcercle.png);
+    background-repeat: no-repeat;
+    margin-top: 210px;
+    background-position: 80px center;
+}
+
+.index-news .index-content-wrap .content .announcement {
+    color: #261C0D;
+    font-size: 22px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.index-news .index-content-wrap .content .announcement::after {
+    display: block;
+    content: "";
+    /* background-color: #B3B3B3; */
+    width: 80%;
+    /* height: 1px; */
+    margin-top: 35px;
+    margin-left: -8px;
+    border-bottom: solid 1.5px #B3B3B3;
+}
+
+.index-news .index-content-wrap .content .announcement::after {
+    display: block;
+    content: "";
+    /* background-color: #B3B3B3; */
+    width: 80%;
+    /* height: 1px; */
+    margin-top: 35px;
+    margin-left: -8px;
+    border-bottom: solid 1.5px #B3B3B3;
+}
+
+.item {
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 30%);
+    padding: 10px;
+    margin: 17px;
+}
