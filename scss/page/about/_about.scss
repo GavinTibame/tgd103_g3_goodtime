@@ -1,3 +1,7 @@
+div.wrapper{
+    font-family: $our-font;
+}
+
 main.aboutAs {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
@@ -9,7 +13,7 @@ main.aboutAs {
         .banner__word__img {
             display: flex;
             max-width: 100%;
-            margin: 120px auto 0;
+            margin: 120px 50px 0 0;
         }
 
         .banner__word {
@@ -41,7 +45,7 @@ main.aboutAs {
                 content: "";
                 border-bottom: 2px solid black;
                 display: block;
-                width: 190%;
+                width: 192%;
                 position: absolute;
                 left: -60px;
                 margin-top: 20px;
@@ -57,7 +61,7 @@ main.aboutAs {
             margin-top: 50px;
 
             span {
-                margin-left: 95px;
+                margin-left: 82px;
             }
         }
 
@@ -76,8 +80,9 @@ main.aboutAs {
         h2.banner__slogn_en {
             color: #618985;
             text-align: center;
-            line-height: 3;
             font-size: 48px;
+            font-family: $our-font2;
+            letter-spacing: 3px;
         }
     }
 
@@ -141,13 +146,13 @@ main.aboutAs {
 
         p {
             line-height: 2;
-            margin: 100px auto 60px;
-            padding: 10px;
-            width: 520px;
-            position: absolute;
+            margin: 70px auto 60px;
+            /* padding: 10px 30px; */
+            width: 390px;
+            /* position: absolute; */
             bottom: 20px;
             right: 100px;
-            background-color: rgba(255, 255, 255, .5);
+            background-color: rgba(255, 255, 255, 0.7);
         }
     }
 
@@ -158,7 +163,7 @@ main.aboutAs {
         }
 
         p {
-            line-height: 2;
+            line-height: 2.5;
             margin: 30px auto 10px;
             width: 760px;
         }
@@ -203,55 +208,33 @@ main.aboutAs {
         max-width: 100%;
     }
 
-    .getting__here .para {
-        .fa-solid {
-            font-size: 50px;
-            color: #533C1B;
-            margin-right: 100px;
+
+    .para{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        div.para__bus{
+            grid-column:1/2 ;
+            grid-row: 1/2;
         }
 
-        p {
-            color: #C09351;
-            line-height: 3;
-            padding-left: 5px;
-        }
-    }
-
-
-    .para {
-        margin: 80px 200px 0;
-        line-height: 2;
-
-        li {
-            display: flex;
-            margin-bottom: 50px;
+        div.para__train{
+            grid-column:2/2 ;
+            grid-row: 1/2;
         }
 
-        .para__car p,
-        .para__parking p {
-            padding-right: 5px;
+        div.para__car{
+            grid-column:1/2 ;
+            grid-row: 2/2;
+        }
+
+        div.para__parking{
+            grid-column:2/2 ;
+            grid-row: 2/2;
         }
     }
 
-
-    .aboutAs div.para__a {
-        text-align: center;
-        margin-left: 130px;
-
-        .fa-solid {
-            margin-left: 100px;
-        }
-    }
-
-    div.para__b {
-        line-height: 2;
-
-    }
-
-    .para__parking .fa-solid,
-    .para__car .fa-solid {
-        margin-top: 50px;
-    }
 
 
 
@@ -291,7 +274,7 @@ main.aboutAs {
 
         label {
             color: #261C0D;
-            margin-bottom: 5px;
+            margin-bottom: 12px;
         }
 
         input {
@@ -318,21 +301,57 @@ main.aboutAs {
             border: 2px solid red;
         }
 
-        button {
-            background-color: white;
-            border: 1.5px solid #533C1B;
-            width: 200px;
-            height: 50px;
-            color: #533C1B;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            display: block;
-            text-align: center;
-            transition: 0.3s;
-            margin: 0 auto 50px;
+        .btn__ctn,
+.btn-ctn {
+    width: fit-content;
+    margin: 0 auto;
+
+    .button {
+        font-size: $h6;
+        outline: 0;
+        border: solid .8px $brown-color;
+        background-color: $brown-color;
+        border-radius: 3px;
+        letter-spacing: 15px;
+        transition: all 0.3s;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transition: all .3s;
+            transform: scaleX(0);
+            background-color: #fff;
+            transform-origin: 0% 50%;
         }
+
+        span {
+            color: #fff;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+
+        &:hover {
+
+            span {
+                color: $brown-color;
+            }
+
+            &::before {
+                background-color: #fff;
+                transform: scaleX(1);
+            }
+        }
+
+
+    }
+}
     }
 
     .contact__us {
