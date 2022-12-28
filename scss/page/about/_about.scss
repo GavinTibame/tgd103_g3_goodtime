@@ -1,3 +1,8 @@
+.wrapper {
+    font-family: $our-font;
+    color: $font-color;
+}
+
 main.aboutAs {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
@@ -10,6 +15,7 @@ main.aboutAs {
             display: flex;
             max-width: 100%;
             margin: 120px auto 0;
+            height: 310px;
         }
 
         .banner__word {
@@ -18,8 +24,8 @@ main.aboutAs {
         }
 
         h1.banner__zh {
-            font-size: 48px;
-            color: #533C1B;
+            font-size: $h1;
+            color: $brown-color;
             font-weight: bold;
             padding: 30px;
 
@@ -29,13 +35,12 @@ main.aboutAs {
         }
 
         h2.banner__en {
-            font-size: 36px;
-            color: #C09351;
+            font-size: $h2;
+            color: $carmel-color;
             font-weight: bold;
             margin-left: 135px;
             line-height: 2;
             position: relative;
-            z-index: -1;
 
             &::after {
                 content: "";
@@ -45,16 +50,18 @@ main.aboutAs {
                 position: absolute;
                 left: -60px;
                 margin-top: 20px;
+                z-index: -1;
             }
         }
 
         h3.banner__slogn__zh {
-            font-size: 24px;
+            font-size: $h5;
             color: #261C0D;
             font-weight: bold;
             margin-left: 290px;
             line-height: 1.6;
             margin-top: 50px;
+
 
             span {
                 margin-left: 95px;
@@ -73,12 +80,20 @@ main.aboutAs {
             max-width: 90%;
         }
 
-        h2.banner__slogn_en {
-            color: #618985;
-            text-align: center;
-            line-height: 3;
-            font-size: 64px;
-        }
+    }
+
+    div.banner__slogn {
+        margin-top: 20px;
+    }
+
+    h2.banner__slogn_en {
+        color: $lakeGreen-color;
+        width: 530px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 64px;
+        font-family: $our-font2;
+        line-height: 2.5;
     }
 
     .about__goodtime,
@@ -90,8 +105,8 @@ main.aboutAs {
     .about__goodtime__title__eng,
     .getting__here__title__eng,
     .contact__us__title__eng {
-        font-size: 32px;
-        color: #533C1B;
+        font-size: $h3;
+        color: $brown-color;
         font-weight: bold;
         margin-top: 100px;
     }
@@ -99,8 +114,8 @@ main.aboutAs {
     .about__goodtime__title__zh,
     .getting__here__title__zh,
     .gcontact__us__title__zh {
-        font-size: 28px;
-        color: #C09351;
+        font-size: $h4;
+        color: $carmel-color;
         position: relative;
         display: block;
         margin-left: 180px;
@@ -111,7 +126,7 @@ main.aboutAs {
             position: absolute;
             top: 40%;
             left: -17%;
-            background: #533C1B;
+            background: $brown-color;
             width: 16%;
             height: 2px;
         }
@@ -141,13 +156,10 @@ main.aboutAs {
 
         p {
             line-height: 2;
-            margin: 100px auto 60px;
-            padding: 10px;
-            width: 520px;
-            position: absolute;
+            margin: 80px auto 60px;
+            width: 390px;
             bottom: 20px;
             right: 100px;
-            background-color: rgba(255, 255, 255, .5);
         }
     }
 
@@ -158,7 +170,7 @@ main.aboutAs {
         }
 
         p {
-            line-height: 2;
+            line-height: 2.5;
             margin: 30px auto 10px;
             width: 760px;
         }
@@ -169,15 +181,15 @@ main.aboutAs {
     }
 
     .getting__here__title__eng {
-        font-size: 32px;
-        color: #533C1B;
+        font-size: $h3;
+        color: $brown-color;
         font-weight: bold;
         margin-top: 100px;
     }
 
     .getting__here__title__zh {
-        font-size: 28px;
-        color: #C09351;
+        font-size: $h4;
+        color: $carmel-color;
         position: relative;
         display: block;
         margin-left: 250px;
@@ -189,7 +201,7 @@ main.aboutAs {
             position: absolute;
             top: 40%;
             left: -21%;
-            background: #533C1B;
+            background: $brown-color;
             width: 20%;
             height: 2px;
         }
@@ -197,75 +209,87 @@ main.aboutAs {
 
 
 
-    .getting__here__map iframe {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-    }
-
-    .getting__here .para {
-        .fa-solid {
-            font-size: 50px;
-            color: #533C1B;
-            margin-right: 100px;
-        }
-
-        p {
-            color: #C09351;
-            line-height: 3;
-            padding-left: 5px;
+    .getting__here__map {
+        #map {
+            height: 380px;
+            width: 100%;
         }
     }
-
 
     .para {
-        margin: 80px 200px 0;
-        line-height: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 80px;
 
-        li {
-            display: flex;
-            margin-bottom: 50px;
+        div.para__a {
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 15px;
+
+            i.fa-solid {
+                font-size: $h3;
+                color: $brown-color;
+            }
+
+            p {
+                color: $carmel-color;
+            }
         }
 
-        .para__car p,
-        .para__parking p {
-            padding-right: 5px;
+        div.para__bus {
+            grid-column: 1/2;
+            grid-row: 1/2;
+
+            div.para__b {
+                padding-left: 80px;
+                line-height: 2;
+            }
+        }
+
+        div.para__train {
+            grid-column: 2/2;
+            grid-row: 1/2;
+
+            div.para__b {
+                padding-left: 110px;
+                line-height: 2;
+            }
+        }
+
+        div.para__car {
+            grid-column: 1/2;
+            grid-row: 2/2;
+
+            div.para__b {
+                padding-left: 110px;
+                line-height: 2;
+            }
+        }
+
+        div.para__parking {
+            grid-column: 2/2;
+            grid-row: 2/2;
+
+            div.para__b {
+                padding-left: 110px;
+                line-height: 2;
+            }
         }
     }
-
-
-    .aboutAs div.para__a {
-        text-align: center;
-        margin-left: 130px;
-
-        .fa-solid {
-            margin-left: 100px;
-        }
-    }
-
-    div.para__b {
-        line-height: 2;
-
-    }
-
-    .para__parking .fa-solid,
-    .para__car .fa-solid {
-        margin-top: 50px;
-    }
-
 
 
 
     .contact__us__title__eng {
-        font-size: 32px;
-        color: #533C1B;
+        font-size: $h3;
+        color: $brown-color;
         font-weight: bold;
         margin-top: 100px;
     }
 
     .contact__us__title__zh {
-        font-size: 28px;
-        color: #C09351;
+        font-size: $h4;
+        color: $carmel-color;
         position: relative;
         display: block;
         margin-left: 215px;
@@ -277,7 +301,7 @@ main.aboutAs {
             position: absolute;
             top: 40%;
             left: -15%;
-            background: #533C1B;
+            background: $brown-color;
             width: 14%;
             height: 2px;
         }
@@ -290,14 +314,13 @@ main.aboutAs {
         margin: auto;
 
         label {
-            color: #261C0D;
             margin-bottom: 5px;
         }
 
         input {
             height: 30px;
             margin-bottom: 15px;
-            color: #533C1B;
+            color: $brown-color;
         }
 
         .email input {
@@ -318,20 +341,57 @@ main.aboutAs {
             border: 2px solid red;
         }
 
-        button {
-            background-color: white;
-            border: 1.5px solid #533C1B;
-            width: 200px;
-            height: 50px;
-            color: #533C1B;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            display: block;
-            text-align: center;
-            transition: 0.3s;
-            margin: 0 auto 50px;
+        .btn__ctn,
+        .btn-ctn {
+            width: fit-content;
+            margin: 0 auto;
+
+            .button {
+                font-size: $h6;
+                margin-top: 40px;
+                padding: 20px 75px 20px 90px;
+                outline: 0;
+                border: solid .8px $brown-color;
+                background-color: $brown-color;
+                border-radius: 3px;
+                letter-spacing: 15px;
+                transition: all 0.3s;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    transition: all .3s;
+                    transform: scaleX(0);
+                    background-color: #fff;
+                    transform-origin: 0% 50%;
+                }
+
+                span {
+                    color: #fff;
+                    position: relative;
+                    z-index: 3;
+                }
+
+                &:hover {
+
+                    span {
+                        color: $brown-color;
+                    }
+
+                    &::before {
+                        background-color: #fff;
+                        transform: scaleX(1);
+                    }
+                }
+
+
+            }
         }
     }
 
@@ -339,5 +399,4 @@ main.aboutAs {
         max-width: 950px;
         margin: 0 auto;
     }
-
 }

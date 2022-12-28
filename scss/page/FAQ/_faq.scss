@@ -58,8 +58,11 @@ main.FAQ {
     div.navTab__faq__left{
         outline: 2px solid red;
         position: relative;
+        // padding-top: 80px;
     }
     section.nav-tab {
+        position: sticky;
+        top: 410px;//調整左側nav
 
         aside.side-nav {
             
@@ -68,8 +71,7 @@ main.FAQ {
             nav.nav-bg {
                 padding: 2rem 2rem 2rem;
                 height: fit-content;
-                position: sticky;
-                top: 120px;
+                
                 background: #EEEEEE;
                 box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
                 border-radius: 10px;

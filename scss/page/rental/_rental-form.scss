@@ -112,7 +112,7 @@ ul.rental_join_form____breadcrumb {
 
 main.rental_join_form {
     // max-width: calc(100vw - 120px);
-    max-width: 50%;
+    width: 630px;
     // max-width: fit-content;
     margin: auto;
     margin-top: 80px;
@@ -126,7 +126,8 @@ main.rental_join_form {
         div.other__demands,
         div.activity__name__out,
         div.applicant__unit__out,
-        div.principal__name__out {
+        div.Contact__name,
+        div.Contact__phone {
             display: flex;
         }
 
@@ -149,7 +150,9 @@ main.rental_join_form {
 
         .activity__name__out input,
         .applicant__unit__out input,
-        .principal__name__out input {
+        .principal__name__out input,
+        .Contact__name input,
+        .Contact__phone input {
             width: 500px;
             height: 30px;
             border-color: #878787;
@@ -163,15 +166,33 @@ main.rental_join_form {
 
             &:focus {
                 border-color: $brown-color;
-                box-shadow: 0px 1.5px 0px $brown-color;
+                box-shadow: 0px 1px 0px $brown-color;
             }
+        }
+
+        .principal__name__out input {
+            margin-left: 28px;
+        }
+
+        div.Contact__name {
+            margin: 50px 0;
         }
 
         .activity__name__out label,
         .applicant__unit__out label,
         .principal__name__out label,
-        div.word {
+        div.word,
+        .Contact__name label,
+        .Contact__phone label {
             min-width: 110px;
+        }
+
+        .activity__name__out label,
+        .applicant__unit__out label,
+        .principal__name__out label,
+        .Contact__name label,
+        .Contact__phone label {
+            padding-top: 7px
         }
 
         .unit div.unit__spacing,
@@ -213,7 +234,7 @@ main.rental_join_form {
 
         .date_pick input {
             width: 315px;
-            ;
+            font-size: $p;
         }
 
         /*檔案名稱*/
@@ -269,8 +290,83 @@ main.rental_join_form {
             width: 600px;
             margin-top: 20px;
             resize: none;
+
+            &:focus {
+                outline-color: $brown-color;
+            }
         }
 
+        .btn__ctn,
+        .btn-ctn {
+            width: fit-content;
+            margin: 0 auto;
+
+            .button {
+                font-size: $h6;
+                margin-top: 40px;
+                padding: 20px 75px 20px 90px;
+                outline: 0;
+                border: solid .8px $brown-color;
+                background-color: $brown-color;
+                border-radius: 3px;
+                letter-spacing: 15px;
+                transition: all 0.3s;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    transition: all .3s;
+                    transform: scaleX(0);
+                    background-color: #fff;
+                    transform-origin: 0% 50%;
+                }
+
+                span {
+                    color: #fff;
+                    position: relative;
+                    z-index: 3;
+                }
+
+                &:hover {
+
+                    span {
+                        color: $brown-color;
+                    }
+
+                    &::before {
+                        background-color: #fff;
+                        transform: scaleX(1);
+                    }
+                }
+
+
+            }
+        }
+
+
+
+        p#checktext1,
+        p#checktext2,
+        p#checktext3,
+        p#checktext4,
+        p#checktext5 {
+            font-size: 12px;
+            color: red;
+            letter-spacing: 2px;
+
+        }
+
+        p#checktext_1{
+            color: green;
+            letter-spacing: 2px;
+            font-size: 12px;
+        }
 
 
 

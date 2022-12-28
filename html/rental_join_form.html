@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/topbar.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/form.js"></script>
   </head>
   <body>
     <body>
@@ -39,15 +40,38 @@
             <form action="">
               <div class="activity__name__out">
                 <label for="activity__name">活動名稱</label>
-                <input type="text" name="" class="activity__name" /><br />
+                <input
+                  type="text"
+                  name=""
+                  class="activity__name"
+                  id="activity__name"
+                  onchange="checkusrn1()"
+                /><br />
+                <p id="checktext1"></p>
+                <p id="checktext_1"></p>
               </div>
               <div class="applicant__unit__out">
                 <label for="applicant__unit">申請單位</label>
-                <input type="text" name="" class="applicant__unit" /><br />
+                <input
+                  type="text"
+                  name="applicant__unit"
+                  class="applicant__unit"
+                  id="applicant__unit"
+                  onchange="checkusrn2()"
+                />
+                <p id="checktext2"></p>
+                <p id="checktext_2"></p>
               </div>
               <div class="principal__name__out">
                 <label for="principal__name">負責人姓名</label>
-                <input type="text" name="name" class="principal__name" />
+                <input
+                  type="text"
+                  name="principal__name"
+                  class="principal__name"
+                  id="principal__name"
+                  onchange="checkusrn3()"
+                />
+                <p id="checktext3"></p>
               </div>
               <!----------------------單位類別------------------------->
               <div class="unit">
@@ -126,6 +150,30 @@
                   />
                 </div>
               </div>
+              <!----------------------聯絡人姓名與電話------------------------->
+              <div class="Contact__name">
+                <label for="Contact__name">聯絡人姓名</label>
+                <input
+                  type="text"
+                  name="Contact__name"
+                  class="Contact__name"
+                  id="Contact__name"
+                  onclick="checkusrn4()"
+                />
+                <p id="checktext4"></p>
+              </div>
+              <div class="Contact__phone">
+                <label for="Contact__phone">聯絡人電話</label>
+                <input
+                  type="text"
+                  name="Contact__phone"
+                  class="Contact__phone"
+                  maxlength="10"
+                  id="Contact__phone"
+                  onclick="checkusrn5()"
+                />
+                <p id="checktext5"></p>
+              </div>
               <!----------------------選擇場地------------------------->
               <div class="place">
                 <div class="word">選擇場地</div>
@@ -195,12 +243,16 @@
               <!----------------------活動時間------------------------->
               <div class="date_pick">
                 <div class="date_pick__from">
-                  <label for="from">活動開始時間</label>
-                  <input type="date" id="from" name="from" />
+                  <label for="date_pick__from">活動開始時間</label>
+                  <input
+                    type="date"
+                    id="date_pick__from"
+                    name="date_pick__from"
+                  />
                 </div>
                 <div class="date_pick__to">
-                  <label for="to">活動結束時間</label>
-                  <input type="date" id="to" name="to" />
+                  <label for="date_pick__to">活動結束時間</label>
+                  <input type="date" id="date_pick__to" name="date_pick__to" />
                 </div>
               </div>
               <!----------------------活動性質------------------------->
@@ -381,7 +433,11 @@
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="Join__form__btn">確認送出</button>
+              <div class="btn__ctn">
+                <button id="goApplyForm" class="button">
+                  <span>開始申請</span>
+                </button>
+              </div>
             </form>
           </section>
         </main>
