@@ -18,6 +18,7 @@
 
 <body>
     <!-- @@include('layout/topbar.html') -->
+    <header id="header"></header>
     <div class="shops">
         <div class="title-box">
             <h2>SHOPS</h2>
@@ -119,7 +120,18 @@
             </div>
             <div class="imgbox"></div>
         </div>
+    </div>
+
+    <footer id="footer"></footer>
     <!-- @@include('layout/footer.html') -->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#header").load("../html/topbar.html");
+            $("#footer").load("../html/footer.html");
+        });
+    </script>
 </body>
 
 </html>
