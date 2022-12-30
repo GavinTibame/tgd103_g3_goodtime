@@ -21,10 +21,12 @@ function checkusrn2() {
   var check = false;
   var applicant__unit = document.getElementById("applicant__unit").value;
 
-  if (applicant__unit.length == 0) {
+  if (applicant__unit.length == "") {
     document.getElementById("checktext2").innerHTML = `⚠️請填寫此欄位`;
+    document.getElementById("checktext_2").innerHTML = "";
   } else {
-    document.getElementById("checktext2").innerHTML = " ";
+    document.getElementById("checktext_2").innerHTML = "✅驗證成功";
+    document.getElementById("checktext2").innerHTML = "";
 
     check = true;
   }
@@ -35,10 +37,12 @@ function checkusrn2() {
 function checkusrn3() {
   var check = false;
   var principal__name = document.getElementById("principal__name").value;
-  if (principal__name.length == 0) {
+  if (principal__name.length == "") {
     document.getElementById("checktext3").innerHTML = `⚠️請填寫此欄位`;
+    document.getElementById("checktext_3").innerHTML = "";
   } else {
-    document.getElementById("checktext3").innerHTML = " ";
+    document.getElementById("checktext_3").innerHTML = "✅驗證成功";
+    document.getElementById("checktext3").innerHTML = "";
 
     check = true;
   }
@@ -49,10 +53,13 @@ function checkusrn3() {
 function checkusrn4() {
   var check = false;
   var Contact__name = document.getElementById("Contact__name").value;
-  if (Contact__name.length == 0) {
+
+  if (Contact__name.length == "") {
     document.getElementById("checktext4").innerHTML = `⚠️請填寫此欄位`;
+    document.getElementById("checktext_4").innerHTML = "";
   } else {
-    document.getElementById("checktext4").innerHTML = " ";
+    document.getElementById("checktext_4").innerHTML = "✅驗證成功";
+    document.getElementById("checktext4").innerHTML = "";
 
     check = true;
   }
@@ -63,42 +70,57 @@ function checkusrn4() {
 function checkusrn5() {
   var check = false;
   var Contact__phone = document.getElementById("Contact__phone").value;
-  if (Contact__phone.length == 0) {
+
+  if (Contact__phone.length == "") {
     document.getElementById("checktext5").innerHTML = `⚠️請填寫此欄位`;
+    document.getElementById("checktext_5").innerHTML = "";
   } else {
-    document.getElementById("checktext5").innerHTML = " ";
+    document.getElementById("checktext_5").innerHTML = "✅驗證成功";
+    document.getElementById("checktext5").innerHTML = "";
 
     check = true;
   }
   return check;
 }
+
+//file上傳驗證(有點問題)
+function checkfile() {
+  var check = false;
+  var file = document.getElementById("file").value;
+
+  if (file.length == 0) {
+    document.getElementById("checktext6").innerHTML = `⚠️請上傳您的文件`;
+    document.getElementById("checktext_6").innerHTML = "";
+  } else {
+    document.getElementById("checktext_6").innerHTML = "✅上傳成功";
+    document.getElementById("checktext6").innerHTML = "";
+
+    check = true;
+  }
+  return check;
+}
+
+//驗證radio有無勾選
+
+function checkfile() {
+  var check = false;
+  var file = document.getElementById("file").value;
+
+  if (file.length == 0) {
+    document.getElementById("checktext6").innerHTML = `⚠️請上傳您的文件`;
+    document.getElementById("checktext_6").innerHTML = "";
+  } else {
+    document.getElementById("checktext_6").innerHTML = "✅上傳成功";
+    document.getElementById("checktext6").innerHTML = "";
+
+    check = true;
+  }
+  return check;
+}
+
+
 
 /*
-function checkpwd() {
-  var check = false;
-  var password = document.getElementById("password").value;
-  if (password.length < 6) {
-    document.getElementById("checktext2").innerHTML = " × 不要少於6位";
-    check = false;
-  } else {
-    document.getElementById("checktext2").innerHTML = " √";
-    check = true;
-  }
-  return check;
-}
-function checkpwdc() {
-  var check = false;
-  var password = document.getElementById("password").value;
-  var pwdc = document.getElementById("pwdc").value;
-  if (password != pwdc) {
-    document.getElementById("checktext3").innerHTML = " × 兩次輸入密碼不一致";
-    check = false;
-  } else {
-    document.getElementById("checktext3").innerHTML = " √";
-    check = true;
-  }
-  return check;
-}
 function checkcb() {
   var check = false;
 
