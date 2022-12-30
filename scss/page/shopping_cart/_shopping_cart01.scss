@@ -68,20 +68,27 @@
         display: flex;
         justify-content: space-around;
         border-bottom: 1px solid $secondary5-color;
+        position: relative;
 
         li {
             color: $secondary4-color;
             flex-grow: 1;
             margin-bottom: 10px;
-        }
+            
+            &:first-child{
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
 
-        li:first-child {
-            flex-grow: 1.13;
-            margin-left: 30px;
-        }
+            &:nth-child(2){
+                flex-grow: 1.1;
+                margin-left: 30px;
+            }
 
-        li:nth-child(2) {
-            flex-grow: 1.1;
+            &:nth-child(3){
+                flex-grow: 1.1;
+            }
         }
 
     }
@@ -137,38 +144,35 @@
         }
 
         // ==== 數量的input ====
-        ol.input__box{
+        form.input__box{
             display: flex;
             align-items: center;
             // border: 1px solid red;
 
-            .minus, .plus{
-                border: 1px solid $secondary4-color;
-                display: block;
-                width: 25px;
-                height: 25px;
-                text-align: center;
-                line-height: 25px;
-                color: $secondary4-color;
-                background-color:#fff;
-                font-size: 20px;
+            .qtyminus, 
+            .qtyplus{
+                border: none;
+                line-height: 23px;
+                color: #fff;
+                background-color: $primary2-color;
+                font-size: $p;
             }
 
-            .minus{
+            .qtyminus{
                 border-radius: 3px 0 0 3px;
                 cursor: pointer;
             }
 
-            .plus{
+            .qtyplus{
                 border-radius: 0 3px 3px 0;
                 cursor: pointer;
             }
 
-            .input__num{
+            .qty{
                 outline: 0;
                 text-align: center;
-                border: 1px solid $secondary4-color;
-                // outline: 1px solid green;
+                border: 1px solid $primary2-color;
+                font-size: $p;
                 color: $secondary4-color;
                 width: 100px;
                 line-height: 23px;

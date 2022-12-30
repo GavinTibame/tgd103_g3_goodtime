@@ -54,6 +54,7 @@
 
             <!-- 導覽列 -->
             <ul class="cart__info__nav">
+                <li><input type="checkbox" class="select__all"></li>
                 <li>商品資料</li>
                 <li>單價</li>
                 <li>數量</li>
@@ -81,11 +82,12 @@
                 </li>
 
                 <li>
-                    <ol class="input__box">
-                        <li><button class="minus">-</button></li>
-                        <li><input type="text" class="input__num" value="1"></li>
-                        <li><button class="plus">+</button></li>
-                    </ol>
+                    <form class="input__box" >
+                        <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'>
+                        <input type='text' name='quantity' value='1' class='qty'>
+                        <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'>
+                    </form>   
+
                 </li>
 
                 <li> <!-- 小計 !-->
