@@ -5,6 +5,32 @@
     margin-top: 80px;
     font-family: $our-font;
 
+   
+        //麵包屑 
+    .breadcrumb{
+        
+        @include rwd(1024px){
+            padding: 10px 5%;
+        }
+        @include rwd(912px){
+            padding: 10px 6%;
+        }
+        @include rwd(820px){
+            padding: 10px 7%;
+        }
+        @include rwd(540px){
+            
+        }
+        @include rwd(426px){
+            
+        }
+        @include rwd(414px){
+           
+        }
+        @include rwd(376px){
+            
+        }
+    }     
     .swiper {
         //輪播圖
         width: 100%;
@@ -54,12 +80,36 @@
         background-color: #C09351;
     }
 
-    .swiper-slide img {
-        display: block;
-        margin: 0 auto;
-        width: 90%;
-        // max-height: 340px;
-        object-fit: cover;
+    .swiper-wrapper{
+        // width: 90%;
+        // display: block;
+        // margin: 0 auto;
+    }
+    .swiper-slide{
+        background-repeat: no-repeat;
+        // background-size: cover;
+
+        @include rwd(1024px){
+            width: 85%;
+        }
+        @include rwd(820px){
+            
+        }
+        @include rwd(768px){
+            
+        }
+        @include rwd(540px){
+            
+        }
+        @include rwd(426px){
+            
+        }
+        @include rwd(414px){
+           
+        }
+        @include rwd(376px){
+            
+        }
     }
 
     .banner {
@@ -70,12 +120,35 @@
         .banner__textarea {
             position: static;
             .banner__zh{
-                padding-left: 13vw;
+                
+                @include rwd(426px){
+                    font-size: 22px;
+                    letter-spacing: 0.3rem;
+                    }
+                   
+                }
+            
+            .banner .banner__zh::before{
+
+                @include rwd(426px){
+                width: 25vw;
+                margin-right: 0.8rem;
+                }
+            }
+            .banner__eng{
+
+                @include rwd(426px){
+                    font-size: 24px;
+                    letter-spacing: 0.2rem;
+                    padding: 3.2rem 2.6rem 0rem;
+                    line-height: 1.5;
+                    }
+                }
             }
         }
         
         
-    }
+    
 
 
 
@@ -109,7 +182,7 @@
             }
         }
     }
-}
+
 
 .exhibition-event {
     //展演區
@@ -118,6 +191,13 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0px, 1fr));
     gap: 20px 22px;
+
+    @include rwd(426px){
+        grid-template-columns: repeat(2, minmax(0px, 1fr));
+        margin: 0px 10px 0px;
+        gap: 20px 10px;
+        }
+    }
 
     img {
         width: 100%;
@@ -152,10 +232,7 @@
         margin-top: 30px;
     }
 
-    ul {
-        margin-bottom: 70px;
-    }
-
+    
     /*-- 按紐 --*/
     .page-link {
         color: #000;
