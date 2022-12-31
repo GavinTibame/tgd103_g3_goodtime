@@ -220,10 +220,47 @@
 }
 
 
-@media all and (max-width: $mobile-width){
+@media all and (max-width: 428px){
 
     .sign_up-wrapper{
-        
+        .sign_up-bg{
+            .sign_up-login-box{
+                height: 100px;
+                width: 350px;
+                h2{
+                    font-size: 20px;
+                    text-align: center;
+                }
+                
+                h3{
+                    font-size: 20px;
+                    text-align: center;
+
+                    &::after{
+                        display: none;
+                    }
+                }
+
+
+            }
+            .sign_up-login-content{
+                width: 80%;
+                height: 830px;
+                .sign_up-login-width{
+
+                    .sign_up-dotted-line{
+
+                        p{
+                            margin-bottom: 10px;
+                        }
+
+                        button{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
