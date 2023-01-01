@@ -1,20 +1,3 @@
-$width_1024: 1024px;
-$width_428: 428px;
-
-@mixin width_1024(){
-    @media all and (max-width: $width_1024){
-        @content;
-    }
-}
-
-@mixin width_428(){
-    @media all and (max-width: $width_428){
-        @content;
-    }
-}
-
-
-
 .store__wrapper{
     font-family: $our-font;
     width: 80%;
@@ -23,12 +6,13 @@ $width_428: 428px;
     // ==== 麵包屑 ====
     .crumb{
         margin-top: 80px;
+
     }
 
     // ==== banner輪播圖 ====
     .swiper{
-        // position: relative;
-        margin: auto;
+        width: 100%;
+        --swiper-navigation-size: 0;
 
         .swiper-slide{
             display: flex;
@@ -42,21 +26,31 @@ $width_428: 428px;
         }
 
         .swiper-button-next{
-            color: rgba(0, 0, 0, 0) !important;
-            background-color: $brown-color;
-            width: 4%;
-            border-radius: 50%;
-            margin-right: 15px;
+
+            i.fa-solid.fa-circle-arrow-right {
+                font-weight: 900;
+                color: #c09351;
+                font-size: 30px;
+                background-color: #fff;
+                border-radius: 50%;
+            }
+    
         }
 
         .swiper-button-prev{
-            color: rgba(0, 0, 0, 0) !important;
-            background-color: $brown-color;
-            width: 4%;
-            border-radius: 50%;
-            margin-left: 15px;
-          }
 
+            i.fa-solid.fa-circle-arrow-left {
+                font-weight: 900;
+                color: #c09351;
+                font-size: 30px;
+                background-color: #fff;
+                border-radius: 50%;
+            }
+        }
+
+        .swiper-pagination-bullet-active{
+            background-color: $primary2-color;
+        }
     }
        
 
@@ -73,16 +67,30 @@ $width_428: 428px;
         .banner__eng{
             padding: 2rem 4.2rem 0;
 
-            @include width_428(){
+            @include rwd(1024px){
                 font-size: $h3;
+            }
+
+            @include rwd(768px){
+                font-size: 28px;
+            }
+
+            @include rwd(428px){
+                font-size: 20px;
+                padding: 2rem 1.2rem 0;
             }
         }
 
         .banner__zh{
             padding-left: 11vw;
 
-            @include width_428(){
+            @include rwd(768px){
                 font-size: $h4;
+            }
+
+            @include rwd(428px){
+                font-size: 20px;
+                padding-right: 0;
             }
 
             &::before {
@@ -90,6 +98,15 @@ $width_428: 428px;
                 // 黑色底線長度調整
                 width: 11vw;
                 margin-right: 1.8rem;
+
+                @include rwd(768px){
+                    margin-left: 2.2rem;
+                }
+
+                @include rwd(428px){
+                    // margin-left: 5rem;
+                    margin-right: 0.8rem;
+                }
             }
         }
     }
@@ -112,8 +129,18 @@ $width_428: 428px;
                 background-color: #fff;
                 transition: 0.3s;
 
+                @include rwd(428px){
+                    margin-left: 4%;
+                    padding: 0;
+                    font-size: $small;
+                }
+
                 &:first-child{
                     margin-left: 3%;
+
+                    @include rwd(428px){
+                        margin-left: 0;
+                    }
                 }
 
                 &:hover{
@@ -132,6 +159,12 @@ $width_428: 428px;
                 border: 0;
                 cursor: pointer;
                 font-size: $p;
+
+                @include rwd(428px){
+                    // margin-left: 0;
+                    margin-left: 12%;
+                    font-size: $small;
+                }
             }
         }
     }
@@ -156,11 +189,11 @@ $width_428: 428px;
                 // border: 1px solid blue;
                
 
-                @include width_1024(){
+                @include rwd(1024px){
                     width: 33%;
                 }
 
-                @include width_428(){
+                @include rwd(428px){
                     width: 50%;
                 }
 
@@ -224,8 +257,12 @@ $width_428: 428px;
                             margin-top: 5px;
                             font-size: 14px;
                             color: #B3B3B3;
+
+                            @include rwd(768px){
+                                font-size: $small;
+                            }
                             
-                            @include width_428(){
+                            @include rwd(428px){
                                 font-size: $small;
                             }
                         }
@@ -236,7 +273,7 @@ $width_428: 428px;
                             font-weight: $fw7;
                             margin-top: 10px;
 
-                            @include width_428(){
+                            @include rwd(428px){
                                 font-size: 14px;
                             }
     
@@ -246,6 +283,14 @@ $width_428: 428px;
                                 line-height: 1.6;
                                 color: #C09351;
                                 text-align: right;
+
+                                @include rwd(768px){
+                                    font-size: $p;
+                                }
+
+                                @include rwd(428px){
+                                    font-size: 14px;
+                                }
                             }
                         }
     
