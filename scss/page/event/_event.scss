@@ -21,7 +21,7 @@
         @include rwd(540px){
             
         }
-        @include rwd(426px){
+        @include rwd(428px){
             
         }
         @include rwd(414px){
@@ -98,10 +98,7 @@
         @include rwd(768px){
             
         }
-        @include rwd(540px){
-            
-        }
-        @include rwd(426px){
+        @include rwd(428px){
             
         }
         @include rwd(414px){
@@ -121,24 +118,28 @@
             position: static;
             .banner__zh{
                 
-                @include rwd(426px){
-                    font-size: 22px;
+                @include rwd(428px){
+                    font-size: 16px;
                     letter-spacing: 0.3rem;
                     }
                    
-                }
-            
-            .banner .banner__zh::before{
-
-                @include rwd(426px){
-                width: 25vw;
-                margin-right: 0.8rem;
+                &::before{
+                    @include rwd(428px){
+                        width: 25vw;
+                        margin-right: 0.5rem;
+                        }
                 }
             }
+           
             .banner__eng{
 
-                @include rwd(426px){
-                    font-size: 24px;
+                @include rwd(768px){
+                    font-size: 22px;
+                    padding: 3.2rem 4.2rem 0rem;
+                 }
+
+                @include rwd(428px){
+                    font-size: 16px;
                     letter-spacing: 0.2rem;
                     padding: 3.2rem 2.6rem 0rem;
                     line-height: 1.5;
@@ -192,7 +193,11 @@
     grid-template-columns: repeat(3, minmax(0px, 1fr));
     gap: 20px 22px;
 
-    @include rwd(426px){
+    @include rwd(768px){
+        margin: 95px 65px 5px;
+        grid-template-columns: repeat(2, minmax(0px, 1fr));
+     }
+    @include rwd(428px){
         grid-template-columns: repeat(2, minmax(0px, 1fr));
         margin: 0px 10px 0px;
         gap: 20px 10px;
@@ -210,18 +215,41 @@
         text-align: left;
         padding-left: 5px;
 
+        @include rwd(428px){
+            font-size: 12px;
+            width: 100%;
+        }
+
         &:nth-child(2) {
             color: white;
             background-color: $lakeGreen-color;
             font-size: $p;
             margin: 10px;
             margin-left: revert;
+
+            @include rwd(768px){
+                font-size: 14px;
+                width: 40%;
+             }
+             @include rwd(428px){
+                font-size: 12px;
+                width: 40%;
+            }
         }
 
         &:nth-child(3) {
             color: white;
             font-size: $p;
             background-color: $secondary2-color;
+
+            @include rwd(768px){
+                font-size: 14px;
+                width: 40%;
+             }
+             @include rwd(428px){
+                font-size: 12px;
+                width: 40%;
+            }
         }
     }
 
@@ -230,10 +258,22 @@
         font-weight: bold;
         color: $font-color;
         margin-top: 30px;
+
+        @include rwd(768px){
+            font-size: 20px;
+        }
+        @include rwd(428px){
+            font-size: 12px;
+        }
     }
 
     
     /*-- 按紐 --*/
+    .pagination{
+        @include rwd(768px){
+        margin-top: 90px;
+        }
+    }
     .page-link {
         color: #000;
         font-weight: bold;
