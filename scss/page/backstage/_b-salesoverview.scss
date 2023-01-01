@@ -1,6 +1,8 @@
 .b-salesoverview{
     max-width: 1280px;
+    margin: 0 auto;
     margin-top: 90px;
+    box-sizing: border-box;
 }
 .b-salesoverview p{
     font-size: 16px;
@@ -20,8 +22,8 @@
     font-family: 'Noto Sans TC', sans-serif;
     color: #333;
 }
-.info-box1{
-    background-color: #ccc;
+.b-salesoverview .info-box1{
+    background-color: rgb(230, 230, 230);
     height: 200px;
     p{
         width: 100%;
@@ -81,7 +83,7 @@
     border-radius: 4px;
     outline: none;
     color: #333;
-    background-color: #C3BCB1;
+    background-color: #dddddd;
     height: 30px;
     width: 80px;
     line-height: 30px;
@@ -115,8 +117,8 @@
     color: #333;
     border-left: 4px solid #333;
 }
-.info-box2{
-    background-color: #ccc;
+.b-salesoverview .info-box2{
+    background-color: rgb(230, 230, 230);
     height: 120px;
     p{
         width: 100%;
@@ -143,9 +145,9 @@
         }
     }
 }
-.info-box3{
+.b-salesoverview .info-box3{
     margin-top: 20px;
-    background-color: #ccc;
+    background-color: rgb(230, 230, 230);
     height: 120px;
     p{
         width: 100%;
@@ -172,8 +174,8 @@
         }
     }
 }
-.info-box4{
-    background-color: #ccc;
+.b-salesoverview .info-box4{
+    background-color: rgb(230, 230, 230);
     height: 260px;
     position: relative;
     p{
@@ -220,8 +222,8 @@
         height: 180px;
     }
 }
-.info-box5{
-    background-color: #ccc;
+.b-salesoverview .info-box5{
+    background-color: rgb(230, 230, 230);
     margin-bottom: 60px;
     p{
         width: 100%;

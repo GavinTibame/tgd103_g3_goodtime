@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="../css/topbar.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/form.js"></script>
   </head>
   <body>
     <body>
       <div class="wrapper">
-        <header id="header"></header>
+        <!-- <header id="header"></header> -->
         <!--------------------麵包穴----------------------->
         <ul class="rental_join_form____breadcrumb">
           <li><a href="#">首頁</a></li>
@@ -22,12 +21,7 @@
         </ul>
         <!--------------------banner圖片----------------------->
         <div class="rental_join_form__banner">
-          <div
-            class="banner__img"
-            style="
-              background-image: url(../img/rental_join_form/rentalForm_banner.jpg);
-            "
-          >
+          <div class="banner__img">
             <div class="banner__textarea">
               <div class="banner__eng">RENTAL<br />APPLICATION</div>
               <div class="banner__zh">場地申請表</div>
@@ -42,10 +36,10 @@
                 <label for="activity__name">活動名稱</label>
                 <input
                   type="text"
-                  name=""
+                  name="activity__name"
                   class="activity__name"
                   id="activity__name"
-                  onchange="checkusrn1()"
+                  onblur="checkusrn1()"
                 /><br />
                 <p id="checktext1"></p>
                 <p id="checktext_1"></p>
@@ -57,7 +51,7 @@
                   name="applicant__unit"
                   class="applicant__unit"
                   id="applicant__unit"
-                  onchange="checkusrn2()"
+                  onblur="checkusrn2()"
                 />
                 <p id="checktext2"></p>
                 <p id="checktext_2"></p>
@@ -69,9 +63,10 @@
                   name="principal__name"
                   class="principal__name"
                   id="principal__name"
-                  onchange="checkusrn3()"
+                  onblur="checkusrn3()"
                 />
                 <p id="checktext3"></p>
+                <p id="checktext_3"></p>
               </div>
               <!----------------------單位類別------------------------->
               <div class="unit">
@@ -80,7 +75,7 @@
                   <div class="unit__1 unit__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="unit__radio"
                       type="radio"
                       id="unit__1"
                       value="1"
@@ -90,7 +85,7 @@
                   <div class="unit__2 unit__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="unit__radio"
                       type="radio"
                       id="unit__2"
                       value="2"
@@ -100,7 +95,7 @@
                   <div class="unit__3 unit__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="unit__radio"
                       type="radio"
                       id="unit__3"
                       value="3"
@@ -110,7 +105,7 @@
                   <div class="unit__4 unit__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="unit__radio"
                       type="radio"
                       id="unit__4"
                       value="4"
@@ -120,7 +115,7 @@
                   <div class="unit__5 unit__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="unit__radio"
                       type="radio"
                       id="unit__5"
                       value="5"
@@ -145,10 +140,14 @@
                     type="file"
                     name="file"
                     class="file"
+                    id="file"
                     multiple="multiple"
                     onchange="document.getElementById('textfield').value=this.value"
+                    onblur="checkfile()"
                   />
                 </div>
+                <p id="checktext6"></p>
+                <p id="checktext_6"></p>
               </div>
               <!----------------------聯絡人姓名與電話------------------------->
               <div class="Contact__name">
@@ -158,21 +157,23 @@
                   name="Contact__name"
                   class="Contact__name"
                   id="Contact__name"
-                  onclick="checkusrn4()"
+                  onblur="checkusrn4()"
                 />
                 <p id="checktext4"></p>
+                <p id="checktext_4"></p>
               </div>
               <div class="Contact__phone">
                 <label for="Contact__phone">聯絡人電話</label>
                 <input
-                  type="text"
+                  type="tel"
                   name="Contact__phone"
                   class="Contact__phone"
                   maxlength="10"
                   id="Contact__phone"
-                  onclick="checkusrn5()"
+                  onblur="checkusrn5()"
                 />
                 <p id="checktext5"></p>
+                <p id="checktext_5"></p>
               </div>
               <!----------------------選擇場地------------------------->
               <div class="place">
@@ -330,6 +331,7 @@
                     <label for="nature__activity__7">其他</label>
                   </div>
                 </div>
+                <p id="checktext6"></p>
               </div>
               <!----------------------觀賞性質------------------------->
               <div class="ornamental__nature">
@@ -444,6 +446,7 @@
         <footer id="footer"></footer>
       </div>
 
+      <!-- <script src="../js/form.js"></script> -->
       <script src="../js/jquery-3.2.1.min.js"></script>
 
       <script>

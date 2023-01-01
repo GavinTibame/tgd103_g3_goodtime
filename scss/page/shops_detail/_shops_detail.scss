@@ -1,0 +1,197 @@
+.shops__detail__wrapper{
+    font-family: $our-font;
+    width: 80%;
+    margin: 0 auto;
+
+    // ==== 麵包屑 ====
+    .crumb{
+        margin-top: 80px;
+
+        li{
+            &::before {
+                content: "";
+                height: .6rem;
+                border-left: solid 1px $font-color;
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+
+            &:first-child:before{
+                content: "";
+                display: none;
+            }
+
+            a{
+                color: $secondary4-color;
+            }
+
+            &:last-child a{
+                color: $spotlight-color;
+            }
+        }
+
+    }
+
+    // ==== banner大圖 ====
+    .shops__detail__banner{
+        img{
+            width: 100%;
+        }
+    }
+
+    // ==== 主要內容 ====
+    section{
+        display: flex;
+        // outline: 1px solid red;
+
+        // ==== 左方區塊 ====
+        .section__left{
+            // outline: 1px solid blue;
+            flex-grow: .9;
+
+            h1{
+                font-size: $h3;
+                color: $primary1-color;
+                line-height: 1.6;
+                margin: 20px 0 20px 5%;
+            }
+
+            img{
+                width: 90%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            p{
+                color: $secondary4-color;
+                font-size: $p;
+                line-height: 2;
+                margin: 5%;
+            }
+
+            .left__pics{
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                margin: 0 auto;
+
+                img{
+                    width: 100%;
+                }
+
+            }
+
+            h2{
+                color: $primary1-color;
+                font-size: $h6;
+                line-height: 1.6;
+                margin: 5%;
+            }
+
+            ul{     
+                margin: 10px 7%;
+                list-style-type: '▴';  
+                color: $secondary4-color;
+
+                li{
+                    line-height: 2;  
+                }
+
+            }
+        }
+
+        // ==== 右方區塊 ====
+        .section__right{
+            // outline: 1px solid blue;
+            flex-grow: 1;
+
+            h2{
+                color: $primary1-color;
+                font-size: $h6;
+                line-height: 1.6;
+                margin-top: 18%;
+                margin-left: 10%;
+                margin-right: 5%;
+                padding-bottom: 2%;
+                border-bottom: 1px solid $secondary5-color;
+            }
+
+            // ==== 文字 ====
+            .text{
+                margin: 5%;
+                padding-left: 5%;
+
+                li{
+                    // border: 1px solid red;
+                    display: flex;
+                    line-height: 2.5;
+                    color: $secondary4-color;
+
+                    h3{
+                        margin-right: 5%;
+                        color: $secondary5-color;
+                    }
+
+                    h4 a{
+                        color: $primary1-color;
+                        transition: .3s;
+
+                        &:hover{
+                            
+                            color: $primary2-color;
+                        }
+                    }
+
+                    &:last-child{
+                        padding-bottom: 5%;
+                        border-bottom: 1px solid $secondary5-color;
+                    }
+
+                }
+
+            }
+
+            // ==== icon ====
+            .icon{
+                // border: 1px solid purple;
+                margin: 5%;
+
+                li{
+                    display: flex;
+                    padding: 5%;
+
+                    div{
+                        flex-grow: 1;
+                    }
+
+                    .material-symbols-outlined{
+                        color: $primary1-color;
+                        font-size: $h3;
+                        vertical-align: middle;
+                    }
+
+                    span + span{
+                        color: $secondary4-color;
+                        font-size: $p;
+                        line-height: 32px;
+                        margin-left: 5%;
+                        letter-spacing: 3px;
+                    }
+
+                    &:last-child div:last-child{
+                        padding-left: 1%;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+}

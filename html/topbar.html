@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header class="topbar">
@@ -21,12 +20,12 @@
                 </a>
             </div>
             <ul class="topbar-btn-group">
-                <li><a href="#">關於韶光</a></li>
+                <li><a href="about.html">關於韶光</a></li>
                 <li><a href="#">最新消息</a></li>
-                <li><a href="#">展演活動</a></li>
+                <li><a href="event.html">展演活動</a></li>
                 <li><a href="#">場地租借</a></li>
                 <li><a href="#">風格好店</a></li>
-                <li><a href="#">文創商城</a></li>
+                <li><a href="store.html">文創商城</a></li>
                 <li><a href="#">常見問題</a></li>
             </ul>
             <div class="dividing-line"></div>
@@ -51,11 +50,11 @@
                 </a>
             </div>
             <ul class="anchor-box">
-                <li><a href="" class="a-g">G</a></li>
-                <li><a href="" class="a-news">N</a></li>
-                <li><a href="" class="a-events">E</a></li>
-                <li><a href="" class="a-aboutus">A</a></li>
-                <li><a href="" class="a-shops">S</a></li>
+                <li><a href="#" id="a-g" data-scroll="anchor1" class="a-g js">G</a></li>
+                <li><a id="a-news" data-scroll="anchor2" class="a-news js">N</a></li>
+                <li><a id="a-events" data-scroll="anchor3" class="a-events js">E</a></li>
+                <li><a  data-scroll="anchor4" class="a-aboutus js">A</a></li>
+                <li><a id="a-shops" data-scroll="anchor5" class="a-shops js">S</a></li>
                 <div class="hide-box"></div>
             </ul>
             <a href="">
@@ -70,5 +69,48 @@
             </ul>
         </div> -->
     </header>
+    <script>
+            //錨點
+    const a_news = document.querySelector('.a-news');
+    const a_events = document.querySelector('.a-events');
+    const a_aboutus = document.querySelector('.a-aboutus');
+    const a_shops = document.querySelector('.a-shops');
+
+
+    a_news.addEventListener("click", function(){
+        const element = document.getElementById('anchor1');
+        element.scrollIntoView(true);
+        element.scrollIntoView({behavior : 'smooth'});
+    });
+
+    // a_events.addEventListener("click", function(){
+    //     document.querySelector('#anchor2').scrollIntoView(true);
+    // })
+
+    a_aboutus.addEventListener("click", function(){
+        document.querySelector('#anchor3').scrollIntoView(true);
+        console.log('t');
+        function test(){
+            window.scrollBy(0, -100);
+        }
+        test();
+        console.log('tt');
+    })
+
+
+    a_shops.addEventListener("click", function(){
+        document.querySelector('#anchor4').scrollIntoView(true);
+        window.scrollBy(0, -100);
+        
+    })
+
+
+    // console.log("[navDomList]" , navDomList);
+    // const navTable ={};
+    // for (const a of navDomList){
+    //     console.log(a.dataset);
+    //     console.log(a.id);
+    // }
+    </script>
 </body>
 </html>
