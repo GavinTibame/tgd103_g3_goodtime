@@ -92,7 +92,13 @@
     transform: translate(-50%,-50%);
     font-size: 24px;
 }
-
+.topbar .menu-icon-box{
+    position: absolute;
+    top: 20px;
+    right: 2%;
+    font-size: 30px;
+    display: none;
+}
 /* left-area */
 .topbar .left-area {
     position: fixed;
@@ -307,6 +313,11 @@
     height: 64px;
     /* border-right: #533C1B solid 1px; */
 }
+.topbar .top-area .on{
+    right: 0;
+    transition: all 1s;
+}
+
 
 @media all and (max-width: 1260px){
     .topbar{
@@ -336,12 +347,6 @@
 
 @media all and (max-width: 856px){
     .topbar{
-        .top-area_shadowbox{
-            height: 70px;
-        }
-        .top-area{
-            height: 70px;
-        }
         .logo-box{
             a{
                 img{
@@ -354,16 +359,40 @@
         }
         .member-icon-box{
             top: 15px;
+            display: none;
+        }
+        .menu-icon-box{
+            display: block;
+        }
+        .top-area_shadowbox{
+            height: 70px;
+        }
+        .top-area{
+            height: 70px;
         }
         .topbar-btn-group{
-            display: none;
+            width: 70%;
+            background-color: gray;
+            height: 900px;
+            text-align: center;
+            margin-right: 0;
+            transition: all 1s;
+            right: -70%;
+
+            li{
+                display: block;
+                margin-left: 0;
+
+                &:first-child{
+                    margin-left: 0;
+                }
+            }
         }
     }
 }
 
 @media all and (max-width: $mobile-width){
     .topbar{
-
         .left-area{
             display: none;
         }

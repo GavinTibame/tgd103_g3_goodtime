@@ -19,7 +19,7 @@
                     <img src="../img/logo/logo2.png" alt="">
                 </a>
             </div>
-            <ul class="topbar-btn-group">
+            <ul class="topbar-btn-group" id="topbar-btn-group">
                 <li><a href="about.html">關於韶光</a></li>
                 <li><a href="#">最新消息</a></li>
                 <li><a href="event.html">展演活動</a></li>
@@ -32,6 +32,11 @@
             <div class="member-icon-box">
                 <a href="">
                     <i class="fa-solid fa-user member-icon"></i>
+                </a>
+            </div>
+            <div class="menu-icon-box" id="menu-icon-box">
+                <a >
+                    <i class="fa-solid fa-bars"></i>                
                 </a>
             </div>
         </div>
@@ -70,7 +75,19 @@
         </div> -->
     </header>
     <script>
-            //錨點
+    
+    //漢堡線控制
+    let menuIcon = document.getElementById('menu-icon-box');
+    let menu = document.getElementById('topbar-btn-group');
+
+    let i = 0;
+    menuIcon.addEventListener('click', function(){
+        document.getElementById('topbar-btn-group').classList.toggle('on');
+    });
+
+
+
+    //錨點
     const a_news = document.querySelector('.a-news');
     const a_events = document.querySelector('.a-events');
     const a_aboutus = document.querySelector('.a-aboutus');
