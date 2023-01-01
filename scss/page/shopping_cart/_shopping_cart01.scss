@@ -13,6 +13,18 @@
         justify-content: space-around;
         margin-top: 120px;
 
+        @include rwd(1024px){
+            width: auto;
+
+            @include rwd(912px){}
+            @include rwd(768px){}
+            @include rwd(428px){}
+                
+            
+        }
+
+        
+
         li {
             // border: 1px solid blue;
             width: 33%;
@@ -32,6 +44,10 @@
                 line-height: 1.6;
                 color: #b3b3b3;
                 margin-top: 10px;
+
+                @include rwd(428px){
+                    font-size: 14px;
+                }
             }
         }
 
@@ -48,6 +64,26 @@
                 position: absolute;
                 left: 55%;
                 top: 20%;
+
+                @include rwd(1024px){
+                    width: 100%;
+                    left: 56%;
+                }
+
+                @include rwd(912px){
+                    width: 100%;
+                    left: 57%;
+                }
+
+                @include rwd(768px){
+                    // width: 200px;
+                    left: 58%;
+                }
+
+                @include rwd(428px){
+                    // width: 100px;
+                    left: 64%;
+                }
             }
         }
 
@@ -70,6 +106,10 @@
         border-bottom: 1px solid $secondary5-color;
         position: relative;
 
+        @include rwd(428px){
+            display: none;
+        }
+
         li {
             color: $secondary4-color;
             flex-grow: 1;
@@ -84,10 +124,18 @@
             &:nth-child(2){
                 flex-grow: 1.1;
                 margin-left: 30px;
+
+                @include rwd(768px){
+                    flex-grow: 1.6;
+                }
             }
 
             &:nth-child(3){
                 flex-grow: 1.1;
+
+                @include rwd(768px){
+                    flex-grow: 1;
+                }
             }
         }
 
@@ -101,21 +149,36 @@
         // outline: 1px solid blue;
         position: relative;
 
+        @include rwd(428px){
+            flex-wrap: wrap;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $secondary5-color;
+        }
+
         >li {
             flex-basis: 0;
             flex-grow: 1;
             // outline: 1px solid red;
+
+            @include rwd(428px){
+                margin-top: 10px;
+            }
         }
 
         >li:first-child {
             position: absolute;
             left: 0;
             top: 30%;
+
+            @include rwd(428px){
+                top: 20%;
+            }
         }
 
         >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
+            
         }
 
         >li:last-child {
@@ -128,19 +191,49 @@
         >li:nth-child(3){
             padding-left: 10px;
             flex-grow: 0.9;
+
+            @include rwd(768px){
+                padding-left: 3px;
+                flex-grow: 1.1;
+            }
+
+            @include rwd(428px){
+                flex-grow: 0;
+                flex-basis: 150px;
+            }
         }
 
-        >li:nth-child(4) {
+        >li:nth-child(4){
             flex-grow: 1.1;
+
+            @include rwd(768px){
+                flex-grow: 1;
+            }
+        }
+
+        >li:nth-child(5){
+
+            @include rwd(428px){
+                padding-left: 30px;
+                padding-right: 24%;
+            }
         }
 
         h2 {
+            font-size: $h6;
             line-height: 1.6;
             color: $secondary4-color;
+
+            @include rwd(768px){
+                font-size: 14px;
+            }
         }
 
         p {
             color: $secondary5-color;
+            @include rwd(768px){
+                font-size: 14px;
+            }
         }
 
         // ==== 數量的input ====
@@ -148,6 +241,7 @@
             display: flex;
             align-items: center;
             // border: 1px solid red;
+
 
             .qtyminus, 
             .qtyplus{
@@ -177,6 +271,14 @@
                 width: 100px;
                 line-height: 23px;
                 padding: 0 3px;
+
+                @include rwd(768px){
+                    width: 50%;
+                }
+
+                @include rwd(428px){
+                    width: 100px;
+                }
             }
         }
 
@@ -185,6 +287,10 @@
     // ==== 送貨和訂單資訊 ====
     .delivery__sum{
         display: flex;
+
+        @include rwd(768px){
+            flex-direction: column;        
+        }
 
         .delivery{
             flex-grow: 1;
@@ -198,6 +304,10 @@
                     line-height: 1.6;
                     color: $secondary4-color;
                     margin-bottom: 3px;
+
+                    @include rwd(428px){
+                        font-size: 14px;
+                    }
                 }
 
                 select.method{
@@ -208,6 +318,16 @@
                     padding-left: 2px;
                     color: $secondary4-color;
                     border-radius: 3px;
+
+                    @include rwd(768px){
+                        width: 400px;
+                    }
+
+                    @include rwd(428px){
+                        width: 100%;
+                    }
+
+                    
                 }
 
                 input.address{
@@ -218,6 +338,14 @@
                     padding-left: 5px;
                     color: $secondary4-color;
                     border-radius: 3px;
+
+                    @include rwd(768px){
+                        width: 400px;
+                    }
+
+                    @include rwd(428px){
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -254,6 +382,24 @@
                 margin-top: 20px;
                 color: $primary2-color;
                 font-weight:600;
+            }
+
+            .btn__ctn .button{
+
+                @include rwd(428px){
+                    letter-spacing: 5px;
+                    padding: 0;
+                    line-height: 2;
+                    width: 200px;
+                    margin-top: 30px;
+                }
+
+                span{
+                    
+                    @include rwd(428px){
+                        font-size: 14px;
+                    }
+                }
             }
 
         }
