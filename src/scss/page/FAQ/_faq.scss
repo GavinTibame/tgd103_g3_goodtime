@@ -1,7 +1,26 @@
+$width_768: 768px;
+$width_980: 980px;
+
+@mixin width_768() {
+    @media all and (max-width: $width_768) {
+        @content;
+    }
+}
+
+@mixin width_980() {
+    @media all and (max-width: $width_980) {
+        @content;
+    }
+}
+
 main.FAQ {
     width: calc(100vw - 112px);
     margin: 0 auto;
     padding-top: 80px;
+
+    .wrapper {
+        width: auto;
+    }
 
     .banner {
         position: relative;
@@ -13,6 +32,10 @@ main.FAQ {
             background-position: 15% center;
             box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
             background-repeat: no-repeat;
+
+            @include width_980 {
+                height: 300px;
+            }
         }
 
         .banner__textarea,
@@ -30,6 +53,11 @@ main.FAQ {
             color: $brown-color;
             letter-spacing: .8rem;
             padding: 2.2rem 4.2rem 2rem;
+
+            @include width_980 {
+                font-size: 36px;
+                padding: 1.2rem 3.2rem 1rem;
+            }
         }
 
         .banner__zh,
@@ -51,27 +79,43 @@ main.FAQ {
             padding-left: 10vw;
             padding-right: 4.2rem;
             letter-spacing: .68rem;
+
+            @include width_980 {
+
+                font-size: 32px;
+                padding-bottom: 1.5rem;
+                padding-left: 4vw;
+                padding-right: 3.2rem;
+            }
         }
 
     }
 
-    div.navTab__faq__left{
+    div.navTab__faq{
+        display: grid;
+        grid-template-columns:repeat(3,minmax(0px, 1fr));
+        // grid-template-rows: 1fr;
+    }
+
+    div.navTab__faq__left {
         outline: 2px solid red;
-        position: relative;
-        // padding-top: 80px;
+        // position: relative;
+    }
+    div.navTab__faq__right{
+        grid-column: 2 / 4;
     }
     section.nav-tab {
-        position: sticky;
-        top: 410px;//調整左側nav
+        // position: sticky;
+        top: 410px; //調整左側nav
 
         aside.side-nav {
-            
+
             width: 280px;
 
             nav.nav-bg {
                 padding: 2rem 2rem 2rem;
                 height: fit-content;
-                
+
                 background: #EEEEEE;
                 box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
                 border-radius: 10px;
@@ -89,25 +133,14 @@ main.FAQ {
             width: 10rem;
             border-top: solid 3px $font-color;
             display: inline-block;
+            margin: 25px 0;
         }
 
         div {
-            padding: 1rem 2rem 1rem 0;
-            position: relative;
+            padding: 5px 0 5px 10px;
 
-            div {
-                display: none;
-            }
-
-            div.-active {
-                background-color: $sub-skin-color;
-                width: 10rem;
-                height: 3rem;
-                position: absolute;
-                z-index: -1;
-                top: 28px;
-                display: block;
-                left: .2rem;
+            &:hover{
+                background-color: #f6e6cf;
             }
         }
 
@@ -123,12 +156,7 @@ main.FAQ {
         }
     }
 
-    div.navTab__faq {
-        display: flex;
-    }
-
-
-    section.ticket__out{
+    section.ticket__out {
 
         h3.ticket__smallTitle {
             margin-left: 4.2rem;
@@ -139,10 +167,15 @@ main.FAQ {
             top: 0;
             right: 0;
             margin-top: 80px;
+
+            @include width_980 {
+                font-size: 38px;
+                margin-left: 3.8rem;
+            }
         }
 
         div.ticket {
-            background-color: $sub-LTgray-color;
+            background-color: rgba(217, 217, 217, .6);
             padding-bottom: 50px;
             padding-left: 35px;
             max-width: 90%;
@@ -156,11 +189,30 @@ main.FAQ {
             h5 {
                 font-size: $h5;
                 margin-bottom: 30px;
+
+                @include width_980 {
+                    font-size: 20px;
+                }
             }
         }
 
         .faq-drawer {
             margin-bottom: 30px;
+
+            p {
+                padding: 20px;
+                background-color: rgba(255, 255, 255, .6);
+            }
+
+            div.faq-drawer__content ul {
+                padding: 20px 20px 20px 30px;
+                background-color: rgba(255, 255, 255, .6);
+                list-style: auto;
+
+                @include width_980 {
+                    font-size: 14px;
+                }
+            }
         }
 
         .faq-drawer__content-wrapper {
@@ -169,7 +221,6 @@ main.FAQ {
             overflow: hidden;
             transition: 0.25s ease-in-out;
             line-height: 2;
-            margin-top: 20px;
         }
 
         .faq-drawer__title {
@@ -185,6 +236,10 @@ main.FAQ {
             transition: all 0.25s ease-out;
             padding-left: 15px;
 
+            @include width_980 {
+                font-size: 16px;
+            }
+
             &::after {
                 border-style: solid;
                 border-width: 1px 1px 0 0;
@@ -195,19 +250,23 @@ main.FAQ {
                 left: -25px;
                 position: relative;
                 right: 20px;
-                top: 12.5px;
+                top: 11px;
                 transform: rotate(135deg);
                 transition: 0.35s ease-in-out;
                 vertical-align: top;
                 width: 10px;
+
+                @include width_980 {
+                    top: 8px;
+                }
             }
 
-            &:hover{
-                background-color:$carmel-color;
+            &:hover {
+                background-color: $carmel-color;
             }
-            
+
         }
-    
+
         .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
             max-height: 350px;
         }
@@ -215,6 +274,11 @@ main.FAQ {
         .faq-drawer__trigger:checked+.faq-drawer__title::after {
             transform: rotate(-45deg);
             transition: 0.25s ease-in-out;
+            top: 17px;
+
+            @include width_980 {
+                top: 13px;
+            }
         }
 
         input[type="checkbox"] {
@@ -222,7 +286,7 @@ main.FAQ {
         }
     }
 
-    section.Venue_Rental__out{
+    section.Venue_Rental__out {
 
         h3.Venue_Rental__smallTitle {
             margin-left: 4.2rem;
@@ -233,10 +297,15 @@ main.FAQ {
             top: 0;
             right: 0;
             margin-top: 80px;
+
+            @include width_980 {
+                font-size: 38px;
+                margin-left: 3.8rem;
+            }
         }
 
         div.Venue_Rental {
-            background-color: $sub-LTgray-color;
+            background-color: rgba(217, 217, 217, .6);
             padding-bottom: 50px;
             padding-left: 35px;
             max-width: 90%;
@@ -250,11 +319,28 @@ main.FAQ {
             h5 {
                 font-size: $h5;
                 margin-bottom: 30px;
+
+                @include width_980 {
+                    font-size: 20px;
+                }
             }
         }
 
         .faq-drawer {
             margin-bottom: 30px;
+
+            p {
+                padding: 20px;
+                background-color: rgba(255, 255, 255, .6);
+            }
+
+            @include width_980 {
+                margin-bottom: 20px;
+
+                p {
+                    font-size: 14px;
+                }
+            }
         }
 
         .faq-drawer__content-wrapper {
@@ -263,7 +349,6 @@ main.FAQ {
             overflow: hidden;
             transition: 0.25s ease-in-out;
             line-height: 2;
-            margin-top: 20px;
         }
 
         .faq-drawer__title {
@@ -279,6 +364,10 @@ main.FAQ {
             transition: all 0.25s ease-out;
             padding-left: 15px;
 
+            @include width_980 {
+                font-size: 16px;
+            }
+
             &::after {
                 border-style: solid;
                 border-width: 1px 1px 0 0;
@@ -289,26 +378,35 @@ main.FAQ {
                 left: -25px;
                 position: relative;
                 right: 20px;
-                top: 12.5px;
+                top: 11px;
                 transform: rotate(135deg);
                 transition: 0.35s ease-in-out;
                 vertical-align: top;
                 width: 10px;
+
+                @include width_980 {
+                    top: 8px;
+                }
             }
 
-            &:hover{
-                background-color:$carmel-color;
+            &:hover {
+                background-color: $carmel-color;
             }
-            
+
         }
-    
+
         .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
             max-height: 350px;
-        } 
+        }
 
         .faq-drawer__trigger:checked+.faq-drawer__title::after {
             transform: rotate(-45deg);
             transition: 0.25s ease-in-out;
+            top: 17px;
+
+            @include width_980 {
+                top: 13px;
+            }
         }
 
         input[type="checkbox"] {
@@ -316,7 +414,7 @@ main.FAQ {
         }
     }
 
-    section.Product__out{
+    section.Product__out {
 
         h3.Product__smallTitle {
             margin-left: 4.2rem;
@@ -327,10 +425,15 @@ main.FAQ {
             top: 0;
             right: 0;
             margin-top: 80px;
+
+            @include width_980 {
+                font-size: 38px;
+                margin-left: 3.8rem;
+            }
         }
 
         div.Product {
-            background-color: $sub-LTgray-color;
+            background-color: rgba(217, 217, 217, .6);
             padding-bottom: 50px;
             padding-left: 35px;
             max-width: 90%;
@@ -344,11 +447,29 @@ main.FAQ {
             h5 {
                 font-size: $h5;
                 margin-bottom: 30px;
+
+                @include width_980 {
+                    font-size: 20px;
+                }
             }
         }
 
+
         .faq-drawer {
             margin-bottom: 30px;
+
+            p {
+                padding: 20px;
+                background-color: rgba(255, 255, 255, .6);
+            }
+
+            @include width_980 {
+                margin-bottom: 20px;
+
+                p {
+                    font-size: 14px;
+                }
+            }
         }
 
         .faq-drawer__content-wrapper {
@@ -357,7 +478,10 @@ main.FAQ {
             overflow: hidden;
             transition: 0.25s ease-in-out;
             line-height: 2;
-            margin-top: 20px;
+
+            ul {
+                list-style: circle;
+            }
         }
 
         .faq-drawer__title {
@@ -373,6 +497,10 @@ main.FAQ {
             transition: all 0.25s ease-out;
             padding-left: 15px;
 
+            @include width_980 {
+                font-size: 16px;
+            }
+
             &::after {
                 border-style: solid;
                 border-width: 1px 1px 0 0;
@@ -383,19 +511,23 @@ main.FAQ {
                 left: -25px;
                 position: relative;
                 right: 20px;
-                top: 12.5px;
+                top: 11px;
                 transform: rotate(135deg);
                 transition: 0.35s ease-in-out;
                 vertical-align: top;
                 width: 10px;
+
+                @include width_980 {
+                    top: 8px;
+                }
             }
 
-            &:hover{
-                background-color:$carmel-color;
+            &:hover {
+                background-color: $carmel-color;
             }
-            
+
         }
-    
+
         .faq-drawer__trigger:checked+.faq-drawer__title+.faq-drawer__content-wrapper {
             max-height: 350px;
         }
@@ -403,6 +535,11 @@ main.FAQ {
         .faq-drawer__trigger:checked+.faq-drawer__title::after {
             transform: rotate(-45deg);
             transition: 0.25s ease-in-out;
+            top: 17px;
+
+            @include width_980 {
+                top: 13px;
+            }
         }
 
         input[type="checkbox"] {

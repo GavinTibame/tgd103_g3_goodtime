@@ -1,3 +1,7 @@
+// html {
+//     scroll-behavior: smooth;
+// }
+
 .index-wrapper {
     display: block;
     margin: 0 auto;
@@ -24,7 +28,7 @@
         p{
             margin-top: 15px;
             margin-left: 15px;
-            width: 70%;
+            width: 90%;
             margin-bottom: 10px;
             font-size: 14px;
             line-height: 1.5;
@@ -41,11 +45,12 @@
         margin-left: 60%;
         position: absolute;
         z-index: 10000000 !important;
+        display: none;
     }
 
     .owl-prev {
         position: absolute;
-        left: 24%;
+        left: 26%;
         top: 33%;
         color: #261C0D;
 
@@ -57,7 +62,7 @@
     .owl-next {
         position: absolute;
         top: 33%;
-        right: 24%;
+        right: 26%;
         color: #261C0D;
 
         &:hover {
@@ -141,7 +146,7 @@
     height: 840px;
     background-image: url(../../../img/index/halfcercle.png);
     background-repeat: no-repeat;
-    margin-top: 260px;
+    margin-top: 210px;
     background-position: 0px center;
 
     .title {
@@ -149,6 +154,7 @@
         width: 30%;
         font-weight: bold;
         letter-spacing: 8px;
+        font-family: $our-font;
 
         .title-1 {
             color: $brown-color;
@@ -236,17 +242,17 @@
     display: block;
     // width: calc(100% - 100px);
     width: 1180px;
-    height: 350px;
+    height: 500px;
     margin: 0 auto;
     margin-top: 100px;
 
 
     .aboutus-left {
         float: left;
-        width: 45%;
+        width: 55%;
 
         img {
-            width: 70%;
+            width: 60%;
             display: block;
             margin: 0 auto;
         }
@@ -254,8 +260,9 @@
 
     .aboutus-right {
         float: right;
-        width: 54%;
-        // margin-left: 3%;
+        width: 45%;
+        font-family: $our-font;
+        margin-top: 20px;
 
         h3 {
             font-size: $h1;
@@ -289,6 +296,16 @@
     display: block;
     margin: 0 auto;
     width: calc(100% - 100px);
+    font-family: $our-font;
+
+    .item{
+
+        &:hover{
+            .more{
+                color: $carmel-color;
+            }
+        }
+    }
 
     h3 {
         font-size: $h1;
@@ -318,12 +335,13 @@
             margin-top: 20px;
             text-align: center;
             font-weight: bold;
+            color: $brown-color;
         }
 
         p{
             display: block;
             margin: 0 auto;
-            width: 80%;
+            width: 70%;
             margin-top: 20px;
             margin-bottom: 20px;
             font-size: 14px;
@@ -333,14 +351,17 @@
 
         .more{
             margin: 10px 0;
-            font-size: 12px;
-            margin-left: 180px;
+            font-size: 14px;
+            margin-left: 75%;
             border: none;
+            font-weight: bold;
+            color: $brown-color;
         }
+
     }
     .owl-next {
         position: absolute;
-        top: 46%;
+        top: 44%;
         left: -3.5%;
     }
 

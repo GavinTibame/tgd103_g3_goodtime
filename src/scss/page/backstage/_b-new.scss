@@ -1,6 +1,8 @@
 .b-news{
     max-width: 1280px;
+    margin: 0 auto;
     margin-top: 90px;
+    box-sizing: border-box;
 }
 .b-news p{
     font-size: 16px;
@@ -134,7 +136,7 @@
         }
     }
 }
-.info-box{
+.b-news .info-box{
     background-color: #ccc;
     margin-bottom: 60px;
     p{
@@ -172,11 +174,10 @@
         li{
             display: flex;
             width: 90%;
-            height: 190px;
+            height: 250px;
             margin-left: 5%;
             margin-bottom: 10px;
             background-color: rgb(255, 255, 255);
-            outline: 2px #333 solid;
             &:first-child{
                 outline: 0px #333 solid;
             }
@@ -200,7 +201,7 @@
                         width: 16.6666%;
                         text-align: center;
                         border: 1px solid #333;
-                        height: 190px;
+                        height: 250px;
                         h6{
                             height: 100%;
                             line-height: 30px;
