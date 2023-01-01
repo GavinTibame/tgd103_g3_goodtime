@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <div id="header"></div>
+        <div class="event_detail-wrapper">
+            <div class="event_detail-breadcrumb">
+                <ul class="breadcrumb">
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">展演活動</a></li>
+                    <li><a href="#">《Lindsayooo》新興畫家特展</a></li>
+                </ul>
+            </div>
+            <main>
+                <div class="event_detail-banner">
+                    <img src="../img/event_detail/banner.png" alt="">
+                </div>
+                <div class="event_detail-main-content">
+                    <div class="event_detail-main-content-left">
+                        <h3>《Lindsayooo》新興畫家特展</h3>
+                        <p>最近在Instagram點擊量爆增粉絲人數達百萬最熱門的新創插畫家
+                            Lindsayoo，畫家細膩的筆觸與寫實的作畫風格，短時間快速達到
+                            百萬人數訂閱，應許多粉絲留言要求，多次連繫畫家展出活動接洽
+                            此次為韶光文創園區特別限定期間展出，千萬不要錯過好機會！
+                            限定期間2024.12.01~2024.12.32 ，購票即送限量明信片。</p>
+                    </div>
+                    <div class="event_detail-main-content-right">
+                        <div class="event_detail-main-content-right-wrap">
+                            <div class="event_detail-price">NT$300</div>
+                            <div style="clear: both;"></div>
+                            <div>票種</div>
+                            <select name="ticket-type" id="ticket-type" class="event_detail-ticket-type">
+                                <option value="一般票">一般票</option>
+                                <option value="團體票">團體票</option>
+                                <option value="競老票">競老票</option>
+                            </select>
+                            <div>數量</div>
+                                <form class="event_detail-number-button" >
+                                    <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'>
+                                    <input type='text' name='quantity' value='0' class='qty' />
+                                    <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'>
+                                </form>   
+                                    <br>
+                                <div class="btn__ctn">
+                                    <button id="goApplyForm" class="button">
+                                        <span>加入購物車</span>
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <section class="event_detail-ticket-price">
+                <h3 class="subtitle">
+                    <em>票務資訊</em>
+                </h3>
+                <ul>
+                    <li>一般票300元</li>
+                    <li>學生票250元</li>
+                    <li>團體票230元</li>
+                </ul>
+            </section>
+            <section class="event_detail-ticket-info">
+                <h3 class="subtitle">
+                    <em>展覽資訊</em>
+                </h3>
+                <ul>
+                    <li>展覽日期：2022/12/16(五)-2022/12/31(六)</li>
+                    <li>展覽時間：週一至日11:00-19:00（17:30停止售票及入場）</li>
+                    <li>展覽地點：韶光文創園區 A館</li>
+                    <li>主辦單位：AAA國際股份有限公司</li>
+                    <li>合作夥伴：BBB股份有限公司、CCC企業有限公司</li>
+                    <li>官方網站：https://AAA.com/</li>
+                    <li>官方粉專：https://www.facebook.com/AAA</li>
+                </ul>
+            </section>
+            <section class="event_detail-attention">
+                <h3 class="subtitle">
+                    <em>注意事項</em>
+                </h3>
+                <ol>
+                    <li>1.本票券為無記名之有價票券，未經主辦單位許可，禁止轉售，違者將追究法律責任。</li>
+                    <li>2.本票券限單次入場，入場聯撕除後即無效；如遇遺失毀損恕不補發退換，請妥善保管。</li>
+                    <li>3.入場參觀時，請遵守參觀規則、動線規劃、防疫措施及現場工作人員指示。</li>
+                    <li>4.全展區禁止使用閃光燈、腳架及自拍棒等器材，部分展區不開放拍照攝影，請尊重覽智慧財產權及作品版權所有；且未經事先許可，不可自行拍攝商業照片或進行採訪。</li>
+                    <li>5.全展區禁止攜帶食物、飲料、雨傘、寵物入場(導盲犬除外)；場內亦禁止飲食（含口香糖、檳榔等）及吸菸。</li>
+                    <li>6.場內無設置洗手間與垃圾桶，請至周邊使用後再行入場參觀。</li>
+                    <li>7.個人物品請自行妥善保管，場內不提供寄放服務，主辦單位不負責個人之財物損失。</li>
+                    <li>8.為維護展場安全，嚴禁於展區內奔跑、嬉戲、破壞現場設備及攻擊工作人員，如發生傷損事宜須依法賠償。如有不當行為經規勸無效者，主辦單位有權要求離場不得有議，恕不補償或退還票券費用。</li>
+                    <li>9.展場相關規定以現場公告為主，若有未盡事宜，主辦單位保留解釋之權利，得以隨時修正、補充之，並保有隨時修改及終止本活動之權利。</li>
+                </ol>
+            </section>
+        </div>    
+    <div id="footer"></div>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/event_detail.js"></script>
+    <script>
+        $(() => {
+        $("#header").load("topbar.html");
+        $("#footer").load("footer.html");
+        });
+
+    </script>
+</body>
+</html>
