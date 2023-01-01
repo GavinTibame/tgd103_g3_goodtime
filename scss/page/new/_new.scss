@@ -1,26 +1,162 @@
+@mixin rwd($breakpoint) {
+    @media all and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+
+
 .warpper-news{
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 107px;
+    margin-top: 80px;
+    font-family: $our-font;
+     /* 最新消息 */
+     .banner .banner__textarea, .banner .banner-textarea{
+        height: 50%;
+     } 
+     .banner .banner__eng, .banner .banner-eng {
 
-    .introduce { /* 最新消息 */
-        width: 100%;
-        height: 500px;
-        position: relative;
+        @include rwd(1024px){
+            font-size: 40px;
+            padding: 2.2rem 4.2rem 2rem;
+            }
+            @include rwd(912px){
+            font-size: 36px;
+            padding: 2.2rem 4.2rem 1rem;
+            }
+        @include rwd(820px){
+            font-size: 32px;
+            padding: 2.2rem 4.2rem 1rem;
+            }
+            @include rwd(768px){
+
+            }
+        @include rwd(540px){
+            font-size: 24px;
+            padding: 1rem 4.2rem 1rem;
         }
-    .introduce.new-bg{
-        margin: 0 auto;
+        @include rwd(426px){
+            font-size: 21px;
+            padding: 1rem 2.2rem 0.5rem;
         }
-    .new-bg {
+        @include rwd(376px){
+        padding: 1rem 2.2rem 0.2rem;
+        }
+    }
+     
+    .banner .banner__zh, .banner .banner-zh{
+
+        @include rwd(1024px){
+            font-size: 26px;
+            padding-left: 21vw;
+            }
+        @include rwd(912px){
+            padding-right: 2.5rem;
+            font-size: 23px;
+            padding-left: 23vw;
+        }
+        @include rwd(820px){
+            font-size: 20px;
+            padding-left: 25vw;
+        }
+        @include rwd(540px){
+            font-size: 13px;
+            padding-right: 0rem;
+            padding-left: 31vw;
+        }
+        @include rwd(426px){
+            padding-left: 9vw;
+        }
+    }
+
+     .banner .banner__zh::before, .banner .banner-zh::before {
+
+        @include rwd(820px){
+            width: 15vw;
+        }
+        @include rwd(426px){
+        margin-right: 0.8rem;
+        }
+    }
+    
+    .banner__img {
         background-image: url(/img/new/new.jpg);
         background-repeat: no-repeat;
+        background-size: cover;
+
+        @include rwd(1080px){
+            background-size: contain;
+            background-position: center;
         }
+    }
+    .banner .banner__img, .banner .banner-img{
+            height: 25rem;
+        @include rwd(1080px){
+            height: 22rem;
+        }
+        @include rwd(1024px){
+            height: 21rem;
+        }
+        @include rwd(912px){
+            height: 19rem;
+        }
+        @include rwd(820px){
+            height: 17rem;
+        }
+        @include rwd(768px){
+            height: 16rem;
+        }
+        @include rwd(540px){
+            height: 11rem;
+        }
+        @include rwd(426px){
+            height: 8rem;
+            width: 90%;
+            margin: 0 auto;
+        }
+        @include rwd(414px){
+            height: 8rem;
+        }
+        @include rwd(376px){
+            height: 7rem;
+        }
+    }
+    
+
+        // 麵包屑
+    .breadcrumb {
+        @include rwd(1080px){
+            padding: 10px 6%;
+        }
+        @include rwd(768px){
+            padding: 10px 7%;  
+        }
+        @include rwd(540px){
+            padding: 10px 10%; 
+        }
+        @include rwd(426px){
+            padding: 10px 6%;
+        }
+        @include rwd(414px){
+            padding: 10px 14%;
+        }
+        @include rwd(376px){
+        padding: 10px 6%;
+        }
+    }
+
 
     .tabset{/* 公告區 */
         max-width: 65em;
         margin: 0 auto;
         margin-top: 80px;
         text-align: center;
+
+        @include rwd(540px){
+            margin-top: 25px;
+        }
+       
         }
     .tab-panels {
         margin: 0 30px;
@@ -36,17 +172,40 @@
         border-bottom: 0;
         cursor: pointer;
         font-weight: 600;
+
+        @include rwd(540px){
+            padding: 11px 25px 11px;
+        }
+        @include rwd(426px){
+            
+        }
+        
         }
     .tab-panels {
         margin: 0px auto;
         width: 80%;
         font-weight: bold;
+
+        @include rwd(540px){
+            width: 74%;
+        }
+        @include rwd(426px){
+            width: 90%;
+        }
+        
         }
     .tab-panels li {
         margin: 20px 0;
         padding-bottom: 20px;
+        padding-left: 30px;
         line-height: 2.6;
         border-bottom: 1px solid #ccc;
+
+        @include rwd(540px){
+            margin: 15px 0;
+            padding-bottom: 15px;
+            line-height: 2;
+        }
         }
     .tab-panels .tab-panel li:hover h4{
         color: #618985;
@@ -62,6 +221,11 @@
         bottom: 20px;
         width: 65px;
         height: 4px;
+
+        @include rwd(540px){
+            left: 25px;
+            bottom: 5px;
+        }
         }
     .tabset>label:hover {
         color: #618985;
@@ -87,6 +251,10 @@
     .tab-panel li h4 {
         font-size: 16px;
         color: #261C0D;
+
+        @include rwd(376px){
+            font-size: 15px;
+        }
         }
 
     .pagination{ /*-- 按紐 --*/
@@ -115,4 +283,4 @@
         background-color: #261C0D;
         }
  
-}
+    }

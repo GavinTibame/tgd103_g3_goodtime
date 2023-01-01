@@ -1,3 +1,20 @@
+$width_1024: 1024px;
+$width_428: 428px;
+
+@mixin width_1024(){
+    @media all and (max-width: $width_1024){
+        @content;
+    }
+}
+
+@mixin width_428(){
+    @media all and (max-width: $width_428){
+        @content;
+    }
+}
+
+
+
 .store__wrapper{
     font-family: $our-font;
     width: 80%;
@@ -9,17 +26,39 @@
     }
 
     // ==== banner輪播圖 ====
-    #slideshow-container {
-        position: relative;
+    .swiper{
+        // position: relative;
         margin: auto;
+
+        .swiper-slide{
+            display: flex;
+
+            img{
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+                object-fit: cover;
+            }    
+        }
+
+        .swiper-button-next{
+            color: rgba(0, 0, 0, 0) !important;
+            background-color: $brown-color;
+            width: 4%;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .swiper-button-prev{
+            color: rgba(0, 0, 0, 0) !important;
+            background-color: $brown-color;
+            width: 4%;
+            border-radius: 50%;
+            margin-left: 15px;
+          }
+
     }
-    
-    #slideshow-container img{
-        width: 100%;
-        display: block;
-        margin: 0 auto;
-        // margin-top: 10px;
-    }
+       
 
     // === 文字標題 ====
     .banner{
@@ -33,10 +72,18 @@
 
         .banner__eng{
             padding: 2rem 4.2rem 0;
+
+            @include width_428(){
+                font-size: $h3;
+            }
         }
 
         .banner__zh{
             padding-left: 11vw;
+
+            @include width_428(){
+                font-size: $h4;
+            }
 
             &::before {
                 content: "";
@@ -53,25 +100,38 @@
         padding-bottom: 1%;
         border-bottom: 1px solid #888888;
 
-        ul{
+        .tab{
             display: flex;
 
-            li{
-                margin-left: 5%;
-                font-size: $h6;
+            button{
                 cursor: pointer;
+                margin-left: 5%;
+                font-size: $p;
+                border: 0;
+                outline: 0;
+                background-color: #fff;
+                transition: 0.3s;
 
                 &:first-child{
                     margin-left: 3%;
                 }
 
-                &:last-child{
-                    margin-left: auto;
-                }
-
                 &:hover{
                     color: $spotlight-color;
                 }
+
+                &.active{
+                    color: $spotlight-color;
+                    font-weight: $fw7;
+                }
+            }
+
+            select{
+                margin-left: auto;
+                outline: 0;
+                border: 0;
+                cursor: pointer;
+                font-size: $p;
             }
         }
     }
@@ -83,7 +143,7 @@
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: stretch;
             // padding: 10px;
             // border: 1px solid blue;
             margin-top: 3%;
@@ -93,14 +153,33 @@
                 // margin: 5% 2% 0 2%;
                 width: 25%;
                 margin-top: 5%;
-                // border: 1px solid red;
+                // border: 1px solid blue;
+               
+
+                @include width_1024(){
+                    width: 33%;
+                }
+
+                @include width_428(){
+                    width: 50%;
+                }
+
 
                 a{
                     text-decoration: none;
                     display: block;
+                    overflow: hidden;
+                    // border: 1px solid red;
+                    
+
+                    &:hover .shop__pic{
+                        transform: scale(1.05);
+                    }
+
 
                     .shop__pic{
                         position: relative;
+                        transition: .3s ease;
 
                         img{
                             width: 90%;
@@ -144,7 +223,11 @@
                             display: block;
                             margin-top: 5px;
                             font-size: 14px;
-                            color: #B3B3B3;         
+                            color: #B3B3B3;
+                            
+                            @include width_428(){
+                                font-size: $small;
+                            }
                         }
     
                         h6{
@@ -152,9 +235,15 @@
                             color: $secondary4-color;
                             font-weight: $fw7;
                             margin-top: 10px;
+
+                            @include width_428(){
+                                font-size: 14px;
+                            }
     
-                            & + h6{
+                            & + h6{ 
+                                // 價格
                                 font-size: $h6;
+                                line-height: 1.6;
                                 color: #C09351;
                                 text-align: right;
                             }
@@ -162,6 +251,10 @@
     
                     }
 
+                }
+
+                .hidden{
+                    display: none;
                 }
 
             }

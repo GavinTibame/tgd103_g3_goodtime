@@ -1,16 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;700&family=Ephesis&family=Noto+Sans+TC:wght@400;700&display=swap");
-@import url("./main/_banner.scss");
-@import url("./main/_breadcrumb.scss");
-@import url("./main/_button.scss");
-@import url("./main/_font.scss");
-h6 {
-  font-size: 24px;
-}
-
 .shops {
   box-sizing: border-box;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-top: 120px;
   max-width: 1280px;
   height: 2000px;
   overflow: hidden;
@@ -237,6 +227,7 @@ h6 {
 .shops .joinus-area .imgbox {
   grid-column-start: 4;
   grid-column-end: 6;
+  box-shadow: 3px 3px 4px rgb(160, 160, 160);
   background-image: url(../../../img/shops/j01.png);
   background-position: center;
   background-size: cover;
@@ -279,6 +270,7 @@ h6 {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+  box-shadow: 3px 3px 4px rgb(160, 160, 160);
   background-image: url(../../../img/shops/j02.png);
   background-position: center;
   background-size: cover;
