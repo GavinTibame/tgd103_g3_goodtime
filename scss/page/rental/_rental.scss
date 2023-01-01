@@ -1,3 +1,10 @@
+@mixin rwd($breakpoint) {
+    @media all and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+
 main.rental {
     max-width: calc(100vw - 100px);
     margin: 0 auto;
@@ -7,6 +14,51 @@ main.rental {
         color: $font-color;
     }
 
+    .banner div.banner__img {
+        background-image: url("../../../img/banner/banner__rental.png");
+
+        @include rwd(768px) {
+            background-image: url("../../../img/rental_join_form/rental.banner/rental_banner_rwd768.jpg");
+            height: 300px;
+        }
+
+        @include rwd(428px) {
+            background-image: url("../../../img/rental_join_form/rental.banner/rental_banner_rwd428.jpg");
+            height: 200px;
+        }
+
+        @include rwd(768px) {
+            .banner__eng {
+                font-size: 22px;
+                padding: 2.2rem 2.2rem 1rem;
+            }
+
+            .banner__zh {
+                font-size: 22px;
+            }
+        }
+
+        @include rwd(428px) {
+            .banner__eng {
+                font-size: 20px;
+                padding: 0.8rem 2.2rem 0.8rem;
+            }
+
+            .banner__zh {
+                font-size: 20px;
+                padding-right: 0;
+                padding-bottom: 1rem;
+
+                &::before {
+                    margin-right: 0.8rem;
+                }
+            }
+        }
+
+
+
+    }
+
     article {
         padding: 3rem 0;
 
@@ -14,6 +66,10 @@ main.rental {
             h3 {
                 width: 65vw;
                 margin: 0 auto 25px;
+
+                @include rwd(768px) {
+                    font-size: 16px;
+                }
 
                 small {
                     color: $warning-color;
@@ -26,6 +82,16 @@ main.rental {
                 margin: 0 auto 25px;
                 padding-left: 1.3rem;
                 line-height: 2rem;
+
+                @include rwd(768px) {
+                    margin: 0 auto 12px;
+                    font-size: 14px;
+                }
+
+                @include rwd(428px) {
+                    font-size: 12px;
+                    margin: 0 auto 10px;
+                }
             }
 
             dl {
@@ -33,10 +99,23 @@ main.rental {
                 margin: 0 auto 25px;
                 padding-left: 1.3rem;
                 line-height: 2.5rem;
+
+                @include rwd(768px) {
+                    font-size: 14px;
+                }
+
+                @include rwd(428px) {
+                    font-size: 12px;
+                    padding-left: 0.5rem;
+                }
             }
 
             em {
                 padding-left: .5rem;
+
+                @include rwd(428px) {
+                    font-size: 14px;
+                }
             }
 
             dd {
@@ -45,11 +124,27 @@ main.rental {
 
             ul {
                 padding-left: 2.3rem;
+
+                @include rwd(768px) {
+                    padding-left: 1.3rem;
+                }
+
+                @include rwd(428px) {
+                    padding-left: 0.5rem;
+                }
             }
         }
 
         .map {
             margin: -140px 0 -100px;
+
+            @include rwd(768px) {
+                margin: -360px 0 -330px;
+            }
+
+            @include rwd(428px) {
+                margin: -440px 0 -410px;
+            }
 
             svg {
                 width: calc(80vw - 100px);

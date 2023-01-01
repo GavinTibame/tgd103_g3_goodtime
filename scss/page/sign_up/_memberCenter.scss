@@ -1,7 +1,17 @@
+@mixin rwd($breakpoint) {
+    @media all and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
 main.memberCenter {
     width: calc(100vw - 112px);
     margin: 0 auto;
     padding-top: 32px;
+
+    @include rwd(768px) {
+        width: 100vw;
+    }
 
     a {
         color: $font-color;
@@ -9,11 +19,27 @@ main.memberCenter {
 
     .banner {
         margin-bottom: 5rem;
+
+        @include rwd(768px) {
+            margin-bottom: 3rem;
+        }
     }
 
     .banner-img {
         box-shadow: none;
         height: 195px;
+    }
+
+    .banner-eng {
+        @include rwd(768px) {
+            font-size: 28px;
+            padding: 40px 10px 20px 35px;
+        }
+
+        @include rwd(428px) {
+            font-size: 20px;
+            padding: 40px 10px 20px 20px;
+        }
     }
 
     .banner-zh {
@@ -23,6 +49,20 @@ main.memberCenter {
             border-bottom: solid 3px $font-color;
             display: inline-block;
             margin-right: 2.8rem;
+
+            @include rwd(428px) {
+                margin-right: 0.8rem;
+            }
+        }
+
+        @include rwd(768px) {
+            font-size: 28px;
+            padding-left: 30vw;
+        }
+
+        @include rwd(428px) {
+            font-size: 20px;
+            padding-left: 36vw;
         }
     }
 
@@ -32,6 +72,10 @@ main.memberCenter {
         display: grid;
         grid-template-columns: repeat(4, minmax(0px, 1fr));
         gap: 2rem;
+
+        @include rwd(768px) {
+            display: block;
+        }
 
         aside.side-nav {
             position: relative;
@@ -44,6 +88,25 @@ main.memberCenter {
                 background: #EEEEEE;
                 box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
                 border-radius: 10px;
+
+                @include rwd(768px) {
+
+                    padding: 0rem 1rem 1rem 3rem;
+                    margin-bottom: 5rem;
+
+                    ul {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                }
+
+                @include rwd(428px) {
+                    padding: 0rem 0rem 1rem 2rem;
+
+                    ul {
+                        justify-content: space-around;
+                    }
+                }
             }
         }
 
@@ -59,7 +122,13 @@ main.memberCenter {
             width: 10rem;
             border-top: solid 3px $font-color;
             display: inline-block;
+
+            @include rwd(768px) {
+                width: 0rem;
+            }
         }
+
+
 
         div {
             padding: 1rem 2rem 1rem 0;
@@ -79,18 +148,32 @@ main.memberCenter {
                 top: 28px;
                 display: block;
                 left: .2rem;
+
+                @include rwd(428px) {
+                    width: 7rem;
+                    top: 10px;
+                    left: -0.2rem;
+                }
             }
         }
 
         .title-eng {
-            font-size: $h3 ;
+            font-size: $h3;
             color: $brown-color;
+
+            @include rwd(428px) {
+                font-size: 16px;
+            }
         }
 
         .title-zh {
             padding-top: .3rem;
             font-size: $h6;
             color: $carmel-color;
+
+            @include rwd(428px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -150,6 +233,14 @@ main.memberCenter {
         margin: 0 auto;
         margin-bottom: 1.5rem;
 
+        @include rwd(768px) {
+            flex-wrap: wrap;
+        }
+
+        @include rwd(428px) {
+            font-size: 14px;
+        }
+
         label {
             display: flex;
             margin-right: 1rem;
@@ -205,6 +296,10 @@ main.memberCenter {
     .button {
         font-size: $p;
         padding: 12px 25px 12px 40px;
+
+        @include rwd(428px) {
+            font-size: 14px;
+        }
     }
 
     div.pwd-tab>div {
@@ -214,16 +309,43 @@ main.memberCenter {
         justify-content: space-between;
         align-items: center;
 
+        @include rwd(768px) {
+            width: auto;
+            margin-left: 3rem;
+        }
+
+        @include rwd(428px) {
+            font-size: 14px;
+            margin-left: 0.2rem;
+            margin-right: 1rem;
+        }
+
         input {
             border: solid 2px $brown-color;
             border-radius: 3px;
             line-height: 1.5rem;
             min-width: 50%;
             color: $brown-color;
+
+            @include rwd(768px) {
+                margin-right: 5rem;
+            }
+
+            @include rwd(428px) {
+                margin-right: 0;
+            }
         }
 
         .button {
             margin: 40px auto 0;
+
+            @include rwd(768px) {
+                margin: 40px 0 0 125px;
+            }
+
+            @include rwd(428px) {
+                margin: 30px 0 0 38px;
+            }
         }
     }
 
@@ -235,10 +357,25 @@ main.memberCenter {
     .po-single {
         border-bottom: solid 2px $carmel-color;
 
+        @include rwd(428px) {
+            padding: 0;
+            font-size: 14px;
+        }
+
         &>div {
             display: flex;
             width: 30vw;
             margin: 0 auto 1.5rem;
+
+            @include rwd(768px) {
+                width: auto;
+                margin-left: 3rem;
+            }
+
+            @include rwd(428px) {
+                width: auto;
+                margin-left: 1rem;
+            }
 
             &:first-child {
                 margin-top: 1.5rem;
@@ -261,6 +398,10 @@ main.memberCenter {
         justify-content: space-between;
         margin-bottom: 1.5rem;
 
+        @include rwd(428px) {
+            font-size: 14px;
+        }
+
         &>div {
             min-width: 30%;
             margin-bottom: 1.5rem;
@@ -277,6 +418,10 @@ main.memberCenter {
         width: 100%;
         margin: 0 auto 1.2rem;
 
+        @include rwd(428px) {
+            margin-left: 25px;
+        }
+
         img {
             width: 10vw;
             margin-right: 2.5rem;
@@ -290,6 +435,12 @@ main.memberCenter {
             width: 100%;
             justify-content: space-between;
 
+            @include rwd(428px) {
+                flex-direction: column;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+
             &>* {
                 // flex-grow: 1;
             }
@@ -299,6 +450,10 @@ main.memberCenter {
     .po-item {
         border-bottom: solid 2px $carmel-color;
         padding-right: 7rem;
+
+        @include rwd(428px) {
+            padding: 0;
+        }
     }
 
     .posum {
@@ -308,11 +463,20 @@ main.memberCenter {
         margin-right: 7rem;
         align-items: flex-end;
 
+        @include rwd(428px) {
+            font-size: 14px;
+            margin-right: 3rem;
+        }
+
         &>div {
             display: flex;
             margin-bottom: 1.5rem;
             width: 40%;
             justify-content: space-between;
+
+            @include rwd(428px) {
+                width: auto;
+            }
 
             &>* {
                 // flex-grow: 1;
@@ -329,18 +493,45 @@ main.memberCenter {
             align-items: center;
             margin-bottom: 1.5rem;
 
+            @include rwd(428px) {
+                flex-direction: column;
+            }
+
             >* {
                 width: 50%;
+
+                @include rwd(428px) {
+                    width: 85%;
+                    text-align: center;
+                    margin-top: 10px;
+
+                    small{
+                        font-size: 14px;
+                    }
+                }
             }
 
             img {
                 margin-right: 2rem;
+                @include rwd(428px) {
+                    margin-right: 0;
+                }
             }
 
             h5 {
                 font-size: $h5;
                 margin-bottom: 1rem;
                 font-weight: $fw7;
+
+                @include rwd(768px) {
+                    font-size: 18px;
+                }
+
+                @include rwd(428px) {
+                    font-size: 16px;
+                    margin-bottom: 0.5rem;
+
+                }
             }
         }
     }

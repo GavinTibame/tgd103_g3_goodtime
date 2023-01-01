@@ -253,6 +253,10 @@ main.aboutAs {
 
     .about__goodtime__title {
         margin: 50px;
+
+        @include rwd(428px) {
+            margin: 0;
+        }
     }
 
     .about__goodtime__title__zh,
@@ -324,6 +328,10 @@ main.aboutAs {
             p {
                 font-size: 12px;
             }
+
+            img{
+                display: none;
+            }
         }
 
         div.about__goodtime__para1 {
@@ -343,12 +351,16 @@ main.aboutAs {
                 img.about__goodtime__para1_img1 {
                     display: none;
                 }
+                p {
+                    margin: 30px;
+                }
+
             }
 
         }
 
         div.about__goodtime__para2 {
-            
+
             p {
                 margin: 30px 40px 0 40px;
             }
@@ -365,7 +377,7 @@ main.aboutAs {
                 }
 
                 p {
-                    margin: 10px 20px 10px 45px;
+                    margin: 30px;
                 }
             }
         }
@@ -401,6 +413,7 @@ main.aboutAs {
                 font-size: 12px;
                 max-width: 100%;
                 padding: 0;
+                line-height: 2;
             }
         }
     }
@@ -408,9 +421,11 @@ main.aboutAs {
     img.about__goodtime__para1_img2,
     img.about__goodtime__para2_img2 {
         display: none;
+        margin-top: 30px;
 
         @include width_428 {
             display: block;
+            margin-top: 0;
         }
     }
 

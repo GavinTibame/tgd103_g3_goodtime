@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>常見問題</title>
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="./source/vue.global.js"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
@@ -15,7 +14,7 @@
   </head>
 
   <body>
-    <!-- <header id="header"></header> -->
+    <header id="header"></header>
     <main class="FAQ">
       <!-------------------------麵包穴----------------------------->
       <ul class="breadcrumb">
@@ -25,10 +24,7 @@
       <div class="wrapper">
         <!-------------------------banner----------------------------->
         <div class="banner">
-          <div
-            class="banner__img"
-            style="background-image: url(../img/faq/faq__banner.jpg)"
-          >
+          <div class="banner__img">
             <div class="banner__textarea">
               <div class="banner__eng">Q&A</div>
               <div class="banner__zh">常見問題</div>
@@ -43,19 +39,22 @@
                 <nav class="nav-bg">
                   <ul class="nav-ctn">
                     <li class="nav-block" data-nav="acc-block">
-                      <div>
+                      <div data-id="1">
                         <h6 class="title-eng">Ticket</h6>
                         <p class="title-zh">關於入場券</p>
                       </div>
                     </li>
                     <li class="nav-block" data-nav="po-block">
-                      <div>
+                      <div data-id="2">
                         <h6 class="title-eng">Venue Rental</h6>
                         <p class="title-zh">關於場地租借</p>
                       </div>
                     </li>
-                    <li class="nav-block" data-nav="cpn-block">
-                      <div>
+                    <li
+                      class="nav-block nav-block-Product"
+                      data-nav="cpn-block"
+                    >
+                      <div data-id="3">
                         <h6 class="title-eng">Product</h6>
                         <p class="title-zh">關於文創商品</p>
                       </div>
@@ -68,7 +67,7 @@
           <!-------------------------Ticket----------------------------->
           <div class="navTab__faq__right">
             <section class="ticket__out">
-              <h3 class="ticket__smallTitle">Ticket</h3>
+              <h3  id="area1" class="ticket__smallTitle">Ticket</h3>
               <div class="ticket">
                 <div class="container">
                   <h5>關於入場券</h5>
@@ -149,7 +148,7 @@
             </section>
             <!----------------------Venue Rental----------------------------->
             <section class="Venue_Rental__out">
-              <h3 class="Venue_Rental__smallTitle">Venue Rental</h3>
+              <h3 id="area2" class="Venue_Rental__smallTitle">Venue Rental</h3>
               <div class="Venue_Rental">
                 <div class="container">
                   <h5>關於場地租借</h5>
@@ -160,7 +159,7 @@
                       id="faq-drawer1"
                       type="checkbox"
                     /><label class="faq-drawer__title" for="faq-drawer1"
-                      >Q 參觀場地或場勘須在多久之前提出申請？
+                      >Q 參觀場地須在多久前提出申請？
                     </label>
                     <div class="faq-drawer__content-wrapper">
                       <div class="faq-drawer__content">
@@ -210,7 +209,7 @@
                       id="faq-drawer4"
                       type="checkbox"
                     /><label class="faq-drawer__title" for="faq-drawer4"
-                      >Q 現場是否會有工作人員幫忙操作設備？</label
+                      >Q 現場是否有人員協助操作設備？</label
                     >
                     <div class="faq-drawer__content-wrapper">
                       <div class="faq-drawer__content">
@@ -225,7 +224,7 @@
             </section>
             <!-------------------------Product----------------------------->
             <section class="Product__out">
-              <h3 class="Product__smallTitle">Product</h3>
+              <h3 id="area3" class="Product__smallTitle">Product</h3>
               <div class="Product">
                 <div class="container">
                   <h5>關於文創商品</h5>
@@ -308,6 +307,31 @@
       $(() => {
         $("#header").load("topbar.html");
         $("#footer").load("footer.html");
+      });
+
+      $(function () {
+        // 偵聽a click
+        $(".nav-block div").bind("click", function () {
+          var id = $(this).attr("data-id");
+
+          // 取得目標區塊的y座標
+          var target_top = $("#area" + id).offset().top - 100;
+
+          // 取得body物件 這種寫法在各瀏覽器上最保險
+          var $body = window.opera
+            ? document.compatMode == "CSS1Compat"
+              ? $("html")
+              : $("body")
+            : $("html,body");
+
+          // 移動捲軸有動畫效果
+          $body.animate(
+            {
+              scrollTop: target_top,
+            },
+            800
+          );
+        });
       });
     </script>
   </body>
