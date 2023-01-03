@@ -42,22 +42,19 @@ $width_1280: 1280px;
     }
 }
 
-div.wrapper {
-    @include width_428 {
-        outline: 3px solid pink;
-    }
-}
-
-ul.rental_join_form____breadcrumb {
+.rental_join_form_wrapper ul.rental_join_form____breadcrumb {
     display: flex;
     min-width: 95%;
     padding: 10px 2%;
     position: relative;
     z-index: 1;
-    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
     color: $font-color;
     margin-top: 80px;
     margin-left: 40px;
+
+    @include width_768 {
+        margin-top: 70px;
+    }
 
     @include width_428 {
         margin-left: 0;
@@ -150,6 +147,14 @@ ul.rental_join_form____breadcrumb {
         bottom: 0;
         right: 0;
         background-color: rgba(256, 256, 256, .7);
+
+        @include width_768 {
+            right: 43px;
+        }
+
+        @include width_428 {
+            right: 62px;
+        }
     }
 
     .banner__eng,
@@ -199,7 +204,7 @@ ul.rental_join_form____breadcrumb {
 
         @include width_428 {
             font-size: 20px;
-            padding-right: 1.2rem;
+            padding-right: 0.2rem;
             padding-bottom: 1rem;
         }
     }
@@ -351,7 +356,7 @@ main.rental_join_form {
         .date_pick input {
             width: 315px;
             font-size: $p;
-            
+
             @include width_540 {
                 margin-top: 20px;
             }
