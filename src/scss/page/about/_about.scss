@@ -14,6 +14,11 @@ $width_768: 768px;
     }
 }
 
+@mixin rwd($breakpoint) {
+    @media all and (max-width: $breakpoint) {
+        @content;
+    }
+}
 
 //css
 
@@ -21,16 +26,52 @@ $width_768: 768px;
 .wrapper {
     font-family: $our-font;
     color: $font-color;
-    width: 98vw;
+    width: 100vw;
 }
 
 main.aboutAs {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
 
+    @include width_768 {
+        margin: auto;
+    }
+
 
     @include width_428 {
         max-width: 85vw;
+    }
+
+    .breadcrumb {
+        display: flex;
+        min-width: 100%;
+        padding: 10px 3%;
+        position: relative;
+        z-index: 1;
+        margin: 90px auto 0;
+        // box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
+
+        li {
+            &:nth-child(even) {
+                &::before {
+                    content: "";
+                    height: .6rem;
+                    border-left: solid 1px $font-color;
+                    display: inline-block;
+                    margin: 0 .5rem;
+                }
+
+                a {
+                    color: $lakeGreen-color;
+                }
+            }
+        }
+
+        a {
+            font-size: $small;
+            line-height: 18px;
+            color: $font-color;
+        }
     }
 
 
@@ -45,7 +86,6 @@ main.aboutAs {
         .banner__word__img {
             display: flex;
             max-width: 100%;
-            margin: 120px auto 0;
             height: 310px;
 
             @include width_768 {
@@ -70,6 +110,15 @@ main.aboutAs {
             font-weight: bold;
             padding: 30px;
 
+
+            @include rwd(1236px) {
+                padding: 30px 0;
+            }
+
+            @include rwd(1100px) {
+                font-size: 38px;
+            }
+
             @include width_768 {
                 font-size: 28px;
                 padding: 41px 30px 30px 0px;
@@ -92,9 +141,19 @@ main.aboutAs {
             font-size: $h2;
             color: $carmel-color;
             font-weight: bold;
-            margin-left: 135px;
+            margin-left: 125px;
             line-height: 2;
             position: relative;
+
+
+            @include rwd(1236px) {
+                margin-left: 50px;
+            }
+
+            @include rwd(1100px) {
+                font-size: 28px;
+                margin-left: 78px;
+            }
 
             @include width_768 {
                 font-size: 24px;
@@ -118,6 +177,14 @@ main.aboutAs {
                 margin-top: 20px;
                 z-index: -1;
 
+                @include rwd(1236px) {
+                    left: -5px;
+                }
+
+                @include rwd(1100px) {
+                    left: -32px;
+                }
+
                 @include width_768 {
                     display: none;
                 }
@@ -140,7 +207,16 @@ main.aboutAs {
             line-height: 1.6;
             margin-top: 50px;
 
-            @include width_768 {
+            @include rwd(1236px) {
+                margin-left: 200px;
+            }
+
+            @include rwd(1100px) {
+                margin-left: 160px;
+                font-size: 20px;
+            }
+
+            @include rwd(930px) {
                 display: none;
             }
 
@@ -207,6 +283,11 @@ main.aboutAs {
         line-height: 2.5;
         position: relative;
 
+        @include rwd(1100px) {
+            font-size: 44px;
+            line-height: 0;
+        }
+
         @include width_768 {
             line-height: 1.2;
             font-size: 48px;
@@ -221,12 +302,22 @@ main.aboutAs {
 
     .about__goodtime,
     .getting__here {
-        max-width: fit-content;
-        margin: 0 auto;
 
         @include width_768 {
-            max-width: 90%;
+            max-width: 100%;
 
+        }
+    }
+
+    div.getting__here__title {
+        margin-left: 105px;
+
+        @include width_768 {
+            margin-left: 35px;
+        }
+
+        @include width_428 {
+            margin-left: 0;
         }
     }
 
@@ -240,7 +331,6 @@ main.aboutAs {
 
         @include width_768 {
             font-size: 22px;
-
         }
 
         @include width_428 {
@@ -252,7 +342,12 @@ main.aboutAs {
     }
 
     .about__goodtime__title {
-        margin: 50px;
+        margin: 50px 0 50px 105px;
+
+        @include width_768 {
+            margin: 50px 0 50px 35px;
+
+        }
 
         @include rwd(428px) {
             margin: 0;
@@ -276,6 +371,7 @@ main.aboutAs {
         @include width_428 {
             font-size: 16px;
             margin-left: 83px;
+            margin-bottom: 20px;
         }
 
         &::before {
@@ -329,7 +425,7 @@ main.aboutAs {
                 font-size: 12px;
             }
 
-            img{
+            img {
                 display: none;
             }
         }
@@ -343,7 +439,7 @@ main.aboutAs {
 
             @include width_768 {
                 p {
-                    margin: 70px 0 80px 20px;
+                    margin: 70px 0 80px 40px;
                 }
             }
 
@@ -351,6 +447,7 @@ main.aboutAs {
                 img.about__goodtime__para1_img1 {
                     display: none;
                 }
+
                 p {
                     margin: 30px;
                 }
@@ -367,7 +464,7 @@ main.aboutAs {
 
             @include width_768 {
                 p {
-                    margin: 30px 0 0 12px;
+                    margin: 30px 0 0 35px;
                 }
             }
 
@@ -391,7 +488,7 @@ main.aboutAs {
             max-width: 89%;
 
             @include width_768 {
-                margin-top: 20px;
+                margin-top: 30px;
                 max-width: 100%;
             }
         }
@@ -472,9 +569,17 @@ main.aboutAs {
 
 
     .getting__here__map {
+
+        width: 80%;
+        margin: auto;
+
         #map {
             height: 380px;
-            width: 100%;
+
+            h1,
+            h2 {
+                font-size: 12px;
+            }
         }
     }
 
@@ -482,8 +587,10 @@ main.aboutAs {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        margin-top: 80px;
+        margin-top: 120px;
         grid-template-rows: auto;
+        max-width: fit-content;
+        margin: 50px auto;
 
         @include width_428 {
 
@@ -609,6 +716,11 @@ main.aboutAs {
             margin-left: 145px;
         }
 
+        @include width_428 {
+            font-size: 16px;
+            margin-left: 105px;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -617,6 +729,12 @@ main.aboutAs {
             background: $brown-color;
             width: 14%;
             height: 2px;
+
+            @include width_428 {
+                top: 43%;
+                left: -37%;
+                width: 34%;
+            }
         }
     }
 
@@ -714,6 +832,10 @@ main.aboutAs {
     .contact__us {
         max-width: 950px;
         margin: 0 auto;
+
+        @include rwd(1100px) {
+            max-width: 774px;
+        }
 
         @include width_768 {
             max-width: 90%;

@@ -1,193 +1,307 @@
-.event_detail-wrapper{
+@mixin rwd($breakpoint) {
+    @media all and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+
+.event_detail-wrapper {
     display: block;
     margin: 0 auto;
     margin-top: 80px;
     max-width: calc(100vw - 116px);
 
 
-    }
-    main{
-        
+    main {
+
         margin-bottom: 230px;
-        
-        .event_detail-banner{
+
+        @include rwd(428px) {
+            margin-bottom: 0;
+        }
+
+        .btn__ctn .button{
+            letter-spacing: 10px;
+            margin-top: 10px;
+        }
+
+        .event_detail-banner {
             margin-bottom: 50px;
 
-            img{
+            img {
                 width: 80%;
                 display: block;
                 margin: 0 auto;
-            } 
+
+                @include rwd(428px) {
+                    width: 100%;
+                    ;
+                }
+            }
         }
-        .event_detail-main-content{
+
+        .event_detail-main-content {
             width: 80%;
-            height: 380px;
+            height: 210px;
             margin: 0 auto;
             margin-bottom: 230px;
-        
-                .event_detail-main-content-left{
-                    width: 55%;
-                    float: left;
-                    color: #261C0D;
-                    h3{
-                        font-size: $h4;
-                        text-align: center;
-                        margin-bottom: 60px;
-                    }
-        
-                    p{
-                        font-size: $h5;
-                        width: 80%;
-                        margin: 0 auto;
-                        line-height: 45px;
-                    }
-                }
-                .event_detail-main-content-right{
-                    width: 44%;
-                    float: right;
-        
-                    .event_detail-main-content-right-wrap{
-                        width: 75%;                        
-                        margin: 0 auto;
-                        padding-top: 15px;
-                        margin-bottom: 275px;
-                        
-                        .event_detail-price{
-                            display: block;
-                            float: right;
-                            font-size: 40px;
-                            color: #618985;
-                            font-weight: bold;
-                            margin-right: 8%;
-                        }
-        
-                        div{
-                            font-size: 24px;
-                            margin-top: 20px;
-                            margin-bottom: 20px;
-                            color: #261C0D; 
-                        }
-        
-                        select{
-                            width: calc(79% + 66px);                            
-                            height: 40px;
-                            font-size: 20px;
-                        }
-                        .event_detail-ticket-type{
-                            border: 1px solid #C09351;
-                            color: #261C0D;
-                            outline: none;
-                        }
-                        .event_detail-number-button{
-                            width: 100%;
-                            height: 40px;
-        
-                            .qtyminus, .qtyplus{
-                                margin: 0px;
-                                padding: 0px;
-                                width: 33px;
-                                height: 100%;
-                                color: #fff;
-                                background-color: #C09351;
-                                border: none;
-                                cursor: pointer;
-                            }
-        
-                            .qty{
-                                margin: -5px;
-                                padding: 0px;
-                                height: 100%;
-                                width: 79%;
-                                text-align: center;
-                                border: 1px solid #C09351;
-                                outline: none;
-                            }
-        
-                        }
 
-                        #goApplyForm{
-                            margin-top: 3%;
-                        }
-
-                        .btn__ctn .button, .btn-ctn .button{
-                            padding: 10px 50px 10px 65px;
-                            transition: none;
-
-                            &::before{
-                                transition: none;
-                            }
-
-                            &:hover {
-
-                                span {
-                                    color: #fff;
-                                }
-                    
-                                &::before {
-                                    background-color:$brown-color ;
-                                    transform: scaleX(1);
-                                }
-                            }
-                        }
-                    }
-        
-                }
-        
-        
+            @include rwd(768px) {
+                display: flex;
+                flex-direction: column;
+                height: auto;
+                margin-bottom: -170px;
             }
-        
 
-    }
-    .event_detail-ticket-price, .event_detail-ticket-info, .event_detail-attention{
-        display: block;
-        margin: 0 auto;
-        margin-top: 80px;
-        max-width: 75%;
-        h3{
-            width: 80%;
-            font-weight: bold;
-            font-size: $h3;
-            color: #533C1B;
-            line-height: 26.8px;
-            margin: 20px 0 ;
-            margin-left: -3%;
+            @include rwd(428px) {
+                margin: 0;
+                width: 100%;
+            }
+
+            .event_detail-main-content-left {
+                width: 55%;
+                float: left;
+                color: #261C0D;
+
+                @include rwd(768px) {
+                    width: auto;
+                }
+
+                h3 {
+                    font-size: $h5;
+                    text-align: center;
+                    margin-bottom: 60px;
+
+
+                    @include rwd(768px) {
+                        font-size: $h6;
+                        margin-bottom: 30px;
+                    }
+
+                    @include rwd(428px) {
+                        font-size: $p;
+                    }
+                }
+            }
+
+            p {
+                font-size: $p;
+                width: 80%;
+                margin: 0 auto;
+                line-height: 45px;
+
+                @include rwd(768px) {
+                    font-size: 14px;
+                }
+
+                @include rwd(428px) {
+                    margin: 0;
+                    width: 100%;
+                    font-size: 12px;
+                    line-height: 2.5;
+                }
+            }
         }
-        li{
-            list-style-type:decimal;
-            line-height: 3;
-            font-size: $h5;
-            color: #261C0D;
-        }
-        li:last-child{
-            margin-bottom: 30px;
+
+        .event_detail-main-content-right {
+            width: 44%;
+            float: right;
+
+            @include rwd(768px) {
+                width: auto;
+            }
+
+            .event_detail-main-content-right-wrap {
+                width: 75%;
+                margin: 0 auto;
+                padding-top: 15px;
+                margin-bottom: 275px;
+
+                @include rwd(768px) {
+                    margin-bottom: 0;
+                }
+
+                @include rwd(428px) {
+                    margin: 0;
+                    width: 100%;
+                }
+
+                .event_detail-price {
+                    display: block;
+                    float: right;
+                    font-size: 40px;
+                    color: #618985;
+                    font-weight: bold;
+                    margin-right: 8%;
+                    font-size: $h5;
+
+                    @include rwd(768px) {
+                        font-size: 18px;
+                    }
+
+                    @include rwd(428px) {
+                        font-size: 16px;
+                    }
+                }
+
+                div {
+                    font-size: $p;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    color: #261C0D;
+
+                    @include rwd(768px) {
+                        font-size: 14px;
+                    }
+
+                    @include rwd(428px) {
+                        font-size: 12px;
+                    }
+                }
+
+                select {
+                    width: calc(79% + 66px);
+                    height: 40px;
+                    font-size: 20px;
+                }
+
+                .event_detail-ticket-type {
+                    border: 1px solid #C09351;
+                    color: #261C0D;
+                    outline: none;
+                    font-size: $p;
+
+                    @include rwd(768px) {
+                        font-size: 14px;
+                    }
+
+                    @include rwd(428px) {
+                        font-size: 12px;
+                    }
+                }
+
+                .event_detail-number-button {
+                    width: 100%;
+                    height: 40px;
+
+                    .qtyminus,
+                    .qtyplus {
+                        margin: 0px;
+                        padding: 0px;
+                        width: 33px;
+                        height: 100%;
+                        color: #fff;
+                        background-color: #C09351;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                    .qty {
+                        margin: -5px;
+                        padding: 0px;
+                        height: 100%;
+                        width: 79%;
+                        text-align: center;
+                        border: 1px solid #C09351;
+                        outline: none;
+                        font-size: $p;
+                    }
+                }
+            }
         }
     }
 
-    .event_detail-attention{
-        li:last-child{
-            margin-bottom: 70px;
+}
+
+
+.event_detail-ticket-price,
+.event_detail-ticket-info,
+.event_detail-attention {
+    display: block;
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 75%;
+
+    @include rwd(428px) {
+        margin-top: 50px;
+    }
+
+    h3 {
+        width: 80%;
+        font-weight: bold;
+        font-size: 18px;
+        color: #533C1B;
+        line-height: 21.8px;
+        margin: 20px 0;
+        margin-left: -3%;
+
+        @include rwd(428px) {
+            font-size: 16px;
         }
     }
-    .event_detail-breadcrumb li:nth-child(even) a {
+
+    li {
+        list-style-type: decimal;
+        line-height: 3;
+        font-size: $h5;
+        color: #261C0D;
+        font-size: $p;
+
+        @include rwd(768px) {
+            font-size: 14px;
+        }
+
+        @include rwd(428px) {
+            font-size: 12px;
+        }
+    }
+
+    li:last-child {
+        margin-bottom: 30px;
+    }
+}
+
+.event_detail-attention {
+    li:last-child {
+        margin-bottom: 70px;
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    margin: 80px 0 20px 0px;
+
+    @include rwd(428px) {
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    li:nth-child(even)::before {
+        display: none;
+    }
+
+    li:nth-child(even) a {
         color: #261C0D;
     }
 
-    .event_detail-breadcrumb li:last-child a {
-        color: #618985;
-        margin-left: 8px;
-        position: relative;
+    li a {
+        text-decoration: none;
+        color: $font-color;
+        line-height: 2;
+        letter-spacing: 2px;
+    }
 
-        &::before{
-            content: '';
-            display: block;
-            height: 10px;
-            width: 1px;
-            position: absolute;
-            background-color: black;
-            top: 1px;
-            left: 0px;
+    .breadcrumb__a a {
+        &::after {
+            content: "";
+            height: 14px;
+            border-left: solid 1px black;
+            margin: 0 5px;
+
         }
     }
 
-    
-
+    .breadcrumb__b a {
+        color: $lakeGreen-color
+    }
+}

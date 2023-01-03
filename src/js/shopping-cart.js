@@ -48,6 +48,10 @@ const createApp = Vue.createApp({
             if (this.cartList.length === this.productList.length) {
                 this.selectAll = true;
             } else { this.selectAll = false; }
+        }, atDelete(idx, id) {
+            this.productList.splice(idx, 1);
+            this.cartList = this.cartList.filter(product => product.id !== id);
+            this.isSelectAll();
         }
     }
 }).mount("#shoppingCart1");
