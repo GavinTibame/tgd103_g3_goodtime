@@ -64,8 +64,8 @@ function sass2css() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        // .pipe(dest("dist/css"));
-        .pipe(dest("src/css"));
+        .pipe(dest("src/css"))
+        .pipe(dest("dist/css"));
 }
 
 // 有壓縮

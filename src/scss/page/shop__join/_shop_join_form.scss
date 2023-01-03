@@ -20,11 +20,16 @@ $width_768: 768px;
 main.shops__Join__form {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
+
+    @include width_428 {
+        max-width: 82vw;
+    }
 }
 
 .shops__Join__form {
     .breadcrumb {
         display: flex;
+        margin: 80px 0 20px 0px;
 
 
         li a {
@@ -39,7 +44,6 @@ main.shops__Join__form {
                 content: "";
                 height: 14px;
                 border-left: solid 1px black;
-                display: inline-block;
                 margin: 0 5px;
 
             }

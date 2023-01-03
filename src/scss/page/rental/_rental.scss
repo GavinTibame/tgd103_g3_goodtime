@@ -15,15 +15,15 @@ main.rental {
     }
 
     .banner div.banner__img {
-        background-image: url("../../../img/banner/banner__rental.png");
+        background-image: url("../img/banner/banner__rental.png");
 
         @include rwd(768px) {
-            background-image: url("../../../img/rental_join_form/rental.banner/rental_banner_rwd768.jpg");
+            background-image: url("../img/rental_join_form/rental.banner/rental_banner_rwd768.jpg");
             height: 300px;
         }
 
         @include rwd(428px) {
-            background-image: url("../../../img/rental_join_form/rental.banner/rental_banner_rwd428.jpg");
+            background-image: url("../img/rental_join_form/rental.banner/rental_banner_rwd428.jpg");
             height: 200px;
         }
 
