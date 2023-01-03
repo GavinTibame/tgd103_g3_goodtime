@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/backstage/grid.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="b-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="item-name">訂單明細</p>
+                    <p class="gray-text">MO221206A00001</p>
+                    <div class="b-detail_infobox">
+                        <ul>
+                            <li>
+                                <p>主單號碼</p>
+                                <span>MO221206A00001</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>運費</p>
+                                <span>60</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>預計出貨日</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>貨運日期</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>物流單號</p>
+                                <span>MC221205Z00001</span>
+                            </li>
+                            <li>
+                                <p>訂單狀態</p>
+                                <span>訂單已確認</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>訂單狀態更新原因</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>訂單備註</p>
+                                <span>TWD864</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>客服訂單備註</p>
+                                <span>《崖上的波妞》十周年特展</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>建立日期</p>
+                                <span>20221205</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>會員編號</p>
+                                <span>XL/L/S/M</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>商品分類</p>
+                                <span>零食/伴手禮</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>貨運方式</p>
+                                <span>低溫宅配</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>庫存數量</p>
+                                <span>9999</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>商品描述</p>
+                                <div class="span-box">
+                                    <span>鬆軟好吃的波妞造型麻糬，讓你愛不釋手，包含最熱門的芝麻、抹茶、草莓三種口味内餡，大飽眼福及口福</span>
+                                </div>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>商品圖</p>
+                                <div class="imgbox"><img src="" alt=""></div>
+                                <div class="imgbox"><img src="" alt=""></div>
+                                <div class="imgbox"><img src="" alt=""></div>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                        </ul>
+                        <div class="btn-group">
+                            <button class="big-btn">上架</button>
+                            <button class="big-btn">儲存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#header").load("./back-header.html");
+        });
+    </script>
+</body>
+</html>
+</html>

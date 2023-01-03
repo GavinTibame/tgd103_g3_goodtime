@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/backstage/grid.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="b-po">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text">訂單查詢</p>
+                    <p class="gray-text">*以下欄位如留空則預設為全部</p>
+                    <div class="search-bar">
+                        <p>查詢條件</p>
+                        <ul>
+                            
+                            <li>
+                                <p>時間區間</p>
+                                <form action="" class="time-area">
+                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">下單時間</label>
+                                    <input type="radio" name="time-area"><label class="time-area_label" for="">訂單確認時間</label>
+                                    <input type="radio" name="time-area"><label class="time-area_label" for="">預計出貨日</label>
+                                </form>
+                            </li>
+                            <li>
+                                <p>主單號碼</p>
+                                <input type="text" class="long-input">
+                            </li>
+                            <li>
+                                <p>訂單號碼</p>
+                                <input type="text" class="long-input">
+                            </li>
+                            <li>
+                                <p>購物車號碼</p>
+                                <input type="text" class="long-input">
+                            </li>
+                            <li>
+                                <p>訂單確認</p>
+                                <form action="" class="po-confirm">
+                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">下單時間</label>
+                                    <input type="radio" name="time-area"><label class="time-area_label" for="">訂單確認時間</label>
+                                    <input type="radio" name="time-area"><label class="time-area_label" for="">預計出貨日</label>
+                                </form>
+                            </li>
+                            <li>
+                                <p>進階查詢</p>
+                            </li>
+                        </ul>
+                        <div class="btn-group">
+                            <button class="search-btn">查詢</button>
+                            <button class="show-btn">匯出查詢結果</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="info-box">
+                                    <p>訂單列表</p>
+                                    <ul>
+                                        <li class="first-title">
+                                            <div>
+                                                <div><h6>購物車號碼</h6></div>
+                                                <div><h6>預計出貨日<br>出貨單號<br>實際出貨日</h6></div>
+                                                <div><h6>下單日期<br>訂單狀態<br>訂單狀態更新日期<br>訂單狀態更新原因</h6></div>
+                                                <div><h6>商品編號<br>商品名稱<br>商品頁編號</h6></div>
+                                                <div><h6>下單數量<br>商品單價</h6></div>
+                                                <div><h6>會員編號<br>會員名稱</h6></div>
+                                                <div><h6>訂單備註<br>客服訂單備註</h6></div>
+                                            </div> 
+                                        </li>
+                                        <li class="">
+                                            <a href="./b-po-detail.html">
+                                                <div class="top-info">
+                                                    <h6>主單號碼︰MO221206A00001</h6>
+                                                    <h6>訂單總金額︰TWD1,788</h6>
+                                                    <h6>訂單號碼︰MM221206A00001</h6>
+                                                    <h6>運費︰TWD60</h6>
+                                                    <button>單據</button>
+                                                </div>
+                                                <div class="flex-box">
+                                                    <div><h6>MC221205Z00001</h6></div>
+                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
+                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
+                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
+                                                    <div><h6>2<br>TWD864</h6></div>
+                                                    <div><h6>10<br>許浩文</h6></div>
+                                                    <div><button>編輯</button></div>
+                                                </div>
+                                            </a> 
+                                        </li>
+                                        <li class="">
+                                            <a href="./b-po-detail.html">
+                                                <div class="top-info">
+                                                    <h6>主單號碼︰MO221206A00001</h6>
+                                                    <h6>訂單總金額︰TWD1,788</h6>
+                                                    <h6>訂單號碼︰MM221206A00001</h6>
+                                                    <h6>運費︰TWD60</h6>
+                                                    <button>單據</button>
+                                                </div>
+                                                <div class="flex-box">
+                                                    <div><h6>MC221205Z00001</h6></div>
+                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
+                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
+                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
+                                                    <div><h6>2<br>TWD864</h6></div>
+                                                    <div><h6>10<br>許浩文</h6></div>
+                                                    <div><button>編輯</button></div>
+                                                </div>
+                                            </a> 
+                                        </li>
+                                        <li class="">
+                                            <a href="./b-po-detail.html">
+                                                <div class="top-info">
+                                                    <h6>主單號碼︰MO221206A00001</h6>
+                                                    <h6>訂單總金額︰TWD1,788</h6>
+                                                    <h6>訂單號碼︰MM221206A00001</h6>
+                                                    <h6>運費︰TWD60</h6>
+                                                    <button>單據</button>
+                                                </div>
+                                                <div class="flex-box">
+                                                    <div><h6>MC221205Z00001</h6></div>
+                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
+                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
+                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
+                                                    <div><h6>2<br>TWD864</h6></div>
+                                                    <div><h6>10<br>許浩文</h6></div>
+                                                    <div><button>編輯</button></div>
+                                                </div>
+                                            </a> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#header").load("./back-header.html");
+        });
+    </script>
+</body>
+</html>

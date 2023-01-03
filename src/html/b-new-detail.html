@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/backstage/grid.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="b-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="item-name">消息明細</p>
+                    <div class="b-detail_infobox">
+                        <ul>
+                            <li>
+                                <p>消息主圖</p>
+                                <div class="imgbox"><img src="" alt=""></div>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>消息頁編號</p>
+                                <span>00001</span>
+                            </li>
+                            <li>
+                                <p>消息編號</p>
+                                <span>2022121202</span>
+                            </li>
+                            <li>
+                                <p>消息標題</p>
+                                <div class="span-box">
+                                    <span>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！</span>
+                                </div>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>消息分類</p>
+                                <span>展覽</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>公告期間</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>消息頁狀態</p>
+                                <span>刊登</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>新增日期</p>
+                                <span>2022/12/06 11:32</span>
+                            </li>
+                            <li>
+                                <p>最後編輯日期</p>
+                                <span>2022/12/07 23:59</span>
+                            </li>
+                            <li>
+                                <p>展場編號</p>
+                                <span>20221205</span>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>消息內文</p>
+                                <div class="span-box">
+                                    <span>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！</span>
+                                </div>  
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                            <li>
+                                <p>消息圖</p>
+                                <div class="new_detail_imgbox"><img src="" alt=""></div>
+                                <button class="change-btn"></i>更改</button>
+                            </li>
+                        </ul>
+                        <div class="btn-group">
+                            <button class="big-btn">上架</button>
+                            <button class="big-btn">儲存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(() => {
+            $("#header").load("./back-header.html");
+        });
+    </script>
+</body>
+</html>
