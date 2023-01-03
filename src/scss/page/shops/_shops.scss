@@ -1,7 +1,3 @@
-.breadcrumb{
-
-   
-}
 .shops {
     box-sizing: border-box;
     margin-top: 45px;
@@ -9,6 +5,8 @@
     height: 2000px;
     overflow: hidden;
     font-family: 'Noto Sans TC', sans-serif;
+    display: block;
+    margin: 0 auto;
 
     @include rwd(768px){
         margin-top: 20px;
@@ -20,10 +18,6 @@
         margin-left: 120px;
         margin-bottom: 80px;
         position: relative;
-
-        @include rwd(768px){
-            margin-bottom: unset;
-         }
 
         h2 {
             font-family: 'Enriqueta', serif;
@@ -65,6 +59,7 @@
             }
         }
     }
+    
     .shopsbox-area1,.shopsbox-area2{
         margin: 10px auto;
         width: 80%;
@@ -80,6 +75,7 @@
             width: 85%;
             height: 500PX;
             }
+        
 
         .store{
             position: relative;
@@ -242,6 +238,10 @@
                 position: absolute;
                 filter: grayscale(1);
                 transition: all 1.5s;
+
+                @include rwd(768px){
+                    height: unset;
+                 }
             }
             .store-textbox{
                 width: 50%;
@@ -299,6 +299,10 @@
     }
     .title-box-pos2{
         margin-top: 160px;
+
+        @include rwd(768px){
+            margin-top: unset;
+         }
     }
     .joinus-area{
         margin: 10px auto;
