@@ -320,13 +320,8 @@
                     border-radius: 3px;
 
                     @include rwd(768px){
-                        width: 400px;
-                    }
-
-                    @include rwd(428px){
                         width: 100%;
                     }
-
                     
                 }
 
@@ -340,10 +335,6 @@
                     border-radius: 3px;
 
                     @include rwd(768px){
-                        width: 400px;
-                    }
-
-                    @include rwd(428px){
                         width: 100%;
                     }
                 }

@@ -162,7 +162,7 @@
             display: flex;
             margin-top: 20px;
 
-            @include rwd(428px){
+            @include rwd(768px){
                 flex-wrap: wrap;
                 padding-bottom: 10px;
                 border-bottom: 1px solid $secondary5-color;
@@ -177,15 +177,19 @@
             }
             
             > li:nth-child(2){ // 商品名稱
-                flex-grow: 0.8;
-                padding-left: 10px;
+                flex-grow: 0.85;
+                padding-left: 5px;
 
-                @include rwd(768px){
-                    padding-left: 3px;
+                @include rwd(1024px){
+                    flex-grow: 0.8;
 
-                    @include rwd(428px){
-                        flex-grow: 0;
-                        flex-basis: 200px;
+                    @include rwd(768px){
+                        padding-left: 3px;
+
+                        @include rwd(428px){
+                            flex-grow: 0;
+                            flex-basis: 200px;
+                        }
                     }
                 }
             }
@@ -268,6 +272,10 @@
             margin-bottom: 20px;
             margin-left: 10px;
             margin-right: 10px;
+
+            @include rwd(428px){
+                margin: 20px 0;
+            }
         }
 
         .freight{
@@ -431,13 +439,14 @@
             }
 
             .btn__ctn .button{
+                
 
-                @include rwd(428px){
+                @include rwd(860px){
                     letter-spacing: 5px;
                     padding: 0;
-                    line-height: 2;
                     width: 200px;
                     margin-top: 30px;
+                    line-height: 2;
                 }
 
                 span{

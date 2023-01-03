@@ -44,6 +44,10 @@
         display: flex;
         // outline: 1px solid red;
 
+        @include rwd(690px){
+            flex-direction: column;
+        }
+
         // ==== 左方區塊 ====
         .section__left{
             // outline: 1px solid blue;
@@ -57,6 +61,12 @@
 
                 @include rwd(1024px){
                     font-size: $h4;
+
+                    @include rwd(690px){
+                        font-size: $h5;
+                        width: 80%;
+                        margin: 3% auto;
+                    }
                 }
             }
 
@@ -64,6 +74,11 @@
                 width: 90%;
                 display: block;
                 // margin: 0 auto;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 0 auto;
+                }
             }
 
             p{
@@ -72,6 +87,12 @@
                 line-height: 2;
                 margin: 5%;
                 margin-left: 0;
+
+                @include rwd(690px){
+                    font-size: 14px;
+                    width: 80%;
+                    margin: 3% auto;
+                }
             }
 
             .left__pics{
@@ -80,6 +101,11 @@
                 width: 90%;
                 // outline: 1px solid red;
                 // margin: 0 auto;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
 
                 div{
                     // margin-right: 2%;
@@ -98,6 +124,11 @@
                 line-height: 1.6;
                 margin: 5%;
                 margin-left: 0;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
             }
 
             ul{     
@@ -107,6 +138,12 @@
                 padding-left: 3%;
                 list-style-type: '▴';  
                 color: $secondary4-color;
+
+                @include rwd(690px){
+                    font-size: 14px;
+                    width: 80%;
+                    margin: 3% auto;
+                }
 
                 li{
                     line-height: 2;  
@@ -129,6 +166,11 @@
                 margin-right: 5%;
                 padding-bottom: 2%;
                 border-bottom: 1px solid $secondary5-color;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
             }
 
             // ==== 文字 ====
@@ -136,11 +178,22 @@
                 margin: 5%;
                 padding-left: 5%;
 
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                    padding: 0;
+                }
+
                 li{
                     // border: 1px solid red;
                     display: flex;
                     line-height: 2.5;
                     color: $secondary4-color;
+
+                    @include rwd(690px){
+                        // width: 80%;
+
+                    }
 
                     h3{
                         // border: 1px solid blue;
@@ -158,6 +211,10 @@
                                 @include rwd(768px){
                                     font-size: 14px;
                                     flex-basis: 40%;
+
+                                    @include rwd(690px){
+                                        flex-basis: 20%;
+                                    }
                                 }
                             }
                         }
@@ -178,6 +235,10 @@
                                 @include rwd(768px){
                                     font-size: 14px;
                                     flex-basis: 60%;
+
+                                    @include rwd(690px){
+                                        flex-basis: 80%;
+                                    }
                                 }
                             }
                         }
@@ -204,15 +265,25 @@
             // ==== icon ====
             .icon{
                 // border: 1px solid purple;
-                margin: 5%;
+                margin-left: 5%;
+                width: 100%;
 
                 @include rwd(833px){
                     font-size: 14px;
+
+                    @include rwd(690px){
+                        width: 80%;
+                        margin: 3% auto;
+                    }
                 }
 
                 li{
                     display: flex;
                     padding: 5%;
+
+                    @include rwd(690px){
+                        padding: 3%;
+                    }
 
                     div{
                         flex-grow: 1;
@@ -237,6 +308,10 @@
 
                         @include rwd(833px){
                             font-size: 14px;
+
+                            @include rwd(690px){
+                                font-size: $p;
+                            }
                         }
                     }
 
