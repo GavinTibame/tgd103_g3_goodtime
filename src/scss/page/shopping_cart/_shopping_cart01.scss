@@ -1,10 +1,10 @@
-.shopping__cart01__wrapper{
+.shopping__cart01__wrapper {
     font-family: $our-font;
     width: 80%;
     margin: 0 auto;
 
     // ==== 上方進度條 ====
-    .top__nav{
+    .top__nav {
         // border: 1px solid red; 
         width: 1000px;
         margin: 0 auto;
@@ -13,17 +13,19 @@
         justify-content: space-around;
         margin-top: 120px;
 
-        @include rwd(1024px){
+        @include rwd(1024px) {
             width: auto;
 
-            @include rwd(912px){}
-            @include rwd(768px){}
-            @include rwd(428px){}
-                
-            
+            @include rwd(912px) {}
+
+            @include rwd(768px) {}
+
+            @include rwd(428px) {}
+
+
         }
 
-        
+
 
         li {
             // border: 1px solid blue;
@@ -45,7 +47,7 @@
                 color: #b3b3b3;
                 margin-top: 10px;
 
-                @include rwd(428px){
+                @include rwd(428px) {
                     font-size: 14px;
                 }
             }
@@ -65,22 +67,22 @@
                 left: 55%;
                 top: 20%;
 
-                @include rwd(1024px){
+                @include rwd(1024px) {
                     width: 100%;
                     left: 56%;
                 }
 
-                @include rwd(912px){
+                @include rwd(912px) {
                     width: 100%;
                     left: 57%;
                 }
 
-                @include rwd(768px){
+                @include rwd(768px) {
                     // width: 200px;
                     left: 58%;
                 }
 
-                @include rwd(428px){
+                @include rwd(428px) {
                     // width: 100px;
                     left: 64%;
                 }
@@ -88,11 +90,11 @@
         }
 
         // 此頁進度標示
-        li .num__now{
-            background-color: $primary1-color; 
+        li .num__now {
+            background-color: $primary1-color;
         }
 
-        li .text__now{
+        li .text__now {
             color: $primary1-color;
         }
     }
@@ -106,7 +108,7 @@
         border-bottom: 1px solid $secondary5-color;
         position: relative;
 
-        @include rwd(428px){
+        @include rwd(428px) {
             display: none;
         }
 
@@ -114,26 +116,26 @@
             color: $secondary4-color;
             flex-grow: 1;
             margin-bottom: 10px;
-            
-            &:first-child{
+
+            &:first-child {
                 position: absolute;
                 left: 0;
                 top: 0;
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 flex-grow: 1.1;
                 margin-left: 30px;
 
-                @include rwd(768px){
+                @include rwd(768px) {
                     flex-grow: 1.6;
                 }
             }
 
-            &:nth-child(3){
+            &:nth-child(3) {
                 flex-grow: 1.1;
 
-                @include rwd(768px){
+                @include rwd(768px) {
                     flex-grow: 1;
                 }
             }
@@ -149,7 +151,7 @@
         // outline: 1px solid blue;
         position: relative;
 
-        @include rwd(428px){
+        @include rwd(428px) {
             flex-wrap: wrap;
             padding-bottom: 10px;
             border-bottom: 1px solid $secondary5-color;
@@ -160,7 +162,7 @@
             flex-grow: 1;
             // outline: 1px solid red;
 
-            @include rwd(428px){
+            @include rwd(428px) {
                 margin-top: 10px;
             }
         }
@@ -170,7 +172,7 @@
             left: 0;
             top: 30%;
 
-            @include rwd(428px){
+            @include rwd(428px) {
                 top: 20%;
             }
         }
@@ -178,7 +180,7 @@
         >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
-            
+
         }
 
         >li:last-child {
@@ -188,32 +190,32 @@
             cursor: pointer;
         }
 
-        >li:nth-child(3){
+        >li:nth-child(3) {
             padding-left: 10px;
             flex-grow: 0.9;
 
-            @include rwd(768px){
+            @include rwd(768px) {
                 padding-left: 3px;
                 flex-grow: 1.1;
             }
 
-            @include rwd(428px){
+            @include rwd(428px) {
                 flex-grow: 0;
                 flex-basis: 150px;
             }
         }
 
-        >li:nth-child(4){
+        >li:nth-child(4) {
             flex-grow: 1.1;
 
-            @include rwd(768px){
+            @include rwd(768px) {
                 flex-grow: 1;
             }
         }
 
-        >li:nth-child(5){
+        >li:nth-child(5) {
 
-            @include rwd(428px){
+            @include rwd(428px) {
                 padding-left: 30px;
                 padding-right: 24%;
             }
@@ -224,27 +226,28 @@
             line-height: 1.6;
             color: $secondary4-color;
 
-            @include rwd(768px){
+            @include rwd(768px) {
                 font-size: 14px;
             }
         }
 
         p {
             color: $secondary5-color;
-            @include rwd(768px){
+
+            @include rwd(768px) {
                 font-size: 14px;
             }
         }
 
         // ==== 數量的input ====
-        form.input__box{
+        div.input__box {
             display: flex;
             align-items: center;
             // border: 1px solid red;
 
 
-            .qtyminus, 
-            .qtyplus{
+            .qtyminus,
+            .qtyplus {
                 border: none;
                 line-height: 23px;
                 color: #fff;
@@ -252,17 +255,17 @@
                 font-size: $p;
             }
 
-            .qtyminus{
+            .qtyminus {
                 border-radius: 3px 0 0 3px;
                 cursor: pointer;
             }
 
-            .qtyplus{
+            .qtyplus {
                 border-radius: 0 3px 3px 0;
                 cursor: pointer;
             }
 
-            .qty{
+            .qty {
                 outline: 0;
                 text-align: center;
                 border: 1px solid $primary2-color;
@@ -272,11 +275,11 @@
                 line-height: 23px;
                 padding: 0 3px;
 
-                @include rwd(768px){
+                @include rwd(768px) {
                     width: 50%;
                 }
 
-                @include rwd(428px){
+                @include rwd(428px) {
                     width: 100px;
                 }
             }
@@ -285,32 +288,32 @@
     }
 
     // ==== 送貨和訂單資訊 ====
-    .delivery__sum{
+    .delivery__sum {
         display: flex;
 
-        @include rwd(768px){
-            flex-direction: column;        
+        @include rwd(768px) {
+            flex-direction: column;
         }
 
-        .delivery{
+        .delivery {
             flex-grow: 1;
             margin-top: 40px;
 
-            li{
+            li {
                 margin-bottom: 10px;
                 margin-left: 5px;
 
-                p{
+                p {
                     line-height: 1.6;
                     color: $secondary4-color;
                     margin-bottom: 3px;
 
-                    @include rwd(428px){
+                    @include rwd(428px) {
                         font-size: 14px;
                     }
                 }
 
-                select.method{
+                select.method {
                     outline: none;
                     width: 300px;
                     height: 30px;
@@ -325,7 +328,7 @@
                     
                 }
 
-                input.address{
+                input.address {
                     outline: none;
                     width: 300px;
                     line-height: 2;
@@ -341,13 +344,13 @@
             }
         }
 
-        .summary{
+        .summary {
             flex-grow: 1;
             /* border: 1px solid blue; */
             margin-top: 40px;
             color: $secondary4-color;
 
-            .subtotal{
+            .subtotal {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 20px;
@@ -355,7 +358,7 @@
                 margin-right: 10px;
             }
 
-            .freight{
+            .freight {
                 display: flex;
                 justify-content: space-between;
                 border-bottom: 1px solid $secondary5-color;
@@ -364,7 +367,7 @@
                 margin-right: 10px;
             }
 
-            .total{
+            .total {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 10px;
@@ -372,12 +375,12 @@
                 margin-right: 10px;
                 margin-top: 20px;
                 color: $primary2-color;
-                font-weight:600;
+                font-weight: 600;
             }
 
-            .btn__ctn .button{
+            .btn__ctn .button {
 
-                @include rwd(428px){
+                @include rwd(428px) {
                     letter-spacing: 5px;
                     padding: 0;
                     line-height: 2;
@@ -385,9 +388,9 @@
                     margin-top: 30px;
                 }
 
-                span{
-                    
-                    @include rwd(428px){
+                span {
+
+                    @include rwd(428px) {
                         font-size: 14px;
                     }
                 }
@@ -399,11 +402,3 @@
 
 
 }
-
-
-
-    
-
-
-    
-

@@ -144,7 +144,7 @@
     width: calc(100% - 100px);
     margin: 0 auto;
     height: 840px;
-    background-image: url(../../../img/index/halfcercle.png);
+    background-image: url(../../../../src/img/index/halfcercle.png);
     background-repeat: no-repeat;
     margin-top: 210px;
     background-position: 0px center;
@@ -329,7 +329,9 @@
     .owl-two{
         width: 85%;
         margin-left: 15%;
-
+        .whiteBlock{
+            display: none;
+        }
         h4{
             font-size: 16px;
             margin-top: 20px;
@@ -409,5 +411,223 @@
     margin: 17px;
     div{
         border:solid 1px #000;
+    }
+}
+
+@media all and (max-width: $tablet-width) {
+    .index-wrapper{
+        .index-vediobox{
+            bottom:-51%;
+        }
+    }
+    .index-aboutus{
+        width: 950px;
+        
+        .aboutus-right{
+            margin-top: 0px;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .index-wrapper{
+        .index-subtract{
+            bottom: -120px;
+        }
+        h4{
+            font-size: 28px;
+            bottom: -26%;
+            left: 21%;
+        }
+        .index-vediobox{
+            bottom: -61%;            
+            right: 32%;
+            width: 227px;
+            h5{
+                width: 84%;
+
+                &::before{
+                    display: none;
+                }
+            }
+            a{
+                right: 2px;
+                bottom: 1px;
+            }
+        }
+    }
+    .index-news{
+        height: 465px;
+        background-image: url(../../../../src/img/index/halfcercle768.jpg);
+        .title{
+            .title-1{
+                font-size: 22px;
+                margin-top: 178px;
+                margin-left: 8%;
+            }
+            .title-2{
+                font-size: 22px;
+                margin-top: 25px;
+                margin-left: 15%;
+            }
+        }
+        .index-content-wrap{
+            padding-top: 35PX;
+            .content{
+                .date-info{
+                    font-size: 13px;
+                }
+                .announcement{
+                    font-size: 14px;
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+    .index-aboutus{
+        width: 700px;
+        margin-top: 80px;
+        height: 260px;
+
+        .aboutus-left{
+            img{
+                margin-left: 22%;
+            }
+        }
+        .aboutus-right{
+            .title-1{
+                font-size: 22px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .title-2{
+                font-size: 22px;
+                margin-left: 42px;
+            }
+            p{
+                font-size: 16px;
+                letter-spacing: 2px;
+                margin-left: -44px;                
+                margin-top: 20px;
+                margin-top: 15px;
+            }
+        }
+    }
+    .index-shops{
+        .title-1{
+            margin-top: 80px;
+            font-size: 22px;
+        }
+        .title-2{
+            font-size: 22px;
+            margin-bottom: 35px;
+        }
+        // .owl-two{
+        //     width: 100%;
+        //     .item{
+        //          width: 300px;
+        //     }
+        // }
+        .owl-next{
+            left: -12%;
+        }
+    }
+}
+
+@media all and (max-width: 428px) {
+    .index-wrapper{
+        width: 100%;
+        .owl-one{
+            .owl-nav{
+                .owl-prev{
+                    left: 2px;
+                }
+                .owl-next{
+                    right: 2px;
+                }
+            }
+        }
+        
+        h4{
+            font-size: 20px;
+            bottom: -21%;
+        }
+        .index-vediobox{
+            bottom: -50%;
+            right: 23%;
+        }
+    }
+    .index-news{
+        width: 100%;
+        .title{
+            float: none;
+            width: 100%;
+            .title-1{
+                margin-left: 0;
+                white-space: nowrap;
+                text-align: center;
+                margin-top: 240px;
+            }
+            .title-2{
+                margin-left: 0;
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+        .index-content-wrap{
+            .content{
+                float: none;
+                width: 100%;
+                width: 75%;
+                margin: 0 auto;
+                .announcement{
+                    .material-symbols-outlined{
+                        top: -4px;
+                        left: 313px;
+                    }
+                }
+            }
+        } 
+    }
+    .index-aboutus{
+        position: relative;
+        width: 400px;
+        height: auto;
+        .aboutus-left{
+            float: none;
+            width: 100%;
+            img{
+                margin: 0 auto;
+                padding-top: 90px;
+            }
+        }
+        .aboutus-right{
+            float: none;
+            width: 100%;
+            .title{
+                position: absolute;
+                top: -10px;
+                left: 31%;
+                
+                .title-1{
+                    text-align: center;
+                }
+                .title-2{
+                    margin-left: 0;
+                    text-align: center;
+                }
+            }
+            p{
+                width: 66%;
+                margin: 0 auto;
+                margin-top: 20px;
+                white-space: nowrap;
+            }
+        }
+    }
+    .index-shops{
+        width: 100%;
+        margin-left: 0;
+
     }
 }

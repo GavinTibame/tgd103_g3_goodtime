@@ -27,7 +27,7 @@ main.memberCenter {
         margin: 50px 0 20px 55px;
         // box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
 
-        
+
         @include rwd(428px) {
             margin: 50px 0 20px 10px;
         }
@@ -274,6 +274,8 @@ main.memberCenter {
 
         @include rwd(768px) {
             flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 100%;
         }
 
         @include rwd(428px) {
@@ -283,6 +285,11 @@ main.memberCenter {
         label {
             display: flex;
             margin-right: 1rem;
+
+            @include rwd(715px) {
+                width: 100%;
+                margin-bottom: 10px;
+            }
 
             & * {
                 margin-right: 1rem;

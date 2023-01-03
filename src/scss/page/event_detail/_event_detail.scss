@@ -20,9 +20,30 @@
             margin-bottom: 0;
         }
 
-        .btn__ctn .button{
-            letter-spacing: 10px;
-            margin-top: 10px;
+        .btn__ctn,
+        .btn-ctn {
+            width: fit-content;
+            margin: 0 auto;
+
+            .button {
+                letter-spacing: 5px;
+                padding: 20px 95px;
+
+                &::before {
+                    content: "";
+                    width: 0%;
+                    height: 0%;
+                }
+
+                &:hover {
+
+                    span {
+                        color: white;
+                    }
+                }
+
+
+            }
         }
 
         .event_detail-banner {
@@ -192,7 +213,7 @@
                         height: 100%;
                         color: #fff;
                         background-color: #C09351;
-                        border: none;
+                        border: solid 12px #C09351;
                         cursor: pointer;
                     }
 
@@ -211,97 +232,97 @@
         }
     }
 
-}
 
 
-.event_detail-ticket-price,
-.event_detail-ticket-info,
-.event_detail-attention {
-    display: block;
-    margin: 0 auto;
-    margin-top: 80px;
-    max-width: 75%;
-
-    @include rwd(428px) {
-        margin-top: 50px;
-    }
-
-    h3 {
-        width: 80%;
-        font-weight: bold;
-        font-size: 18px;
-        color: #533C1B;
-        line-height: 21.8px;
-        margin: 20px 0;
-        margin-left: -3%;
+    .event_detail-ticket-price,
+    .event_detail-ticket-info,
+    .event_detail-attention {
+        display: block;
+        margin: 0 auto;
+        margin-top: 80px;
+        max-width: 75%;
 
         @include rwd(428px) {
-            font-size: 16px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            width: 80%;
+            font-weight: bold;
+            font-size: 18px;
+            color: #533C1B;
+            line-height: 21.8px;
+            margin: 20px 0;
+            margin-left: -3%;
+
+            @include rwd(428px) {
+                font-size: 16px;
+            }
+        }
+
+        li {
+            list-style-type: decimal;
+            line-height: 3;
+            font-size: $h5;
+            color: #261C0D;
+            font-size: $p;
+
+            @include rwd(768px) {
+                font-size: 14px;
+            }
+
+            @include rwd(428px) {
+                font-size: 12px;
+            }
+        }
+
+        li:last-child {
+            margin-bottom: 30px;
         }
     }
 
-    li {
-        list-style-type: decimal;
-        line-height: 3;
-        font-size: $h5;
-        color: #261C0D;
-        font-size: $p;
-
-        @include rwd(768px) {
-            font-size: 14px;
+    .event_detail-attention {
+        li:last-child {
+            margin-bottom: 70px;
         }
+    }
+
+    .breadcrumb {
+        display: flex;
+        margin: 80px 0 20px 0px;
 
         @include rwd(428px) {
-            font-size: 12px;
+            margin: 10px 0;
+            padding: 0;
         }
-    }
 
-    li:last-child {
-        margin-bottom: 30px;
-    }
-}
-
-.event_detail-attention {
-    li:last-child {
-        margin-bottom: 70px;
-    }
-}
-
-.breadcrumb {
-    display: flex;
-    margin: 80px 0 20px 0px;
-
-    @include rwd(428px) {
-        margin: 10px 0;
-        padding: 0;
-    }
-
-    li:nth-child(even)::before {
-        display: none;
-    }
-
-    li:nth-child(even) a {
-        color: #261C0D;
-    }
-
-    li a {
-        text-decoration: none;
-        color: $font-color;
-        line-height: 2;
-        letter-spacing: 2px;
-    }
-
-    .breadcrumb__a a {
-        &::after {
-            content: "";
-            height: 14px;
-            border-left: solid 1px black;
-            margin: 0 5px;
-
+        li:nth-child(even)::before {
+            display: none;
         }
-    }
 
-    .breadcrumb__b a {
-        color: $lakeGreen-color
+        li:nth-child(even) a {
+            color: #261C0D;
+        }
+
+        li a {
+            text-decoration: none;
+            color: $font-color;
+            line-height: 2;
+            letter-spacing: 2px;
+        }
+
+        .breadcrumb__a a {
+            &::after {
+                content: "";
+                height: 14px;
+                border-left: solid 1px black;
+                margin: 0 5px;
+
+            }
+        }
+
+        .breadcrumb__b a {
+            color: $lakeGreen-color
+        }
     }
 }
