@@ -1,8 +1,39 @@
+<<<<<<< HEAD
 .product-detail{
+=======
+.breadcrumb {
+    padding-top: 90px;
+    padding-left: 55px;
+
+    li {
+        &:nth-child(3) {
+            &::before {
+                content: "";
+                height: .6rem;
+                border-left: solid 1px $font-color;
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+        }
+
+        a {
+            color: $font-color;
+        }
+
+        li:last-child a {
+            color: $lakeGreen-color;
+        }
+    }
+}
+
+
+.product-detail {
+>>>>>>> dev
     margin-top: 160px;
     width: 100%;
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
+<<<<<<< HEAD
 }
 
 
@@ -35,11 +66,141 @@
     overflow: hidden;
 }
 .product-detail .indicator li{
+=======
+
+    ul.rental_join_form____breadcrumb {
+        display: flex;
+        min-width: 95%;
+        padding: 10px 2%;
+        position: relative;
+        z-index: 1;
+        margin-top: 80px;
+        margin-left: 40px;
+        margin-bottom: 80px;
+
+        @include rwd(428px) {
+            margin-left: 10px;
+        }
+
+        @include rwd(768px) {
+            margin-bottom: 0;
+        }
+
+        li {
+            &:nth-child(1) {
+                &::before {
+                    content: "";
+                    height: .6rem;
+                    display: inline-block;
+                    margin: 0 .5rem;
+                }
+
+                a {
+                    color: $font-color;
+                }
+            }
+
+            &:nth-child(2) {
+                &::before {
+                    content: "";
+                    height: .6rem;
+                    border-left: solid 1px $font-color;
+                    display: inline-block;
+                    margin: 0 .5rem;
+                }
+
+                a {
+                    color: $font-color;
+                }
+            }
+
+            &:nth-child(3) {
+                &::before {
+                    content: "";
+                    height: .6rem;
+                    border-left: solid 1px $font-color;
+                    display: inline-block;
+                    margin: 0 .5rem;
+
+                }
+
+                a {
+                    color: $lakeGreen-color;
+                }
+            }
+        }
+
+        a {
+            font-size: $small;
+            line-height: 18px;
+        }
+    }
+}
+
+
+.product-detail .main {
+    display: flex;
+    width: 80%;
+    height: 400px;
+    padding-left: 8%;
+    margin: 0 auto 80px;
+
+
+    @include rwd(768px) {
+        width: 95%;
+        height: 350px;
+        padding-left: 5%;
+    }
+
+    @include rwd(428px) {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+}
+
+.product-detail .main .img-box {
+    width: 50%;
+    height: 100%;
+
+    @include rwd(428px) {
+        width: 100%;
+    }
+
+}
+
+.product-detail .img-box .slider {
+    width: 100%;
+    height: 80%;
+    background-image: url('../img/product_detail/item01.png');
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+    transition: all 0.5s;
+
+    @include rwd(428px) {
+        height: 250%;
+    }
+}
+
+.product-detail .img-box .indicator {
+    margin-top: 20px;
+    overflow: hidden;
+
+    @include rwd(428px) {
+        padding-left: 15px;
+    }
+}
+
+.product-detail .indicator li {
+>>>>>>> dev
     width: 25%;
     height: 100%;
     display: block;
     float: left;
 }
+<<<<<<< HEAD
 .product-detail .indicator li img{
     max-width: 100%;
 }
@@ -52,16 +213,65 @@
     margin-left: 40px;
 }
 .product-detail h4{
+=======
+
+.product-detail .indicator li img {
+    max-width: 100%;
+
+    @include rwd(428px) {
+        max-width: 90%;
+    }
+}
+
+.product-detail .main .function-box {
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+    margin-left: 30px;
+
+
+    @include rwd(768px) {
+        margin-left: 0;
+        margin-top: 40px;
+    }
+
+    @include rwd(428px) {
+        margin-top: 240px;
+        width: 100%;
+    }
+}
+
+.product-detail .function-box .textbox {
+    margin-left: 40px;
+}
+
+.product-detail h4 {
+>>>>>>> dev
     font-size: 32px;
     font-weight: 500;
     color: #533C1B;
     margin-bottom: 20px;
+<<<<<<< HEAD
 }
 .product-detail .textbox p{
+=======
+
+    @include rwd(768px) {
+        font-size: 22px;
+    }
+
+    @include rwd(428px) {
+        font-size: 18px;
+    }
+}
+
+.product-detail .textbox p {
+>>>>>>> dev
     font-size: 16px;
     font-weight: 400;
     color: #C3BCB1;
     margin-bottom: 20px;
+<<<<<<< HEAD
 }
 .product-detail .textbox h6{
     font-size: 16px;
@@ -82,17 +292,71 @@
     margin-bottom: 10px;
 }
 .product-detail .typebox .function-btn-group{
+=======
+
+    @include rwd(768px) {
+        font-size: 14px;
+    }
+}
+
+.product-detail .textbox h6 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+
+    @include rwd(768px) {
+        font-size: 14px;
+    }
+}
+
+.spotlight-color {
+    color: #618985 !important;
+}
+
+.product-detail .function-box .typebox {
+    margin-left: 40px;
+}
+
+.product-detail .typebox p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #533C1B;
+    margin: 10px 0;
+
+    @include rwd(768px) {
+        font-size: 14px;
+    }
+
+
+}
+
+.product-detail .typebox .function-btn-group {
+>>>>>>> dev
     display: flex;
     position: relative;
     margin-bottom: 10px;
 }
+<<<<<<< HEAD
 .product-detail .function-btn-group_btn{
+=======
+
+.product-detail .function-btn-group_btn {
+>>>>>>> dev
     margin-right: 10px;
     width: 60px;
     height: 30px;
     position: relative;
     text-align: center;
+<<<<<<< HEAD
 } 
+=======
+
+    @include rwd(428px) {
+        width: 100px;
+    }
+}
+
+>>>>>>> dev
 .function-btn-group_btn label,
 .function-btn-group_btn input {
     display: block;
@@ -109,29 +373,63 @@
     transition: all 0.3s;
     font-weight: 500;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 .function-btn-group_btn input[type="radio"] {
     opacity: 0.011;
     z-index: 100;
     cursor: pointer;
 }
+<<<<<<< HEAD
   
 .function-btn-group_btn input[type="radio"]:checked + label {
+=======
+
+.function-btn-group_btn input[type="radio"]:checked+label {
+>>>>>>> dev
     border-radius: 4px;
     outline: 2px solid #533C1B;
     color: #533C1B;
 }
+<<<<<<< HEAD
   
 .function-btn-group_btn label {
     cursor: pointer;
     z-index: 90;
 }
 .product-detail .typebox form{
+=======
+
+.function-btn-group_btn label {
+    cursor: pointer;
+    z-index: 90;
+
+    @include rwd(768px) {
+        font-size: 14px;
+    }
+}
+
+.product-detail .typebox form {
+>>>>>>> dev
     width: 80%;
     height: 30px;
     padding: 0px;
     margin: 0px;
+<<<<<<< HEAD
 }
 .product-detail .qtyminus,.qtyplus{
+=======
+
+    @include rwd(428px) {
+        width: 100%;
+    }
+}
+
+.product-detail .qtyminus,
+.product-detail .qtyplus {
+>>>>>>> dev
     margin: 0px;
     padding: 0px;
     width: 30px;
@@ -141,12 +439,18 @@
     border: none;
     cursor: pointer;
 }
+<<<<<<< HEAD
 .product-detail .qty{
+=======
+
+.product-detail .qty {
+>>>>>>> dev
     margin: -5px;
     padding: 0px;
     height: 100%;
     text-align: center;
     border: 2px solid #C09351;
+<<<<<<< HEAD
 }
 
 .product-detail .info-box{
@@ -154,24 +458,56 @@
     margin: 100px auto 100px;
 }
 .product-detail .info-box .switch-btnbox{
+=======
+
+    @include rwd(428px) {
+        width: 72%;
+    }
+}
+
+.product-detail .info-box {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+
+    @include rwd(428px) {
+        margin-top: 380px;
+    }
+}
+
+.product-detail .info-box .switch-btnbox {
+>>>>>>> dev
     width: 100%;
     height: 60px;
     display: flex;
     border-bottom: 2px solid #C3BCB1;
+<<<<<<< HEAD
 }
 .product-detail .switch-btnbox .switch-btn{
+=======
+
+}
+
+.product-detail .switch-btnbox .switch-btn {
+>>>>>>> dev
     width: 33.33333%;
     text-align: center;
     height: 60px;
     line-height: 60px;
     cursor: pointer;
 }
+<<<<<<< HEAD
 .product-detail .switch-btn a{
+=======
+
+.product-detail .switch-btn a {
+>>>>>>> dev
     text-decoration: none;
     font-weight: 500;
     color: #000;
     transition: all 0.3s;
 }
+<<<<<<< HEAD
 .product-detail .info-page-box{
     width: 100%;
 }
@@ -185,17 +521,77 @@
     border-left: 10px solid #C09351;
 }
 .product-detail .info-page-box p{
+=======
+
+.product-detail .info-page-box {
+    width: 100%;
+    margin: 50px 0 0 90px;
+
+    @include rwd(768px) {
+        margin: 50px 0 0 0;
+    }
+}
+
+.product-detail .info-page-box h6 {
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 4px;
+    border-left: 10px solid #C09351;
+
+    @include rwd(768px) {
+        font-size: 18px;
+    }
+
+    @include rwd(428px) {
+        margin-left: 0;
+        font-size: 16px;
+    }
+}
+
+.product-detail .info-page-box p {
+>>>>>>> dev
     padding: 10px;
     margin-top: 20px;
     margin-left: 40px;
     font-size: 16px;
     line-height: 1.8;
+<<<<<<< HEAD
 }
 .product-detail .mark{
     font-weight: 700;
     font-size: 18px;
 }
 .product-detail .cart-btn{
+=======
+    background-color: white;
+    color: black;
+
+    @include rwd(768px) {
+        margin: 30px 0 0 60px;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    @include rwd(428px) {
+        margin: 30px 0 0 0;
+        font-size: 12px;
+    }
+}
+
+.product-detail .mark {
+    font-weight: 700;
+    font-size: 18px;
+
+    @include rwd(768px) {
+        font-size: 16px;
+    }
+}
+
+.product-detail .cart-btn {
+>>>>>>> dev
     margin-top: 20px;
     margin-left: 40px;
     width: 120px;
@@ -208,11 +604,25 @@
     border-radius: 4px;
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
+<<<<<<< HEAD
     &:hover{
         box-shadow: 0 0 15px #ccc;
     }
 }
 .product-detail .buy-btn{
+=======
+
+    @include rwd(428px) {
+        width: 150px;
+    }
+
+    &:hover {
+        box-shadow: 0 0 15px #ccc;
+    }
+}
+
+.product-detail .buy-btn {
+>>>>>>> dev
     margin-top: 20px;
     margin-left: 20px;
     width: 120px;
@@ -225,7 +635,16 @@
     border-radius: 4px;
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
+<<<<<<< HEAD
     &:hover{
+=======
+
+    @include rwd(428px) {
+        width: 150px;
+    }
+
+    &:hover {
+>>>>>>> dev
         box-shadow: 0 0 20px #ccc;
     }
 }

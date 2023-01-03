@@ -153,7 +153,7 @@ for (let i = 0; i < data.length; i++) {
 	//create product cards
 	products += `
 			<li class="product events" data-event="${event}" data-model="${model}" data-price="${raw_Price}">
-				<a href="#">
+				<a href="../html/product_detail_01.html">
 					<div class='product-inner text-center shop__pic'>					
 						<img src="${image}">
 						<div class='shop__type'>${type}</div>

@@ -100,13 +100,13 @@
   height: 100%;
 }
 
-.topbar .member-icon {
+/* .topbar .member-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-}
+} */
 
 /* left-area */
 .topbar .left-area {

@@ -20,11 +20,16 @@ $width_768: 768px;
 main.shops__Join__form {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
+
+    @include width_428 {
+        max-width: 82vw;
+    }
 }
 
 .shops__Join__form {
     .breadcrumb {
         display: flex;
+        margin: 80px 0 20px 0px;
 
 
         li a {
@@ -39,7 +44,6 @@ main.shops__Join__form {
                 content: "";
                 height: 14px;
                 border-left: solid 1px black;
-                display: inline-block;
                 margin: 0 5px;
 
             }
@@ -76,22 +80,22 @@ main.shops__Join__form {
     }
 
     li.item1 {
-        background-image: url("../../../img/shops__Join__form/shops__Join__form_1.png");
+        background-image: url("../img/shops__Join__form/shops__Join__form_1.png");
         flex-grow: 3;
 
         @include width_768 {
-            background-image: url("../../../img/shops__Join__form/shops__Join__form_rwd768.jpg");
+            background-image: url("../img/shops__Join__form/shops__Join__form_rwd768.jpg");
             height: 300px;
         }
 
         @include width_428 {
-            background-image: url("../../../img/shops__Join__form/shops__Join__form_rwd428.jpg");
+            background-image: url("../img/shops__Join__form/shops__Join__form_rwd428.jpg");
             height: 200px;
         }
     }
 
     .banner li.item2 {
-        background-image: url("../../../img/shops__Join__form/shops__Join__form_2.png");
+        background-image: url("../img/shops__Join__form/shops__Join__form_2.png");
         flex-grow: 1;
         background-position: left center;
 

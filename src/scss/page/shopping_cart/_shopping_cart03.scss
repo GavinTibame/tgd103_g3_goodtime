@@ -13,6 +13,15 @@
         justify-content: space-around;
         margin-top: 120px;
 
+        @include rwd(1024px){
+            width: auto;
+
+            @include rwd(912px){}
+            @include rwd(768px){}
+            @include rwd(428px){}            
+        }
+
+
         li {
             // border: 1px solid blue;
             width: 33%;
@@ -48,6 +57,27 @@
                 position: absolute;
                 left: 55%;
                 top: 20%;
+
+                @include rwd(1024px){
+                    width: 100%;
+                    left: 56%;
+                }
+
+                @include rwd(912px){
+                    width: 100%;
+                    left: 57%;
+                }
+
+                @include rwd(768px){
+                    // width: 200px;
+                    left: 58%;
+                }
+
+                @include rwd(428px){
+                    // width: 100px;
+                    left: 64%;
+                }
+
             }
         }
 
@@ -67,14 +97,28 @@
         display: flex;
         justify-content: space-around;
 
+        @include rwd(700px){
+            flex-direction: column;
+            width: 70%;
+        }
+
         h2{
+            font-size: $p;
             line-height: 1.6;
             color: $secondary4-color;
             margin-top: 10px;
+
+            @include rwd(428px){
+                font-size: 14px;
+            }
         }
 
         .right h2 + h1{
             margin-top: 80px;
+
+            @include rwd(700px){
+                margin-top: 40px;
+            }
         }
     }
 

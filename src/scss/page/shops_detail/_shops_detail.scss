@@ -44,6 +44,13 @@
         display: flex;
         // outline: 1px solid red;
 
+<<<<<<< HEAD
+=======
+        @include rwd(690px){
+            flex-direction: column;
+        }
+
+>>>>>>> dev
         // ==== 左方區塊 ====
         .section__left{
             // outline: 1px solid blue;
@@ -53,13 +60,36 @@
                 font-size: $h3;
                 color: $primary1-color;
                 line-height: 1.6;
+<<<<<<< HEAD
                 margin: 20px 0 20px 5%;
+=======
+                margin: 20px 0 20px 0;
+
+                @include rwd(1024px){
+                    font-size: $h4;
+
+                    @include rwd(690px){
+                        font-size: $h5;
+                        width: 80%;
+                        margin: 3% auto;
+                    }
+                }
+>>>>>>> dev
             }
 
             img{
                 width: 90%;
                 display: block;
+<<<<<<< HEAD
                 margin: 0 auto;
+=======
+                // margin: 0 auto;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 0 auto;
+                }
+>>>>>>> dev
             }
 
             p{
@@ -67,16 +97,44 @@
                 font-size: $p;
                 line-height: 2;
                 margin: 5%;
+<<<<<<< HEAD
+=======
+                margin-left: 0;
+
+                @include rwd(690px){
+                    font-size: 14px;
+                    width: 80%;
+                    margin: 3% auto;
+                }
+>>>>>>> dev
             }
 
             .left__pics{
                 display: flex;
                 justify-content: space-between;
                 width: 90%;
+<<<<<<< HEAD
                 margin: 0 auto;
 
                 img{
                     width: 100%;
+=======
+                // outline: 1px solid red;
+                // margin: 0 auto;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
+
+                div{
+                    // margin-right: 2%;
+                    width: 31.666%;
+
+                    img{
+                        width: 100%;
+                    }
+>>>>>>> dev
                 }
 
             }
@@ -86,6 +144,7 @@
                 font-size: $h6;
                 line-height: 1.6;
                 margin: 5%;
+<<<<<<< HEAD
             }
 
             ul{     
@@ -93,6 +152,30 @@
                 list-style-type: '▴';  
                 color: $secondary4-color;
 
+=======
+                margin-left: 0;
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
+            }
+
+            ul{     
+                // outline: 1px solid red;
+                width: 90%;
+                margin-top: 10px;
+                padding-left: 3%;
+                list-style-type: '▴';  
+                color: $secondary4-color;
+
+                @include rwd(690px){
+                    font-size: 14px;
+                    width: 80%;
+                    margin: 3% auto;
+                }
+
+>>>>>>> dev
                 li{
                     line-height: 2;  
                 }
@@ -114,6 +197,14 @@
                 margin-right: 5%;
                 padding-bottom: 2%;
                 border-bottom: 1px solid $secondary5-color;
+<<<<<<< HEAD
+=======
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
+>>>>>>> dev
             }
 
             // ==== 文字 ====
@@ -121,12 +212,22 @@
                 margin: 5%;
                 padding-left: 5%;
 
+<<<<<<< HEAD
+=======
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                    padding: 0;
+                }
+
+>>>>>>> dev
                 li{
                     // border: 1px solid red;
                     display: flex;
                     line-height: 2.5;
                     color: $secondary4-color;
 
+<<<<<<< HEAD
                     h3{
                         margin-right: 5%;
                         color: $secondary5-color;
@@ -139,6 +240,68 @@
                         &:hover{
                             
                             color: $primary2-color;
+=======
+                    @include rwd(690px){
+                        // width: 80%;
+
+                    }
+
+                    h3{
+                        // border: 1px solid blue;
+                        flex-basis: 25%;
+                        font-size: $p;
+                        // margin-right: 5%;
+                        color: $secondary5-color;
+
+                        @include rwd(1024px){
+                            flex-basis: 30%;
+
+                            @include rwd(833px){
+                                flex-basis: 35%;
+
+                                @include rwd(768px){
+                                    font-size: 14px;
+                                    flex-basis: 40%;
+
+                                    @include rwd(690px){
+                                        flex-basis: 20%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    h4{
+                        // border: 1px solid red;
+                        flex-basis: 75%;
+                        padding-left: 2%;
+                        font-size: $p;
+
+                        @include rwd(1024px){
+                            flex-basis: 70%;
+
+                            @include rwd(833px){
+                                flex-basis: 65%;
+
+                                @include rwd(768px){
+                                    font-size: 14px;
+                                    flex-basis: 60%;
+
+                                    @include rwd(690px){
+                                        flex-basis: 80%;
+                                    }
+                                }
+                            }
+                        }
+
+                        a{
+                            color: $primary1-color;
+                            transition: .3s;
+
+                            &:hover{  
+                                color: $primary2-color;
+                            }
+>>>>>>> dev
                         }
                     }
 
@@ -154,12 +317,33 @@
             // ==== icon ====
             .icon{
                 // border: 1px solid purple;
+<<<<<<< HEAD
                 margin: 5%;
+=======
+                margin-left: 5%;
+                width: 100%;
+
+                @include rwd(833px){
+                    font-size: 14px;
+
+                    @include rwd(690px){
+                        width: 80%;
+                        margin: 3% auto;
+                    }
+                }
+>>>>>>> dev
 
                 li{
                     display: flex;
                     padding: 5%;
 
+<<<<<<< HEAD
+=======
+                    @include rwd(690px){
+                        padding: 3%;
+                    }
+
+>>>>>>> dev
                     div{
                         flex-grow: 1;
                     }
@@ -168,14 +352,35 @@
                         color: $primary1-color;
                         font-size: $h3;
                         vertical-align: middle;
+<<<<<<< HEAD
                     }
 
                     span + span{
+=======
+
+                        @include rwd(833px){
+                            font-size: $h4;
+                        }
+                    }
+
+                    span + span{ // 文字
+>>>>>>> dev
                         color: $secondary4-color;
                         font-size: $p;
                         line-height: 32px;
                         margin-left: 5%;
                         letter-spacing: 3px;
+<<<<<<< HEAD
+=======
+
+                        @include rwd(833px){
+                            font-size: 14px;
+
+                            @include rwd(690px){
+                                font-size: $p;
+                            }
+                        }
+>>>>>>> dev
                     }
 
                     &:last-child div:last-child{
