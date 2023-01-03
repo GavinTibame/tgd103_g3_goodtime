@@ -1,114 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自訂款迷你保溫瓶</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <!-- header -->
     <header id="header"></header>
-
+    <!-- 麵包屑 -->
+    <ul class="breadcrumb">
+      <li><a href="#">首頁</a></li>
+      <li><a href="#"> 文創商城</a></li>
+      <li><a href="#"> 自訂款迷你保溫瓶</a></li>
+    </ul>
     <div class="product-detail">
-        <div class="main">
-            <div class="img-box">
-                <div id="slider" class="slider"></div>
-                <ul id="indicator" class="indicator">
-                    <li><img src="../img/product_detail/item01.png" alt="" onclick="change_img(this)"></li>
-                    <li><img src="../img/product_detail/item01_01.png" alt="" onclick="change_img(this)"></li>
-                    <li><img src="../img/product_detail/item01_02.png" alt="" onclick="change_img(this)"></li>
-                    <li><img src="../img/product_detail/item01_03.png" alt="" onclick="change_img(this)"></li>
-                </ul>
-            </div>
-            <div class="function-box">
-                <div class="textbox">
-                    <h4>自訂迷你保溫瓶</h4>
-                    <p> 韶光限定</p>
-                    <h6>採用SUS304不鏽鋼材質，讓你安心飲用<br>
-                        小巧便攜，重量僅200克<br>
-                        長效保溫保冷<br>
-                    </h6>
-                    <h4 class="spotlight-color">NT$590</h4>
-                </div>
-                <div class="typebox">
-                    <p> 顏色</p>
-                    <div class="function-btn-group">
-                        <div class="function-btn-group_btn">
-                            <input type="radio" id="c1" name="product_color"/>
-                            <label class="btn btn-default" for="c1">黑色</label>
-                        </div>
-                        <div class="function-btn-group_btn">
-                            <input type="radio" id="c2" name="product_color"/>
-                            <label class="btn btn-default" for="c2">藍色</label>
-                        </div>
-                        <div class="function-btn-group_btn">
-                            <input type="radio" id="c3" name="product_color"/>
-                            <label class="btn btn-default" for="c3">粉色</label>
-                        </div>
-                    </div>
-                    <p> 數量</p>
-                    <form id='myform' method='POST' action='#'>
-                        <input type='button' value='-' class='qtyminus' field='quantity' />
-                        <input type='text' name='quantity' value='0' class='qty' />
-                        <input type='button' value='+' class='qtyplus' field='quantity' />
-                    </form>
-                </div>
-                <button class="cart-btn">加入購物車</button>
-                <button class="buy-btn">直接購買</button>
-            </div>
+      <ul class="rental_join_form____breadcrumb">
+        <li><a href="./index.html">首頁</a></li>
+        <li><a href="./store.html">文創商城</a></li>
+        <li><a href="./product_detail_01.html">自訂款迷你保溫瓶</a></li>
+      </ul>
+      <div class="main">
+        <div class="img-box">
+          <div id="slider" class="slider"></div>
+          <ul id="indicator" class="indicator">
+            <li>
+              <img
+                src="../img/product_detail/item01.png"
+                alt=""
+                onclick="change_img(this)"
+              />
+            </li>
+            <li>
+              <img
+                src="../img/product_detail/item01_01.png"
+                alt=""
+                onclick="change_img(this)"
+              />
+            </li>
+            <li>
+              <img
+                src="../img/product_detail/item01_02.png"
+                alt=""
+                onclick="change_img(this)"
+              />
+            </li>
+            <li>
+              <img
+                src="../img/product_detail/item01_03.png"
+                alt=""
+                onclick="change_img(this)"
+              />
+            </li>
+          </ul>
         </div>
-        <div class="info-box">
-            <div class="switch-btnbox">
-                <div class="switch-btn"><a href="#item-info">商品介紹</a></div>
-                <div class="switch-btn"><a href="#item-type">規格說明</a></div>
-                <div class="switch-btn"><a href="#item-send">運送方式</a></div>
+        <div class="function-box">
+          <div class="textbox">
+            <h4>自訂款迷你保溫瓶</h4>
+            <p>韶光限定</p>
+            <h6>
+              📌採用SUS304不鏽鋼材質，讓你安心飲用<br />
+              📌小巧便攜，重量僅200克<br />
+              📌長效保溫保冷<br />
+            </h6>
+            <h4 class="spotlight-color">NT$590</h4>
+          </div>
+          <div class="typebox">
+            <p>顏色</p>
+            <div class="function-btn-group">
+              <div class="function-btn-group_btn">
+                <input type="radio" id="c1" name="product_color" />
+                <label class="btn btn-default" for="c1">黑色</label>
+              </div>
+              <div class="function-btn-group_btn">
+                <input type="radio" id="c2" name="product_color" />
+                <label class="btn btn-default" for="c2">藍色</label>
+              </div>
+              <div class="function-btn-group_btn">
+                <input type="radio" id="c3" name="product_color" />
+                <label class="btn btn-default" for="c3">粉色</label>
+              </div>
             </div>
-            <div class="info-page-box">
-                <h6 id="item-info">自訂款迷你保溫瓶</h6>
-                <p><span class="mark">輕巧便攜：</span><br>
-                    迷你保溫瓶容量為350ml，重量僅190g，無論去到哪，都可以輕鬆攜帶。<br>
-                    <span class="mark">長效保溫鎖冷：</span><br>
-                    無論冬天還是夏天，冷水還是熱水，都可以保持長效保溫和保冷。<br>
-                    <span class="mark">SUS 304不鏽鋼安全材質：</span><br>
-                    採用SUS 304食品級不鏽鋼材質，抗氧化、耐腐蝕、易清潔，讓您輕鬆健康飲水。<br>
-                    <span class="mark">真空技術：</span><br>
-                    採用不鏽鋼真空技術，有效阻隔溫度傳導，打造保溫鎖冷效果。<br>
-                    <span class="mark">保溫測試：</span><br>
-                    在20°C±5°C的室內溫度下，將100°C的水倒入至密封蓋下端。<br>
-                    當水溫降至95°C±1°C時，立即拴緊杯蓋。6小時後杯內水溫不低於58℃。<br>
-                    <span class="mark">保冷測試：</span><br>
-                    在20°C±5℃的室內溫度下，將冰水倒入至密封蓋的下端。<br>
-                    當水溫升至4℃±1℃時，拴緊蓋子。6小時後杯內水溫不高於12°C。</p>
-                <h6 id="item-type">規格說明</h6>
-                <p>產品名稱：自訂款迷你保溫杯<br>
-                    保溫效率：高於58°C（6小時）<br>
-                    冷藏效率：低於12°C（6小時）<br>
-                    產品材質：SUS304不鏽鋼<br>
-                    產品容量：350ml<br>
-                    產品重量：190g<br>
-                    產品尺寸：60x 60x180mm</p>
-                <h6 id="item-send">運送方式</h6>
-                <p>宅配</p>
-            </div>
+            <p>數量</p>
+            <form id="myform" method="POST" action="#">
+              <input
+                type="button"
+                value="-"
+                class="qtyminus"
+                field="quantity"
+              />
+              <input type="text" name="quantity" value="0" class="qty" />
+              <input type="button" value="+" class="qtyplus" field="quantity" />
+            </form>
+          </div>
+          <button class="cart-btn">加入購物車</button>
+          <button class="buy-btn">直接購買</button>
         </div>
+      </div>
+      <div class="info-box">
+        <div class="switch-btnbox">
+          <div class="switch-btn"><a href="#item-info">商品介紹</a></div>
+          <div class="switch-btn"><a href="#item-type">規格說明</a></div>
+          <div class="switch-btn"><a href="#item-send">運送方式</a></div>
+        </div>
+        <div class="info-page-box">
+          <h6 id="item-info">自訂款迷你保溫瓶</h6>
+          <p>
+            <span class="mark">輕巧便攜：</span><br />
+            迷你保溫瓶容量為350ml，重量僅190g，無論去到哪，都可以輕鬆攜帶。<br />
+            <span class="mark">長效保溫鎖冷：</span><br />
+            無論冬天還是夏天，冷水還是熱水，都可以保持長效保溫和保冷。<br />
+            <span class="mark">SUS 304不鏽鋼安全材質：</span><br />
+            採用SUS
+            304食品級不鏽鋼材質，抗氧化、耐腐蝕、易清潔，讓您輕鬆健康飲水。<br />
+            <span class="mark">真空技術：</span><br />
+            採用不鏽鋼真空技術，有效阻隔溫度傳導，打造保溫鎖冷效果。<br />
+            <span class="mark">保溫測試：</span><br />
+            在20°C±5°C的室內溫度下，將100°C的水倒入至密封蓋下端。<br />
+            當水溫降至95°C±1°C時，立即拴緊杯蓋。6小時後杯內水溫不低於58℃。<br />
+            <span class="mark">保冷測試：</span><br />
+            在20°C±5℃的室內溫度下，將冰水倒入至密封蓋的下端。<br />
+            當水溫升至4℃±1℃時，拴緊蓋子。6小時後杯內水溫不高於12°C。
+          </p>
+          <h6 id="item-type">規格說明</h6>
+          <p>
+            產品名稱：自訂款迷你保溫杯<br />
+            保溫效率：高於58°C（6小時）<br />
+            冷藏效率：低於12°C（6小時）<br />
+            產品材質：SUS304不鏽鋼<br />
+            產品容量：350ml<br />
+            產品重量：190g<br />
+            產品尺寸：60x 60x180mm
+          </p>
+          <h6 id="item-send">運送方式</h6>
+          <p>宅配</p>
+        </div>
+      </div>
     </div>
 
     <!-- footer -->
     <footer id="footer"></footer>
 
     <!-- java -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/product_detail.js"></script>
+    <script src="/src/js/jquery-3.2.1.min.js"></script>
+    <script src="/src/"></script>
     <script>
-        $(() => {
-            $("#header").load("../html/topbar.html");
-            $("#footer").load("../html/footer.html");
-        });
+      $(() => {
+        $("#header").load("topbar.html");
+        $("#footer").load("footer.html");
+      });
     </script>
-</body>
+  </body>
 </html>
