@@ -1,6 +1,8 @@
 # dev
 src/css/style.css
+src/css/*.css
 src/css/style.css.map
+src/css/*.css.map
 .vscode
 ./.vscode/settings.json
 /.vscode/settings.json

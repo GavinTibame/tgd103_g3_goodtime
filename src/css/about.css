@@ -1,5 +1,3 @@
-
-
 main.aboutAs {
     max-width: calc(100vw - 120px);
     margin: 0 auto;
@@ -8,16 +6,17 @@ main.aboutAs {
 main.aboutAs * {
     box-sizing: border-box;
 }
+
 /* ---------------------banner----------------------- */
 
-.banner{
+.banner {
 
     max-width: fit-content;
     margin: 0 auto;
-    
+
 }
 
-.banner .banner__word__img{
+.banner .banner__word__img {
     display: flex;
     max-width: 100%;
     margin: 120px auto 0;
@@ -25,12 +24,12 @@ main.aboutAs * {
 
 /* 文字標題區塊 */
 
-.banner .banner__word{
+.banner .banner__word {
     width: 800px;
-       
+
 }
 
-.banner h1.banner__zh{
+.banner h1.banner__zh {
     font-size: 48px;
     color: #533C1B;
     font-weight: bold;
@@ -38,7 +37,7 @@ main.aboutAs * {
     margin-top: 80px;
 }
 
-.banner h2.banner__en{
+.banner h2.banner__en {
     font-size: 36px;
     color: #C09351;
     font-weight: bold;
@@ -48,7 +47,7 @@ main.aboutAs * {
     z-index: -1;
 }
 
-.banner h2.banner__en::after{
+.banner h2.banner__en::after {
     content: "";
     border-bottom: 2px solid black;
     display: block;
@@ -57,7 +56,7 @@ main.aboutAs * {
     left: -60px;
 }
 
-.banner h3.banner__slogn__zh{
+.banner h3.banner__slogn__zh {
     font-size: 24px;
     color: #261C0D;
     font-weight: bold;
@@ -66,21 +65,22 @@ main.aboutAs * {
     margin-top: 15px;
 }
 
-.banner h3.banner__slogn__zh span{
+.banner h3.banner__slogn__zh span {
     margin-left: 95px;
 }
 
 /* 圖片區塊 */
-.banner .banner__img ul{
+.banner .banner__img ul {
     display: flex;
 }
-.banner .banner__img img{
+
+.banner .banner__img img {
     max-width: 90%;
     /* padding-left: 15px; */
 }
 
 /* slogn區塊 */
-.banner h2.banner__slogn_en{
+.banner h2.banner__slogn_en {
     color: #618985;
     text-align: center;
     line-height: 3;
@@ -89,28 +89,35 @@ main.aboutAs * {
 
 /* ---------------------關於韶光區塊----------------------- */
 
-.about__goodtime,.getting__here{
+.about__goodtime,
+.getting__here {
     max-width: fit-content;
     margin: 0 auto;
 }
 
-.about__goodtime__title__eng,.getting__here__title__eng,.contact__us__title__eng{
+.about__goodtime__title__eng,
+.getting__here__title__eng,
+.contact__us__title__eng {
     font-size: 32px;
     color: #533C1B;
     font-weight: bold;
     margin-top: 100px;
 }
 
-.about__goodtime__title__zh,.getting__here__title__zh,.gcontact__us__title__zh{
+.about__goodtime__title__zh,
+.getting__here__title__zh,
+.gcontact__us__title__zh {
     font-size: 28px;
     color: #C09351;
-    position: relative; 
+    position: relative;
     display: block;
     margin-left: 180px;
     font-weight: bold;
 }
 
-.about__goodtime__title__zh::before,.getting__here__title__zh::before,.gcontact__us__title__zh::before{
+.about__goodtime__title__zh::before,
+.getting__here__title__zh::before,
+.gcontact__us__title__zh::before {
     content: '';
     position: absolute;
     top: 40%;
@@ -120,26 +127,26 @@ main.aboutAs * {
     height: 2px;
 }
 
-.about__goodtime__para1para2{
+.about__goodtime__para1para2 {
     display: flex;
     position: relative;
 }
 
-.about__goodtime__para1 p{
+.about__goodtime__para1 p {
     line-height: 2;
     margin: 100px auto 60px;
     width: 290px;
 }
 
-.about__goodtime__para1 img{
+.about__goodtime__para1 img {
     margin-left: 15px;
 }
 
-.about__goodtime__para2{
+.about__goodtime__para2 {
     margin-left: 120px;
 }
 
-.about__goodtime__para2 p{
+.about__goodtime__para2 p {
     line-height: 2;
     margin: 100px auto 60px;
     padding: 10px;
@@ -147,43 +154,43 @@ main.aboutAs * {
     position: absolute;
     bottom: 20px;
     right: 100px;
-    background-color: rgba(255, 255, 255,.5);
+    background-color: rgba(255, 255, 255, .5);
 }
 
-.about__goodtime__para3 img{
+.about__goodtime__para3 img {
     margin: 50px auto 0px;
     display: block;
 }
 
-.about__goodtime__para3 p{
+.about__goodtime__para3 p {
     line-height: 2;
     margin: 30px auto 10px;
     width: 760px;
 }
 
-.about__goodtime img{
+.about__goodtime img {
     max-width: 100%;
 }
 
 /* ---------------------交通資訊區塊----------------------- */
-.getting__here__title__eng{
+.getting__here__title__eng {
     font-size: 32px;
     color: #533C1B;
     font-weight: bold;
     margin-top: 100px;
 }
 
-.getting__here__title__zh{
+.getting__here__title__zh {
     font-size: 28px;
     color: #C09351;
-    position: relative; 
+    position: relative;
     display: block;
     margin-left: 250px;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-.getting__here__title__zh::before{
+.getting__here__title__zh::before {
     content: '';
     position: absolute;
     top: 40%;
@@ -193,50 +200,50 @@ main.aboutAs * {
     height: 2px;
 }
 
-.getting__here__map iframe{
+.getting__here__map iframe {
     display: block;
     margin: 0 auto;
     max-width: 100%;
 }
 
-.getting__here .para .fa-solid{
+.getting__here .para .fa-solid {
     font-size: 50px;
     color: #533C1B;
     margin-right: 100px;
 }
 
-.getting__here .para p{
+.getting__here .para p {
     color: #C09351;
     line-height: 3;
 }
 
-.aboutAs .para{
+.aboutAs .para {
     margin-left: 100px;
     margin: 60px auto 0;
 }
 
-.aboutAs .para li{
+.aboutAs .para li {
     display: flex;
     margin-bottom: 50px;
     /* outline: 2px solid red; */
 }
 
-.aboutAs div.para__a{
+.aboutAs div.para__a {
     text-align: center;
     margin-left: 130px;
 }
 
-.aboutAs div.para__a .fa-solid{
+.aboutAs div.para__a .fa-solid {
     margin-left: 100px;
 }
 
-.aboutAs div.para__b{
-    line-height:2;
+.aboutAs div.para__b {
+    line-height: 2;
 
 }
 
 .aboutAs .para__parking .fa-solid,
-.aboutAs .para__car .fa-solid{
+.aboutAs .para__car .fa-solid {
     margin-top: 50px;
 }
 
@@ -244,24 +251,24 @@ main.aboutAs * {
 
 /* ---------------------表單區塊----------------------- */
 
-.contact__us__title__eng{
+.contact__us__title__eng {
     font-size: 32px;
     color: #533C1B;
     font-weight: bold;
     margin-top: 100px;
 }
 
-.contact__us__title__zh{
+.contact__us__title__zh {
     font-size: 28px;
     color: #C09351;
-    position: relative; 
+    position: relative;
     display: block;
     margin-left: 215px;
     font-weight: bold;
     margin-bottom: 50px;
 }
 
-.contact__us__title__zh::before{
+.contact__us__title__zh::before {
     content: '';
     position: absolute;
     top: 40%;
@@ -271,42 +278,43 @@ main.aboutAs * {
     height: 2px;
 }
 
-.contact__us__form{
+.contact__us__form {
     display: flex;
     flex-direction: column;
     width: 600px;
     margin: auto;
 }
 
-.contact__us__form label{
+.contact__us__form label {
     color: #261C0D;
     margin-bottom: 5px;
 }
 
-.contact__us__form input{
+.contact__us__form input {
     height: 30px;
     margin-bottom: 15px;
     color: #533C1B;
 }
 
-.contact__us__form .email input{
+.contact__us__form .email input {
     border: 2px solid red;
 }
 
-.contact__us__form textarea{
+.contact__us__form textarea {
     resize: none;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-.contact__us__form input.valid{
-    border:2px solid green;
-  }
-.contact__us__form input.invalid{
-    border:2px solid red;
-  }
+.contact__us__form input.valid {
+    border: 2px solid green;
+}
 
-.contact__us__form button{
+.contact__us__form input.invalid {
+    border: 2px solid red;
+}
+
+.contact__us__form button {
     background-color: white;
     border: 1.5px solid #533C1B;
     width: 200px;
@@ -322,7 +330,7 @@ main.aboutAs * {
     margin: 0 auto 50px;
 }
 
-.contact__us{
+.contact__us {
     max-width: 950px;
     margin: 0 auto;
 }
