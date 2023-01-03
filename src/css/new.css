@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.warpper-news {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 107px;
+}
+.warpper-news .introduce { /* 最新消息 */
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+.warpper-news .introduce.new-bg {
+  margin: 0 auto;
+}
+.warpper-news .new-bg {
+  background-image: url(/img/new/new.jpg);
+  background-repeat: no-repeat;
+}
+.warpper-news .tabset { /* 公告區 */
+  max-width: 65em;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+}
+.warpper-news .tab-panels {
+  margin: 0 30px;
+}
+.warpper-news .tabset > input[type=radio] {
+  position: absolute;
+  left: -200vw;
+}
+.warpper-news .tabset > label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 85px 25px;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+.warpper-news .tab-panels {
+  margin: 0px auto;
+  width: 80%;
+  font-weight: bold;
+}
+.warpper-news .tab-panels li {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  line-height: 2.6;
+  border-bottom: 1px solid #ccc;
+}
+.warpper-news .tab-panels .tab-panel li:hover h4 {
+  color: #618985;
+}
+.warpper-news .tab-panels .tab-panel li:hover small {
+  color: #618985;
+}
+.warpper-news .tabset > label::after {
+  content: "";
+  position: absolute;
+  left: 85px;
+  bottom: 20px;
+  width: 65px;
+  height: 4px;
+}
+.warpper-news .tabset > label:hover {
+  color: #618985;
+}
+.warpper-news .tabset > input:focus + label::after,
+.warpper-news .tabset > input:checked + label::after {
+  background: #618985;
+}
+.warpper-news .tab-panels.tab-panel > li:hover {
+  color: #618985;
+}
+.warpper-news .tab-panels .tab-panel li a {
+  text-decoration: none;
+  letter-spacing: 1;
+}
+.warpper-news .tab-panel li small {
+  font-size: 12px;
+  color: #555555;
+  padding-left: 10px;
+  font-weight: normal;
+}
+.warpper-news .tab-panel li h4 {
+  font-size: 16px;
+  color: #261C0D;
+}
+.warpper-news .pagination { /*-- 按紐 --*/
+  justify-content: center;
+}
+.warpper-news .pagination li {
+  margin-left: 15px;
+}
+.warpper-news .page-link {
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #261C0D;
+}
+.warpper-news .page-item:first-child .page-link {
+  border-top-left-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+}
+.warpper-news .page-item:last-child .page-link {
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border: none;
+  font-weight: bold;
+}
+.warpper-news .page-link:hover {
+  color: #fff;
+  background-color: #261C0D;
+}
+
+/*# sourceMappingURL=new.css.map */

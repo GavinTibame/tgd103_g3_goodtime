@@ -8,12 +8,6 @@ $mobile-width: 428px;
 //     @return $width * 200 / 1920;
 // }
 
-@mixin rwd($breakpoint) {
-    @media all and (max-width:$breakpoint) {
-        @content;
-    }
-}
-
 // .要套用的CSS選擇器{
 //     @include rwd(parseInt(發現破版的)px){
 //         CSS屬性: 新的數值;

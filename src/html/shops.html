@@ -19,6 +19,12 @@
 <body>
     <!-- @@include('layout/topbar.html') -->
     <header id="header"></header>
+    <!-- 麵包屑 -->
+    <ul class="breadcrumb">
+        <li><a href="#">首頁</a></li>
+        <li><a href="#">風格好店</a></li>
+    </ul>
+
     <div class="shops">
         <div class="title-box">
             <h2>SHOPS</h2>
@@ -62,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div class="shopsbox-area">
+        <div class="shopsbox-area2">
             <div class="store store6">
                 <img src="/src/img/shops/s06.png" alt="">
                 <div class="store-textbox2">
@@ -125,11 +131,11 @@
     <footer id="footer"></footer>
     <!-- @@include('layout/footer.html') -->
 
-    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="/src/js/jquery-3.2.1.min.js"></script>
     <script>
         $(() => {
-            $("#header").load("../html/topbar.html");
-            $("#footer").load("../html/footer.html");
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
         });
     </script>
 </body>
