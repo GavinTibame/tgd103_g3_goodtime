@@ -1,10 +1,18 @@
+.breadcrumb{
+
+   
+}
 .shops {
     box-sizing: border-box;
-    margin-top: 120px;
+    margin-top: 45px;
     max-width: 1280px;
     height: 2000px;
     overflow: hidden;
     font-family: 'Noto Sans TC', sans-serif;
+
+    @include rwd(768px){
+        margin-top: 20px;
+            }
 
     .title-box {
         width: 100%;
@@ -13,12 +21,20 @@
         margin-bottom: 80px;
         position: relative;
 
+        @include rwd(768px){
+            margin-bottom: unset;
+         }
+
         h2 {
             font-family: 'Enriqueta', serif;
             font-size: 48px;
             font-weight: 600;
             letter-spacing: .2rem;
             color: #533C1B;
+
+            @include rwd(768px){
+                font-size: 22px;
+            }
         }
 
         p {
@@ -26,6 +42,11 @@
             font-size: 32px;
             font-weight: 500;
             color: #C09351;
+
+            @include rwd(768px){
+                font-size: 22px;
+                margin-left: 112px;
+            }
         }
 
         .line {
@@ -35,9 +56,16 @@
             height: 4px;
             background-color: #533C1B;
             margin-left: 40px;
+
+            @include rwd(768px){
+                bottom: 40px;
+                width: 80px;
+                height: 3px;
+                margin-left: 25px;
+            }
         }
     }
-    .shopsbox-area{
+    .shopsbox-area1,.shopsbox-area2{
         margin: 10px auto;
         width: 80%;
         height: 400px;
@@ -45,6 +73,14 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 10px;
+
+        @include rwd(768px){
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            width: 85%;
+            height: 500PX;
+            }
+
         .store{
             position: relative;
             img{
@@ -81,30 +117,65 @@
             grid-column-end: 3;
             grid-row-start: 1;
             grid-row-end: 3;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store2{
             grid-column-start: 3;
             grid-column-end: 4;
             grid-row-start: 1;
             grid-row-end: 2;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store3{
             grid-column-start: 4;
             grid-column-end: 5;
             grid-row-start: 1;
             grid-row-end: 2;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store4{
             grid-column-start: 3;
             grid-column-end: 4;
             grid-row-start: 2;
             grid-row-end: 3;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store5{
             grid-column-start: 4;
             grid-column-end: 5;
             grid-row-start: 2;
             grid-row-end: 3;
+
+            @include rwd(768px){
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
         }
         // area 2
         .store6{
@@ -112,24 +183,52 @@
             grid-column-end: 2;
             grid-row-start: 1;
             grid-row-end: 2;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store7{
             grid-column-start: 1;
             grid-column-end: 2;
             grid-row-start: 2;
             grid-row-end: 3;
+            
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store8{
             grid-column-start: 2;
             grid-column-end: 3;
             grid-row-start: 1;
             grid-row-end: 3;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
         .store9{
             grid-column-start: 3;
             grid-column-end: 5;
             grid-row-start: 1;
             grid-row-end: 3;
+
+            @include rwd(768px){
+                grid-column-start: unset;
+                grid-column-end: unset;
+                grid-row-start: unset;
+                grid-row-end: unset;
+            }
         }
 
         div.store{
@@ -234,7 +333,7 @@
             grid-column-start: 4;
             grid-column-end: 6;
             box-shadow: 3px 3px 4px rgb(160, 160, 160);
-            background-image: url(../../../img/shops/j01.png);
+            background-image: url(/src/img/shops/j01.png);
             background-position: center;
             background-size: cover;
         }
@@ -277,7 +376,7 @@
             grid-row-start: 1;
             grid-row-end: 2;
             box-shadow: 3px 3px 4px rgb(160, 160, 160);
-            background-image: url(../../../img/shops/j02.png);
+            background-image: url(/src/img/shops/j02.png);
             background-position: center;
             background-size: cover;
         }
