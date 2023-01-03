@@ -1,3 +1,26 @@
+.breadcrumb{
+    padding-top: 90px;
+    padding-left: 55px;
+        li {
+            &:nth-child(3) {
+                &::before {
+                    content: "";
+                    height: .6rem;
+                    border-left: solid 1px $font-color;
+                    display: inline-block;
+                    margin: 0 .5rem;
+                    }
+                }
+                a{
+                    color: $font-color;
+                    }
+                li:last-child a{
+                    color: $lakeGreen-color;
+                        }
+                }
+            }
+
+
 .product-detail{
     margin-top: 160px;
     width: 100%;

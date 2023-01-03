@@ -19,6 +19,10 @@
             font-weight: 600;
             letter-spacing: .2rem;
             color: #533C1B;
+
+            @include rwd(768px){
+                font-size: 22px;
+            }
         }
 
         p {
@@ -26,6 +30,11 @@
             font-size: 32px;
             font-weight: 500;
             color: #C09351;
+
+            @include rwd(768px){
+                font-size: 22px;
+                margin-left: 112px;
+            }
         }
 
         .line {
@@ -35,6 +44,13 @@
             height: 4px;
             background-color: #533C1B;
             margin-left: 40px;
+
+            @include rwd(768px){
+                bottom: 40px;
+                width: 80px;
+                height: 3px;
+                margin-left: 25px;
+            }
         }
     }
     .shopsbox-area{
@@ -234,7 +250,7 @@
             grid-column-start: 4;
             grid-column-end: 6;
             box-shadow: 3px 3px 4px rgb(160, 160, 160);
-            background-image: url(../../../img/shops/j01.png);
+            background-image: url(/src/img/shops/j01.png);
             background-position: center;
             background-size: cover;
         }
@@ -277,7 +293,7 @@
             grid-row-start: 1;
             grid-row-end: 2;
             box-shadow: 3px 3px 4px rgb(160, 160, 160);
-            background-image: url(../../../img/shops/j02.png);
+            background-image: url(/src/img/shops/j02.png);
             background-position: center;
             background-size: cover;
         }
