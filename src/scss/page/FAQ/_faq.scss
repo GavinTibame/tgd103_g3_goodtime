@@ -71,7 +71,7 @@ main.FAQ {
 
         .banner__img,
         .banner-img {
-            background-image: url("../../../img/faq/faq__banner.jpg");
+            background-image: url("../img/faq/faq__banner.jpg");
             height: 450px;
             background-position: 15% center;
             box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
@@ -82,12 +82,12 @@ main.FAQ {
             }
 
             @include rwd(768px) {
-                background-image: url("../../../img/faq/faq__banner_rwd768.jpg");
+                background-image: url("../img/faq/faq__banner_rwd768.jpg");
                 height: 300px;
             }
 
             @include rwd(428px) {
-                background-image: url("../../../img/faq/faq__banner_rwd428.jpg");
+                background-image: url("../img/faq/faq__banner_rwd428.jpg");
                 height: 200px;
             }
         }

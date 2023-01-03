@@ -80,22 +80,22 @@ main.shops__Join__form {
     }
 
     li.item1 {
-        background-image: url("../../../img/shops__Join__form/shops__Join__form_1.png");
+        background-image: url("../img/shops__Join__form/shops__Join__form_1.png");
         flex-grow: 3;
 
         @include width_768 {
-            background-image: url("../../../img/shops__Join__form/shops__Join__form_rwd768.jpg");
+            background-image: url("../img/shops__Join__form/shops__Join__form_rwd768.jpg");
             height: 300px;
         }
 
         @include width_428 {
-            background-image: url("../../../img/shops__Join__form/shops__Join__form_rwd428.jpg");
+            background-image: url("../img/shops__Join__form/shops__Join__form_rwd428.jpg");
             height: 200px;
         }
     }
 
     .banner li.item2 {
-        background-image: url("../../../img/shops__Join__form/shops__Join__form_2.png");
+        background-image: url("../img/shops__Join__form/shops__Join__form_2.png");
         flex-grow: 1;
         background-position: left center;
 

@@ -20,6 +20,10 @@
         margin-left: 40px;
         margin-bottom: 80px;
 
+        @include rwd(428px) {
+            margin-left: 10px;
+        }
+
         @include rwd(768px) {
             margin-bottom: 0;
         }
@@ -89,11 +93,22 @@
         height: 350px;
         padding-left: 5%;
     }
+
+    @include rwd(428px) {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
 }
 
 .product-detail .main .img-box {
     width: 50%;
     height: 100%;
+
+    @include rwd(428px) {
+        width: 100%;
+    }
+
 }
 
 .product-detail .img-box .slider {
@@ -105,11 +120,19 @@
     background-repeat: no-repeat;
     margin: auto;
     transition: all 0.5s;
+
+    @include rwd(428px) {
+        height: 250%;
+    }
 }
 
 .product-detail .img-box .indicator {
     margin-top: 20px;
     overflow: hidden;
+
+    @include rwd(428px) {
+        padding-left: 15px;
+    }
 }
 
 .product-detail .indicator li {
@@ -121,6 +144,10 @@
 
 .product-detail .indicator li img {
     max-width: 100%;
+
+    @include rwd(428px) {
+        max-width: 90%;
+    }
 }
 
 .product-detail .main .function-box {
@@ -133,6 +160,11 @@
     @include rwd(768px) {
         margin-left: 0;
         margin-top: 40px;
+    }
+
+    @include rwd(428px) {
+        margin-top: 240px;
+        width: 100%;
     }
 }
 
@@ -148,6 +180,10 @@
 
     @include rwd(768px) {
         font-size: 22px;
+    }
+
+    @include rwd(428px) {
+        font-size: 18px;
     }
 }
 
@@ -205,6 +241,10 @@
     height: 30px;
     position: relative;
     text-align: center;
+
+    @include rwd(428px) {
+        width: 100px;
+    }
 }
 
 .function-btn-group_btn label,
@@ -223,6 +263,7 @@
     transition: all 0.3s;
     font-weight: 500;
 }
+
 .function-btn-group_btn input[type="radio"] {
     opacity: 0.011;
     z-index: 100;
@@ -249,6 +290,10 @@
     height: 30px;
     padding: 0px;
     margin: 0px;
+
+    @include rwd(428px) {
+        width: 100%;
+    }
 }
 
 .product-detail .qtyminus,
@@ -269,12 +314,20 @@
     height: 100%;
     text-align: center;
     border: 2px solid #C09351;
+
+    @include rwd(428px) {
+        width: 72%;
+    }
 }
 
 .product-detail .info-box {
     width: 80%;
     margin: 0 auto;
     background-color: white;
+
+    @include rwd(428px) {
+        margin-top: 380px;
+    }
 }
 
 .product-detail .info-box .switch-btnbox {
@@ -321,6 +374,11 @@
     @include rwd(768px) {
         font-size: 18px;
     }
+
+    @include rwd(428px) {
+        margin-left: 0;
+        font-size: 16px;
+    }
 }
 
 .product-detail .info-page-box p {
@@ -336,6 +394,11 @@
         margin: 30px 0 0 60px;
         padding: 0;
         font-size: 14px;
+    }
+
+    @include rwd(428px) {
+        margin: 30px 0 0 0;
+        font-size: 12px;
     }
 }
 
@@ -362,6 +425,10 @@
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
 
+    @include rwd(428px) {
+        width: 150px;
+    }
+
     &:hover {
         box-shadow: 0 0 15px #ccc;
     }
@@ -380,6 +447,10 @@
     border-radius: 4px;
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
+
+    @include rwd(428px) {
+        width: 150px;
+    }
 
     &:hover {
         box-shadow: 0 0 20px #ccc;

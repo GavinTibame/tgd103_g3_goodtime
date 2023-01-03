@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《Lindsayooo》新興畫家特展</title>
+    <title>《Lindsayooo》新興畫家特展 - 韶光文創園區</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/topbar.css">
@@ -43,11 +43,11 @@
                                 <option value="競老票">競老票</option>
                             </select>
                             <div>數量</div>
-                                <form class="event_detail-number-button" >
-                                    <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'>
-                                    <input type='text' name='quantity' value='0' class='qty' />
-                                    <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'>
-                                </form>   
+                                <div class="event_detail-number-button" >
+                                    <button class='qtyminus' id="qtyminus">-</button>
+                                    <input type='text' name='quantity' value='1' class='qty' />
+                                    <button class='qtyplus' id="qtyplus" >+</button>
+                                </div>   
                                     <br>
                                 <div class="btn__ctn">
                                     <button id="goApplyForm" class="button">
@@ -101,7 +101,7 @@
         </div>    
     <div id="footer"></div>
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/event_detail.js"></script>
+    <!-- <script src="../js/event_detail.js"></script> -->
     <script>
         $(() => {
         $("#header").load("topbar.html");

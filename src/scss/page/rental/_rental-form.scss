@@ -117,24 +117,24 @@ $width_1280: 1280px;
     .banner-img {
         height: 400px;
         box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 35%);
-        background-image: url("../../../img/rental_join_form/rentalForm_banner.jpg");
+        background-image: url("../img/rental_join_form/rentalForm_banner.jpg");
 
 
         @include width_1280 {
-            background-image: url(../../../img/rental_join_form/rentalForm_banner_rwd1280.jpg);
+            background-image: url("../img/rental_join_form/rentalForm_banner_rwd1280.jpg");
             background-repeat: no-repeat;
             height: 400px;
         }
 
         @include width_900 {
-            background-image: url(../../../img/rental_join_form/rentalForm_banner_rwd900.jpg);
+            background-image: url("../img/rental_join_form/rentalForm_banner_rwd900.jpg");
             background-repeat: no-repeat;
             height: 300px;
         }
 
         @include width_428 {
             height: 200px;
-            background-image: url(../../../img/rental_join_form/rentalForm_banner_rwd428.jpg);
+            background-image: url("../img/rental_join_form/rentalForm_banner_rwd428.jpg");
             background-repeat: no-repeat;
         }
 
