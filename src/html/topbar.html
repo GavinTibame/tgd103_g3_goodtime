@@ -15,7 +15,7 @@
         <div class="top-area_shadowbox"></div>
         <div class="top-area">
             <div class="logo-box">
-                <a href="">
+                <a href="index.html">
                     <img src="../img/logo/logo2.png" alt="">
                 </a>
             </div>
@@ -95,7 +95,6 @@
     const a_aboutus = document.querySelector('.a-aboutus');
     const a_shops = document.querySelector('.a-shops');
 
-
     a_news.addEventListener("click", function(){
         const element = document.getElementById('anchor1');
         element.scrollIntoView(true);
@@ -132,10 +131,10 @@
     // }
 
     //Back To Top
-    // let top = document.getElementById('backToTop');
-    // top.addEventListener('click', function(){
-    //     html.scrollIntoView()
-    // })
+    let top = document.getElementById('backToTop');
+    top.addEventListener('click', function(){
+        window.scrollTo(0, 0);
+    })
     </script>
 </body>
 </html>
