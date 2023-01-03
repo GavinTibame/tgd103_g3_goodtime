@@ -109,13 +109,9 @@
 }
 .footer .text-box{
     margin-top: 10px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 40px;
+    height: 50px;
     text-align: center;
+    line-height: 50px;
 }
 .footer .text-box > p{
     font-weight: 500;
@@ -123,9 +119,118 @@
     font-family: 'Noto Sans TC', sans-serif;
     color: #fff;
 }
+.footer .social-btn-group{
+    display: none;
+}
 
+@media all and (max-width: 1249px){
+    .footer{
+        .top-group{
+            .footer-btn-group{
+                div{
+                    margin-top: 25px;
+                    p{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
 
+@media all and (max-width: 1026px){
+    .footer{
+        .top-group{
+            .footer-btn-group{
+                ul{
+                    li{
+                        a{
+                            // font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
+@media all and (max-width: 954px){
+    .footer{
+        .top-group{
+            .footer-btn-group{
+                div{
+                    p{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: $mobile-width){
+    .footer {
+        height: 395px;
+        .logo-box{
+            a{
+                img{
+                    width: 95%;
+                    height: 95%;
+                }
+            }
+        }
+        .social-btn-group{
+            display: block;
+            font-size: 24px;
+            position: absolute;
+            left: 44px;
+            top: 117px;
+            a{
+                color: #533C1B;
+            }
+        }
+        .top-group{
+            height: 130px;
+            flex-wrap: wrap;
+            .footer-btn-group{
+                width: 76%;
+                margin-top: 20px;
+                ul{
+                    li{
+                        a{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .map-box{
+            width: 100%;
+            height: auto;
+            margin-left: 5px;     
+        }
+        .footer-loc{ 
+            margin-left: -15px;
+            p{
+                display: none;
+            }
+        }
+        .bottom-group{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            .text-box{
+                margin-top: 0px;
+            }
+        }
+        .text-box{
+            line-height: 24px;
+            p{
+                word-break: break-all;
+            }
+        }
+    }
+}
 
 
 

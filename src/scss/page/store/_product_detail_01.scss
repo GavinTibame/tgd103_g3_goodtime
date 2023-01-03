@@ -1,12 +1,32 @@
-@mixin rwd($breakpoint) {
-    @media all and (max-width: $breakpoint) {
-        @content;
+.breadcrumb {
+    padding-top: 90px;
+    padding-left: 55px;
+
+    li {
+        &:nth-child(3) {
+            &::before {
+                content: "";
+                height: .6rem;
+                border-left: solid 1px $font-color;
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+        }
+
+        a {
+            color: $font-color;
+        }
+
+        li:last-child a {
+            color: $lakeGreen-color;
+        }
     }
 }
 
+
 .product-detail {
-    margin-top: 80px;
-    width: 99%;
+    margin-top: 160px;
+    width: 100%;
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
 
@@ -297,7 +317,7 @@
 }
 
 .product-detail .qtyminus,
-.qtyplus {
+.product-detail .qtyplus {
     margin: 0px;
     padding: 0px;
     width: 30px;
