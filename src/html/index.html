@@ -5,18 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/topbar.css">
-    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="../../src/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="../js/index.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Document</title>
+    <title>index</title>
 </head>
 
 <body>
@@ -113,8 +111,10 @@
             <img src="../img/index/Aboutus.jpg" alt="">
         </div>
         <div class="aboutus-right">
-            <h3 class="title-1">ABOUT US</h3>
-            <h3 class="title-2">關於韶光</h3>
+            <div class="title">
+                <h3 class="title-1">ABOUT US</h3>
+                <h3 class="title-2">關於韶光</h3>
+            </div>
             <p>韶光文創園區創立的初衷<br>
                 來自一份「溫暖」的心意<br>
                 希望來此的遊客能體會單純美好的幸福<br>
@@ -210,7 +210,7 @@
                 autoplayHoverPause: true,
                 center: true,
                 loop: true,
-                margin: 40,
+                margin: 30,
                 nav: true,
                 navText: [
                     prvIcon,
@@ -218,11 +218,12 @@
                 ],
                 responsive: {
                     0: {
-                        items: 2.2,
+                        items: 1.1,
+                        margin: 5
                     },
-                    600: {
-                        items: 2.2,
-
+                    768: {
+                        items: 2,
+                        margin: 5
                     },
                     1000: {
                         items: 2.2,
@@ -232,29 +233,36 @@
 
             $('.owl-two').owlCarousel({
 
-                items: 4,
+                items: 3,
                 loop: true,
                 center: true,
                 margin: 30,
-                URLhashListener: true,
+                // URLhashListener: true,
                 autoplayHoverPause: true,
-                startPosition: 0,
+                // startPosition: 0,
+                merge:true,
                 nav: true,
                 navText: [
                     prvIcon,
                     shopNextIcon
-                ]
-                // responsive:{
-                //     0:{
-                //         items:1
-                //     },
-                //     600:{
-                //         items:2
-                //     },
-                //     1000:{
-                //         items:3
-                //     }
-                // }
+                ],
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    400:{
+                        items:1
+                    },
+                    500:{
+                        items:2
+                    },
+                    770:{
+                        items:3
+                    },
+                    1242:{
+                        items:4
+                    }
+                }
             });
         });
 
@@ -269,10 +277,21 @@
 
         const desc = document.querySelectorAll('.desc');
 
-        for (var i = 0; i < news_data.length; i++) {
-            desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
-        }
+        // for (var i = 0; i < news_data.length; i++) {
+        //     desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
+        // }
 
+            //限制字數
+            if(window.screen.width <= 430){
+                for (var i = 0; i < news_data.length; i++) {
+                desc[i].innerHTML = news_data[i].substring(0, 60) + '...';
+                }
+            }
+
+            if(window.screen.width >= 430)
+                for (var i = 0; i < news_data.length; i++) {
+                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+            }
 
     </script>
     <script src=""></script>

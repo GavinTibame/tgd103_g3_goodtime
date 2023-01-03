@@ -154,5 +154,5 @@ function browser(done) {
 exports.default = series(parallel(html, sass2css, jsMinify, img), browser);
 
 
-// 打包上線用
+// 打包上線用x
 exports.package = series(clear, parallel(html, sassMinify, babel5, imgMinify))

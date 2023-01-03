@@ -1,7 +1,7 @@
 .sign_up-wrapper{
     
     .sign_up-bg{
-        background-image: url(../img/log_in/bg.png);
+        background-image: url(../../../../src/img/log_in/bg.png);
         background-repeat: no-repeat;
         height: 1601px;
         margin-top: 80px;
@@ -20,6 +20,7 @@
                 color: #533C1B;
                 letter-spacing: .8rem;
                 padding: 4rem 5.2rem 1rem;
+                white-space:nowrap; 
             }
 
             h3{
@@ -32,6 +33,7 @@
                 padding-right: 5.2rem;
                 letter-spacing: .68rem;
                 position: relative;
+                white-space:nowrap; 
 
                 &::after{
                     content: '';
@@ -80,6 +82,7 @@
                         font-weight: 700;
                         font-size: 20px;
                         letter-spacing: 0.1rem;
+                        white-space:nowrap; 
                     }
     
                     .sign_up-h3::before{
@@ -162,7 +165,7 @@
         width: 100%;
 
         .sign_up-bg{
-            background-image: url(../../../img/sign_up/bg1024.jpg);
+            background-image: url(../../../../src/img/sign_up/bg1024.jpg);
             height: 1145px;
 
             .sign_up-login-box{
@@ -219,11 +222,28 @@
 
 }
 
+@media all and (max-width: 768px){
+    .sign_up-wrapper {
+        .sign_up-bg {
+            .sign_up-login-box {
+                h3 {
+                    padding-left: 19vw;
+                    padding-right: 0;
+                    &::after {
+                        // display: none;
+                        width: 12%;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media all and (max-width: 428px){
 
     .sign_up-wrapper{
         .sign_up-bg{
+            margin-top: 70px;
             .sign_up-login-box{
                 height: 100px;
                 width: 350px;
