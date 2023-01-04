@@ -83,7 +83,21 @@
             </ul>
         </div> -->
     </header>
-    <script src="../js/topbar.js"></script>
+    <script>
+        //漢堡線控制
+        let menuIcon = document.getElementById('menu-icon-box');
+        let menu = document.getElementById('topbar-btn-group');
+
+        menuIcon.addEventListener('click', function () {
+            document.getElementById('topbar-btn-group').classList.toggle('on');
+        });
+
+        //Back To Top
+        const backToTop = document.getElementById('backToTop');
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        })
+    </script>
 </body>
 
 </html>

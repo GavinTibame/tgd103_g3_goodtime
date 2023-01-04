@@ -1,6 +1,6 @@
 /*-------- topbar -------*/
 /* top-area */
-.top-area_shadowbox{
+.top-area_shadowbox {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,16 +8,18 @@
     height: 80px;
     box-shadow: 0px 10px 20px 0px rgba(160, 160, 160, 0.2);
 }
-.topbar .top-area{
+
+.topbar .top-area {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    background: linear-gradient(180deg,rgb(240, 240, 240),#fff);
+    background: linear-gradient(180deg, rgb(240, 240, 240), #fff);
     z-index: 100;
 }
-.topbar .logo-box{
+
+.topbar .logo-box {
     display: inline-block;
     margin-top: 15px;
     margin-left: 50px;
@@ -25,36 +27,44 @@
     height: 50px;
     transition: all 0.5s;
 }
-.topbar .logo-box:hover{
+
+.topbar .logo-box:hover {
     transform: scale(1.1);
 }
-.topbar .logo-box > a{
+
+.topbar .logo-box>a {
     display: block;
     width: 100%;
     height: 100%;
 }
-.topbar .logo-box > a > img{
+
+.topbar .logo-box>a>img {
     display: inline-block;
     width: 100%;
     height: 100%;
     /* border-right: #533C1B solid 1px; */
 }
-.topbar .topbar-btn-group{
+
+.topbar .topbar-btn-group {
     position: absolute;
     top: 0;
     right: 0;
     width: 60%;
     height: 100%;
 }
-.topbar .topbar-btn-group > li{
+
+.topbar .topbar-btn-group>li {
     display: inline-block;
-    margin-top: 30px; /* 這邊好像可以少一點 跟logo對齊 20左右?*/
+    margin-top: 30px;
+    /* 這邊好像可以少一點 跟logo對齊 20左右?*/
     margin-left: 20px;
 }
-.topbar .topbar-btn-group > li:first-child{
+
+.topbar .topbar-btn-group>li:first-child {
     margin-left: 40px;
 }
-.topbar .topbar-btn-group > li > a{
+
+.topbar .topbar-btn-group>li>a {
     color: #533C1B;
     text-decoration: none;
     font-family: 'Noto Sans TC', sans-serif;
@@ -62,11 +72,13 @@
     font-weight: 700;
     transition: all 0.5s;
 }
-.topbar .topbar-btn-group > li > a:hover{
+
+.topbar .topbar-btn-group>li>a:hover {
     color: #C09351;
 }
+
 .topbar {
-    .member-icon-box{
+    .member-icon-box {
         position: absolute;
         top: 15px;
         right: -77px;
@@ -77,13 +89,13 @@
         height: 50px;
         overflow: hidden;
 
-        &:hover{
+        &:hover {
             background-color: #533C1B;
             right: 0;
             height: 125px;
         }
 
-        i{
+        i {
             float: left;
             margin-top: 14px;
             margin-left: 15px;
@@ -92,18 +104,19 @@
             color: #fff;
         }
 
-        ul{
+        ul {
             float: right;
 
-            li{
+            li {
                 display: block;
                 margin: 20px 0;
 
-                a{
+                a {
                     color: #fff;
                     text-decoration: none;
                 }
-                &:first-child{
+
+                &:first-child {
                     margin-top: 20px;
                 }
             }
@@ -111,13 +124,13 @@
     }
 }
 
-.topbar .member-icon-box:hover{
+.topbar .member-icon-box:hover {
     background-color: #533C1B;
     right: 0;
     height: 125px;
 }
 
-.topbar .member-icon-box > a{
+.topbar .member-icon-box>a {
     display: block;
     color: #fff;
     width: 100%;
@@ -125,13 +138,14 @@
 }
 
 
-.topbar .menu-icon-box{
+.topbar .menu-icon-box {
     position: absolute;
     top: 20px;
     right: 2%;
     font-size: 30px;
     display: none;
 }
+
 /* left-area */
 .topbar .left-area {
     position: fixed;
@@ -139,12 +153,13 @@
     left: 0;
     width: 50px;
     height: 100%;
-    background: linear-gradient(40deg,rgb(240, 240, 240),#fff);
+    background: linear-gradient(40deg, rgb(240, 240, 240), #fff);
     z-index: 99;
     box-shadow: 0px 10px 20px 0px rgba(137, 137, 137, 0.2);
     background-color: white;
 }
-.topbar .left-area > p{
+
+.topbar .left-area>p {
     position: absolute;
     top: 55%;
     left: -75px;
@@ -156,6 +171,7 @@
     transform: rotate(-90deg);
     letter-spacing: .2rem;
 }
+
 .topbar .social-btn-group {
     position: absolute;
     bottom: 0;
@@ -163,22 +179,25 @@
     width: 100%;
     height: 18%;
 }
-.topbar .social-btn-group > a{
+
+.topbar .social-btn-group>a {
     display: block;
     position: relative;
     width: 50px;
     height: 40px;
 }
-.topbar .social-btn-group > a > i{
+
+.topbar .social-btn-group>a>i {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: #533C1B;
     font-size: 30px;
     transition: all 0.3s;
 }
-.topbar .social-btn-group > a > i:hover{
+
+.topbar .social-btn-group>a>i:hover {
     color: #a57f47;
     font-size: 32px;
 }
@@ -190,46 +209,52 @@
     right: 0;
     width: 50px;
     height: 100%;
-    background: linear-gradient(-40deg,rgb(240, 240, 240),#fff);
+    background: linear-gradient(-40deg, rgb(240, 240, 240), #fff);
     z-index: 99;
     box-shadow: 0px 10px 20px 0px rgba(127, 127, 127, 0.2);
     background-color: white;
 }
-.right-area .cart-icon-box{
+
+.right-area .cart-icon-box {
     position: absolute;
     top: 90px;
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
-    a{
+
+    a {
         display: block;
         color: #533C1B;
         text-align: center;
         font-size: 20px;
         transition: all 0.5s;
-        &:hover{
+
+        &:hover {
             transform: scale(1.1);
             color: #C09351;
         }
     }
 }
-.right-area .anchor-box{
+
+.right-area .anchor-box {
     position: absolute;
     top: 130px;
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
-    li{
+
+    li {
         text-align: center;
         margin-bottom: 10px;
-        a{
+
+        a {
             color: #533C1B;
             font-weight: 700;
             font-family: 'Enriqueta', serif;
             position: relative;
         }
-        .a-g:after{
-            content: "";
+
+        .a-g:after {
             position: absolute;
             right: -10px;
             top: 0;
@@ -237,14 +262,26 @@
             height: 100%;
             background-color: #C09351;
             transition: all 0.5s;
-        }
-        .a-g:hover:after{
             content: "Good Time";
+        }
+
+        .a-g:hover:after {
             width: 120px;
             white-space: nowrap;
         }
-        .a-news:after{
-            content: "";
+
+        a.a-g.scrollIn::after {
+            width: 120px;
+        }
+
+        a.a-news.scrollIn::after,
+        a.a-events.scrollIn::after,
+        a.a-aboutus.scrollIn::after,
+        a.a-shops.scrollIn::after {
+            width: 70px;
+        }
+
+        .a-news:after {
             position: absolute;
             right: -10px;
             top: 0;
@@ -252,13 +289,14 @@
             height: 100%;
             background-color: #C09351;
             transition: all 0.5s;
-        }
-        .a-news:hover:after{
             content: "News";
+        }
+
+        .a-news:hover:after {
             width: 70px;
         }
-        .a-events:after{
-            content: "";
+
+        .a-events:after {
             position: absolute;
             right: -10px;
             top: 0;
@@ -266,13 +304,14 @@
             height: 100%;
             background-color: #C09351;
             transition: all 0.5s;
-        }
-        .a-events:hover:after{
             content: "Events";
+        }
+
+        .a-events:hover:after {
             width: 70px;
         }
-        .a-aboutus:after{
-            content: "";
+
+        .a-aboutus:after {
             position: absolute;
             right: -10px;
             top: 0;
@@ -280,13 +319,14 @@
             height: 100%;
             background-color: #C09351;
             transition: all 0.5s;
-        }
-        .a-aboutus:hover:after{
             content: "About";
+        }
+
+        .a-aboutus:hover:after {
             width: 70px;
         }
-        .a-shops:after{
-            content: "";
+
+        .a-shops:after {
             position: absolute;
             right: -10px;
             top: 0;
@@ -294,13 +334,15 @@
             height: 100%;
             background-color: #C09351;
             transition: all 0.5s;
-        }
-        .a-shops:hover:after{
             content: "Shops";
+        }
+
+        .a-shops:hover:after {
             width: 70px;
         }
     }
-    .hide-box{
+
+    .hide-box {
         position: absolute;
         width: 10px;
         height: 100%;
@@ -309,7 +351,8 @@
         background-color: #fff;
     }
 }
-.topbar .right-area > a{
+
+.topbar .right-area>a {
     display: block;
     position: absolute;
     bottom: 0px;
@@ -317,7 +360,8 @@
     width: 50px;
     height: 120px;
 }
-.topbar .right-area > a > p{
+
+.topbar .right-area>a>p {
     position: absolute;
     top: 0;
     left: -100px;
@@ -347,17 +391,18 @@
     /* border-right: #533C1B solid 1px; */
 }
 
-.topbar .top-area .on{
+.topbar .top-area .on {
     right: 0;
     transition: all 1s;
 }
 
-@media all and (max-width: 1260px){
-    .topbar{
-        .logo-box{
+@media all and (max-width: 1260px) {
+    .topbar {
+        .logo-box {
             float: left;
         }
-        .topbar-btn-group{
+
+        .topbar-btn-group {
             width: auto;
             float: right;
             margin-right: 70px;
@@ -365,22 +410,23 @@
     }
 }
 
-@media all and (max-width: $tablet-width){
-    .topbar{
-        .left-area{
+@media all and (max-width: $tablet-width) {
+    .topbar {
+        .left-area {
             width: 45px;
         }
-        .right-area{
+
+        .right-area {
             width: 45px;
         }
     }
 }
 
-@media all and (max-width: 856px){
-    .topbar{
-        .logo-box{
-            a{
-                img{
+@media all and (max-width: 856px) {
+    .topbar {
+        .logo-box {
+            a {
+                img {
                     width: 45px;
                     height: 45px;
                     margin-left: -35px;
@@ -388,20 +434,25 @@
                 }
             }
         }
-        .member-icon-box{
+
+        .member-icon-box {
             top: 15px;
             display: none;
         }
-        .menu-icon-box{
+
+        .menu-icon-box {
             display: block;
         }
-        .top-area_shadowbox{
+
+        .top-area_shadowbox {
             height: 70px;
         }
-        .top-area{
+
+        .top-area {
             height: 70px;
         }
-        .topbar-btn-group{
+
+        .topbar-btn-group {
             width: 70%;
             background-color: #D9D9D9;
             height: 900px;
@@ -411,11 +462,11 @@
             right: -70%;
             padding-top: 50px;
 
-            li{
+            li {
                 display: block;
                 margin-left: 0;
 
-                &:first-child{
+                &:first-child {
                     margin-left: 0;
                 }
             }
@@ -423,12 +474,13 @@
     }
 }
 
-@media all and (max-width: $mobile-width){
-    .topbar{
-        .left-area{
+@media all and (max-width: $mobile-width) {
+    .topbar {
+        .left-area {
             display: none;
         }
-        .right-area{
+
+        .right-area {
             display: none;
         }
     }

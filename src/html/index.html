@@ -70,7 +70,7 @@
         <li><a href="#" id="a-g" data-scroll="anchor0" class="a-g scrollDetectorJS">G</a></li>
         <li><a id="a-news" data-scroll="anchor1" class="a-news scrollDetectorJS">N</a></li>
         <li><a id="a-events" data-scroll="anchor2" class="a-events scrollDetectorJS">E</a></li>
-        <li><a data-scroll="anchor3" class="a-aboutus scrollDetectorJS">A</a></li>
+        <li><a id="a-about" data-scroll="anchor3" class="a-aboutus scrollDetectorJS">A</a></li>
         <li><a id="a-shops" data-scroll="anchor4" class="a-shops scrollDetectorJS">S</a></li>
         <div class="hide-box"></div>
       </ul>
@@ -86,52 +86,54 @@
           </ul>
       </div> -->
   </header>
-  <div id="anchor0" class="index-wrapper">
-    <div class="owl-one owl-carousel owl-theme">
-      <div class="item">
-        <a>
-          <h1>1</h1>
-          <img src="../img/index/bannerimg1.jpg" alt="" />
-          <p class="desc"></p>
+  <div class="index-wrapper">
+    <div id="anchor0" class="carousel">
+      <div class="owl-one owl-carousel owl-theme">
+        <div class="item">
+          <a>
+            <h1>1</h1>
+            <img src="../img/index/bannerimg1.jpg" alt="" />
+            <p class="desc"></p>
+          </a>
+        </div>
+        <div class="item">
+          <a>
+            <h1>2</h1>
+            <img src="../img/index/bannerimg2.jpg" alt="" />
+            <p class="desc"></p>
+          </a>
+        </div>
+        <div class="item">
+          <a>
+            <h1>3</h1>
+            <img src="../img/index/bannerimg3.jpg" alt="" />
+            <p class="desc"></p>
+          </a>
+        </div>
+        <div class="item">
+          <a>
+            <h1>4</h1>
+            <img src="../img/index/bannerimg1.jpg" alt="" />
+            <p class="desc"></p>
+          </a>
+        </div>
+        <div class="item">
+          <a>
+            <h1>5</h1>
+            <img src="../img/index/bannerimg2.jpg" alt="" />
+            <p class="desc"></p>
+          </a>
+        </div>
+      </div>
+      <img class="index-subtract" src="../img/index/Subtract.png" alt="" />
+      <h4>體會悠閒的傭懶午後<br />&emsp;&emsp;享受美好的黃金時光</h4>
+      <div class="index-vediobox">
+        <div class="index-vediobox-title">韶光形象影片公開中！</div>
+        <h5>Play Movie</h5>
+        <a href="https://www.youtube.com/watch?v=U0TXIXTzJEY&ab_channel=YugoKanno-Topic">
+          <img src="../img/index/videologo.png" alt="" />
         </a>
       </div>
-      <div class="item">
-        <a>
-          <h1>2</h1>
-          <img src="../img/index/bannerimg2.jpg" alt="" />
-          <p class="desc"></p>
-        </a>
-      </div>
-      <div class="item">
-        <a>
-          <h1>3</h1>
-          <img src="../img/index/bannerimg3.jpg" alt="" />
-          <p class="desc"></p>
-        </a>
-      </div>
-      <div class="item">
-        <a>
-          <h1>4</h1>
-          <img src="../img/index/bannerimg1.jpg" alt="" />
-          <p class="desc"></p>
-        </a>
-      </div>
-      <div class="item">
-        <a>
-          <h1>5</h1>
-          <img src="../img/index/bannerimg2.jpg" alt="" />
-          <p class="desc"></p>
-        </a>
-      </div>
-    </div>
-    <img class="index-subtract" src="../img/index/Subtract.png" alt="" />
-    <h4>體會悠閒的傭懶午後<br />&emsp;&emsp;享受美好的黃金時光</h4>
-    <div class="index-vediobox">
-      <div class="index-vediobox-title">韶光形象影片公開中！</div>
-      <h5>Play Movie</h5>
-      <a href="https://www.youtube.com/watch?v=U0TXIXTzJEY&ab_channel=YugoKanno-Topic">
-        <img src="../img/index/videologo.png" alt="" />
-      </a>
     </div>
   </div>
   <div class="index-news" id="anchor1">
@@ -191,8 +193,8 @@
       <h3 class="title-1">EVENT CALENDAR</h3>
       <h3 class="title-2">精彩活動</h3>
     </div>
-    <div class="calendar">
-      <img class="calendar" src="../img/index/event-calendar.png" alt="">
+    <div id="calendar" class="calendar">
+      <img src="../img/index/event-calendar.png" alt="">
     </div>
   </div>
   <div class="index-aboutus" id="anchor3">
@@ -428,6 +430,10 @@
     for (var i = 0; i < news_data.length; i++) {
       desc[i].innerHTML = news_data[i].substring(0, 100) + "...";
     }
+    const backToTop = document.getElementById('backToTop');
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    })
   </script>
   <script src="../js/topbar.js"></script>
 </body>
