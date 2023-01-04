@@ -199,6 +199,7 @@
                 color: #B3B3B3;
                 font-size: 18px;
                 margin: 10px 0;
+                margin-left: 5%;
 
                 div {
                     margin-right: 20px;
@@ -210,6 +211,7 @@
                 font-size: 22px;
                 margin: 20px 0;
                 position: relative;
+                margin-left: 5%;
 
                 &::after {
                     display: block;
@@ -238,10 +240,19 @@
 
 }
 
+.calendar{
+    width: 100%;
+    img{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
 .index-aboutus {
     display: block;
     // width: calc(100% - 100px);
-    width: 1180px;
+    width: 1200px;
     height: 500px;
     margin: 0 auto;
     margin-top: 100px;
@@ -249,10 +260,10 @@
 
     .aboutus-left {
         float: left;
-        width: 55%;
+        width: 50%;
 
         img {
-            width: 60%;
+            width: 360px;
             display: block;
             margin: 0 auto;
         }
@@ -260,9 +271,8 @@
 
     .aboutus-right {
         float: right;
-        width: 45%;
+        width: 50%;
         font-family: $our-font;
-        margin-top: 20px;
 
         h3 {
             font-size: $h1;
@@ -282,7 +292,7 @@
         }
 
         p {
-            font-size: $h5;
+            font-size: $h6;
             letter-spacing: 6px;
             margin-top: 30px;
             line-height: 1.8;
@@ -364,7 +374,7 @@
     .owl-next {
         position: absolute;
         top: 44%;
-        left: -3.5%;
+        left: -4.5%;
     }
 
     .owl-prev {
@@ -414,10 +424,46 @@
     }
 }
 
-@media all and (max-width: $tablet-width) {
+@media all and (max-width: 1130px) {
     .index-wrapper{
         .index-vediobox{
-            bottom:-51%;
+            bottom: -51%;
+        }
+
+    }
+}
+
+@media all and (max-width: 1070px) {
+    .index-wrapper{
+        width: calc(100% - 90px);
+    }
+    .index-news{
+        height: 465px;
+        background-image: url(../../../../src/img/index/halfcercle768.jpg);
+        .title{
+            .title-1{
+                font-size: 22px;
+                margin-top: 178px;
+                margin-left: 8%;
+            }
+            .title-2{
+                font-size: 22px;
+                margin-top: 25px;
+                margin-left: 15%;
+            }
+        }
+        .index-content-wrap{
+            padding-top: 35PX;
+            .content{
+                .date-info{
+                    font-size: 13px;
+                    margin-left: 0;
+                }
+                .announcement{
+                    font-size: 16px;
+                    margin: 10px 0;
+                }
+            }
         }
     }
     .index-aboutus{
@@ -425,8 +471,49 @@
         
         .aboutus-right{
             margin-top: 0px;
+            p{
+                margin-left: 25px;
+            }
         }
     }
+}
+
+@media all and (max-width: 950px) {
+    .index-aboutus{
+        width: 80%;
+        margin-top: 80px;
+        height: 260px;
+
+        .aboutus-left{
+            img{
+                width: 80%;
+                margin-left: 16%;
+            }
+        }
+        .aboutus-right{
+            margin-top: 28px;
+            .title{
+                .title-1{
+                    font-size: 22px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    margin-left: 30px;
+                }
+                .title-2{
+                    font-size: 22px;
+                    margin-left: 42px;
+                }
+            }
+            p{
+                font-size: 16px;
+                letter-spacing: 2px;
+                margin-top: 15px;
+                margin-left: 0;
+                margin-left: 30px;
+            }
+        }
+    }
+
 }
 
 @media all and (max-width: 768px) {
@@ -457,59 +544,18 @@
         }
     }
     .index-news{
-        height: 465px;
-        background-image: url(../../../../src/img/index/halfcercle768.jpg);
-        .title{
-            .title-1{
-                font-size: 22px;
-                margin-top: 178px;
-                margin-left: 8%;
-            }
-            .title-2{
-                font-size: 22px;
-                margin-top: 25px;
-                margin-left: 15%;
-            }
-        }
         .index-content-wrap{
-            padding-top: 35PX;
             .content{
-                .date-info{
-                    font-size: 13px;
-                }
                 .announcement{
                     font-size: 14px;
-                    margin: 10px 0;
                 }
             }
         }
     }
     .index-aboutus{
-        width: 700px;
-        margin-top: 80px;
-        height: 260px;
-
-        .aboutus-left{
-            img{
-                margin-left: 22%;
-            }
-        }
         .aboutus-right{
-            .title-1{
-                font-size: 22px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-            .title-2{
-                font-size: 22px;
-                margin-left: 42px;
-            }
             p{
-                font-size: 16px;
                 letter-spacing: 2px;
-                margin-left: -44px;                
-                margin-top: 20px;
-                margin-top: 15px;
             }
         }
     }
@@ -530,6 +576,20 @@
         // }
         .owl-next{
             left: -12%;
+        }
+    }
+}
+
+@media all and (max-width: 700px) {
+    .index-news{
+        .index-content-wrap{
+            .content{
+                .announcement{
+                    .material-symbols-outlined{
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }
