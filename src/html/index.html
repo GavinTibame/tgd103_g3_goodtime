@@ -152,7 +152,7 @@
                 創造只屬於自己的溫馨時光與回憶</p>
         </div>
     </div>
-    <!-- <div class="index-shops" id="anchor4">
+    <div class="index-shops" id="anchor4">
       <h3 class="title-1">SHOPS</h3>
       <h3 class="title-2">風格好店</h3>
       <div class="owl-two owl-carousel">
@@ -235,8 +235,7 @@
           </div>
         </div>
       </div>
-    </div> -->
-    <img src="../img/index/nextarrow.png" alt="" />
+    </div>
 
     <div id="footer"></div>
     <!-- <script src="../js/moment.js"></script>
@@ -249,94 +248,71 @@
         $("#footer").load("footer.html");
       });
 
+ 
+
+
       //輪播
       $(document).ready(function () {
-        $(".owl-one").owlCarousel({
-          autoplay: true,
-          autoplayTimeout: 4000,
-          autoplayHoverPause: true,
-          center: true,
-          loop: true,
-          margin: 40,
-          nav: true,
-          navText: [prvIcon, nextIcon],
-          responsive: {
-            0: {
-              items: 2.2,
-            },
-            600: {
-              items: 2.2,
-            },
-            1000: {
-              items: 2.2,
-            },
-          },
-        });
+          $('.owl-one').owlCarousel({
+              autoplay: true,
+              autoplayTimeout: 4000,
+              autoplayHoverPause: true,
+              center: true,
+              loop: true,
+              margin: 30,
+              nav: true,
+              navText: [
+                  prvIcon,
+                  nextIcon
+              ],
+              responsive: {
+                  0: {
+                      items: 1.1,
+                      margin: 5
+                  },
+                  768: {
+                      items: 2,
+                      margin: 5
+                  },
+                  1000: {
+                      items: 2.2,
+                  }
+              }
+          });
+          $('.owl-two').owlCarousel({
 
-        //輪播
-        $(document).ready(function () {
-            $('.owl-one').owlCarousel({
-                autoplay: true,
-                autoplayTimeout: 4000,
-                autoplayHoverPause: true,
-                center: true,
-                loop: true,
-                margin: 30,
-                nav: true,
-                navText: [
-                    prvIcon,
-                    nextIcon
-                ],
-                responsive: {
-                    0: {
-                        items: 1.1,
-                        margin: 5
-                    },
-                    768: {
-                        items: 2,
-                        margin: 5
-                    },
-                    1000: {
-                        items: 2.2,
-                    }
-                }
-            });
-
-            $('.owl-two').owlCarousel({
-
-                items: 3,
-                loop: true,
-                center: true,
-                margin: 30,
-                // URLhashListener: true,
-                autoplayHoverPause: true,
-                // startPosition: 0,
-                merge:true,
-                nav: true,
-                navText: [
-                    prvIcon,
-                    shopNextIcon
-                ],
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    400:{
-                        items:1
-                    },
-                    500:{
-                        items:2
-                    },
-                    770:{
-                        items:3
-                    },
-                    1242:{
-                        items:3.5,
-                        margin: 10
-                    }
-                }
-            });
-        });
+              items: 3,
+              loop: true,
+              center: true,
+              margin: 30,
+              autoplayHoverPause: true,
+              // startPosition: 0,
+              merge:true,
+              nav: true,
+              navText: [
+                  prvIcon,
+                  shopNextIcon
+              ],
+              responsive:{
+                  0:{
+                      items:1,
+                      margin:10
+                  },
+                  400:{
+                      items:1
+                  },
+                  500:{
+                      items:2
+                  },
+                  770:{
+                      items:3
+                  },
+                  1242:{
+                      items:3.5,
+                      margin: 10
+                  }
+              }
+          });
       });
 
         //輪播內文

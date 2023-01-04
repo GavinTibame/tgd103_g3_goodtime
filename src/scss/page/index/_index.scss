@@ -486,7 +486,7 @@
 
         .aboutus-left{
             img{
-                width: 80%;
+                width: 260px;
                 margin-left: 16%;
             }
         }
@@ -514,6 +514,14 @@
         }
     }
 
+}
+
+@media all and (max-width: 920px) {
+    .index-aboutus{
+        .aboutus-right{
+            margin-top: 0;
+        }
+    }
 }
 
 @media all and (max-width: 768px) {
@@ -553,9 +561,16 @@
         }
     }
     .index-aboutus{
+        width: 90%;
         .aboutus-right{
+            .title{
+                .title-1{
+                    margin-left: 0;
+                }
+            }
             p{
                 letter-spacing: 2px;
+                margin-left: 0;
             }
         }
     }
@@ -671,6 +686,7 @@
                 
                 .title-1{
                     text-align: center;
+                    margin-left: -14px;
                 }
                 .title-2{
                     margin-left: 0;
@@ -686,8 +702,9 @@
         }
     }
     .index-shops{
-        width: 100%;
-        margin-left: 0;
-
+        .owl-two{
+            width: 100%;
+            margin-left: 0;
+        }
     }
 }

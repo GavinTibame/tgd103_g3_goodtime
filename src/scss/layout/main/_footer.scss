@@ -127,6 +127,9 @@
     .footer{
         .top-group{
             .footer-btn-group{
+                ul{
+                    justify-content: space-between;
+                }
                 div{
                     margin-top: 25px;
                     p{
@@ -137,7 +140,6 @@
         }
     }
 }
-
 @media all and (max-width: 1026px){
     .footer{
         .top-group{
@@ -153,7 +155,6 @@
         }
     }
 }
-
 @media all and (max-width: 954px){
     .footer{
         .top-group{
@@ -165,9 +166,22 @@
                 }
             }
         }
+        .map-box{
+            margin-left: 25px;
+        }
     }
 }
-
+@media all and (max-width: 937px){
+    .footer{
+        .top-group{
+            .footer-btn-group{
+                ul{
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+}
 @media all and (max-width: $mobile-width){
     .footer {
         height: 395px;
@@ -179,26 +193,29 @@
                 }
             }
         }
-        .social-btn-group{
-            display: block;
-            font-size: 24px;
-            position: absolute;
-            left: 44px;
-            top: 117px;
-            a{
-                color: #533C1B;
-            }
-        }
         .top-group{
             height: 130px;
             flex-wrap: wrap;
+            .social-btn-group{
+                display: block;
+                font-size: 24px;
+                position: absolute;
+                left: 44px;
+                top: 117px;
+                a{
+                    color: #3f2d15;
+                }
+            }
             .footer-btn-group{
                 width: 76%;
                 margin-top: 20px;
                 ul{
+                    justify-content: flex-start;
+
                     li{
                         a{
                             font-size: 16px;
+                            color: #533C1B;
                         }
                     }
                 }
