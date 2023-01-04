@@ -334,8 +334,6 @@
       });
 
 
-
-
       //輪播
       $(document).ready(function () {
         $('.owl-one').owlCarousel({
@@ -416,17 +414,18 @@
     //     desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
     // }
 
-    //限制字數
-    if (window.screen.width <= 430) {
-      for (var i = 0; i < news_data.length; i++) {
-        desc[i].innerHTML = news_data[i].substring(0, 60) + '...';
-      }
-    }
+            //限制字數
+            if(window.screen.width <= 430){
+                for (var i = 0; i < news_data.length; i++) {
+                desc[i].innerHTML = news_data[i].substring(0, 45) + '...';
+              }
+            }
 
-    if (window.screen.width >= 430)
-      for (var i = 0; i < news_data.length; i++) {
-        desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
-      }
+            if(window.screen.width >= 430){
+                for (var i = 0; i < news_data.length; i++){
+                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+              }
+            }
 
     for (var i = 0; i < news_data.length; i++) {
       desc[i].innerHTML = news_data[i].substring(0, 100) + "...";
