@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/backstage/grid.css">
-    <link rel="stylesheet" href="../css/backstage/b-product.css">
+    <link rel="stylesheet" href="../css/b-grid.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header id="header"></header>
@@ -21,7 +21,8 @@
                     <p class="text">商品查詢</p>
                     <p class="gray-text">*以下欄位如留空則預設為全部</p>
                     <div class="product_search-bar">
-                        <p>查詢條件</p>
+                        <p style="font-weight: 800;
+                        letter-spacing: .2rem;">查詢條件</p>
                         <ul>
                             <li>
                                 <p>商品分類</p>
@@ -69,12 +70,10 @@
                                 <p>商品頁編號</p>
                                 <input type="text" class="long-input">
                             </li>
-                            <li>
-                                <p>進階查詢</p>
-                            </li>
                         </ul>
                         <div class="btn-group">
                             <button class="search-btn">查詢</button>
+                            <button class="create-btn"><a href="b-product-create.html">新增</a></button>
                         </div>
                     </div>
                     <div class="container">
@@ -95,7 +94,7 @@
                                             </div> 
                                         </li>
                                         <li class="">
-                                            <a>
+                                            <a href="b-product-detail.html">
                                                 <div class="flex-box">
                                                     <div><div class="fakeimg"></div><h6>00001</h6></div>
                                                     <div><h6>吃甜甜賺大錢 | 零食派對箱 12款零食<br>2</h6></div>
@@ -111,17 +110,17 @@
                                                         <input type="radio" name="hide"><label class="time-area_label" for="">隱藏</label>
                                                     </h6></div>
                                                     <div><h6>199</h6></div>
-                                                    <div><h6>
+                                                    <div>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯商品</button>
                                                         <button><i class="fa-regular fa-window-restore"></i> 複製商品</button>
                                                         <button><i class="fa-solid fa-warehouse"></i> 修改庫存</button>
                                                         <button><i class="fa-solid fa-trash-can"></i> 刪除商品</button>
-                                                    </h6></div>
+                                                    </div>
                                                 </div>
                                             </a> 
                                         </li>
                                         <li class="">
-                                            <a>
+                                            <a href="b-product-detail.html">
                                                 <div class="flex-box">
                                                     <div><div class="fakeimg"></div><h6>00001</h6></div>
                                                     <div><h6>吃甜甜賺大錢 | 零食派對箱 12款零食<br>2</h6></div>
@@ -137,17 +136,17 @@
                                                         <input type="radio" name="hide2"><label class="time-area_label" for="">隱藏</label>
                                                     </h6></div>
                                                     <div><h6>199</h6></div>
-                                                    <div><h6>
+                                                    <div>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯商品</button>
                                                         <button><i class="fa-regular fa-window-restore"></i> 複製商品</button>
                                                         <button><i class="fa-solid fa-warehouse"></i> 修改庫存</button>
                                                         <button><i class="fa-solid fa-trash-can"></i> 刪除商品</button>
-                                                    </h6></div>
+                                                    </div>
                                                 </div>
                                             </a> 
                                         </li>
                                         <li class="">
-                                            <a>
+                                            <a href="b-product-detail.html">
                                                 <div class="flex-box">
                                                     <div><div class="fakeimg"></div><h6>00001</h6></div>
                                                     <div><h6>吃甜甜賺大錢 | 零食派對箱 12款零食<br>2</h6></div>
@@ -163,12 +162,12 @@
                                                         <input type="radio" name="hide3"><label class="time-area_label" for="">隱藏</label>
                                                     </h6></div>
                                                     <div><h6>199</h6></div>
-                                                    <div><h6>
+                                                    <div>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯商品</button>
                                                         <button><i class="fa-regular fa-window-restore"></i> 複製商品</button>
                                                         <button><i class="fa-solid fa-warehouse"></i> 修改庫存</button>
                                                         <button><i class="fa-solid fa-trash-can"></i> 刪除商品</button>
-                                                    </h6></div>
+                                                    </div>
                                                 </div>
                                             </a> 
                                         </li>
@@ -183,7 +182,7 @@
     </div>
 
     <!-- js -->
-    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");

@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/backstage/grid.css">
-    <link rel="stylesheet" href="../css/backstage/b-po.css">
+    <link rel="stylesheet" href="../css/b-grid.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header id="header"></header>
@@ -21,7 +21,8 @@
                     <p class="text">訂單查詢</p>
                     <p class="gray-text">*以下欄位如留空則預設為全部</p>
                     <div class="search-bar">
-                        <p>查詢條件</p>
+                        <p style="font-weight: 800;
+                        letter-spacing: .2rem;">查詢條件</p>
                         <ul>
                             
                             <li>
@@ -52,9 +53,6 @@
                                     <input type="radio" name="time-area"><label class="time-area_label" for="">預計出貨日</label>
                                 </form>
                             </li>
-                            <li>
-                                <p>進階查詢</p>
-                            </li>
                         </ul>
                         <div class="btn-group">
                             <button class="search-btn">查詢</button>
@@ -79,7 +77,7 @@
                                             </div> 
                                         </li>
                                         <li class="">
-                                            <a>
+                                            <a href="b-po-detail.html">
                                                 <div class="top-info">
                                                     <h6>主單號碼︰MO221206A00001</h6>
                                                     <h6>訂單總金額︰TWD1,788</h6>
@@ -94,7 +92,7 @@
                                                     <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
                                                     <div><h6>2<br>TWD864</h6></div>
                                                     <div><h6>10<br>許浩文</h6></div>
-                                                    <div><button>編輯</button></div>
+                                                    <div><button>查看</button></div>
                                                 </div>
                                             </a> 
                                         </li>
@@ -114,7 +112,7 @@
                                                     <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
                                                     <div><h6>2<br>TWD864</h6></div>
                                                     <div><h6>10<br>許浩文</h6></div>
-                                                    <div><button>編輯</button></div>
+                                                    <div><button>查看</button></div>
                                                 </div>
                                             </a> 
                                         </li>
@@ -134,7 +132,7 @@
                                                     <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
                                                     <div><h6>2<br>TWD864</h6></div>
                                                     <div><h6>10<br>許浩文</h6></div>
-                                                    <div><button>編輯</button></div>
+                                                    <div><button>查看</button></div>
                                                 </div>
                                             </a> 
                                         </li>
@@ -149,7 +147,7 @@
     </div>
 
     <!-- js -->
-    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
