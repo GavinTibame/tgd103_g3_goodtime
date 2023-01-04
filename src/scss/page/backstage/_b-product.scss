@@ -90,12 +90,12 @@
             i{
                 margin-top: 5px;
                 margin-left: 20px;
-                margin-right: 20px;
             }
             .timeform{
                 border: none;
                 outline: 2px solid #fff;
                 transition: all 0.3s;
+                margin-left: 20px;
                 &:focus{
                     outline: 2px solid #333;
                     border-radius: 2px;
@@ -108,15 +108,27 @@
                 border-radius: 2px;
                 width: 300px;
                 transition: all 0.3s;
+                &:focus{
+                    outline: 2px solid #333;
+                    border-radius: 2px;
+                }
             }
-            input:focus {
-                outline: 2px solid #333;
-                border-radius: 2px;
+            label{
+                margin-right: 20px;
+                font-weight: 600;
             }
+            // input:focus {
+            //     outline: 2px solid #333;
+            //     border-radius: 2px;
+            // }
         }
 
     }
+    .btn-group{
+        position: relative;
+    }
     .search-btn{
+        display: inline-block;
         background-color: #333;
         border: none;
         color: #fff;
@@ -132,8 +144,34 @@
             box-shadow: 0 0 20px #ccc;
         }
     }
+    .create-btn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 40px;
+        margin-right: 40px;
+        background-color: #fff;
+        border: none;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 2px;
+        border: 3px solid #333;
+        transition: all 0.3s;
+        box-shadow: 0 0 0px #ccc;
+        &:hover{
+            box-shadow: 0 0 20px #ccc;
+            border: 3px solid #333;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+    }
 }
-.info-box{
+.b-product .info-box{
     background-color: #ccc;
     margin-bottom: 60px;
     p{
@@ -182,6 +220,7 @@
                 display: block;
                 width: 100%;
                 height: 100%;
+                text-decoration: none;
                 .flex-box{
                     display: flex;
                     border-color: #ccc;
@@ -211,7 +250,7 @@
                             font-size: 12px;
                             font-weight: 600;
                             color: #ccc;
-                            padding: 2px 10px;
+                            padding: 8px 16px;
                             margin: 0 auto;
                             border: #ccc 2px solid;
                             border-radius: 4px;
@@ -222,6 +261,10 @@
                                 border: #333 2px solid;
                                 color: #333;
                             }
+                        }
+                        button:last-child:hover{
+                            border: #CD4B21 2px solid;
+                            color: #CD4B21;
                         }
                     }
                 }

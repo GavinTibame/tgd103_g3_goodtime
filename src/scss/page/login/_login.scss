@@ -155,14 +155,12 @@
     }
 
 }
-
 .log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-foreget-pwd {
     float: right;
     text-decoration: none;
     transform: scale(1.2);
     color: #C09351;
 }
-
 .log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn {
     display: block;
     margin: 0 auto;
@@ -176,12 +174,10 @@
     font-size: 20px;
     letter-spacing: 0.1rem;
 }
-
 .log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-singin{
     transform: scale(1.2);
     color: #C09351;
 }
-
 @media all and (max-width: $tablet-width) {
     
     .log_in-wrapper{
@@ -262,7 +258,7 @@
     }
 }
 
-@media all and (max-width: 428px){
+@media all and (max-width: 600px){
 
     .log_in-wrapper{
         .log_in-bg{
@@ -279,7 +275,7 @@
                 h3{
                     font-size: 20px;
                     text-align: center;
-
+                    padding-left: 0;
                     &::after{
                         display: none;
                     }
@@ -289,7 +285,7 @@
             }
             .log_in-login-content{
                 height: 510px;
-                width: 80%;
+                width: 70%;
 
                 .log_in-login-width{
 
@@ -315,4 +311,13 @@
         }
     }
 
+}
+@media all and (max-width: 428px){
+    .log_in-wrapper{
+        .log_in-bg{
+            .log_in-login-content{
+                width: 80%;
+            }
+        }
+    }
 }

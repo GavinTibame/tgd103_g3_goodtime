@@ -33,9 +33,17 @@
     }     
     .swiper {
         //輪播圖
-        width: 100%;
+        width: 90%;
         height: 340px;
         --swiper-navigation-size: 0;
+
+        @include rwd(768px){
+            width: 85%;
+            height: 280px;
+            }
+        @include rwd(428px){
+           height: 188px;
+        }
     }
 
     .swiper-slide {
@@ -53,7 +61,7 @@
     }
 
     .swiper-button-next {
-        margin-right: 52px;
+        margin-right: -5px;
 
         i.fa-solid.fa-circle-arrow-right {
             font-weight: 900;
@@ -65,7 +73,11 @@
     }
 
     .swiper-button-prev {
-        margin-left: 52px;
+        margin-left: 5px;
+
+        @include rwd(768px){
+            margin-left: -5px;
+         }
 
         i.fa-solid.fa-circle-arrow-left {
             font-weight: 900;
@@ -87,7 +99,8 @@
     }
     .swiper-slide{
         background-repeat: no-repeat;
-        // background-size: cover;
+        background-size: cover;
+        background-position-y: center;
 
         @include rwd(1024px){
             width: 85%;
@@ -117,10 +130,12 @@
         .banner__textarea {
             position: static;
             .banner__zh{
+                padding-left: 13vw;
                 
                 @include rwd(428px){
                     font-size: 16px;
                     letter-spacing: 0.3rem;
+                    padding-bottom: 3rem;
                     }
                    
                 &::before{
@@ -132,10 +147,11 @@
             }
            
             .banner__eng{
+                padding: 6.2rem 4.2rem 2rem;
 
                 @include rwd(768px){
                     font-size: 22px;
-                    padding: 3.2rem 4.2rem 0rem;
+                    padding: 5.2rem 4.2rem 0rem;
                  }
 
                 @include rwd(428px){
@@ -188,13 +204,13 @@
 .exhibition-event {
     //展演區
     line-height: 1.5;
-    margin: 95px 50px 5px;
+    margin: 95px 55px 5px;
     display: grid;
     grid-template-columns: repeat(3, minmax(0px, 1fr));
     gap: 20px 22px;
 
     @include rwd(768px){
-        margin: 95px 65px 5px;
+        margin: 50px 65px 5px;
         grid-template-columns: repeat(2, minmax(0px, 1fr));
      }
     @include rwd(428px){
@@ -254,7 +270,7 @@
     }
 
     h6 {
-        font-size: $h5;
+        font-size: 21px;
         font-weight: bold;
         color: $font-color;
         margin-top: 30px;
@@ -270,6 +286,9 @@
     
     /*-- 按紐 --*/
     .pagination{
+        margin-top: 130px;
+        padding-bottom: 20px;
+
         @include rwd(768px){
         margin-top: 90px;
         }

@@ -1,46 +1,44 @@
-.b-member{
+.b-event{
     max-width: 1280px;
-    margin: 0 auto;
     margin-top: 90px;
-    box-sizing: border-box;
 }
-.b-member p{
+.b-event p{
     font-size: 16px;
     font-weight: 700;
     font-family: 'Noto Sans TC', sans-serif;
     color: #333;
 }
-.b-member h6{
+.b-event h6{
     font-size: 14px;
     font-weight: 500;
     font-family: 'Noto Sans TC', sans-serif;
     color: #333;
 }
-.b-member h5{
+.b-event h5{
     font-size: 32px;
     font-weight: 700;
     font-family: 'Noto Sans TC', sans-serif;
     color: #333;
 }
-.b-member .text{
+.b-event .text{
     display: inline-block;
     margin-left: 40px;
     font-size: 20px;
 }
-.b-member .gray-text{
+.b-event .gray-text{
     display: inline-block;
     margin-left: 20px;
     color: #666;
     font-size: 20px;
 }
-.b-member .sub-text{
+.b-event .sub-text{
     display: inline-block;
     margin-left: 80px;
     padding-left: 10px;
     color: #333;
     border-left: 4px solid #333;
 }
-.member_search-bar{
+.b-event .search-bar{
     margin-top: 20px;
     border-radius: 4px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
@@ -67,7 +65,7 @@
                 margin-bottom: 10px;
                 font-weight:600;
             }
-            .news-kind{
+            .product-kind{
                 margin-left: 20px;
                 outline: #ccc solid 2px;
                 border: none;
@@ -85,13 +83,23 @@
             form{
                 display: inline-block;
                 margin-left: 20px;
-                font-weight: 600;
                 input:checked {
                     background-color: rgb(146, 81, 81);
                 }
             }
-            label{
-                margin-right: 20px;
+            i{
+                margin-top: 5px;
+                margin-left: 20px;
+            }
+            .timeform{
+                border: none;
+                outline: 2px solid #fff;
+                transition: all 0.3s;
+                margin-left: 20px;
+                &:focus{
+                    outline: 2px solid #333;
+                    border-radius: 2px;
+                }
             }
             .long-input{
                 margin-left: 20px;
@@ -100,10 +108,13 @@
                 border-radius: 2px;
                 width: 300px;
                 transition: all 0.3s;
-                &:hover{
+                &:focus{
                     outline: 2px solid #333;
                     border-radius: 2px;
                 }
+            }
+            label{
+                margin-right: 20px;
             }
             // input:focus {
             //     outline: 2px solid #333;
@@ -111,6 +122,9 @@
             // }
         }
 
+    }
+    .btn-group{
+        position: relative;
     }
     .search-btn{
         background-color: #333;
@@ -128,8 +142,34 @@
             box-shadow: 0 0 20px #ccc;
         }
     }
+    .create-btn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 40px;
+        margin-right: 40px;
+        background-color: #fff;
+        border: none;
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 2px;
+        border: 3px solid #333;
+        transition: all 0.3s;
+        box-shadow: 0 0 0px #ccc;
+        &:hover{
+            box-shadow: 0 0 20px #ccc;
+            border: 3px solid #333;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+    }
 }
-.b-member .info-box{
+.b-event .info-box{
     background-color: #ccc;
     margin-bottom: 60px;
     p{
@@ -149,12 +189,11 @@
             margin-bottom: 0px;
             border: none;
             background-color: #ccc;
-            height: 40px;
+            height: 100px;
             div{
                 display: flex;
                 width: 100%;
                 div{
-                    display: flex;
                     h6{
                         width: 100%;
                         line-height: 30px;
@@ -167,7 +206,7 @@
         li{
             display: flex;
             width: 90%;
-            height: 120px;
+            height: 190px;
             margin-left: 5%;
             margin-bottom: 10px;
             background-color: rgb(255, 255, 255);
@@ -180,7 +219,6 @@
                 width: 100%;
                 height: 100%;
                 text-decoration: none;
-                cursor: pointer;
                 .flex-box{
                     display: flex;
                     border-color: #ccc;
@@ -194,23 +232,24 @@
                         background-color: aquamarine;
                     }
                     div{
-                        width: 16.6666%;
+                        width: 16.6667%;
                         text-align: center;
                         border: 1px solid #333;
-                        height: 120px;
+                        height: 190px;
                         h6{
                             height: 100%;
-                            line-height: 30px;
+                            line-height: 40px;
                             padding: 5px;
                         }
                         input{
                             margin-top: 10px;
                         }
                         button{
+                            display: block;
                             font-size: 12px;
                             font-weight: 600;
                             color: #ccc;
-                            padding: 2px 10px;
+                            padding: 8px 16px;
                             margin: 0 auto;
                             border: #ccc 2px solid;
                             border-radius: 4px;
@@ -221,6 +260,10 @@
                                 border: #333 2px solid;
                                 color: #333;
                             }
+                        }
+                        button:last-child:hover{
+                            border: #CD4B21 2px solid;
+                            color: #CD4B21;
                         }
                     }
                 }

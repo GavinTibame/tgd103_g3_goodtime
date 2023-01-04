@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/backstage/grid.css">
+    <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -17,10 +17,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="text">消息查詢</p>
+                    <p class="text" >消息查詢</p>
                     <p class="gray-text">*以下欄位如留空則預設為全部</p>
                     <div class="news_search-bar">
-                        <p>查詢條件</p>
+                        <p style="font-weight: 800;
+                        letter-spacing: .2rem;">查詢條件</p>
                         <ul>
                             <li>
                                 <p>消息分類</p>
@@ -60,19 +61,17 @@
                                 <p>消息頁編號</p>
                                 <input type="text" class="long-input">
                             </li>
-                            <li>
-                                <p>進階查詢</p>
-                            </li>
                         </ul>
                         <div class="btn-group">
                             <button class="search-btn">查詢</button>
+                            <button class="create-btn"><a href="b-new-create.html">新增</a></button>
                         </div>
                     </div>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="info-box">
-                                    <p>訂單列表</p>
+                                    <p>消息列表</p>
                                     <ul>
                                         <li class="first-title">
                                             <div>
@@ -85,7 +84,7 @@
                                             </div> 
                                         </li>
                                         <li class="">
-                                            <a>
+                                            <a href="b-new-detail.html">
                                                 <div class="flex-box">
                                                     <div><div class="fakeimg"></div><h6>00001</h6></div>
                                                     <div><h6>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！<br>2</h6></div>
@@ -155,7 +154,7 @@
     </div>
 
     <!-- js -->
-    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
