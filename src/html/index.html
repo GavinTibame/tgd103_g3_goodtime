@@ -297,7 +297,6 @@
       </div>
     </div>
   </div>
-  <img src="../img/index/nextarrow.png" alt="" />
 
   <div id="footer"></div>
   <!-- <script src="../js/moment.js"></script>
@@ -334,6 +333,9 @@
         },
       });
 
+
+
+
       //輪播
       $(document).ready(function () {
         $('.owl-one').owlCarousel({
@@ -362,14 +364,12 @@
             }
           }
         });
-
         $('.owl-two').owlCarousel({
 
           items: 3,
           loop: true,
           center: true,
           margin: 30,
-          // URLhashListener: true,
           autoplayHoverPause: true,
           // startPosition: 0,
           merge: true,
@@ -380,7 +380,8 @@
           ],
           responsive: {
             0: {
-              items: 1
+              items: 1,
+              margin: 10
             },
             400: {
               items: 1
@@ -393,7 +394,7 @@
             },
             1242: {
               items: 3.5,
-              margin: 20
+              margin: 10
             }
           }
         });

@@ -3,7 +3,6 @@
 const navLinkList = document.querySelectorAll(".anchor-box li a.scrollDetectorJS"),
     header = document.querySelector("div.top-area"),
     navigationTable = [];
-console.log(navLinkList);
 window.addEventListener("scroll", () => {
     navLinkList.forEach(link => {
         const sid = link.dataset.scroll,
