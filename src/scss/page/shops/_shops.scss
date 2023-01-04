@@ -124,10 +124,16 @@
             .store-textbox{
                 left: 50%;
                 transition: all 1s;
+                a{
+                    color:$font-color;
+                }
             }
             .store-textbox2{
                 left: 50%;
                 transition: all 1s;
+                a{
+                    color:$font-color;
+                }
             }
             &:hover{
                 img{
@@ -168,6 +174,7 @@
             @include rwd(428px){
                 grid-column: span 4;
             }
+           
         }
         .store2{
             grid-column-start: 3;
