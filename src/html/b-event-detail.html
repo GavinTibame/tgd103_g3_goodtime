@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>展覽查詢</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,60 +18,62 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="text">場地明細</p>
-                    <p class="gray-text">1號倉庫</p>
+                    <p class="item-name">展覽明細</p>
+                    <p class="gray-text">崖上的波妞特展</p>
                     <div class="b-detail_infobox">
                         <ul>
                             <li>
-                                <p>場地主圖</p>
+                                <p>展覽主圖</p>
                                 <div class="imgbox"><img src="" alt=""></div>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                             <li>
-                                <p>場地編號</p>
-                                <span>00001</span>
-                            </li>
-                            <li>
-                                <p>場地名稱</p>
-                                <span>1號倉庫</span>
+                                <p>展覽標題</p>
+                                <span>崖上的波妞特展</span>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                             <li>
-                                <p>場地概述</p>
-                                <span>多用途空間，適合任何展覽</span>
+                                <p>展覽內文</p>
+                                <div class="span-box">
+                                    <span>Yuko Higuchi 是一位活躍於廣泛領域的畫家，不僅創作作品，還出版了圖畫書，其自由的想法和触覺在幻想與現實之間交替。我們將從1000件作品中介紹樋口裕子的繪畫作品，其中包括自2019年以來作為首次大型個展初次移至台灣展出。
+                                    請享受由樋口裕子繪製的馬戲團（CIRCUS）的世界，貓、女孩、蘑菇和來自這個世界的奇怪生物展開</span>
+                                </div>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                             <li>
-                                <p>場地位置</p>
-                                <span>園區最北端</span>
+                                <p>開始日期</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
                             </li>
                             <li>
-                                <p>開放預約狀態</p>
-                                <span>開啟</span>
+                                <p>最後日期</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>新增日期</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>最後編輯日期</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                            </li>
+                            <li>
+                                <p>成人價格</p>
+                                <span>500</span>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                             <li>
-                                <p>單日定價</p>
-                                <span>TWD20,000</span>
+                                <p>優惠價格</p>
+                                <span>450</span>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                             <li>
-                                <p>場地設備</p>
-                                <span>冷氣、六套桌椅</span>
-                                <button class="change-btn"></i>更改</button>
-                            </li>
-                            <li>
-                                <p>場地空間</p>
-                                <span>約220坪</span>
-                            </li>
-                            <li>
-                                <p>場地規範</p>
-                                <span>請勿在室內吸菸、且展覽內不得違反善良風俗</span>
+                                <p>團體價格</p>
+                                <span>400</span>
                                 <button class="change-btn"></i>更改</button>
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-rental.html"></a> 儲存</button>
+                            <button class="big-btn"><a href="b-event.html">儲存</a></button>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -18,60 +17,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="text">場地明細</p>
-                    <p class="gray-text">1號倉庫</p>
+                    <p class="item-name">消息明細</p>
                     <div class="b-detail_infobox">
                         <ul>
                             <li>
-                                <p>場地主圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <p>消息主圖</p>
+                                <button class="change-btn"></i>新增圖片</button>
                             </li>
                             <li>
-                                <p>場地編號</p>
-                                <span>00001</span>
+                                <p>消息頁編號</p>
                             </li>
                             <li>
-                                <p>場地名稱</p>
-                                <span>1號倉庫</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>消息編號</p>
                             </li>
                             <li>
-                                <p>場地概述</p>
-                                <span>多用途空間，適合任何展覽</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>消息標題</p>
+                                <input type="text" class="long-input">
                             </li>
                             <li>
-                                <p>場地位置</p>
-                                <span>園區最北端</span>
+                                <p>消息分類</p>
+                                <input type="text" class="long-input">
                             </li>
                             <li>
-                                <p>開放預約狀態</p>
-                                <span>開啟</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>公告期間</p>
+                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
                             </li>
                             <li>
-                                <p>單日定價</p>
-                                <span>TWD20,000</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>消息頁狀態</p>
+                                <input type="text" class="long-input">
                             </li>
                             <li>
-                                <p>場地設備</p>
-                                <span>冷氣、六套桌椅</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>新增日期</p>
                             </li>
                             <li>
-                                <p>場地空間</p>
-                                <span>約220坪</span>
+                                <p>最後編輯日期</p>
                             </li>
                             <li>
-                                <p>場地規範</p>
-                                <span>請勿在室內吸菸、且展覽內不得違反善良風俗</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>展場編號</p>
+                                <input type="text" class="long-input">
+                            </li>
+                            <li>
+                                <p>消息內文</p>
+                                <input type="text" class="long-input">
+                            </li>
+                            <li>
+                                <p>消息圖</p>
+                                <button class="change-btn"></i>新增圖片</button>
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-rental.html"></a> 儲存</button>
+                            <button class="big-btn"><a href="b-new.html">上架</a></button>
                         </div>
                     </div>
                 </div>
