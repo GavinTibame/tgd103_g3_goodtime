@@ -37,11 +37,11 @@
       </ul>
       <div class="dividing-line"></div>
       <div class="member-icon-box">
-        <i class="fa-solid fa-user member-icon"></i>
+        <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
         <ul>
-          <li><a href="#">交易查詢</a></li>
-          <li><a href="#">會員資料</a></li>
-          <li><a href="#">會員登出</a></li>
+          <li><a href="memberCenter.html">交易查詢</a></li>
+          <li><a href="memberCenter.html">會員資料</a></li>
+          <li><a href="memberCenter.html">會員登出</a></li>
         </ul>
       </div>
       <div class="menu-icon-box" id="menu-icon-box">
@@ -219,7 +219,7 @@
     <div class="owl-two owl-carousel">
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop1.png" alt="" />
             <h4>焙可梗甜點工作室</h4>
             <p>
@@ -232,7 +232,7 @@
       </div>
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop2.png" alt="" />
             <h4>洋桔梗甜點工作室</h4>
             <p>
@@ -245,7 +245,7 @@
       </div>
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop1.png" alt="" />
             <h4>洋桔梗甜點工作室</h4>
             <p>
@@ -258,7 +258,7 @@
       </div>
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop2.png" alt="" />
             <h4>洋桔梗甜點工作室</h4>
             <p>
@@ -271,7 +271,7 @@
       </div>
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop1.png" alt="" />
             <h4>洋桔梗甜點工作室</h4>
             <p>
@@ -284,7 +284,7 @@
       </div>
       <div class="item">
         <div>
-          <a>
+          <a href="shops_detail.html">
             <img src="../img/index/shop2.png" alt="" />
             <h4>洋桔梗甜點工作室</h4>
             <p>
@@ -334,8 +334,6 @@
       });
 
 
-
-
       //輪播
       $(document).ready(function () {
         $('.owl-one').owlCarousel({
@@ -374,6 +372,8 @@
           // startPosition: 0,
           merge: true,
           nav: true,
+          mouseDrag: false,
+          touchDrag: false,
           navText: [
             prvIcon,
             shopNextIcon
@@ -416,17 +416,18 @@
     //     desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
     // }
 
-    //限制字數
-    if (window.screen.width <= 430) {
-      for (var i = 0; i < news_data.length; i++) {
-        desc[i].innerHTML = news_data[i].substring(0, 60) + '...';
-      }
-    }
+            //限制字數
+            if(window.screen.width <= 430){
+                for (var i = 0; i < news_data.length; i++) {
+                desc[i].innerHTML = news_data[i].substring(0, 45) + '...';
+              }
+            }
 
-    if (window.screen.width >= 430)
-      for (var i = 0; i < news_data.length; i++) {
-        desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
-      }
+            if(window.screen.width >= 430){
+                for (var i = 0; i < news_data.length; i++){
+                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+              }
+            }
 
     for (var i = 0; i < news_data.length; i++) {
       desc[i].innerHTML = news_data[i].substring(0, 100) + "...";

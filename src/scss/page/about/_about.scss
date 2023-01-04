@@ -26,7 +26,8 @@ $width_768: 768px;
 .wrapper {
     font-family: $our-font;
     color: $font-color;
-    width: 100vw;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 main.aboutAs {
