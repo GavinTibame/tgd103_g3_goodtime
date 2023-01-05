@@ -131,6 +131,8 @@
             .store-textbox2{
                 left: 50%;
                 transition: all 1s;
+
+               
                 a{
                     color:$font-color;
                 }
@@ -300,6 +302,15 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            // a{
+            //     @include rwd(768px){
+            //        display:flex;
+            //        align-items: center;
+            //        }
+            //    }
+            .shopsbox-area-img{
+                width: 100%;
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -310,6 +321,7 @@
 
                 @include rwd(768px){
                     height: unset;
+                    transform:translate(0px, -75px);
                  }
             }
             .store-textbox{
@@ -320,10 +332,16 @@
                 left: -50%;
                 transition: all 1.5s;
 
+                @include rwd(768px){
+                    width: 70%;
+                    height: 100%;
+                    left: -100%;
+                    }
                 @include rwd(428px){
                     width: 80%;
                     height: 80%;
-                    left: -140%;
+                    left: 0%;
+                    top: 11%;
                     background-color:rgb(231 231 231 / 60%);
                     }
 
@@ -339,11 +357,12 @@
 
                     @include rwd(768px){
                         font-size: 14px;
-                        margin-top: 25%;
+                        margin-top: 10%;
                         padding-bottom: 10px;
                         }
                     @include rwd(428px){
                         margin-top: 15%;
+                        border: none;
                         }
                 }
 
@@ -358,6 +377,35 @@
                     @include rwd(768px){
                         font-size: 12px;
                         }
+                    @include rwd(428px){
+                        margin-top: 1.5%;
+                        margin-bottom: 5%;
+                        height: 25%;
+                        }
+                }
+                .read-more{
+                    display: none;
+                    @include rwd(768px){
+                        display: none;
+                    }
+                    @include rwd(428px){
+                        display: block;
+                        margin: -22px 40px;
+                        color: black;
+                        border-bottom: 0.1rem solid black;
+                        width: 40%;
+                        line-height: 1.6;
+                    &::before{
+                        content: "";
+                        border: solid #261C0D;
+                        border-width: 0px 2px 2px 0;
+                        display: inline-block;
+                        padding: 1.5px;
+                        margin-bottom: -35.2px;
+                        margin-left: 112px;
+                        transform: rotate(-45deg);
+                        }
+                    }
                 }
             }
             .store-textbox2{
@@ -368,10 +416,16 @@
                 left: -50%;
                 transition: all 1.5s;
 
+                @include rwd(768px){
+                    width: 70%;
+                    height: 100%;
+                    left: 100%;
+                    }
                 @include rwd(428px){
                     width: 80%;
                     height: 80%;
-                    left: -140%;
+                    top:11%;
+                    left: 0%;
                     background-color:rgb(231 231 231 / 60%);
                 }
 
@@ -387,11 +441,12 @@
 
                     @include rwd(768px){
                         font-size: 14px;
-                        margin-top: 25%;
-                        padding-bottom: 15px;
+                        margin-top: 10%;
+                        padding-bottom: 10px;
                         }
                     @include rwd(428px){
                         margin-top: 15%;
+                        border: none;
                         }
                   }
                
@@ -407,6 +462,35 @@
                         margin-top: 5%;
                         line-height: 1.5;
                         }
+                    @include rwd(428px){
+                        margin-top: 1.5%;
+                        margin-bottom: 5%;
+                        height: 25%;
+                        }
+                }
+                .read-more{
+                    display: none;
+                    @include rwd(768px){
+                        display: none;
+                    }
+                    @include rwd(428px){
+                        display: block;
+                        margin: -22px 40px;
+                        color: black;
+                        border-bottom: 0.1rem solid black;
+                        width: 40%;
+                        line-height: 1.6;
+                    &::before{
+                        content: "";
+                        border: solid #261C0D;
+                        border-width: 0px 2px 2px 0;
+                        display: inline-block;
+                        padding: 1.5px;
+                        margin-bottom: -35.2px;
+                        margin-left: 112px;
+                        transform: rotate(-45deg);
+                        }
+                    }
                 }
             }
         }
