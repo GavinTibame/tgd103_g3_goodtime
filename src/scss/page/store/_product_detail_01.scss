@@ -124,6 +124,8 @@
 .product-detail .img-box .indicator {
     margin-top: 20px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 
     @include rwd(428px) {
         padding-left: 15px;
@@ -131,10 +133,8 @@
 }
 
 .product-detail .indicator li {
-    width: 25%;
-    height: 100%;
+    width: 23%;
     display: block;
-    float: left;
 }
 
 .product-detail .indicator li img {

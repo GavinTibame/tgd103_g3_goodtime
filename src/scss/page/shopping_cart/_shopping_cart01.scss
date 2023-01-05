@@ -180,7 +180,6 @@
         >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
-
         }
 
         >li:last-child {
@@ -221,6 +220,11 @@
             }
         }
 
+        .cart-img {
+            // width: 70px;
+            height: 60px;
+        }
+
         h2 {
             font-size: $p;
             line-height: 1.6;
@@ -230,6 +234,8 @@
                 font-size: 14px;
             }
         }
+
+
 
         p {
             color: $secondary5-color;
@@ -265,6 +271,13 @@
                 cursor: pointer;
             }
 
+            .qtyminus[disabled],
+            .qtyplus[disabled],
+            .qtyminus:disabled,
+            .qtyplus:disabled {
+                background-color: $sub-carmel-color;
+            }
+
             .qty {
                 outline: 0;
                 text-align: center;
@@ -285,6 +298,11 @@
             }
         }
 
+    }
+
+    button.btn-delete {
+        border: 0;
+        background-color: transparent;
     }
 
     // ==== 送貨和訂單資訊 ====
@@ -322,10 +340,10 @@
                     color: $secondary4-color;
                     border-radius: 3px;
 
-                    @include rwd(768px){
+                    @include rwd(768px) {
                         width: 100%;
                     }
-                    
+
                 }
 
                 input.address {
@@ -337,7 +355,7 @@
                     color: $secondary4-color;
                     border-radius: 3px;
 
-                    @include rwd(768px){
+                    @include rwd(768px) {
                         width: 100%;
                     }
                 }

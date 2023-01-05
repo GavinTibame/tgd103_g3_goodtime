@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>購物車 - 韶光文創園區</title>
 
     <!-- Google Fonts -->
@@ -63,7 +64,7 @@
                         @change="isSelectAll">
                 </li>
                 <li>
-                    <img src="../img/shopping_cart/01.jpg" alt="">
+                    <img class="cart-img" :src="product.main_photo" alt="">
                 </li>
                 <li>
                     <h2>{{product.name}}</h2>
@@ -80,7 +81,7 @@
                         <button class='qtyminus' id="qtyminus" @click="product.qty--"
                             :disabled="product.qty===1">-</button>
                         <!-- <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'> -->
-                        <input type='text' name='quantity' :value='product.qty' class='qty'>
+                        <input type='text' name='quantity' :value='product.qty' class='qty' disabled>
                         <button class='qtyplus' id="qtyplus" @click="product.qty++"
                             :disabled="product.qty === product.max_qty">+</button>
                         <!-- <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'> -->
@@ -93,7 +94,7 @@
                     </h2>
                 </li>
                 <li>
-                    <button class='qtyplus' @click="atDelete(idx, product.id)">
+                    <button class='btn-delete' @click="atDelete(idx, product.id)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </li>
