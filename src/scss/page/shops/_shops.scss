@@ -302,6 +302,15 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            // a{
+            //     @include rwd(768px){
+            //        display:flex;
+            //        align-items: center;
+            //        }
+            //    }
+            .shopsbox-area-img{
+                width: 100%;
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -312,6 +321,7 @@
 
                 @include rwd(768px){
                     height: unset;
+                    transform:translate(0px, -75px);
                  }
             }
             .store-textbox{
