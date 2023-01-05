@@ -1,3 +1,28 @@
+
+// let countDownDate = new Date("Feb 9, 2023 12:00:00").getTime();
+// let x = setInterval(function() {
+
+// 	// Get today's date and time
+// 	let now = new Date().getTime();
+  
+// 	// Find the distance between now and the count down date
+// 	let distance = countDownDate - now;
+  
+// 	// Time calculations for days, hours, minutes and seconds
+// 	let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  
+// 	// Display the result in the element with id="demo"
+// 	$("#timer").html(days);
+  
+// 	// If the count down is finished, write some text
+// 	if (distance < 0) {
+// 	  clearInterval(x);
+// 	  $("#timer").html("EXPIRED");
+// 	}
+//   }, 1000);
+
+// ==== 下拉選單的篩選sorting by 活動名稱
+
 let data = [
     {
         "event": "《Lindsayooo》新興插畫家展",
@@ -5,7 +30,8 @@ let data = [
 		"price": "$2,000",
 		"image": "../img/store/store01.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "韶光限定",
@@ -13,7 +39,8 @@ let data = [
 		"price": "$590",
 		"image": "../img/store/store02.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "日本畫展",
@@ -21,7 +48,8 @@ let data = [
 		"price": "$5,600",
 		"image": "../img/store/store03.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "日本畫展",
@@ -29,7 +57,8 @@ let data = [
 		"price": "$960",
 		"image": "../img/store/store04.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "日本畫展",
@@ -37,7 +66,8 @@ let data = [
 		"price": "$900",
 		"image": "../img/store/store05.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "韶光限定",
@@ -45,7 +75,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store06.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "韶光限定",
@@ -53,7 +84,8 @@ let data = [
 		"price": "$450",
 		"image": "../img/store/store07.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "日本畫展",
@@ -61,7 +93,8 @@ let data = [
 		"price": "$990",
 		"image": "../img/store/store08.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "《Lindsayooo》新興插畫家展",
@@ -69,7 +102,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store09.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "《ヒグチユウコ》台灣限定特展",
@@ -77,7 +111,8 @@ let data = [
 		"price": "$1,600",
 		"image": "../img/store/store10.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "日本畫展",
@@ -85,7 +120,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store11.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     },
     {
         "event": "韶光限定",
@@ -93,7 +129,8 @@ let data = [
 		"price": "$700",
 		"image": "../img/store/store12.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "韶光限定",
@@ -101,7 +138,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store13.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "韶光限定",
@@ -109,7 +147,8 @@ let data = [
 		"price": "$400",
 		"image": "../img/store/store14.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "韶光限定",
@@ -117,7 +156,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store15.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "韶光限定",
@@ -125,7 +165,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store16.jpg",
 		"type": "韶光限定",
-		"countdown": ""
+		"countdown": "",
+		"events_only": ""
     },
     {
         "event": "日本畫展",
@@ -133,7 +174,8 @@ let data = [
 		"price": "$560",
 		"image": "../img/store/store17.jpg",
 		"type": "展覽限定",
-		"countdown": "倒數3天"
+		"countdown": "倒數3天",
+		"events_only": "Y"
     }    
 ];
 
@@ -148,11 +190,12 @@ for (let i = 0; i < data.length; i++) {
 		raw_Price = parseInt(rawPrice.replace(",","")),
 		image = data[i].image,
 		type = data[i].type,
-		countdown = data[i].countdown;
+		countdown = data[i].countdown,
+		events_only = data[i].events_only;
 	
 	//create product cards
 	products += `
-			<li class="product events" data-event="${event}" data-model="${model}" data-price="${raw_Price}">
+			<li class="product events" data-event="${event}" data-model="${model}" data-price="${raw_Price}" data-events-only="${events_only}">
 				<a href="../html/product_detail_01.html">
 					<div class='product-inner text-center shop__pic'>					
 						<img src="${image}">
@@ -212,3 +255,8 @@ $(".filter").on("change",function() {
 		$(".events").hide().filter(filters).show();
 	}
 });
+
+
+// =====================
+
+
