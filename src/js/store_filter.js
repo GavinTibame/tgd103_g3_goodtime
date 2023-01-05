@@ -1,20 +1,4 @@
-$(document).ready(function() {
-	
-	var $btns = $('.tablinks').click(function() {
-	  if (this.id == 'all') {
-	    $('#parent > ul > li').fadeIn(450);
-	  } else {
-	    var $el = $('.' + this.id).fadeIn(450);
-	    $('#parent > ul >li').not($el).hide();
-	  }
-	  $btns.removeClass('active');
-	  $(this).addClass('active');
-	})
-	
-});
-
-
-// =========================
+// ==== 所有類別 & 展覽商品 篩選按鈕 ====
 
 $(document).ready(function() {
 	
@@ -22,11 +6,13 @@ $(document).ready(function() {
 	  if (this.id == 'all') {
 	    $('#parent > ul > li').fadeIn(450);
 	  } else {
-	    var $el = $('.' + this.id).fadeIn(450);
+	    var $el = $("#parent > ul >li[data-events-only*='Y']").fadeIn(450);
 	    $('#parent > ul >li').not($el).hide();
 	  }
+	  
 	  $btns.removeClass('active');
 	  $(this).addClass('active');
+
 	})
 	
 });

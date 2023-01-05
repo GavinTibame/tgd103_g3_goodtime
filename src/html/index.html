@@ -300,8 +300,6 @@
   </div>
 
   <div id="footer"></div>
-  <!-- <script src="../js/moment.js"></script>
-    <script src="../js/jquery-3.2.1.min.js"></script> -->
   <script>
     // $('#calendar').fullCalendar();
 
@@ -310,95 +308,71 @@
       $("#footer").load("footer.html");
     });
 
+
+
     //輪播
     $(document).ready(function () {
-      $(".owl-one").owlCarousel({
+      $('.owl-one').owlCarousel({
         autoplay: true,
         autoplayTimeout: 4000,
         autoplayHoverPause: true,
         center: true,
         loop: true,
-        margin: 40,
+        margin: 30,
         nav: true,
-        navText: [prvIcon, nextIcon],
+        navText: [
+          prvIcon,
+          nextIcon
+        ],
         responsive: {
           0: {
-            items: 2.2,
+            items: 1.1,
+            margin: 5
           },
-          600: {
-            items: 2.2,
+          768: {
+            items: 2,
+            margin: 5
           },
           1000: {
             items: 2.2,
-          },
-        },
+          }
+        }
       });
+      $('.owl-two').owlCarousel({
 
-
-      //輪播
-      $(document).ready(function () {
-        $('.owl-one').owlCarousel({
-          autoplay: true,
-          autoplayTimeout: 4000,
-          autoplayHoverPause: true,
-          center: true,
-          loop: true,
-          margin: 30,
-          nav: true,
-          navText: [
-            prvIcon,
-            nextIcon
-          ],
-          responsive: {
-            0: {
-              items: 1.1,
-              margin: 5
-            },
-            768: {
-              items: 2,
-              margin: 5
-            },
-            1000: {
-              items: 2.2,
-            }
+        items: 3,
+        loop: true,
+        center: true,
+        margin: 30,
+        autoplayHoverPause: true,
+        // startPosition: 0,
+        merge: true,
+        nav: true,
+        mouseDrag: false,
+        touchDrag: false,
+        navText: [
+          prvIcon,
+          shopNextIcon
+        ],
+        responsive: {
+          0: {
+            items: 1,
+            margin: 10
+          },
+          400: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          770: {
+            items: 3
+          },
+          1242: {
+            items: 3.5,
+            margin: 10
           }
-        });
-        $('.owl-two').owlCarousel({
-
-          items: 3,
-          loop: true,
-          center: true,
-          margin: 30,
-          autoplayHoverPause: true,
-          // startPosition: 0,
-          merge: true,
-          nav: true,
-          mouseDrag: false,
-          touchDrag: false,
-          navText: [
-            prvIcon,
-            shopNextIcon
-          ],
-          responsive: {
-            0: {
-              items: 1,
-              margin: 10
-            },
-            400: {
-              items: 1
-            },
-            500: {
-              items: 2
-            },
-            770: {
-              items: 3
-            },
-            1242: {
-              items: 3.5,
-              margin: 10
-            }
-          }
-        });
+        }
       });
     });
 
