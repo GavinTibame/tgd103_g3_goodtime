@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <title>首頁 - 韶光文創園區</title>
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+  <title>首頁 - 韶光文創園區</title>
 </head>
 
 <body>
@@ -69,10 +69,10 @@
       </div>
       <ul class="anchor-box">
         <li><a href="#" id="a-g" data-scroll="anchor0" class="a-g scrollDetectorJS">G</a></li>
-        <li><a id="a-news" data-scroll="anchor1" class="a-news scrollDetectorJS">N</a></li>
-        <li><a id="a-events" data-scroll="anchor2" class="a-events scrollDetectorJS">E</a></li>
-        <li><a id="a-about" data-scroll="anchor3" class="a-aboutus scrollDetectorJS">A</a></li>
-        <li><a id="a-shops" data-scroll="anchor4" class="a-shops scrollDetectorJS">S</a></li>
+        <li><a id="a-news" href="#anchor1" data-scroll="anchor1" class="a-news scrollDetectorJS">N</a></li>
+        <li><a id="a-events" href="#anchor2" data-scroll="anchor2" class="a-events scrollDetectorJS">E</a></li>
+        <li><a id="a-about" href="#anchor3" data-scroll="anchor3" class="a-aboutus scrollDetectorJS">A</a></li>
+        <li><a id="a-shops" href="#anchor4" data-scroll="anchor4" class="a-shops scrollDetectorJS">S</a></li>
         <div class="hide-box"></div>
       </ul>
       <a href="" id="backToTop">
@@ -391,18 +391,18 @@
     //     desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
     // }
 
-            //限制字數
-            if(window.screen.width <= 430){
-                for (var i = 0; i < news_data.length; i++) {
-                desc[i].innerHTML = news_data[i].substring(0, 45) + '...';
-              }
-            }
+    //限制字數
+    if (window.screen.width <= 430) {
+      for (var i = 0; i < news_data.length; i++) {
+        desc[i].innerHTML = news_data[i].substring(0, 45) + '...';
+      }
+    }
 
-            if(window.screen.width >= 430){
-                for (var i = 0; i < news_data.length; i++){
-                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
-              }
-            }
+    if (window.screen.width >= 430) {
+      for (var i = 0; i < news_data.length; i++) {
+        desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+      }
+    }
 
     for (var i = 0; i < news_data.length; i++) {
       desc[i].innerHTML = news_data[i].substring(0, 100) + "...";
