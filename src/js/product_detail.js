@@ -36,10 +36,13 @@ const createApp = Vue.createApp({
                 產品材質：SUS304不鏽鋼<br />
                 產品容量：350ml<br />
                 產品重量：190g<br />
-                產品尺寸：60x 60x180mm`}
+                產品尺寸：60x 60x180mm`},
+            methods: {
+
+            }
         }
     }
-});
+}).mount("#productDetail");
 
 function change_img(li_img) {
     let pic = li_img.src; //取得當下被點擊的圖片的src

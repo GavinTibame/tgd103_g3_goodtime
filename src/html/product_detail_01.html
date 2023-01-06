@@ -18,56 +18,43 @@
 <body>
   <!-- header -->
   <header id="header"></header>
-  <!-- 麵包屑 -->>
-  <div class="product-detail">
+  <!-- 麵包屑 -->
+  <div id="productDetail" class="product-detail">
     <ul class="rental_join_form____breadcrumb">
       <li><a href="./index.html">首頁</a></li>
       <li><a href="./store.html">文創商城</a></li>
-      <li><a href="./product_detail_01.html">自訂款迷你保溫瓶</a></li>
+      <li><a href="./product_detail_01.html">{{productDetail.name}}</a></li>
     </ul>
     <div class="main">
       <div class="img-box">
         <div id="slider" class="slider"></div>
         <ul id="indicator" class="indicator">
           <li>
-            <img src="../img/product_detail/item01.png" alt="" onclick="change_img(this)" />
+            <img :src="productDetail.main_photo" alt="" onclick="change_img(this)" />
           </li>
-          <li>
-            <img src="../img/product_detail/item01_01.png" alt="" onclick="change_img(this)" />
-          </li>
-          <li>
-            <img src="../img/product_detail/item01_02.png" alt="" onclick="change_img(this)" />
-          </li>
-          <li>
-            <img src="../img/product_detail/item01_03.png" alt="" onclick="change_img(this)" />
-          </li>
+          <template v-for="photo in productDetail.product_photo">
+            <li>
+              <img :src="photo" onclick="change_img(this)" />
+            </li>
+          </template>
         </ul>
       </div>
       <div class="function-box">
         <div class="textbox">
-          <h4>自訂款迷你保溫瓶</h4>
+          <h4>{{ productDetail.name }}</h4>
           <p>韶光限定</p>
-          <h6>
-            📌採用SUS304不鏽鋼材質，讓你安心飲用<br />
-            📌小巧便攜，重量僅200克<br />
-            📌長效保溫保冷
+          <h6 v-html="productDetail.featured">
           </h6>
-          <h4 class="spotlight-color">NT$590</h4>
+          <h4 class="spotlight-color">NT${{ productDetail.price }}</h4>
         </div>
         <div class="typebox">
-          <p>顏色</p>
+          <p>{{ productDetail.remark[0] }}</p>
           <div class="function-btn-group">
             <div class="function-btn-group_btn">
-              <input type="radio" id="c1" name="product_color" />
-              <label class="btn btn-default" for="c1">黑色</label>
-            </div>
-            <div class="function-btn-group_btn">
-              <input type="radio" id="c2" name="product_color" />
-              <label class="btn btn-default" for="c2">藍色</label>
-            </div>
-            <div class="function-btn-group_btn">
-              <input type="radio" id="c3" name="product_color" />
-              <label class="btn btn-default" for="c3">粉色</label>
+              <template v-for="(spec, idx) in productDetail.remark">
+                <input v-if="idx!=0" type="radio" :id="'c'+idx" name="product_color" />
+                <label v-if="idx!=0" class="btn btn-default" :for="'c'+idx">{{ spec }}</label>
+              </template>
             </div>
           </div>
           <p>數量</p>
@@ -104,6 +91,7 @@
         <p>
           輕巧便攜：<br />
           迷你保溫瓶容量為350ml，重量僅190g，無論去到哪，都可以輕鬆攜帶。<br />
+          <br>
           長效保溫鎖冷：<br />
           無論冬天還是夏天，冷水還是熱水，都可以保持長效保溫和保冷。<br />
           SUS 304不鏽鋼安全材質：<br />
