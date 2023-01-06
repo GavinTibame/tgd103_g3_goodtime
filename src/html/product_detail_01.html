@@ -64,7 +64,7 @@
             <button class="qtyplus" @click="orderQty++" :disabled="orderQty===productDetail.max_qty">+</button>
           </div>
         </div>
-        <button class="cart-btn">加入購物車</button>
+        <button class="cart-btn" @click="passToCart">加入購物車</button>
         <button class="buy-btn"><a href="shopping_cart01.html" style="display: block; color: #fff;">直接購買</a></button>
       </div>
     </div>

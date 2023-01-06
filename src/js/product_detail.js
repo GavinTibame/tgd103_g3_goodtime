@@ -45,7 +45,10 @@ const createApp = Vue.createApp({
             orderQty: 1
         }
     }, methods: {
-
+        passToCart() {
+            const buyQty = this.orderQty,
+                pid = this.productDetail.id;
+        }
     }
 }).mount("#productDetail");
 
