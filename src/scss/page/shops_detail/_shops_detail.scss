@@ -3,6 +3,10 @@
     width: 80%;
     margin: 0 auto;
 
+    // @include rwd(428px){
+    //     width: 85%;
+    // }
+
     // ==== 麵包屑 ====
     .crumb{
         margin-top: 80px;
@@ -61,13 +65,18 @@
 
                 @include rwd(1024px){
                     font-size: $h4;
-
-                    @include rwd(690px){
-                        font-size: $h5;
-                        width: 80%;
-                        margin: 3% auto;
-                    }
                 }
+
+                @include rwd(690px){
+                    font-size: $h5;
+                    width: 80%;
+                    margin: 3% auto;
+                }
+
+                @include rwd(428px){
+                    width: 85%;
+                }
+
             }
 
             img{
@@ -79,6 +88,10 @@
                     width: 80%;
                     margin: 0 auto;
                 }
+
+                @include rwd(428px){
+                    width: 85%;
+                }
             }
 
             p{
@@ -88,10 +101,18 @@
                 margin: 5%;
                 margin-left: 0;
 
-                @include rwd(690px){
+                @include rwd(768px){
                     font-size: 14px;
+                    width: 90%;
+                }
+
+                @include rwd(690px){
                     width: 80%;
                     margin: 3% auto;
+                }
+
+                @include rwd(428px){
+                    width: 85%;
                 }
             }
 
@@ -105,6 +126,10 @@
                 @include rwd(690px){
                     width: 80%;
                     margin: 3% auto;
+                }
+
+                @include rwd(428px){
+                    width: 85%;
                 }
 
                 div{
@@ -129,9 +154,13 @@
                     width: 80%;
                     margin: 3% auto;
                 }
+
+                @include rwd(428px){
+                    width: 85%;
+                }
             }
 
-            ul{     
+            ul.spec{     
                 // outline: 1px solid red;
                 width: 90%;
                 margin-top: 10px;
@@ -145,8 +174,16 @@
                     margin: 3% auto;
                 }
 
+                @include rwd(428px){
+                    width: 85%;
+                }
+
                 li{
                     line-height: 2;  
+
+                    @include rwd(768px){
+                        font-size: 14px;
+                    }
                 }
 
             }
@@ -171,10 +208,14 @@
                     width: 80%;
                     margin: 3% auto;
                 }
+
+                @include rwd(428px){
+                    width: 85%;
+                }
             }
 
             // ==== 文字 ====
-            .text{
+            ul.text{
                 margin: 5%;
                 padding-left: 5%;
 
@@ -184,10 +225,16 @@
                     padding: 0;
                 }
 
+                @include rwd(428px){
+                    width: 85%;
+                }
+
                 li{
                     // border: 1px solid red;
                     display: flex;
-                    line-height: 2.5;
+                    margin-bottom: 20px;
+                    line-height: 1.6;
+
                     color: $secondary4-color;
 
                     @include rwd(690px){
@@ -204,20 +251,26 @@
 
                         @include rwd(1024px){
                             flex-basis: 30%;
-
-                            @include rwd(833px){
-                                flex-basis: 35%;
-
-                                @include rwd(768px){
-                                    font-size: 14px;
-                                    flex-basis: 40%;
-
-                                    @include rwd(690px){
-                                        flex-basis: 20%;
-                                    }
-                                }
-                            }
                         }
+
+                        @include rwd(833px){
+                            flex-basis: 35%;
+                        }
+
+                        @include rwd(768px){
+                            font-size: 14px;
+                            flex-basis: 40%;
+                        }
+
+                        @include rwd(690px){
+                            flex-basis: 20%;
+                        }
+
+                        @include rwd(428px){
+                            font-size: $small;
+                            flex-basis: 30%;
+                        }
+
                     }
 
                     h4{
@@ -228,20 +281,26 @@
 
                         @include rwd(1024px){
                             flex-basis: 70%;
-
-                            @include rwd(833px){
-                                flex-basis: 65%;
-
-                                @include rwd(768px){
-                                    font-size: 14px;
-                                    flex-basis: 60%;
-
-                                    @include rwd(690px){
-                                        flex-basis: 80%;
-                                    }
-                                }
-                            }
                         }
+
+                        @include rwd(833px){
+                            flex-basis: 65%;
+                        }
+
+                        @include rwd(768px){
+                            font-size: 14px;
+                            flex-basis: 60%;
+                        }
+
+                        @include rwd(690px){
+                            flex-basis: 80%;
+                        }
+
+                        @include rwd(428px){
+                            font-size: $small;
+                            flex-basis: 70%;
+                        }
+
 
                         a{
                             color: $primary1-color;
@@ -270,12 +329,18 @@
 
                 @include rwd(833px){
                     font-size: 14px;
-
-                    @include rwd(690px){
-                        width: 80%;
-                        margin: 3% auto;
-                    }
                 }
+
+                @include rwd(690px){
+                    width: 80%;
+                    margin: 3% auto;
+                }
+
+                @include rwd(428px){
+                    width: 85%;
+                }
+
+
 
                 li{
                     display: flex;
@@ -308,11 +373,16 @@
 
                         @include rwd(833px){
                             font-size: 14px;
-
-                            @include rwd(690px){
-                                font-size: $p;
-                            }
                         }
+
+                        @include rwd(690px){
+                            font-size: $p;
+                        }
+
+                        @include rwd(428px){
+                            font-size: 14px;
+                        }
+
                     }
 
                     &:last-child div:last-child{
