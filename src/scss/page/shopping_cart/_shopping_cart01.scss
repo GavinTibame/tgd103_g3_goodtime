@@ -66,26 +66,20 @@
                 position: absolute;
                 left: 55%;
                 top: 20%;
+                z-index: -1;
 
                 @include rwd(1024px) {
                     width: 100%;
-                    left: 56%;
+                }
+
+                @include rwd(960px){
+                    width: 90%;
                 }
 
                 @include rwd(912px) {
                     width: 100%;
-                    left: 57%;
                 }
 
-                @include rwd(768px) {
-                    // width: 200px;
-                    left: 58%;
-                }
-
-                @include rwd(428px) {
-                    // width: 100px;
-                    left: 64%;
-                }
             }
         }
 
@@ -117,6 +111,10 @@
             flex-grow: 1;
             margin-bottom: 10px;
 
+            @include rwd(800px){
+                font-size: 14px;
+            }
+
             &:first-child {
                 position: absolute;
                 left: 0;
@@ -126,6 +124,10 @@
             &:nth-child(2) {
                 flex-grow: 1.1;
                 margin-left: 30px;
+
+                @include rwd(1000px){
+                    flex-grow: 1.5;
+                }
 
                 @include rwd(768px) {
                     flex-grow: 1.6;
@@ -137,6 +139,13 @@
 
                 @include rwd(768px) {
                     flex-grow: 1;
+                }
+            }
+
+            &:nth-child(4){
+
+                @include rwd(768px){
+                    flex-grow: 1.1;
                 }
             }
         }
@@ -191,7 +200,16 @@
 
         >li:nth-child(3) {
             padding-left: 10px;
-            flex-grow: 0.9;
+            flex-grow: 0.85;
+
+            @include rwd(1100px){
+                flex-grow: 0.8;
+            }
+
+            @include rwd(1000px){
+                padding-left: 5px;
+                flex-grow: 1.05;
+            }
 
             @include rwd(768px) {
                 padding-left: 3px;
@@ -220,6 +238,13 @@
             }
         }
 
+        >li:nth-child(6){
+
+            @include rwd(900px){
+                padding-left: 1%;
+            }
+        }
+
         .cart-img {
             // width: 70px;
             height: 60px;
@@ -230,7 +255,7 @@
             line-height: 1.6;
             color: $secondary4-color;
 
-            @include rwd(768px) {
+            @include rwd(800px) {
                 font-size: 14px;
             }
         }
@@ -240,7 +265,7 @@
         p {
             color: $secondary5-color;
 
-            @include rwd(768px) {
+            @include rwd(800px) {
                 font-size: 14px;
             }
         }
@@ -287,6 +312,10 @@
                 width: 100px;
                 line-height: 23px;
                 padding: 0 3px;
+
+                @include rwd(900px){
+                    // width: 98%;
+                }
 
                 @include rwd(768px) {
                     width: 50%;
