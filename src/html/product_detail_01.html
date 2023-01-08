@@ -23,16 +23,16 @@
     <ul class="rental_join_form____breadcrumb">
       <li><a href="./index.html">首頁</a></li>
       <li><a href="./store.html">文創商城</a></li>
-      <li><a href="./product_detail_01.html">{{productDetail.name}}</a></li>
+      <li><a href="./product_detail_01.html">{{productDetail.PRODUCT_NAME}}</a></li>
     </ul>
     <div class="main">
       <div class="img-box">
         <div id="slider" class="slider"></div>
         <ul id="indicator" class="indicator">
           <li>
-            <img :src="productDetail.main_photo" alt="" onclick="change_img(this)" />
+            <img :src="productDetail.MAIN_PHOTO" alt="" onclick="change_img(this)" />
           </li>
-          <template v-for="photo in productDetail.product_photo">
+          <template v-for="photo in productPIC">
             <li>
               <img :src="photo" onclick="change_img(this)" />
             </li>
@@ -41,16 +41,19 @@
       </div>
       <div class="function-box">
         <div class="textbox">
-          <h4>{{ productDetail.name }}</h4>
+          <h4>{{ productDetail.PRODUCT_NAME }}</h4>
           <p>韶光限定</p>
-          <h6 v-html="productDetail.featured">
-          </h6>
-          <h4 class="spotlight-color">NT${{ productDetail.price }}</h4>
+          <template v-for="str in productDetail.FEATURED">
+            <h6>
+              📌{{str}}
+            </h6>
+          </template>
+          <h4 class="spotlight-color">NT${{ productDetail.PRICE }}</h4>
         </div>
         <div class="typebox">
-          <p>{{ productDetail.remark[0] }}</p>
+          <p>{{spec}}</p>
           <div class="function-btn-group">
-            <template v-for="(spec, idx) in productDetail.remark">
+            <template v-for="(spec, idx) in productDetail.NOTE">
               <div v-if="idx!=0" class="function-btn-group_btn">
                 <input v-if="idx!=0" type="radio" :id="'c'+idx" name="product_color" />
                 <label v-if="idx!=0" class="btn btn-default" :for="'c'+idx">{{ spec }}</label>
@@ -61,11 +64,15 @@
           <div id="myform">
             <button class="qtyminus" @click="orderQty--" :disabled="orderQty===1">-</button>
             <input type="text" name="quantity" :value="orderQty" class="qty" disabled />
-            <button class="qtyplus" @click="orderQty++" :disabled="orderQty===productDetail.max_qty">+</button>
+            <button class="qtyplus" @click="orderQty++" :disabled="orderQty===productDetail.MAX_QTY">+</button>
           </div>
         </div>
         <button class="cart-btn" @click="passToCart">加入購物車</button>
-        <button class="buy-btn"><a href="shopping_cart01.html" style="display: block; color: #fff;">直接購買</a></button>
+        <button class="buy-btn">
+          <!-- <a href="shopping_cart01.html" style="display: block; color: #fff;"> -->
+          直接購買
+          <!-- </a> -->
+        </button>
       </div>
     </div>
     <div class="info-box">
@@ -88,10 +95,10 @@
       </div>
       <div class="info-page-box">
         <h6 id="item-info">商品介紹</h6>
-        <p v-html="productDetail.desc">
+        <p v-html="productDetail.DESC">
         </p>
         <h6 id="item-type">規格說明</h6>
-        <p v-html="productDetail.spec">
+        <p v-html="productDetail.SPEC">
         </p>
         <h6 id="item-send">運送方式</h6>
         <p>宅配</p>
@@ -105,6 +112,7 @@
   <!-- js -->
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/vue.global.js"></script>
+  <script src="../js/axios.min.js"></script>
   <script src="../js/product_detail.js"></script>
   <script>
     $(() => {
