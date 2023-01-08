@@ -3,6 +3,10 @@
     width: 80%;
     margin: 0 auto;
 
+    @include rwd(768px){
+        // width: 90%;
+    }
+
     // ==== 麵包屑 ====
     .crumb{
         margin-top: 80px;
@@ -73,6 +77,7 @@
 
             @include rwd(768px){
                 font-size: 28px;
+                padding-left: 3%;
             }
 
             @include rwd(428px){
@@ -83,14 +88,19 @@
 
         .banner__zh{
             padding-left: 11vw;
+            padding-right: 0;
+
+            @include rwd(1024px){
+                font-size: $h4;
+            }
 
             @include rwd(768px){
-                font-size: $h4;
+                font-size: $h5;
+                padding-left: 3%;
             }
 
             @include rwd(428px){
                 font-size: 20px;
-                padding-right: 0;
             }
 
             &::before {
@@ -99,13 +109,68 @@
                 width: 11vw;
                 margin-right: 1.8rem;
 
-                @include rwd(768px){
+                @include rwd(1240px){
+                    margin-left: 0.5rem;
+                }
+
+                @include rwd(1200px){
+                    margin-left: 1rem;
+                }
+
+                @include rwd(1150px){
+                    margin-left: 1.8rem;
+                }
+
+                @include rwd(1100px){
                     margin-left: 2.2rem;
                 }
 
+                @include rwd(1070px){
+                    margin-left: 2.8rem;
+                }
+
+                @include rwd(1024px){
+                    margin-left: 1rem;
+                    border-bottom: solid 2px $font-color;
+                }
+
+                @include rwd(980px){
+                    margin-left: 1.5rem;
+                }
+
+                @include rwd(900px){
+                    margin-left: 2rem;
+                }
+
+                @include rwd(850px){
+                    margin-left: 2.5rem;
+                } 
+                
+                @include rwd(800px){
+                    margin-left: 3.5rem;
+                }
+
+                @include rwd(700px){
+                    margin-left: 4rem;
+                    width: 12vw;
+                }
+
+                @include rwd(650px){
+                    width: 13vw;
+                }
+
+                @include rwd(600px){
+                    width: 15vw;
+                }
+
+                @include rwd(550px){
+                    margin-left: 4.5rem;
+                    margin-right: 1rem;
+                }
+
                 @include rwd(428px){
-                    // margin-left: 5rem;
                     margin-right: 0.8rem;
+                    border-bottom: solid 1.5px $font-color;
                 }
             }
         }
@@ -129,16 +194,25 @@
                 background-color: #fff;
                 transition: 0.3s;
 
-                @include rwd(428px){
+                @include rwd(768px){
+                    font-size: 14px;
+                    margin-left: 0;
+                }
+
+                @include rwd(450px){
                     margin-left: 4%;
                     padding: 0;
                     font-size: $small;
                 }
 
+                @include rwd(375px){
+                    display: none;
+                }
+
                 &:first-child{
                     margin-left: 3%;
 
-                    @include rwd(428px){
+                    @include rwd(768px){
                         margin-left: 0;
                     }
                 }
@@ -158,12 +232,18 @@
                 outline: 0;
                 border: 0;
                 cursor: pointer;
-                font-size: $p;
+                font-size: 14px;
 
-                @include rwd(428px){
-                    // margin-left: 0;
-                    margin-left: 12%;
+                option{
+                    font-size: 14px;
+                }
+
+                @include rwd(450px){
                     font-size: $small;
+                }
+
+                @include rwd(375px){
+                    flex-direction: row-reverse;
                 }
             }
         }
@@ -172,7 +252,7 @@
     // ==== 商品陳列區 ====
     .product__display{
 
-        ul{
+        ul#products{
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
@@ -193,7 +273,7 @@
                     width: 33%;
                 }
 
-                @include rwd(428px){
+                @include rwd(768px){
                     width: 50%;
                 }
 
@@ -273,8 +353,12 @@
                             font-weight: $fw7;
                             margin-top: 10px;
 
-                            @include rwd(428px){
+                            @include rwd(768px){
                                 font-size: 14px;
+                            }
+
+                            @include rwd(375px){
+                                font-size: $small;
                             }
     
                             & + h6{ 
