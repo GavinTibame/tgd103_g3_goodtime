@@ -116,7 +116,7 @@ let data = [
     },
     {
         "event": "日本畫展",
-		"model": "水彩峰手繪小卡組",
+		"model": "水彩風手繪小卡組",
 		"price": "$560",
 		"image": "../img/store/store11.jpg",
 		"type": "展覽限定",
