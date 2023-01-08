@@ -18,18 +18,9 @@
         @include rwd(820px){
             padding: 10px 7%;
         }
-        @include rwd(540px){
-            
-        }
-        @include rwd(428px){
-            
-        }
-        @include rwd(414px){
-           
-        }
-        @include rwd(376px){
-            
-        }
+        @include rwd(609px){
+            padding: 10px 8%;
+       }
     }     
     .swiper {
         //輪播圖
@@ -131,7 +122,10 @@
             position: static;
             .banner__zh{
                 padding-left: 13vw;
-                
+
+                @include rwd(666px){
+                    font-size: 22px;
+                    }
                 @include rwd(428px){
                     font-size: 16px;
                     letter-spacing: 0.3rem;
@@ -143,6 +137,9 @@
                         width: 25vw;
                         margin-right: 0.5rem;
                         }
+                    @include rwd(375px){
+                        width: 17vw;
+                        }
                 }
             }
            
@@ -152,14 +149,17 @@
                 @include rwd(768px){
                     font-size: 22px;
                     padding: 5.2rem 4.2rem 0rem;
-                 }
+                }
 
                 @include rwd(428px){
                     font-size: 16px;
                     letter-spacing: 0.2rem;
                     padding: 3.2rem 2.6rem 0rem;
                     line-height: 1.5;
-                    }
+                }
+                @include rwd(376px){
+                    font-size: 13px;
+                }
                 }
             }
         }
@@ -208,7 +208,10 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0px, 1fr));
     gap: 20px 22px;
-
+    
+    @include rwd(858px){
+        grid-template-columns: repeat(2, minmax(0px, 1fr));
+     }
     @include rwd(768px){
         margin: 50px 65px 5px;
         grid-template-columns: repeat(2, minmax(0px, 1fr));
@@ -227,10 +230,13 @@
     p {
         font-size: $small;
         color: gray;
-        width: 40%;
+        width: 41%;
         text-align: left;
         padding-left: 5px;
 
+        @include rwd(617px){
+            width: 100%;
+        }
         @include rwd(428px){
             font-size: 12px;
             width: 100%;
@@ -243,13 +249,30 @@
             margin: 10px;
             margin-left: revert;
 
+            @include rwd(871px){
+                font-size: 14.5px;
+            }
+            @include rwd(831px){
+                font-size: 13.5px;
+            }
+            @include rwd(824px){
+                font-size: 13.5px;
+            }
             @include rwd(768px){
                 font-size: 14px;
-                width: 40%;
-             }
-             @include rwd(428px){
+            }
+            @include rwd(588px){
+                font-size: 13px;
+            }
+            @include rwd(560px){
+                font-size: 13px;
+            }
+            @include rwd(428px){
                 font-size: 12px;
-                width: 40%;
+            }
+            @include rwd(376px){
+                font-size: 10px;
+                width: 48%;
             }
         }
 
@@ -258,15 +281,38 @@
             font-size: $p;
             background-color: $secondary2-color;
 
+            @include rwd(1024px){
+                font-size: 13px;
+            }
+            @include rwd(820px){
+                font-size: 14.5px;
+            }
+            @include rwd(871px){
+                font-size: 14.5px;
+            }
+            @include rwd(831px){
+                font-size: 13.5px;
+            }
             @include rwd(768px){
                 font-size: 14px;
                 width: 40%;
-             }
+            }
+            @include rwd(588px){
+                font-size: 13px;
+            }
+            @include rwd(560px){
+                font-size: 13px;
+            }
              @include rwd(428px){
                 font-size: 12px;
                 width: 40%;
             }
+            @include rwd(376px){
+                font-size: 10px;
+                width: 48%;
+            }
         }
+
     }
 
     h6 {
@@ -275,11 +321,42 @@
         color: $font-color;
         margin-top: 30px;
 
-        @include rwd(768px){
+        @include rwd(1024px){
+            font-size: 18px;
+        }
+        @include rwd(955px){
+            font-size: 16px;
+        }
+        @include rwd(831px){
+            font-size: 14px;
+        }
+        @include rwd(824px){
+            font-size: 13px;
+        }
+        @include rwd(785px){
             font-size: 20px;
+       }
+        @include rwd(768px){
+            font-size: 18px;
+        }
+        @include rwd(726px){
+            font-size: 17px;
+        }
+        @include rwd(666px){
+            font-size: 16px;
+        }
+        @include rwd(609px){
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        @include rwd(588px){
+            font-size: 13.5px;
         }
         @include rwd(428px){
             font-size: 12px;
+        }
+        @include rwd(376px){
+            font-size: 10px;
         }
     }
 
@@ -297,6 +374,11 @@
         color: #000;
         font-weight: bold;
         border: 1px solid #261C0D;
+
+        @include rwd(376px){
+            padding: 0.1rem 0.31rem;
+            font-size: 10px;
+        }
     }
 
     .page-item:first-child .page-link {

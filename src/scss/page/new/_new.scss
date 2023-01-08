@@ -17,6 +17,7 @@
         @include rwd(1080px){
             padding: 10px 6%;
         }
+        
         @include rwd(768px){
             padding: 0px 8%;
          }
@@ -48,21 +49,45 @@
      } 
      .banner .banner__eng{
 
-        @include rwd(1024px){
+            @include rwd(1024px){
             font-size: 40px;
             padding: 2.2rem 4.2rem 2rem;
+            }
+            @include rwd(827px){
+            padding: 2.2rem 4.2rem 0rem;
             }
             @include rwd(768px){
             font-size: 28px;
             padding: 2rem 0.5rem 0rem;
             }
-        @include rwd(428px){
+            @include rwd(656px){
+            font-size: 24px;
+            padding: 1.5rem 0.5rem 0rem;
+            }
+            @include rwd(820px){
+            font-size: 22px;
+            padding: 1rem 0.5rem 0rem;
+            }
+            @include rwd(730px){
+            font-size: 22px;
+            padding: 2rem 1rem 0rem;
+            }
+            @include rwd(540px){
+            font-size: 18px;
+            padding: 1rem 1rem 0rem;
+            }
+             @include rwd(531px){
+            font-size: 20px;
+            padding: 1rem 1rem 0rem;
+            }
+            @include rwd(428px){
             font-size: 20px;
             padding: 0.5rem 0.5rem 0rem;
             letter-spacing: 0.3rem;
             }
-        @include rwd(376px){
-            padding: 1rem 2.2rem 0.2rem;
+            @include rwd(376px){
+            font-size: 16px;
+            padding: 0.5rem 0.5rem 0rem;
             }
     }
      
@@ -72,6 +97,7 @@
             font-size: 28px;
             padding-left: 21vw;
             }
+        
         @include rwd(912px){
             padding-right: 2.5rem;
             font-size: 28px;
@@ -86,15 +112,28 @@
             padding-left: 9vw;
             padding-right: 0.5rem;
         }
+        @include rwd(656px){
+            font-size: 24px;
+        }
+        @include rwd(565px){
+            font-size: 22px;
+        }
         @include rwd(540px){
             font-size: 20px;
             padding-right: 0rem;
             padding-left: 31vw;
         }
+        @include rwd(522px){
+            font-size: 18px;
+            padding-left: 0vw;
+        }
         @include rwd(428px){
             font-size: 20px;
             padding-left: 8vw;
             letter-spacing: 0.3rem;
+        }
+        @include rwd(376px){
+            font-size: 16px;
         }
     }
 
@@ -131,28 +170,70 @@
             height: 22rem;
         }
         @include rwd(1024px){
-            height: 21rem;
+            height: 20rem;
+        }
+        @include rwd(965px){
+            height: 20rem;
         }
         @include rwd(912px){
             height: 19rem;
         }
+        @include rwd(912px){
+            height: 19rem;
+        }
+        @include rwd(863px){
+            height: 18rem;
+        }
+        @include rwd(827px){
+            height: 17rem;
+        }
         @include rwd(820px){
             height: 17rem;
+        }
+        @include rwd(777px){
+            height: 16rem;
         }
         @include rwd(768px){
             height: 13.7rem;
         }
+        @include rwd(744px){
+            height: 13.4rem;
+        }
+        @include rwd(730px){
+            height: 13.1rem;
+           }
+        @include rwd(687px){
+            height: 12.4rem;
+        }
+        @include rwd(668px){
+            height: 12.3rem;
+        }
+        @include rwd(656px){
+            height: 11.8rem;
+        }
+        @include rwd(565px){
+            height: 10.1rem;
+           }
         @include rwd(540px){
             height: 11rem;
+        }
+        @include rwd(531px){
+            height: 9.5rem;
+           }
+        @include rwd(522px){
+            height: 9rem;
+        }
+        @include rwd(451px){
+            height: 8rem;
         }
         @include rwd(428px){
             height: 7.2rem;
         }
         @include rwd(414px){
-            height: 8rem;
+            height: 7rem;
         }
         @include rwd(376px){
-            height: 7rem;
+            height: 6.4rem;
         }
     }
     
@@ -196,12 +277,16 @@
         cursor: pointer;
         font-weight: 600;
 
+        @include rwd(656px){
+            padding: 15px 70px 25px;
+        }
+        @include rwd(565px){
+            padding: 15px 50px 25px;
+        }
         @include rwd(540px){
             padding: 11px 25px 11px;
         }
-        @include rwd(426px){
-            
-        }
+       
         
         }
     .tab-panels {
@@ -241,10 +326,32 @@
         bottom: 20px;
         width: 65px;
         height: 4px;
-
+        
+        @include rwd(1024px){
+            left: 50.5px;
+            bottom: 18px;
+            }
         @include rwd(768px){
             width: 58px;
         }
+        @include rwd(730px){
+            left: 49.5px;
+            bottom: 17px;
+        }
+        @include rwd(656px){
+            left: 70px;
+       }
+        @include rwd(820px){
+            left: 50.5px;
+        }
+        @include rwd(531px){
+            left: 25.5px;
+            bottom: 6px;
+        }
+        @include rwd(522px){
+            left: 25.5px;
+            bottom: 6px;
+          }
         @include rwd(428px){
             width: 50px;
             left: 24px;
@@ -288,6 +395,10 @@
     .pagination{ /*-- 按紐 --*/
         justify-content: center;
         margin-top: 120px;
+
+        @include rwd(376px){
+        margin-top: 15px;
+        }
         }
     .pagination li{
         margin-left: 15px;
