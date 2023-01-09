@@ -138,6 +138,7 @@
                 }
             }
             &:hover{
+
                 img{
                     filter: grayscale(0);
                     left: 10%;
@@ -325,6 +326,11 @@
                     height: unset;
                     transform:translate(0px, -75px);
                  }
+                 @include rwd(428px){
+                    filter: none;
+                    left: 0%;
+                    transition:unset;
+                    }
             }
             .store-textbox{
                 width: 50%;

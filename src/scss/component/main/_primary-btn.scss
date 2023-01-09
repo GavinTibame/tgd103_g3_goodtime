@@ -13,9 +13,10 @@
 //     </div>
 // </div>
 
-.primary-ctn {
+div.wrapper.primary-ctn {
     padding-top: 5px;
     padding-left: 5px;
+    width: fit-content;
 
     .btn-primary {
         position: relative;
@@ -24,6 +25,7 @@
         transition: all 0.5s;
         overflow: hidden;
         cursor: pointer;
+
 
         a {
             display: block;
@@ -48,6 +50,7 @@
                 height: 68px;
                 outline: 2px solid #533C1B;
                 border-radius: 50%;
+
             }
 
             .btn-line {
@@ -57,6 +60,7 @@
                 width: 260px;
                 height: 2px;
                 background-color: #533C1B;
+
             }
 
             .btn-arrow {
@@ -68,10 +72,10 @@
                 width: 10px;
                 height: 10px;
                 transform: rotate(45deg);
+
             }
         }
 
-        // &:hover {
         .btn-inner {
             position: absolute;
             display: block;
@@ -81,8 +85,30 @@
             z-index: 0;
             animation: btnKeyframes 1350ms ease 800ms infinite;
         }
+    }
 
-        // }
+    &:hover {
+        a {
+            .btn-text {
+                p {
+                    color: $carmel-color;
+                }
+            }
+
+            .btn-circle {
+                outline-color: $carmel-color;
+            }
+
+            .btn-line {
+                background-color: $carmel-color;
+
+            }
+
+            .btn-arrow {
+                border-color: $carmel-color;
+            }
+        }
+
     }
 }
 

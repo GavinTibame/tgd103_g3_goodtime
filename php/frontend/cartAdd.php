@@ -4,11 +4,16 @@ include("../verify.php");
 
 $pid = $_POST["pid"]; 
 $buyQty = $_POST["buyQty"];
-$mid = "5"; // 會員編號要寫死去測
+$spec = $_POST["spec"];
+$mid = "5"; // 會員編號先寫死去測
 
 function getCart($pdo, $mid, $pid){
 
-    $sql = "SELECT * FROM cart WHERE fk_cart_member_id = :mid AND fk_cart_product_id = :pid";
+    $sql = "SELECT * 
+    FROM cart, product_spec spec 
+    WHERE fk_cart_member_id = :mid 
+    AND fk_cart_product_id = :pid
+    AND cart.fk_cart_product_id = spec.fk_product_spec_product_id";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":mid", $mid);

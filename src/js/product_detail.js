@@ -2,33 +2,28 @@ const createApp = Vue.createApp({
     data() {
         return {
             productDetail: {},
-            productPIC: [],
-            spec: "",
-            orderQty: 1
+            orderQty: 1,
+            selectSpec: ""
         }
     }, methods: {
         passToCart() { // 加入購物車
-            axios.post("../../php/frontend/cartAdd.php", `pid=${this.productDetail.ID}&buyQty=${this.orderQty}`).then(res => {
-                if (res.status === 200) {
-                    window.open("../html/shopping_cart01.html", "shoppingCart01");
-                }
-            }).catch(err => { console.log("[php error]", err) });
+            if (selectSpec != "") {
+                axios.post("../../php/frontend/cartAdd.php", `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.spec}`).then(res => {
+                    if (res.status === 200) {
+                        window.open("../html/shopping_cart01.html", "shoppingCart01");
+                    }
+                }).catch(err => console.log("[cart add]", err));
+            }
         }
     }, created() {
         axios.get("../../php/frontend/product.php?pid=" + 2).then(res => { // 拿商品頁的資料
             this.productDetail = res.data[0];
             this.productDetail.FEATURED = this.productDetail.FEATURED.split(",");
-            this.productDetail.NOTE = this.productDetail.NOTE.split(",");
-            this.spec = this.productDetail.NOTE[0];
-        }).catch(err => {
-            console.log("[product info]", err);
-        });
-        axios.get("../../php/frontend/productPIC.php?pid=" + 2).then(res => { // 拿商品圖的資料
-            this.productPIC = Object.values(res.data[0]);
-            this.productPIC = this.productPIC[0].split(",");
-        }).catch(err => {
-            console.log("[product photo]", err);
-        });
+            this.productDetail.SPEC = this.productDetail.SPEC.split(",");
+            this.productDetail.SPEC = [...new Set(this.productDetail.SPEC)];
+            this.productDetail.path = this.productDetail.path.split(",");
+            this.productDetail.path = [...new Set(this.productDetail.path)];
+        }).catch(err => console.log("[product info]", err));
     }
 }).mount("#productDetail");
 

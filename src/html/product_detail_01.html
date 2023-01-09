@@ -32,7 +32,7 @@
           <li>
             <img :src="productDetail.MAIN_PHOTO" alt="" onclick="change_img(this)" />
           </li>
-          <template v-for="photo in productPIC">
+          <template v-for="photo in productDetail.path">
             <li>
               <img :src="photo" onclick="change_img(this)" />
             </li>
@@ -51,12 +51,13 @@
           <h4 class="spotlight-color">NT${{ productDetail.PRICE }}</h4>
         </div>
         <div class="typebox">
-          <p>{{spec}}</p>
+          <p>{{productDetail.NOTE}}</p>
           <div class="function-btn-group">
-            <template v-for="(spec, idx) in productDetail.NOTE">
-              <div v-if="idx!=0" class="function-btn-group_btn">
-                <input v-if="idx!=0" type="radio" :id="'c'+idx" name="product_color" />
-                <label v-if="idx!=0" class="btn btn-default" :for="'c'+idx">{{ spec }}</label>
+            <template v-for="(spec, idx) in productDetail.SPEC">
+              <div class="function-btn-group_btn">
+                <input type="radio" :id="'c'+idx" name="product_color" />
+                <label @click="selectSpec = spec" class="btn btn-default" :for="'c'+idx">{{ spec
+                  }}</label>
               </div>
             </template>
           </div>

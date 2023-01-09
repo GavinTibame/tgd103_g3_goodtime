@@ -80,7 +80,7 @@ function sassMinify() {
         }))
         .pipe(
             rename({
-                extname: ".min.css",
+                extname: ".css",
             })
         )
         .pipe(dest("dist/css"));
