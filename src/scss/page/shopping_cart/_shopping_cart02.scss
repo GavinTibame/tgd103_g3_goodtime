@@ -4,7 +4,7 @@
     margin: 0 auto;
 
     // ==== 上方進度條 ====
-    .top__nav{
+    ul.top__nav{
         // border: 1px solid red; 
         width: 1000px;
         margin: 0 auto;
@@ -13,7 +13,7 @@
         justify-content: space-around;
         margin-top: 120px;
 
-        @include rwd(1024px){
+        @include rwd(1280px){
             width: auto;
 
             @include rwd(912px){}
@@ -56,29 +56,17 @@
                     height: 2px;
                     background-color: $primary1-color;
                     position: absolute;
-                    left: 53%;
+                    left: 55%;
                     top: 20%;
+                    z-index: -1;
 
-                    @include rwd(1024px){
+                    @include rwd(1200px){
                         width: 100%;
-                        left: 56%;
                     }
 
                     @include rwd(912px){
                         width: 100%;
-                        left: 57%;
                     }
-
-                    @include rwd(768px){
-                        // width: 200px;
-                        left: 58%;
-                    }
-
-                    @include rwd(428px){
-                        // width: 100px;
-                        left: 64%;
-                    }
-
                 }
         }
 
@@ -93,25 +81,14 @@
                     position: absolute;
                     left: 55%;
                     top: 20%;
+                    z-index: -1;
 
-                    @include rwd(1024px){
-                        width: 89%;
-                        left: 56%;
+                    @include rwd(1200px){
+                        width: 100%;
                     }
 
                     @include rwd(912px){
                         width: 100%;
-                        left: 57%;
-                    }
-
-                    @include rwd(768px){
-                        width: 85%;
-                        left: 58%;
-                    }
-
-                    @include rwd(428px){
-                        // width: 100px;
-                        left: 64%;
                     }
 
                 }
@@ -145,11 +122,35 @@
                 color: $secondary4-color;
                 flex-grow: 1;
                 margin-bottom: 10px;
+
+                @include rwd(768px){
+                    font-size: 14px;
+                }
     
             }
 
             li:first-child {
                 flex-grow: 1.13;
+
+                @include rwd(1024px){
+                    flex-grow: 1.4;
+                }
+
+                @include rwd(768px){
+                    flex-grow: 1.5;
+                }
+
+                @include rwd(650px){
+                    flex-grow: 2.5;
+                }
+
+                @include rwd(550px){
+                    flex-grow: 3;
+                }
+
+                @include rwd(500px){
+                    flex-grow: 4.5;
+                }
             }
 
             li:nth-child(2) {
@@ -181,17 +182,32 @@
                 padding-left: 5px;
 
                 @include rwd(1024px){
-                    flex-grow: 0.8;
-
-                    @include rwd(768px){
-                        padding-left: 3px;
-
-                        @include rwd(428px){
-                            flex-grow: 0;
-                            flex-basis: 200px;
-                        }
-                    }
+                    flex-grow: 1;
                 }
+
+                @include rwd(768px){
+                    padding-left: 3px;
+                    font-size: 14px;
+                }
+
+                @include rwd(650px){
+                    flex-grow: 1.5;
+                }
+
+                @include rwd(500px){
+                    flex-grow: 2;
+                }
+
+                @include rwd(428px){
+                    flex-grow: 0;
+                    flex-basis: 200px;
+                }
+
+                @include rwd(400px){
+                    flex-basis: 170px;
+                }
+
+
             }
             
             > li:nth-child(3){ // 單價
@@ -273,7 +289,7 @@
             margin-left: 10px;
             margin-right: 10px;
 
-            @include rwd(428px){
+            @include rwd(768px){
                 margin: 20px 0;
             }
         }
@@ -300,6 +316,10 @@
         // ==== 左方資訊 ====
         .left{
             flex-grow: 1.2;
+
+            @include rwd(768px){
+                font-size: 14px;
+            }
 
             // ==== 顧客資料 ====
             .name,
@@ -360,17 +380,29 @@
             h2{
                 font-size: $p;
                 margin: 20px auto;
+
+                @include rwd(768px){
+                    font-size: 14px;
+                }
             }
 
             h2 > span{
                 color: $secondary5-color;
                 margin-left: 30px;
+
+                @include rwd(768px){
+                    font-size: 14px;
+                }
             }
 
             .check{
                 margin-top: 20px;
                 margin-bottom: 20px;
-                color: $secondary4-color;            
+                color: $secondary4-color;  
+                
+                @include rwd(768px){
+                    font-size: 14px;
+                }
             }
 
             input.name,

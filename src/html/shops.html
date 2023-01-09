@@ -41,6 +41,7 @@
                         希望消費者從購買甜點到吃下第一口的瞬間
                         甜點能帶給每一位滿滿的幸福！</p>
                     </a>
+                    <div class="read-more">MORE</div>
                 </div>
             </div>
             <div class="store store2"><a href="shops_detail.html">
@@ -48,6 +49,7 @@
                 <div class="store-textbox2">
                     <h6>薏盃茶</h6>
                     <p>人與人的相遇，是久別重逢，人與茶的邂逅，是前世今生。珍惜與人相處之時，也珍惜品茶的好時光。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -56,6 +58,7 @@
                 <div class="store-textbox2">
                     <h6>品茶吧</h6>
                     <p>品茶吧，就如同字面上的意思，希望能夠為喜好喝茶以及愛好茶文化的人們，提供一個舒適的品茶空間。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -64,6 +67,7 @@
                 <div class="store-textbox2">
                     <h6>培可先生</h6>
                     <p>期望在繁忙的步調中，堅持每日現做，給顧客最好的一餐！！</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -72,6 +76,7 @@
                 <div class="store-textbox2">
                     <h6>Dacquoise</h6>
                     <p>職人嚴致堅持從精選食材開始，使用法國頂級奶油品牌，搭配師傅精湛廚藝，希望能讓消費者品嚐純粹的達克瓦茲獨特風味。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -82,6 +87,7 @@
                 <div class="store-textbox2">
                     <h6>米娜咖啡館</h6>
                     <p>秉持著濃醇咖啡般的服務捕獲人心。無論生活多麼地平凡，或不平凡，都別錯過一人的經典早餐時光，好好享受跟自己相處的那個早晨。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -90,6 +96,7 @@
                 <div class="store-textbox2">
                     <h6>喫茶</h6>
                     <p>憑藉其好口碑與台灣獨特茶香，台灣茶葉的故事開始流傳，躍升成為世界的好茶！</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -98,6 +105,7 @@
                 <div class="store-textbox2">
                     <h6>Bubble Tea</h6>
                     <p>於餐桌上分享的視角出發。以溫柔細膩的方式，悄悄為生活注入一點儀式感。拉近人與人之間的綿密情感打造每個獨特、驚喜的日常。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -106,6 +114,7 @@
                 <div class="store-textbox">
                     <h6>Only Coffee</h6>
                     <p>堅持採購並且烘焙最高品質的咖啡，這是我們一直努力的基本原則；期望能讓您更瞭解咖啡，豐富您的咖啡體驗。</p>
+                    <div class="read-more">MORE</div>
                 </a>
                 </div>
             </div>
@@ -158,6 +167,12 @@
             $("#header").load("topbar.html");
             $("#footer").load("footer.html");
         });
+
+        if(window.screen.width >= 428){
+                for (var i = 0; i < news_data.length; i++){
+                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+              }
+            }
     </script>
 </body>
 

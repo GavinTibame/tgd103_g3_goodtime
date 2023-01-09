@@ -13,15 +13,12 @@
         justify-content: space-around;
         margin-top: 120px;
 
-        @include rwd(1024px) {
+        @include rwd(1280px) {
             width: auto;
 
             @include rwd(912px) {}
-
             @include rwd(768px) {}
-
             @include rwd(428px) {}
-
 
         }
 
@@ -66,26 +63,20 @@
                 position: absolute;
                 left: 55%;
                 top: 20%;
+                z-index: -1;
 
-                @include rwd(1024px) {
+                @include rwd(1200px) {
                     width: 100%;
-                    left: 56%;
+                }
+
+                @include rwd(960px){
+                    width: 90%;
                 }
 
                 @include rwd(912px) {
                     width: 100%;
-                    left: 57%;
                 }
 
-                @include rwd(768px) {
-                    // width: 200px;
-                    left: 58%;
-                }
-
-                @include rwd(428px) {
-                    // width: 100px;
-                    left: 64%;
-                }
             }
         }
 
@@ -117,6 +108,10 @@
             flex-grow: 1;
             margin-bottom: 10px;
 
+            @include rwd(800px){
+                font-size: 14px;
+            }
+
             &:first-child {
                 position: absolute;
                 left: 0;
@@ -126,6 +121,10 @@
             &:nth-child(2) {
                 flex-grow: 1.1;
                 margin-left: 30px;
+
+                @include rwd(1000px){
+                    flex-grow: 1.5;
+                }
 
                 @include rwd(768px) {
                     flex-grow: 1.6;
@@ -137,6 +136,13 @@
 
                 @include rwd(768px) {
                     flex-grow: 1;
+                }
+            }
+
+            &:nth-child(4){
+
+                @include rwd(768px){
+                    flex-grow: 1.1;
                 }
             }
         }
@@ -180,7 +186,6 @@
         >li:nth-child(2) {
             flex-grow: 0;
             margin-left: 30px;
-
         }
 
         >li:last-child {
@@ -192,7 +197,16 @@
 
         >li:nth-child(3) {
             padding-left: 10px;
-            flex-grow: 0.9;
+            flex-grow: 0.85;
+
+            @include rwd(1100px){
+                flex-grow: 0.8;
+            }
+
+            @include rwd(1000px){
+                padding-left: 5px;
+                flex-grow: 1.05;
+            }
 
             @include rwd(768px) {
                 padding-left: 3px;
@@ -221,20 +235,34 @@
             }
         }
 
+        >li:nth-child(6){
+
+            @include rwd(900px){
+                padding-left: 1%;
+            }
+        }
+
+        .cart-img {
+            // width: 70px;
+            height: 60px;
+        }
+
         h2 {
             font-size: $p;
             line-height: 1.6;
             color: $secondary4-color;
 
-            @include rwd(768px) {
+            @include rwd(800px) {
                 font-size: 14px;
             }
         }
 
+
+
         p {
             color: $secondary5-color;
 
-            @include rwd(768px) {
+            @include rwd(800px) {
                 font-size: 14px;
             }
         }
@@ -265,6 +293,13 @@
                 cursor: pointer;
             }
 
+            .qtyminus[disabled],
+            .qtyplus[disabled],
+            .qtyminus:disabled,
+            .qtyplus:disabled {
+                background-color: $sub-carmel-color;
+            }
+
             .qty {
                 outline: 0;
                 text-align: center;
@@ -274,6 +309,10 @@
                 width: 100px;
                 line-height: 23px;
                 padding: 0 3px;
+
+                @include rwd(900px){
+                    // width: 98%;
+                }
 
                 @include rwd(768px) {
                     width: 50%;
@@ -285,6 +324,11 @@
             }
         }
 
+    }
+
+    button.btn-delete {
+        border: 0;
+        background-color: transparent;
     }
 
     // ==== 送貨和訂單資訊 ====
@@ -322,10 +366,10 @@
                     color: $secondary4-color;
                     border-radius: 3px;
 
-                    @include rwd(768px){
+                    @include rwd(768px) {
                         width: 100%;
                     }
-                    
+
                 }
 
                 input.address {
@@ -337,7 +381,7 @@
                     color: $secondary4-color;
                     border-radius: 3px;
 
-                    @include rwd(768px){
+                    @include rwd(768px) {
                         width: 100%;
                     }
                 }

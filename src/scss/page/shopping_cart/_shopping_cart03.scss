@@ -13,7 +13,7 @@
         justify-content: space-around;
         margin-top: 120px;
 
-        @include rwd(1024px){
+        @include rwd(1280px){
             width: auto;
 
             @include rwd(912px){}
@@ -41,6 +41,11 @@
                 line-height: 1.6;
                 color: #b3b3b3;
                 margin-top: 10px;
+
+                @include rwd(428px) {
+                    font-size: 14px;
+                }
+
             }
         }
 
@@ -57,27 +62,15 @@
                 position: absolute;
                 left: 55%;
                 top: 20%;
+                z-index: -1;
 
-                @include rwd(1024px){
+                @include rwd(1200px){
                     width: 100%;
-                    left: 56%;
                 }
 
                 @include rwd(912px){
                     width: 100%;
-                    left: 57%;
                 }
-
-                @include rwd(768px){
-                    // width: 200px;
-                    left: 58%;
-                }
-
-                @include rwd(428px){
-                    // width: 100px;
-                    left: 64%;
-                }
-
             }
         }
 
@@ -99,7 +92,8 @@
 
         @include rwd(700px){
             flex-direction: column;
-            width: 70%;
+            width: 75%;
+            margin: 0 auto;
         }
 
         h2{

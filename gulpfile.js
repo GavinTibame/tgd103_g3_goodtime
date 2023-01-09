@@ -152,8 +152,8 @@ function browser(done) {
 }
 
 //開發用
-exports.default = series(parallel(html, sass2css, jsMinify, img), browser);
+exports.default = series(parallel(html, sass2css), browser);
 
 
 // 打包上線用x
-exports.package = series(clear, parallel(html, sassMinify, babel5, imgMinify))
+exports.package = series(clear, parallel(html, jsMinify, sassMinify, babel5, imgMinify))
