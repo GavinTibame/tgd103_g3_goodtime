@@ -28,12 +28,13 @@ const createApp = Vue.createApp({
             this.productDetail.path = this.productDetail.path.split(",");
             this.productDetail.path = [...new Set(this.productDetail.path)];
             this.productDetail.SELECTED = this.productDetail.SELECTED.split(",");
-            this.productDetail.SELECTED = [...new Set(this.productDetail.SPEC)];
+            this.productDetail.SELECTED = [...new Set(this.productDetail.SELECTED)];
             this.productDetail.SID = this.productDetail.SID.split(",");
             this.productDetail.SID = [...new Set(this.productDetail.SID)];
-            this.productDetail.specList = this.productDetail.SELECTED.map((value, index) => {
-                return [value, this.productDetail.SID[index]]
-            })
+            this.productDetail.specList = {};
+            this.productDetail.SID.forEach((ele, idx) => {
+                this.productDetail.specList[ele] = this.productDetail.SELECTED[idx];
+            });
         }).catch(err => console.log("[product info]", err));
     }
 }).mount("#productDetail");
