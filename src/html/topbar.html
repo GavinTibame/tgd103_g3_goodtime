@@ -33,9 +33,9 @@
                 <li><a href="faq.html">常見問題</a></li>
             </ul>
             <div class="dividing-line"></div>
-            <div class="member-icon-box">
-                <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
-                <ul>
+            <div class="member-icon-box-2">
+                <a class="head" href="memberCenter.html"><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i></a>
+                <ul id="ul">
                     <li><a href="memberCenter.html">交易查詢</a></li>
                     <li><a href="memberCenter.html">會員資料</a></li>
                     <li><a href="memberCenter.html">會員登出</a></li>
@@ -44,6 +44,19 @@
             <div class="menu-icon-box" id="menu-icon-box">
                 <a>
                     <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <div class="member-icon-box">
+                <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
+                <ul>
+                    <li><a href="memberCenter.html">交易查詢</a></li>
+                    <li><a href="memberCenter.html">會員資料</a></li>
+                    <li><a href="memberCenter.html">會員登出</a></li>
+                </ul>
+            </div>
+            <div class="cart-icon-box">
+                <a href="shopping_cart01.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
         </div>
@@ -59,29 +72,14 @@
         </div>
         <div class="right-area">
             <div class="cart-icon-box">
-                <a href="">
+                <a href="shopping_cart01.html">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
-            <!-- <ul class="anchor-box">
-                <li><a href="#" id="a-g" data-scroll="anchor1" class="a-g js">G</a></li>
-                <li><a id="a-news" data-scroll="anchor2" class="a-news js">N</a></li>
-                <li><a id="a-events" data-scroll="anchor3" class="a-events js">E</a></li>
-                <li><a data-scroll="anchor4" class="a-aboutus js">A</a></li>
-                <li><a id="a-shops" data-scroll="anchor5" class="a-shops js">S</a></li>
-                <div class="hide-box"></div>
-            </ul> -->
             <a href="" id="backToTop">
                 <p>← BACK TO TOP</p>
             </a>
         </div>
-        <!-- <div class="Bread-crumbs">
-            <ul>
-                <li><a href="">崖上的波妞特展</a></li>
-                <li><i class="fa-solid fa-caret-right"></i></li>
-                <li><a href="">展演活動</a></li>
-            </ul>
-        </div> -->
     </header>
     <script>
         //漢堡線控制
@@ -96,6 +94,13 @@
         const backToTop = document.getElementById('backToTop');
         backToTop.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
+        })
+
+        //member-icon-2控制
+        let memberIcon2 = document.getElementById('member-icon-2');
+        memberIcon2.addEventListener('click',function(e){
+            e.preventDefault();
+            document.getElementById('ul').classList.toggle('memberOn');
         })
     </script>
 </body>

@@ -168,6 +168,12 @@
             $("#header").load("topbar.html");
             $("#footer").load("footer.html");
         });
+
+        if(window.screen.width >= 428){
+                for (var i = 0; i < news_data.length; i++){
+                desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
+              }
+            }
     </script>
 </body>
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>購物車 - 韶光文創園區</title>
 
     <!-- Google Fonts -->
@@ -43,6 +44,7 @@
                 </li>
             </ul>
         </div>
+
         <!-- 購物車資料 -->
         <div class="cart__info">
             <h1 class="subtitle">
@@ -56,44 +58,45 @@
                 <li>數量</li>
                 <li>小計</li>
             </ul>
+
             <!-- 商品明細 -->
-            <ul class="product__list" v-for="(product, idx) of productList" :key="product.id">
+            <ul class="product__list" v-for="(product, idx) of wantList" :key="product.ID">
                 <li>
                     <input type="checkbox" class="select__item" v-model="cartList" :value="product"
                         @change="isSelectAll">
                 </li>
                 <li>
-                    <img class="cart-img" :src="product.main_photo" alt="">
+                    <img class="cart-img" :src="product.MAIN_PHOTO" alt="">
                 </li>
                 <li>
-                    <h2>{{product.name}}</h2>
+                    <h2>{{product.PRODUCT_NAME}}</h2>
                     <p>{{product.spec}}</p>
                 </li>
                 <li>
                     <!-- 單價 !-->
                     <h2>NT$
-                        <span class="price_val">{{product.price}}</span>
+                        <span class="price_val">{{product.PRICE}}</span>
                     </h2>
                 </li>
                 <li>
                     <div class="input__box">
-                        <button class='qtyminus' id="qtyminus" @click="product.qty--"
-                            :disabled="product.qty===1">-</button>
+                        <button class='qtyminus' id="qtyminus" @click="product.QTY--"
+                            :disabled="product.QTY===1">-</button>
                         <!-- <input type="button" value="-" class='qtyminus' id="qtyminus" field='quantity'> -->
-                        <input type='text' name='quantity' :value='product.qty' class='qty' disabled>
-                        <button class='qtyplus' id="qtyplus" @click="product.qty++"
-                            :disabled="product.qty === product.max_qty">+</button>
+                        <input type='text' name='quantity' :value='product.QTY' class='qty' disabled>
+                        <button class='qtyplus' id="qtyplus" @click="product.QTY++"
+                            :disabled="product.QTY === product.MAX_QTY">+</button>
                         <!-- <input type="button" value="+" class='qtyplus' id="qtyplus" field='quantity'> -->
                     </div>
                 </li>
                 <li>
                     <!-- 小計 !-->
                     <h2 class="cost">NT$
-                        <span class="cost__val">{{product.qty * product.price}}</span>
+                        <span class="cost__val">{{product.QTY * product.PRICE}}</span>
                     </h2>
                 </li>
                 <li>
-                    <button class='btn-delete' @click="atDelete(idx, product.id)">
+                    <button class='btn-delete' @click="atDelete(idx, product.ID)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </li>
@@ -163,6 +166,7 @@
         });
     </script>
     <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script src="../js/shopping-cart.js"></script>
 </body>
 
