@@ -126,6 +126,9 @@
             }
         }
     }
+    .cart-icon-box{
+        display: none;
+    }
 }
 
 .topbar .menu-icon-box {
@@ -211,6 +214,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
+    display: block;
 
     a {
         display: block;
@@ -399,7 +403,6 @@
         }
     }
 }
-
 @media all and (max-width: $tablet-width) {
     .topbar {
         .left-area {
@@ -411,7 +414,6 @@
         }
     }
 }
-
 @media all and (max-width: 856px) {
     .topbar {
         .logo-box {
@@ -424,47 +426,72 @@
                 }
             }
         }
-
         .member-icon-box {
+            background-color:rgba(255,0,0,0);
             top: 15px;
-            display: none;
-        }
+            right: 15%;
+            width: 44px;
+            height: 38px;
+                .head{
+                    .fa-user:before{    
+                        color: #533C1B;
+                        margin-left: 0;
+                        margin-top: 9px;
+                        }
+                    }
+            } 
 
         .menu-icon-box {
             display: block;
-        }
 
+        }
+        }
         .top-area_shadowbox {
             height: 70px;
         }
-
         .top-area {
             height: 70px;
-        }
 
-        .topbar-btn-group {
-            width: 70%;
-            background-color: #D9D9D9;
-            height: 900px;
-            text-align: center;
-            margin-right: 0;
-            transition: all 1s;
-            right: -70%;
-            padding-top: 50px;
-
-            li {
+            .cart-icon-box{
                 display: block;
-                margin-left: 0;
-
-                &:first-child {
+                position: absolute;
+                right: 10%;
+                top: 24px;
+                    a{
+                        i{
+                            color: #533C1B;
+                            font-size: 24px;
+                        }
+                    }
+            }
+            .topbar-btn-group {
+                width: 70%;
+                background-color: #D9D9D9;
+                height: 900px;
+                text-align: center;
+                margin-right: 0;
+                transition: all 1s;
+                right: -70%;
+                padding-top: 50px;
+    
+                li {
+                    display: block;
                     margin-left: 0;
+    
+                    &:first-child {
+                        margin-left: 0;
+                    }
                 }
             }
+    
+        }
+    .right-area{
+        .cart-icon-box{
+            display: none;
         }
     }
 }
-
-@media all and (max-width: $mobile-width) {
+@media all and (max-width: 767px) {
     .topbar {
         .left-area {
             display: none;

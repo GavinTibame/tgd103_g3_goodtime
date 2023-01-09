@@ -319,6 +319,8 @@
                 position: absolute;
                 filter: grayscale(1);
                 transition: all 1.5s;
+                display: block;
+                margin: auto;
 
                 @include rwd(768px){
                     height: unset;

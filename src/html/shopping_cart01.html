@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>購物車 - 韶光文創園區</title>
 
     <!-- Google Fonts -->
@@ -43,6 +44,7 @@
                 </li>
             </ul>
         </div>
+
         <!-- 購物車資料 -->
         <div class="cart__info">
             <h1 class="subtitle">
@@ -56,6 +58,7 @@
                 <li>數量</li>
                 <li>小計</li>
             </ul>
+            
             <!-- 商品明細 -->
             <ul class="product__list" v-for="(product, idx) of productList" :key="product.id">
                 <li>
