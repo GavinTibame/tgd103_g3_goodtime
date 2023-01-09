@@ -146,8 +146,8 @@ function browser(done) {
     });
     watch(['src/*.html', 'src/html/*.html'], html).on('change', reload)
     watch(['src/scss/*.scss', 'src/scss/**/*.scss', 'src/scss/**/**/*.scss'], sass2css).on('change', reload)
-    watch('src/js/*.js', jsMinify).on('change', reload)
-    watch(['src/img/**/*.*', 'src/img/*.*'], img).on('change', reload)
+    // watch('src/js/*.js', jsMinify).on('change', reload)
+    // watch(['src/img/**/*.*', 'src/img/*.*'], img).on('change', reload)
     done();
 }
 
