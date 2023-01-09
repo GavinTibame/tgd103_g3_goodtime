@@ -9,7 +9,7 @@
      margin: 0 auto;
      padding-top: 32px;
 
-     @include rwd(768px) {
+     @include rwd(920px) {
          width: 100vw;
      }
 
@@ -25,10 +25,13 @@
          width: 60%;
          z-index: 1;
          margin: 50px 0 20px 55px;
+
          // box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 50%);
+         @include rwd(514px) {
+             margin: 50px 0 20px 43px;
+         }
 
-
-         @include rwd(428px) {
+         @include rwd(490px) {
              margin: 50px 0 20px 10px;
          }
 
@@ -58,7 +61,7 @@
      .banner {
          margin-bottom: 5rem;
 
-         @include rwd(768px) {
+         @include rwd(920px) {
              margin-bottom: 3rem;
          }
      }
@@ -66,15 +69,24 @@
      .banner-img {
          box-shadow: none;
          height: 195px;
+
+         @include rwd(514px) {
+             height: 125px;
+         }
      }
 
      .banner-eng {
-         @include rwd(768px) {
+         @include rwd(920px) {
              font-size: 28px;
-             padding: 40px 10px 20px 75px;
+             padding: 40px 10px 20px 85px;
          }
 
-         @include rwd(428px) {
+         @include rwd(514px) {
+             font-size: 24px;
+             padding: 0px 10px 20px 55px;
+         }
+
+         @include rwd(490px) {
              font-size: 20px;
              padding: 40px 10px 20px 20px;
              height: 110px;
@@ -82,6 +94,10 @@
      }
 
      .banner-zh {
+
+         font-size: 32px;
+         padding-left: 30vw;
+
          &::before {
              content: "";
              width: 14vw;
@@ -89,17 +105,21 @@
              display: inline-block;
              margin-right: 2.8rem;
 
-             @include rwd(428px) {
+             @include rwd(490px) {
                  margin-right: 0.8rem;
              }
          }
 
-         @include rwd(768px) {
+         @include rwd(920px) {
              font-size: 28px;
              padding-left: 30vw;
          }
 
-         @include rwd(428px) {
+         @include rwd(514px) {
+             font-size: 24px;
+         }
+
+         @include rwd(490px) {
              font-size: 20px;
              padding-left: 36vw;
          }
@@ -112,7 +132,7 @@
          grid-template-columns: repeat(4, minmax(0px, 1fr));
          gap: 2rem;
 
-         @include rwd(768px) {
+         @include rwd(920px) {
              display: block;
          }
 
@@ -129,7 +149,15 @@
                  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.25);
                  border-radius: 10px;
 
-                 @include rwd(768px) {
+                 @include rwd(1258px) {
+                     padding: 2rem 2rem 6rem;
+                 }
+
+                 @include rwd(1110px) {
+                     padding: 2rem 1rem 1rem;
+                 }
+
+                 @include rwd(920px) {
 
                      padding: 0rem 1rem 1rem 3rem;
                      margin-bottom: 5rem;
@@ -140,7 +168,7 @@
                      }
                  }
 
-                 @include rwd(428px) {
+                 @include rwd(490px) {
                      padding: 0rem 0rem 1rem 2rem;
 
                      ul {
@@ -163,7 +191,11 @@
              border-top: solid 3px $font-color;
              display: inline-block;
 
-             @include rwd(768px) {
+             @include rwd(1000px) {
+                 width: 9rem;
+             }
+
+             @include rwd(920px) {
                  width: 0rem;
              }
          }
@@ -189,11 +221,16 @@
                  display: block;
                  left: .2rem;
 
-                 @include rwd(768px) {
+                 @include rwd(920px) {
                      width: 100%;
                  }
 
-                 @include rwd(428px) {
+                 @include rwd(610px) {
+                     top: 15px;
+                     left: -0.8rem;
+                 }
+
+                 @include rwd(490px) {
                      top: 10px;
                      left: -0.2rem;
                  }
@@ -204,7 +241,19 @@
              font-size: $h3;
              color: $brown-color;
 
-             @include rwd(428px) {
+             @include rwd(1000px) {
+                 font-size: 26px;
+             }
+
+             @include rwd(610px) {
+                 font-size: 20px;
+             }
+
+             @include rwd(514px) {
+                 font-size: 18px;
+             }
+
+             @include rwd(490px) {
                  font-size: 16px;
              }
          }
@@ -214,7 +263,15 @@
              font-size: $h6;
              color: $carmel-color;
 
-             @include rwd(428px) {
+             @include rwd(610px) {
+                 font-size: 16px;
+             }
+
+             @include rwd(514px) {
+                 font-size: 18px;
+             }
+
+             @include rwd(490px) {
                  font-size: 14px;
              }
          }
@@ -226,7 +283,7 @@
 
      ul.tab-list {
          display: flex;
-         margin: .68rem 0;
+         margin: 0;
 
          li a.tab {
              padding: .5rem 1rem;
@@ -243,6 +300,36 @@
          li a.tab.-current {
              background-color: $brown-color;
          }
+
+         button {
+
+             padding: .5rem 1rem;
+             background-color: $carmel-color;
+             color: #fff;
+             font-size: $p;
+             border-radius: 3px;
+             border-bottom-left-radius: 0;
+             border-bottom-right-radius: 0;
+             margin-right: .5px;
+             border: none;
+         }
+
+         .active {
+             background-color: $brown-color;
+         }
+
+         .tab_content {
+             padding: .5rem 1rem;
+             background-color: $carmel-color;
+             color: #fff;
+             font-size: $p;
+             border-radius: 3px;
+             border-bottom-left-radius: 0;
+             border-bottom-right-radius: 0;
+             margin-right: .5px;
+             outline: none;
+         }
+
      }
 
      .tab-content {
@@ -253,10 +340,40 @@
          outline: none;
          margin-top: -.5px;
 
+         div.pwd-tab {
+             @include rwd(745px) {
+                 padding: 3rem 1rem 3rem 4rem;
+             }
+
+             @include rwd(580px) {
+                 padding: 3rem 1rem 3rem 2rem;
+             }
+         }
+
          &>div {
              background-color: #fff;
              border-radius: 2px;
              padding: 3rem 2rem;
+
+             @include rwd(920px) {
+                 padding: 3rem 7rem;
+             }
+
+             @include rwd(876px) {
+                 padding: 3rem 3rem 3rem 6rem;
+             }
+
+             @include rwd(780px) {
+                 padding: 3rem 3rem 3rem 4rem;
+             }
+
+             @include rwd(745px) {
+                 padding: 3rem 1rem 3rem 1rem;
+             }
+
+             @include rwd(486px) {
+                 padding: 3rem 2rem;
+             }
          }
      }
 
@@ -276,21 +393,28 @@
          margin: 0 auto;
          margin-bottom: 1.5rem;
 
-         @include rwd(768px) {
+         @include rwd(920px) {
+             flex-wrap: wrap;
+             justify-content: flex-end;
+         }
+
+         @include rwd(700px) {
              flex-wrap: wrap;
              justify-content: flex-end;
              width: 100%;
          }
 
-         @include rwd(428px) {
+         @include rwd(576px) {
              font-size: 14px;
+             margin-bottom: 0;
          }
+
 
          label {
              display: flex;
              margin-right: 1rem;
 
-             @include rwd(715px) {
+             @include rwd(865px) {
                  width: 100%;
                  margin-bottom: 10px;
              }
@@ -306,7 +430,7 @@
          }
 
          &>input {
-             display: none;
+            //  display: none;
              min-width: 300px;
              line-height: 1.5rem;
              border: solid 2px $brown-color;
@@ -320,6 +444,7 @@
              padding: 0;
              border: 0;
              background-color: transparent;
+             margin-bottom: 15px;
 
              &:hover {
                  span {
@@ -329,7 +454,24 @@
          }
 
          input+button>span {
-             font-size: $h3;
+             font-size: 26px;
+
+             @include rwd(576px) {
+                 font-size: 24px;
+             }
+         }
+
+         .new_label{
+            width: auto;
+            margin-right: 0rem;
+         }
+
+         .new_task_name{
+            margin-right: 1.8rem;
+         }
+
+         .new-edit-addr{
+            padding-top: 17px;
          }
 
      }
@@ -347,7 +489,7 @@
          font-size: $p;
          padding: 12px 25px 12px 40px;
 
-         @include rwd(428px) {
+         @include rwd(490px) {
              font-size: 14px;
          }
      }
@@ -359,57 +501,87 @@
          justify-content: space-between;
          align-items: center;
 
-         @include rwd(768px) {
-             width: auto;
-             margin-left: 3rem;
+         @include rwd(930px) {
+             margin: 0 0 1rem 1rem;
+             width: 47vw;
          }
 
-         @include rwd(428px) {
+         @include rwd(790px) {
+             margin: 0 0 1rem 0rem;
+             width: 68vw;
+         }
+
+         @include rwd(768px) {
+             width: 63vw;
+         }
+
+         @include rwd(576px) {
+             font-size: 14px;
+         }
+
+         @include rwd(490px) {
              font-size: 14px;
              margin-left: 0.2rem;
              margin-right: 1rem;
+             width: 55vw;
+         }
+
+         @include rwd(438px) {
+             width: 59vw;
          }
 
          input {
              border: solid 2px $brown-color;
              border-radius: 3px;
              line-height: 1.5rem;
-             min-width: 50%;
+             min-width: 68%;
              color: $brown-color;
 
-             @include rwd(768px) {
-                 margin-right: 5rem;
+             @include rwd(932px) {
+                 min-width: 72%;
              }
 
-             @include rwd(428px) {
+             @include rwd(490px) {
                  margin-right: 0;
+                 min-width: 62%;
              }
          }
 
          .button {
              margin: 40px auto 0;
 
-             @include rwd(768px) {
-                 margin: 40px 0 0 125px;
+             @include rwd(920px) {
+                 margin: 40px auto;
+             }
+
+             @include rwd(490px) {
+                 margin: 30px 0 0 57px;
+             }
+
+             @include rwd(456px) {
+                 margin: 30px 0 0 47px;
              }
 
              @include rwd(428px) {
-                 margin: 30px 0 0 38px;
+                 margin: 30px 0 0 35px;
              }
          }
      }
 
      div.tab-content>div.po-tab {
-         padding-top: 1rem;
+         padding-top: 5rem;
          // display: none; // TODO
      }
 
      .po-single {
          border-bottom: solid 2px $carmel-color;
 
-         @include rwd(428px) {
-             padding: 0;
+         @include rwd(576px) {
              font-size: 14px;
+         }
+
+         @include rwd(490px) {
+             padding: 0;
          }
 
          &>div {
@@ -417,13 +589,12 @@
              width: 30vw;
              margin: 0 auto 1.5rem;
 
-             @include rwd(768px) {
+             @include rwd(920px) {
                  width: auto;
                  margin-left: 3rem;
              }
 
-             @include rwd(428px) {
-                 width: auto;
+             @include rwd(490px) {
                  margin-left: 1rem;
              }
 
@@ -445,16 +616,25 @@
          display: flex;
          flex-wrap: wrap;
          border-bottom: solid 2px $carmel-color;
-         justify-content: space-between;
          margin-bottom: 1.5rem;
+         padding-left: 55px;
 
-         @include rwd(428px) {
+         @include rwd(996px) {
+             padding-left: 5px;
+         }
+
+         @include rwd(576px) {
              font-size: 14px;
          }
 
          &>div {
              min-width: 30%;
              margin-bottom: 1.5rem;
+             padding-left: 20px;
+
+             @include rwd(438px) {
+                 min-width: 50%;
+             }
 
              &>* {
                  margin-bottom: .5rem;
@@ -468,13 +648,29 @@
          width: 100%;
          margin: 0 auto 1.2rem;
 
-         @include rwd(428px) {
-             margin-left: 25px;
+         @include rwd(490px) {
+             margin-left: 0;
+             width: 130%;
          }
 
          img {
              width: 10vw;
              margin-right: 2.5rem;
+
+             @include rwd(834px) {
+                 margin-right: 1rem;
+             }
+
+             @include rwd(520px) {
+                 width: 40%;
+                 margin-right: 2rem;
+                 margin-left: 1rem;
+             }
+
+             @include rwd(490px) {
+                 width: 40%;
+                 margin-left: 0;
+             }
          }
 
 
@@ -485,7 +681,24 @@
              width: 100%;
              justify-content: space-between;
 
-             @include rwd(428px) {
+             @include rwd(520px) {
+                 display: block;
+                 line-height: 1.3;
+             }
+
+             p {
+                 font-size: 14px;
+             }
+
+             small {
+                 font-size: 16px;
+
+                 @include rwd(576px) {
+                     font-size: 14px;
+                 }
+             }
+
+             @include rwd(490px) {
                  flex-direction: column;
                  font-size: 14px;
                  line-height: 1.2;
@@ -499,9 +712,9 @@
 
      .po-item {
          border-bottom: solid 2px $carmel-color;
-         padding-right: 7rem;
+         padding-right: 2rem;
 
-         @include rwd(428px) {
+         @include rwd(910px) {
              padding: 0;
          }
      }
@@ -513,9 +726,16 @@
          margin-right: 7rem;
          align-items: flex-end;
 
-         @include rwd(428px) {
+         @include rwd(880px) {
+             margin-right: 0;
+         }
+
+         @include rwd(576px) {
              font-size: 14px;
-             margin-right: 3rem;
+         }
+
+         @include rwd(490px) {
+             margin-right: 1rem;
          }
 
          &>div {
@@ -524,7 +744,7 @@
              width: 40%;
              justify-content: space-between;
 
-             @include rwd(428px) {
+             @include rwd(490px) {
                  width: auto;
              }
 
@@ -537,23 +757,24 @@
      .coupon-item {
          width: fit-content;
 
+
          .coupon-single {
              display: flex;
              justify-content: center;
              align-items: center;
              margin-bottom: 1.5rem;
 
-             @include rwd(428px) {
+             @include rwd(646px) {
                  flex-direction: column;
              }
 
              >* {
                  width: 50%;
 
-                 @include rwd(428px) {
+                 @include rwd(646px) {
                      width: 85%;
                      text-align: center;
-                     margin-top: 10px;
+                     margin-top: 20px;
 
                      small {
                          font-size: 14px;
@@ -562,9 +783,9 @@
              }
 
              img {
-                 margin-right: 2rem;
+                 margin-right: 1.2rem;
 
-                 @include rwd(428px) {
+                 @include rwd(490px) {
                      margin-right: 0;
                  }
              }
@@ -574,15 +795,19 @@
                  margin-bottom: 1rem;
                  font-weight: $fw7;
 
-                 @include rwd(768px) {
+                 @include rwd(1124px) {
                      font-size: 18px;
                  }
 
-                 @include rwd(428px) {
+                 @include rwd(490px) {
                      font-size: 16px;
                      margin-bottom: 0.5rem;
 
                  }
+             }
+
+             small {
+                 font-size: 14px;
              }
          }
      }

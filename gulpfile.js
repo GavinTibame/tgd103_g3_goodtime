@@ -146,14 +146,13 @@ function browser(done) {
     });
     watch(['src/*.html', 'src/html/*.html'], html).on('change', reload)
     watch(['src/scss/*.scss', 'src/scss/**/*.scss', 'src/scss/**/**/*.scss'], sass2css).on('change', reload)
-    watch('src/js/*.js', jsMinify).on('change', reload)
-    watch(['src/img/**/*.*', 'src/img/*.*'], img).on('change', reload)
+    // watch('src/js/*.js', jsMinify).on('change', reload)
+    // watch(['src/img/**/*.*', 'src/img/*.*'], img).on('change', reload)
     done();
 }
 
 //開發用
 exports.default = series(parallel(html, sass2css), browser);
-
 
 // 打包上線用x
 exports.package = series(clear, parallel(html, jsMinify, sassMinify, babel5, imgMinify))

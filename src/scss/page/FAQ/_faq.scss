@@ -113,6 +113,11 @@ main.FAQ {
                 padding: 1.2rem 3.2rem 1rem;
             }
 
+            @include rwd(450px) {
+                font-size: 22px;
+                padding: 1.2rem 1.2rem 1rem;
+            }
+
             @include rwd(428px) {
                 font-size: 20px;
                 padding: 1.2rem 2.2rem 0rem;
@@ -153,6 +158,12 @@ main.FAQ {
                 padding-right: 3.2rem;
             }
 
+            @include rwd(450px) {
+                font-size: 22px;
+                padding-left: 1vw;
+                padding-right: 1.2rem;
+            }
+
             @include rwd(428px) {
                 font-size: 20px;
                 padding-bottom: 1rem;
@@ -166,7 +177,7 @@ main.FAQ {
         // grid-template-columns:repeat(3,minmax(0px, 1fr));
         // grid-template-rows: 1fr;
 
-        @include rwd(768px) {
+        @include rwd(850px) {
             display: block;
         }
     }
@@ -184,6 +195,10 @@ main.FAQ {
         top: 150px; //調整左側nav
         margin-top: 85px;
 
+        @include rwd(850px) {
+            margin-top: 10px;
+        }
+
         @include rwd(428px) {
             margin-top: 0;
         }
@@ -192,7 +207,7 @@ main.FAQ {
 
             width: 280px;
 
-            @include rwd(768px) {
+            @include rwd(850px) {
                 width: auto;
             }
 
@@ -204,7 +219,7 @@ main.FAQ {
                 border-radius: 10px;
                 margin-left: 40px;
 
-                @include rwd(768px) {
+                @include rwd(850px) {
                     padding: 0;
                     background: none;
                     box-shadow: none;
@@ -218,7 +233,7 @@ main.FAQ {
                         margin: 1% 0 0 5%;
 
                         @include rwd(428px) {
-                            margin: 0% 0 0 3%;        
+                            margin: 0% 0 0 3%;
                         }
 
                     }
@@ -227,21 +242,19 @@ main.FAQ {
                         display: flex;
                         padding-left: 10px;
 
-                        @include rwd(428px) {
-                            padding-left: 20px;
+                        @include rwd(850px) {
+                            padding-left: 45px;
+                        }
 
-                            li{
-                                margin-right: 37px;
-                            }
-        
+                        @include rwd(788px) {
+                            padding-left: 0;
+                        }
+
+                        @include rwd(428px) {
+                            padding-right: 15px;
                         }
 
                     }
-                }
-
-                @include rwd(428px) {
-                    padding-left: 15px;
-
                 }
             }
         }
@@ -251,9 +264,15 @@ main.FAQ {
 
         cursor: pointer;
 
-        @include rwd(768px) {
+        @include rwd(850px) {
             margin: 0px 6%;
             padding-left: 5px;
+        }
+
+        @include rwd(788px) {
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
         }
 
         @include rwd(428px) {
@@ -269,7 +288,7 @@ main.FAQ {
             display: inline-block;
             margin: 25px 0;
 
-            @include rwd(768px) {
+            @include rwd(850px) {
                 width: 0;
             }
         }
@@ -277,7 +296,7 @@ main.FAQ {
         div {
             padding: 5px 0 5px 10px;
 
-            @include rwd(768px) {
+            @include rwd(850px) {
                 padding: 5px 10px;
             }
 
@@ -290,7 +309,11 @@ main.FAQ {
             font-size: $h5;
             color: $brown-color;
 
-            @include rwd(428px) {
+            @include rwd(566px) {
+                font-size: 16px;
+            }
+
+            @include rwd(460px) {
                 font-size: 13px;
             }
         }
@@ -300,7 +323,11 @@ main.FAQ {
             font-size: $h6;
             color: $carmel-color;
 
-            @include rwd(428px) {
+            @include rwd(566px) {
+                font-size: 16px;
+            }
+
+            @include rwd(460px) {
                 font-size: 13px;
             }
         }
@@ -323,6 +350,13 @@ main.FAQ {
                 margin-left: 3.8rem;
             }
 
+            @include rwd(566px) {
+                font-size: 32px;
+            }
+            
+            @include rwd(515px) {
+                margin-left: 1rem;
+            }
             @include rwd(428px) {
                 font-size: 28px;
                 margin-left: 1.8rem;
@@ -336,6 +370,13 @@ main.FAQ {
             max-width: 90%;
             margin: 0 auto;
             padding-right: 40px;
+
+            @include rwd(516px) {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 20px;
+
+            }
 
             @include rwd(428px) {
                 padding-left: 20px;
@@ -354,6 +395,10 @@ main.FAQ {
                     font-size: 20px;
                 }
 
+                @include rwd(566px) {
+                    font-size: 18px;
+                }
+
                 @include rwd(428px) {
                     font-size: 16px;
                     margin-bottom: 15px;
@@ -367,6 +412,11 @@ main.FAQ {
             p {
                 padding: 20px;
                 background-color: rgba(255, 255, 255, .6);
+
+                @include rwd(566px) {
+                    font-size: 14px;
+                }
+
             }
 
             div.faq-drawer__content ul {
@@ -409,6 +459,10 @@ main.FAQ {
                 font-size: 16px;
             }
 
+            @include rwd(566px) {
+                font-size: 14px;
+            }
+
             @include rwd(428px) {
                 font-size: 12px;
             }
@@ -431,6 +485,10 @@ main.FAQ {
 
                 @include width_980 {
                     top: 8px;
+                }
+
+                @include rwd(566px) {
+                    top: 6px;
                 }
 
                 @include rwd(428px) {
@@ -487,6 +545,14 @@ main.FAQ {
                 margin-left: 3.8rem;
             }
 
+            @include rwd(566px) {
+                font-size: 32px;
+            }
+
+            @include rwd(515px) {
+                margin-left: 1rem;
+            }
+
             @include rwd(428px) {
                 font-size: 28px;
                 margin-left: 1.8rem;
@@ -500,6 +566,13 @@ main.FAQ {
             max-width: 90%;
             margin: 0 auto;
             padding-right: 40px;
+
+            @include rwd(516px) {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 20px;
+
+            }
 
             @include rwd(428px) {
                 padding-left: 20px;
@@ -518,6 +591,10 @@ main.FAQ {
                     font-size: 20px;
                 }
 
+                @include rwd(566px) {
+                    font-size: 18px;
+                }
+
                 @include rwd(428px) {
                     font-size: 16px;
                     margin-bottom: 15px;
@@ -531,12 +608,8 @@ main.FAQ {
             p {
                 padding: 20px;
                 background-color: rgba(255, 255, 255, .6);
-            }
 
-            @include width_980 {
-                margin-bottom: 20px;
-
-                p {
+                @include rwd(566px) {
                     font-size: 14px;
                 }
             }
@@ -571,6 +644,10 @@ main.FAQ {
                 font-size: 16px;
             }
 
+            @include rwd(566px) {
+                font-size: 14px;
+            }
+
             @include rwd(428px) {
                 font-size: 12px;
             }
@@ -593,6 +670,10 @@ main.FAQ {
 
                 @include width_980 {
                     top: 8px;
+                }
+
+                @include rwd(566px) {
+                    top: 6px;
                 }
 
                 @include rwd(428px) {
@@ -649,6 +730,14 @@ main.FAQ {
                 margin-left: 3.8rem;
             }
 
+            @include rwd(566px) {
+                font-size: 32px;
+            }
+
+            @include rwd(515px) {
+                margin-left: 1rem;
+            }
+
             @include rwd(428px) {
                 font-size: 28px;
                 margin-left: 1.8rem;
@@ -662,6 +751,13 @@ main.FAQ {
             max-width: 90%;
             margin: 0 auto;
             padding-right: 40px;
+
+            @include rwd(516px) {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 20px;
+
+            }
 
             @include rwd(428px) {
                 padding-left: 20px;
@@ -680,6 +776,10 @@ main.FAQ {
                     font-size: 20px;
                 }
 
+                @include rwd(566px) {
+                    font-size: 18px;
+                }
+
                 @include rwd(428px) {
                     font-size: 16px;
                     margin-bottom: 15px;
@@ -694,12 +794,8 @@ main.FAQ {
             p {
                 padding: 20px;
                 background-color: rgba(255, 255, 255, .6);
-            }
 
-            @include width_980 {
-                margin-bottom: 20px;
-
-                p {
+                @include rwd(566px) {
                     font-size: 14px;
                 }
             }
@@ -738,6 +834,10 @@ main.FAQ {
                 font-size: 16px;
             }
 
+            @include rwd(566px) {
+                font-size: 14px;
+            }
+
             @include rwd(428px) {
                 font-size: 12px;
             }
@@ -760,6 +860,10 @@ main.FAQ {
 
                 @include width_980 {
                     top: 8px;
+                }
+
+                @include rwd(566px) {
+                    top: 6px;
                 }
 
                 @include rwd(428px) {

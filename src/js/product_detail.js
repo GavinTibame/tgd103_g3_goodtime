@@ -3,12 +3,18 @@ const createApp = Vue.createApp({
         return {
             productDetail: {},
             orderQty: 1,
-            selectSpec: ""
+            spec: ""
         }
     }, methods: {
+        selectSpec(spec) {
+            console.log(spec);
+            this.selectSpec = spec;
+        },
         passToCart() { // 加入購物車
-            if (selectSpec != "") {
-                axios.post("../../php/frontend/cartAdd.php", `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.spec}`).then(res => {
+            console.log(this.selectSpec);
+            if (this.selectSpec != "") {
+                axios.post("../../php/frontend/cartAdd.php", `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.selectSpec}`).then(res => {
+                    console.log(res);
                     if (res.status === 200) {
                         window.open("../html/shopping_cart01.html", "shoppingCart01");
                     }
@@ -19,10 +25,16 @@ const createApp = Vue.createApp({
         axios.get("../../php/frontend/product.php?pid=" + 2).then(res => { // 拿商品頁的資料
             this.productDetail = res.data[0];
             this.productDetail.FEATURED = this.productDetail.FEATURED.split(",");
-            this.productDetail.SPEC = this.productDetail.SPEC.split(",");
-            this.productDetail.SPEC = [...new Set(this.productDetail.SPEC)];
             this.productDetail.path = this.productDetail.path.split(",");
             this.productDetail.path = [...new Set(this.productDetail.path)];
+            this.productDetail.SELECTED = this.productDetail.SELECTED.split(",");
+            this.productDetail.SELECTED = [...new Set(this.productDetail.SELECTED)];
+            this.productDetail.SID = this.productDetail.SID.split(",");
+            this.productDetail.SID = [...new Set(this.productDetail.SID)];
+            this.productDetail.specList = {};
+            this.productDetail.SID.forEach((ele, idx) => {
+                this.productDetail.specList[ele] = this.productDetail.SELECTED[idx];
+            });
         }).catch(err => console.log("[product info]", err));
     }
 }).mount("#productDetail");
