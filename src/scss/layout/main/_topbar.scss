@@ -14,7 +14,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
     background: linear-gradient(180deg, rgb(240, 240, 240), #fff);
     z-index: 100;
 }
@@ -78,6 +77,17 @@
 }
 
 .topbar {
+    .top-area{
+        height: 60px;
+        .member-icon-box-2{
+            ul{
+                display: none;
+            }
+        }
+    }
+    .member-icon-box-2{
+        display: none;
+    }
     .member-icon-box {
         position: absolute;
         top: 15px;
@@ -133,10 +143,11 @@
 
 .topbar .menu-icon-box {
     position: absolute;
-    top: 20px;
+    top: 16px;
     right: 2%;
     font-size: 30px;
     display: none;
+    color: $brown-color;
 }
 
 /* left-area */
@@ -389,7 +400,9 @@
     right: 0;
     transition: all 1s;
 }
-
+.topbar .top-area .member-icon-box-2 .memberOn{
+    display: block;
+}
 @media all and (max-width: 1260px) {
     .topbar {
         .logo-box {
@@ -439,24 +452,25 @@
                         margin-top: 9px;
                         }
                     }
-            } 
-
+        } 
         .menu-icon-box {
             display: block;
-
+            z-index: 5;
         }
         }
         .top-area_shadowbox {
-            height: 70px;
+            height: 60px;
         }
-        .top-area {
-            height: 70px;
-
+        .top-area { 
+            height: 60px;
+            .member-icon-box{
+                display: none;
+            }
             .cart-icon-box{
                 display: block;
                 position: absolute;
                 right: 10%;
-                top: 24px;
+                top: 20px;
                     a{
                         i{
                             color: #533C1B;
@@ -473,7 +487,7 @@
                 transition: all 1s;
                 right: -70%;
                 padding-top: 50px;
-    
+                z-index: 3;
                 li {
                     display: block;
                     margin-left: 0;
@@ -483,7 +497,34 @@
                     }
                 }
             }
-    
+            .member-icon-box-2{
+                display: block;
+                position: absolute;
+                right: 15%;
+                width: 80px;
+                text-align: center;
+                height: 110px;
+                margin-top: 20px;
+                a{
+                    margin: 0 auto;
+                    .member-icon-2{
+                        color: $brown-color;
+                        font-size: 24px;
+                    }
+                }
+                ul{
+                    background-color: #fff;
+                    margin-top: 15px;
+                    li{
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        a{
+                            color: $brown-color;
+                        }
+                    }
+                }
+
+            }
         }
     .right-area{
         .cart-icon-box{
@@ -501,4 +542,4 @@
             display: none;
         }
     }
-}
+}  
