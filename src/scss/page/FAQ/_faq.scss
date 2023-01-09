@@ -261,7 +261,6 @@ main.FAQ {
     }
 
     .nav-block {
-
         cursor: pointer;
 
         @include rwd(850px) {
@@ -303,7 +302,46 @@ main.FAQ {
             &:hover {
                 background-color: #f6e6cf;
             }
+
+
         }
+
+        div.title {
+            padding: 1rem 2rem 1rem 0;
+            cursor: pointer;
+            position: relative;
+
+            div {
+                display: none;
+            }
+
+            div.-active {
+                background-color: #f6e6cf;
+                width: 110%;
+                height: 3rem;
+                position: absolute;
+                z-index: -1;
+                top: 28px;
+                display: block;
+                left: .2rem;
+
+                @include rwd(920px) {
+                    width: 100%;
+                }
+
+                @include rwd(610px) {
+                    top: 15px;
+                    left: -0.8rem;
+                }
+
+                @include rwd(490px) {
+                    top: 10px;
+                    left: -0.2rem;
+                }
+            }
+        }
+
+        
 
         .title-eng {
             font-size: $h5;

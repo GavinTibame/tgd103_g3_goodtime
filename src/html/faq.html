@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
@@ -43,12 +43,14 @@
                       <div data-id="1">
                         <h6 class="title-eng">Ticket</h6>
                         <p class="title-zh">關於入場券</p>
+                        <div class="title"></div>
                       </div>
                     </li>
                     <li class="nav-block" data-nav="po-block">
                       <div data-id="2">
                         <h6 class="title-eng">Venue Rental</h6>
                         <p class="title-zh">關於場地租借</p>
+                        <div class="title"></div>
                       </div>
                     </li>
                     <li
@@ -58,6 +60,7 @@
                       <div data-id="3">
                         <h6 class="title-eng">Product</h6>
                         <p class="title-zh">關於文創商品</p>
+                        <div class="title"></div>
                       </div>
                     </li>
                   </ul>
@@ -68,7 +71,7 @@
           <!-------------------------Ticket----------------------------->
           <div class="navTab__faq__right">
             <section class="ticket__out">
-              <h3  id="area1" class="ticket__smallTitle">Ticket</h3>
+              <h3 id="area1" class="ticket__smallTitle">Ticket</h3>
               <div class="ticket">
                 <div class="container">
                   <h5>關於入場券</h5>
@@ -304,36 +307,6 @@
       </div>
     </main>
     <footer id="footer"></footer>
-    <script>
-      $(() => {
-        $("#header").load("topbar.html");
-        $("#footer").load("footer.html");
-      });
-
-      $(function () {
-        // 偵聽a click
-        $(".nav-block div").bind("click", function () {
-          var id = $(this).attr("data-id");
-
-          // 取得目標區塊的y座標
-          var target_top = $("#area" + id).offset().top - 100;
-
-          // 取得body物件 這種寫法在各瀏覽器上最保險
-          var $body = window.opera
-            ? document.compatMode == "CSS1Compat"
-              ? $("html")
-              : $("body")
-            : $("html,body");
-
-          // 移動捲軸有動畫效果
-          $body.animate(
-            {
-              scrollTop: target_top,
-            },
-            800
-          );
-        });
-      });
-    </script>
+    <script src="../js/faq.js"></script>
   </body>
 </html>
