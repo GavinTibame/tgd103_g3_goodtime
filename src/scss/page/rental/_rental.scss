@@ -6,9 +6,22 @@
 
 
 main.rental {
-    max-width: calc(100vw - 100px);
+    // max-width: calc(100vw - 100px);
     margin: 0 auto;
     padding-top: 80px;
+
+    .breadcrumb {
+        padding: 10px 5%;
+
+        @include rwd(1050px) {
+            padding: 10px 7%;
+        }
+
+        @include rwd(766px) {
+            padding: 10px 3%;
+        }
+    }
+
 
     a {
         color: $font-color;
@@ -20,14 +33,7 @@ main.rental {
         @include rwd(768px) {
             background-image: url("../img/rental_join_form/rental.banner/rental_banner_rwd768.jpg");
             height: 300px;
-        }
 
-        @include rwd(428px) {
-            background-image: url("../img/rental_join_form/rental.banner/rental_banner_rwd428.jpg");
-            height: 200px;
-        }
-
-        @include rwd(768px) {
             .banner__eng {
                 font-size: 22px;
                 padding: 2.2rem 2.2rem 1rem;
@@ -38,7 +44,41 @@ main.rental {
             }
         }
 
+        @include rwd(555px) {
+
+            .banner__eng {
+                padding: 2.2rem 1rem 1rem;
+            }
+
+            .banner__zh {
+                padding-left: 14vw;
+                padding-right: 2.2rem;
+            }
+        }
+
+        @include rwd(459px) {
+            .banner__zh {
+                padding-left: 12vw;
+            }
+        }
+
+        @include rwd(456px) {
+
+            .banner__eng {
+                font-size: 21px;
+                padding: 2.2rem 0.4rem 1rem;
+            }
+
+            .banner__zh {
+                font-size: 21px;
+            }
+        }
+
         @include rwd(428px) {
+
+            background-image: url("../img/rental_join_form/rental.banner/rental_banner_rwd428.jpg");
+            height: 200px;
+
             .banner__eng {
                 font-size: 20px;
                 padding: 0.8rem 2.2rem 0.8rem;
@@ -71,9 +111,17 @@ main.rental {
                     font-size: 16px;
                 }
 
+                @include rwd(428px) {
+                    width: 80vw;
+                }
+
                 small {
                     color: $warning-color;
                     font-size: $small;
+
+                    @include rwd(441px) {
+                        padding: 0;
+                    }
                 }
             }
 
@@ -90,7 +138,7 @@ main.rental {
 
                 @include rwd(428px) {
                     font-size: 12px;
-                    margin: 0 auto 10px;
+                    margin: 0 0 20px 62px;
                 }
             }
 
@@ -142,12 +190,25 @@ main.rental {
                 margin: -360px 0 -330px;
             }
 
+            @include rwd(546px) {
+                margin: -397px 0 -370px;
+            }
+
+            @include rwd(456px) {
+                margin: -435px 0 -400px;
+            }
+
             @include rwd(428px) {
                 margin: -440px 0 -410px;
             }
 
+            
+            @include rwd(386px) {
+                margin: -450px 0 -420px;
+            }
+
             svg {
-                width: calc(80vw - 100px);
+                width: calc(80vw);
                 margin: 0 auto;
                 display: block;
             }

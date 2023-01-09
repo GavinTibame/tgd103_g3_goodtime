@@ -11,6 +11,10 @@
     margin-top: 80px;
     max-width: calc(100vw - 116px);
 
+    @include rwd(412px) {
+        max-width: calc(100vw - 60px);
+    }
+
 
     main {
 
@@ -27,7 +31,109 @@
 
             .button {
                 letter-spacing: 5px;
-                padding: 20px 95px;
+                padding: 20px 90px;
+
+                @include rwd(1270px) {
+                    padding: 20px 80px;
+                    margin-top: 0;
+                    margin-right: 25px;
+                    letter-spacing: 3px;
+                }
+
+                @include rwd(1196px) {
+                    padding: 20px 77px;
+                }
+
+                @include rwd(1175px) {
+                    padding: 20px 76px;
+                }
+
+                @include rwd(1166px) {
+                    padding: 20px 75px;
+                }
+
+                @include rwd(1158px) {
+                    padding: 20px 74px;
+                }
+
+                @include rwd(1152px) {
+                    padding: 20px 73px;
+                }
+
+                @include rwd(1144px) {
+                    padding: 20px 70px;
+                }
+
+                @include rwd(1122px) {
+                    padding: 20px 67px;
+                }
+
+                @include rwd(1100px) {
+                    padding: 20px 66px;
+                }
+
+                @include rwd(1092px) {
+                    padding: 20px 65px;
+                }
+
+                @include rwd(552px) {
+                    font-size: 15px;
+                }
+
+                @include rwd(527px) {
+                    padding: 20px 63px;
+                }
+
+                @include rwd(520px) {
+                    padding: 20px 53px;
+                    margin-left: 16px;
+                }
+
+                @include rwd(514px) {
+                    padding: 20px 50px;
+                }
+
+                @include rwd(504px) {
+                    padding: 20px 47px;
+                }
+
+                @include rwd(494px) {
+                    padding: 20px 44px;
+                }
+
+                @include rwd(484px) {
+                    padding: 20px 41px;
+                }
+
+                @include rwd(474px) {
+                    padding: 20px 38px;
+                }
+
+                @include rwd(466px) {
+                    padding: 20px 35px;
+                }
+
+                @include rwd(454px) {
+                    padding: 20px 32px;
+                }
+
+                @include rwd(444px) {
+                    padding: 20px 29px;
+                }
+
+                @include rwd(434px) {
+                    padding: 20px 26px;
+                }
+
+                @include rwd(428px) {
+                    padding: 20px 86px;
+                    margin-left: 0;
+                }
+
+                @include rwd(412px) {
+                    padding: 20px 80px;
+                }
+
 
                 &::before {
                     content: "";
@@ -67,7 +173,7 @@
             margin: 0 auto;
             margin-bottom: 230px;
 
-            @include rwd(768px) {
+            @include rwd(1085px) {
                 display: flex;
                 flex-direction: column;
                 height: auto;
@@ -84,19 +190,29 @@
                 float: left;
                 color: #261C0D;
 
-                @include rwd(768px) {
+                @include rwd(1085px) {
                     width: auto;
                 }
 
                 h3 {
-                    font-size: $h5;
-                    text-align: center;
-                    margin-bottom: 60px;
+                    font-size: 24px;
+                    /* text-align: center; */
+                    /* margin-bottom: 60px; */
+                    margin: 0 auto;
+                    width: 80%;
+                    margin-bottom: 20px;
+                    color: $brown-color;
+                    margin-top: 20px;
 
 
-                    @include rwd(768px) {
+                    @include rwd(1085px) {
                         font-size: $h6;
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
+                    }
+
+                    @include rwd(486px) {
+                        font-size: 15px;
+                        margin-left: 15px;
                     }
 
                     @include rwd(428px) {
@@ -111,7 +227,7 @@
                 margin: 0 auto;
                 line-height: 45px;
 
-                @include rwd(768px) {
+                @include rwd(1085px) {
                     font-size: 14px;
                 }
 
@@ -125,10 +241,9 @@
         }
 
         .event_detail-main-content-right {
-            width: 44%;
-            float: right;
+            display: flex;
 
-            @include rwd(768px) {
+            @include rwd(1085px) {
                 width: auto;
             }
 
@@ -138,7 +253,7 @@
                 padding-top: 15px;
                 margin-bottom: 275px;
 
-                @include rwd(768px) {
+                @include rwd(1085px) {
                     margin-bottom: 0;
                 }
 
@@ -147,17 +262,25 @@
                     width: 100%;
                 }
 
+                @include rwd(412px) {
+                    margin-left: 30px;
+                }
+
                 .event_detail-price {
                     display: block;
                     float: right;
-                    font-size: 40px;
+                    /* font-size: 40px; */
                     color: #618985;
                     font-weight: bold;
                     margin-right: 8%;
-                    font-size: $h5;
+                    font-size: 32px;
 
-                    @include rwd(768px) {
-                        font-size: 18px;
+                    @include rwd(1085px) {
+                        font-size: 28px;
+                    }
+
+                    @include rwd(560px) {
+                        font-size: 20px;
                     }
 
                     @include rwd(428px) {
@@ -171,7 +294,7 @@
                     margin-bottom: 20px;
                     color: #261C0D;
 
-                    @include rwd(768px) {
+                    @include rwd(1085px) {
                         font-size: 14px;
                     }
 
@@ -184,6 +307,10 @@
                     width: calc(79% + 66px);
                     height: 40px;
                     font-size: 20px;
+
+                    @include rwd(1270px) {
+                        width: calc(79% + 39px);
+                    }
                 }
 
                 .event_detail-ticket-type {
@@ -192,7 +319,7 @@
                     outline: none;
                     font-size: $p;
 
-                    @include rwd(768px) {
+                    @include rwd(1085px) {
                         font-size: 14px;
                     }
 
@@ -226,6 +353,26 @@
                         border: 1px solid #C09351;
                         outline: none;
                         font-size: $p;
+
+                        @include rwd(1270px) {
+                            width: 70%;
+                        }
+
+                        @include rwd(1084px) {
+                            width: 75%;
+                        }
+
+                        @include rwd(560px) {
+                            width: 70%;
+                        }
+
+                        @include rwd(466px) {
+                            width: 66%;
+                        }
+
+                        @include rwd(428px) {
+                            width: 72%;
+                        }
                     }
                 }
             }
@@ -267,7 +414,7 @@
             color: #261C0D;
             font-size: $p;
 
-            @include rwd(768px) {
+            @include rwd(1085px) {
                 font-size: 14px;
             }
 

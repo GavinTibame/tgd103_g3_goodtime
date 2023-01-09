@@ -81,7 +81,7 @@ main.aboutAs {
         margin: 0 auto;
 
         @include width_768 {
-            margin: auto 10px auto auto;
+            margin: auto;
         }
 
         .banner__word__img {
@@ -98,7 +98,7 @@ main.aboutAs {
 
             }
 
-            @include width_428 {
+            @include rwd(500px) {
                 height: 130px;
 
             }
@@ -106,6 +106,10 @@ main.aboutAs {
 
         .banner__word {
             width: 800px;
+
+            @include rwd(640px) {
+                width: 100vw;
+            }
 
         }
 
@@ -117,7 +121,7 @@ main.aboutAs {
 
 
             @include rwd(1236px) {
-                padding: 30px 0;
+                padding: 30px 46px;
             }
 
             @include rwd(1100px) {
@@ -128,25 +132,43 @@ main.aboutAs {
                 font-size: 30px;
             }
 
+            @include rwd(780px) {
+                font-size: 28px;
+                padding: 30px 41px;
+            }
+
+
             @include width_768 {
                 font-size: 28px;
-                padding: 41px 30px 30px 0px;
+                padding: 41px 30px 30px 21px;
             }
 
             @include rwd(716px) {
                 font-size: 24px;
-                padding: 30px 0px 6px 0px;
+                padding: 30px 0px 6px 23px;
+            }
+
+            @include rwd(580px) {
+                padding: 30px 0px 6px 5px;
+            }
+
+            @include rwd(500px) {
+                padding: 15px 0px 6px 5px;
+            }
+
+            @include rwd(450px) {
+                font-size: 22px;
             }
 
             @include width_428 {
                 padding: 0;
                 font-size: 18px;
-                margin: 30px 0 10px 0;
+                margin: 30px 0 10px 10px;
                 letter-spacing: 5px;
             }
 
             &::before {
-                width: 0;
+                display: none;
             }
         }
 
@@ -173,7 +195,7 @@ main.aboutAs {
             }
 
             @include width_768 {
-                font-size: 24px;
+                font-size: 20px;
                 margin-left: 25px;
             }
 
@@ -182,10 +204,31 @@ main.aboutAs {
                 margin-left: 45px;
             }
 
+            @include rwd(610px) {
+                font-size: 20px;
+                margin: 20px 0 20px 25px;
+
+            }
+
+            @include rwd(580px) {
+                margin: 20px 0 20px 5px;
+
+            }
+
+            @include rwd(500px) {
+                margin: 0px 0 20px 5px;
+            }
+
+            @include rwd(450px) {
+                font-size: 18px;
+
+            }
+
+
             @include width_428 {
                 padding: 0;
                 font-size: 16px;
-                margin-left: 29px;
+                margin-left: 10px;
             }
 
 
@@ -218,6 +261,16 @@ main.aboutAs {
                 @include rwd(716px) {
                     width: 185%;
                     left: -17px;
+                }
+
+                @include rwd(550px) {
+                    width: 115%;
+                    left: 5px;
+                }
+
+
+                @include rwd(428px) {
+                    width: 155%;
                 }
             }
         }
@@ -256,19 +309,41 @@ main.aboutAs {
             .banner__img__1-1 {
                 display: none;
 
-                @include rwd(646px) {
+                @include rwd(550px) {
                     display: block;
                 }
+
             }
 
-            .banner__img__1,
-            .banner__img__2,
             .banner__img__3 {
-                @include rwd(646px) {
+                @include rwd(640px) {
                     display: none;
                 }
             }
 
+            .banner__img__1,
+            .banner__img__2 {
+                @include rwd(550px) {
+                    display: none;
+                }
+            }
+
+            @include rwd(550px) {
+                img {
+                    max-width: 0%;
+                    width: 60vw;
+                }
+            }
+
+            @include rwd(500px) {
+
+                width: 40vw;
+            }
+
+            @include rwd(420px) {
+
+                width: 30vw;
+            }
         }
 
 
@@ -287,6 +362,13 @@ main.aboutAs {
 
             @include width_428 {
                 max-width: none;
+                margin-left: 50px;
+                width: 30vw;
+            }
+
+            @include rwd(422px) {
+
+                margin-left: 0;
             }
         }
 
@@ -321,8 +403,13 @@ main.aboutAs {
             font-size: 38px;
         }
 
+        @include rwd(450px) {
+            font-size: 30px;
+        }
+
         @include width_428 {
             font-size: 28px;
+            margin-top: 40px;
 
         }
     }
@@ -358,6 +445,10 @@ main.aboutAs {
             font-size: 22px;
         }
 
+        @include rwd(450px) {
+            font-size: 20px;
+        }
+
         @include width_428 {
             font-size: 16px;
             margin-top: 50px;
@@ -382,6 +473,10 @@ main.aboutAs {
         @include width_768 {
             font-size: 20px;
             margin-left: 120px;
+        }
+
+        @include rwd(450px) {
+            margin-left: 105px;
         }
 
         @include width_428 {
@@ -828,6 +923,10 @@ main.aboutAs {
 
                 @include width_428 {
                     font-size: 16px;
+                    padding: 20px 75px;
+                }
+
+                @include rwd(380px) {
                     padding: 20px 80px;
                 }
 
