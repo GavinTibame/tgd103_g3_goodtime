@@ -53,7 +53,7 @@
         <div class="typebox">
           <p>{{productDetail.NOTE}}</p>
           <div class="function-btn-group">
-            <template v-for="(spec, idx) in productDetail.SPEC">
+            <template v-for="(spec, idx) in productDetail.specList">
               <div class="function-btn-group_btn">
                 <label @click="selectSpec(spec)" class="btn btn-default" :for="'c'+idx">
                   <input type="radio" :id="'c'+idx" name="product_color" />
