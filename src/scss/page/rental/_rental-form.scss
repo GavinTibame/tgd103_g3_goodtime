@@ -153,8 +153,13 @@ $width_1280: 1280px;
             right: 43px;
         }
 
-        @include width_428 {
-            right: 62px;
+        
+        @include rwd(760px) {
+            right: 28px;
+        }
+
+        @include rwd(560px) {
+            right: 0;
         }
     }
 
@@ -172,6 +177,15 @@ $width_1280: 1280px;
             padding: 1rem 2rem 1rem;
         }
 
+        
+        @include rwd(560px) {
+            font-size: 24px;
+        }
+
+        @include rwd(480px) {
+            padding: 20px 0 10px 80px;
+        }
+
         @include width_428 {
             font-size: 20px;
             padding: 1rem 1rem 1rem;
@@ -186,7 +200,7 @@ $width_1280: 1280px;
             width: 18vw;
             border-bottom: solid 3px $font-color;
             display: inline-block;
-            margin-right: 2.8rem;
+            margin-right: 0.8rem;
         }
 
         font-size: $h3;
@@ -200,7 +214,12 @@ $width_1280: 1280px;
 
         @include width_900 {
             font-size: 28px;
-            padding-right: 1.2rem;
+            padding-right: 3.2rem;
+        }
+
+        
+        @include rwd(560px) {
+            font-size: 22px;
         }
 
         @include width_428 {

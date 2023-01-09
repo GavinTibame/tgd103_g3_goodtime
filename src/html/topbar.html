@@ -33,9 +33,9 @@
                 <li><a href="faq.html">常見問題</a></li>
             </ul>
             <div class="dividing-line"></div>
-            <div class="member-icon-box">
-                <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
-                <ul>
+            <div class="member-icon-box-2">
+                <a class="head" href="memberCenter.html"><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i></a>
+                <ul id="ul">
                     <li><a href="memberCenter.html">交易查詢</a></li>
                     <li><a href="memberCenter.html">會員資料</a></li>
                     <li><a href="memberCenter.html">會員登出</a></li>
@@ -46,8 +46,16 @@
                     <i class="fa-solid fa-bars"></i>
                 </a>
             </div>
+            <div class="member-icon-box">
+                <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
+                <ul>
+                    <li><a href="memberCenter.html">交易查詢</a></li>
+                    <li><a href="memberCenter.html">會員資料</a></li>
+                    <li><a href="memberCenter.html">會員登出</a></li>
+                </ul>
+            </div>
             <div class="cart-icon-box">
-                <a href="">
+                <a href="shopping_cart01.html">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
@@ -64,7 +72,7 @@
         </div>
         <div class="right-area">
             <div class="cart-icon-box">
-                <a href="">
+                <a href="shopping_cart01.html">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
@@ -86,6 +94,13 @@
         const backToTop = document.getElementById('backToTop');
         backToTop.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
+        })
+
+        //member-icon-2控制
+        let memberIcon2 = document.getElementById('member-icon-2');
+        memberIcon2.addEventListener('click',function(e){
+            e.preventDefault();
+            document.getElementById('ul').classList.toggle('memberOn');
         })
     </script>
 </body>

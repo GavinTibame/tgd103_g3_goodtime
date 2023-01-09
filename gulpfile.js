@@ -80,7 +80,7 @@ function sassMinify() {
         }))
         .pipe(
             rename({
-                extname: ".min.css",
+                extname: ".css",
             })
         )
         .pipe(dest("dist/css"));
@@ -153,7 +153,6 @@ function browser(done) {
 
 //開發用
 exports.default = series(parallel(html, sass2css), browser);
-
 
 // 打包上線用x
 exports.package = series(clear, parallel(html, jsMinify, sassMinify, babel5, imgMinify))

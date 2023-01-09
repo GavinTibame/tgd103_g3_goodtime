@@ -14,7 +14,7 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-member">
+    <div class="b-member" id="app">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -161,10 +161,46 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
     <script>
+        // 連接header
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        //掛載資料庫
+        const app = Vue.createApp({
+            data(){
+                return{
+                apiUrl: "../../.vscode/api/b-member.php",
+                memberArr: []
+                };
+            },
+            watch: {
+                // priceRange(newPriceRange, oldPriceRange){
+                // this.getProducts();
+                // }
+            },
+            computed: {
+                // priceRangeStr(){
+                // this.priceRange.sort(function(a, b){
+                //     return parseInt(a) - parseInt(b);
+                // });
+                // return this.priceRange.join(",");
+                // }
+            },
+            mounted(){
+                this.getMember();
+            },
+            methods: {
+                getMember(){
+                fetch(`${this.apiUrl}?price_range=${this.priceRangeStr}`).then(res => res.json()).then(data => {
+                    //console.log(data);
+                    this.memberArr = data;
+                });
+                }
+            }
+        }).mount("#app");
     </script>
 </body>
 </html>
