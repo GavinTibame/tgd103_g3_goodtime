@@ -33,12 +33,12 @@
                 <li><a href="faq.html">常見問題</a></li>
             </ul>
             <div class="dividing-line"></div>
-            <div class="member-icon-box-2">
-                <a class="head" href="memberCenter.html"><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i></a>
-                <ul id="ul">
-                    <li><a href="memberCenter.html">交易查詢</a></li>
-                    <li><a href="memberCenter.html">會員資料</a></li>
-                    <li><a href="memberCenter.html">會員登出</a></li>
+            <div class="member-icon-box-2" id="member-icon-box-2">
+                <a class="head"><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i></a>
+                <ul id="ul" class="ul">
+                    <li class="li"><a href="memberCenter.html">交易查詢</a></li>
+                    <li class="li"><a href="memberCenter.html">會員資料</a></li>
+                    <li class="li"><a href="memberCenter.html">會員登出</a></li>
                 </ul>
             </div>
             <div class="menu-icon-box" id="menu-icon-box">
@@ -72,11 +72,7 @@
         </div>
         <div class="right-area">
             <div class="cart-icon-box">
-<<<<<<< HEAD
                 <a href="shopping_cart01.html">
-=======
-                <a href="shopping_cart-gavin2.html">
->>>>>>> 488fdaee61b66322cf5af2ab00268aa2a3d2a0b3
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
@@ -91,6 +87,7 @@
         let menu = document.getElementById('topbar-btn-group');
 
         menuIcon.addEventListener('click', function () {
+            console.log('ttt');
             document.getElementById('topbar-btn-group').classList.toggle('on');
         });
 
@@ -102,10 +99,9 @@
 
         //member-icon-2控制
         let memberIcon2 = document.getElementById('member-icon-2');
-        memberIcon2.addEventListener('click',function(e){
-            e.preventDefault();
-            document.getElementById('ul').classList.toggle('memberOn');
-        })
+        memberIcon2.addEventListener('click',function(){
+            document.getElementById('member-icon-box-2').classList.toggle("toggle");
+        });
     </script>
 </body>
 
