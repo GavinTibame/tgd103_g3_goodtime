@@ -7,7 +7,8 @@ $pid = 2;
 function getProductInfo($pid, $pdo){
     $sql = "SELECT PRODUCT.*, 
                 group_concat(PIC.PATH) as path, 
-                group_concat(SPEC.SPEC) as SPEC
+                group_concat(SPEC.SPEC) as SELECTED, 
+                group_concat(SPEC.ID) as SID
             FROM PRODUCT, PRODUCT_PIC PIC, PRODUCT_SPEC SPEC
             WHERE PRODUCT.ID = :pid
                 AND PIC.FK_PRODUCT_PIC_PRODUCT_ID = PRODUCT.ID

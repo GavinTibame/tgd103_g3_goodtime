@@ -55,8 +55,9 @@
           <div class="function-btn-group">
             <template v-for="(spec, idx) in productDetail.SPEC">
               <div class="function-btn-group_btn">
-                <input type="radio" :id="'c'+idx" name="product_color" />
-                <label @click="selectSpec = spec" class="btn btn-default" :for="'c'+idx">{{ spec
+                <label @click="selectSpec(spec)" class="btn btn-default" :for="'c'+idx">
+                  <input type="radio" :id="'c'+idx" name="product_color" />
+                  {{ spec
                   }}</label>
               </div>
             </template>
