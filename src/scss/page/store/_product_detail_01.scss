@@ -227,6 +227,8 @@
     display: flex;
     position: relative;
     margin-bottom: 10px;
+    //注意這一條最後要刪掉 !!!!!!!!!!!!
+    display: none; 
 }
 
 .product-detail .function-btn-group_btn {
@@ -273,6 +275,7 @@
 .function-btn-group_btn label {
     cursor: pointer;
     z-index: 90;
+
 
     @include rwd(768px) {
         font-size: 14px;
