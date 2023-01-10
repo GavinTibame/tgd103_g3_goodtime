@@ -9,6 +9,7 @@ $(document).ready(function() {
 	    var $el = $("#parent > ul >li[data-events-only*='Y']").fadeIn(450);
 	    $('#parent > ul >li').not($el).hide();
 	  }
+
 	  
 	  $btns.removeClass('active');
 	  $(this).addClass('active');
