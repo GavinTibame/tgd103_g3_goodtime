@@ -122,14 +122,14 @@
                 transition: all 0.5s;
             }
             .store-textbox{
-                left: 50%;
+                left: -100%;
                 transition: all 1s;
                 a{
                     color:$font-color;
                 }
             }
             .store-textbox2{
-                left: 50%;
+                left: -100%;
                 transition: all 1s;
 
                
@@ -148,6 +148,8 @@
                     left: 0%;
                     transition: all 1s;
 
+                    }
+                }
                     @include rwd(428px){
                         left: 0%;
                         top: 10%;
@@ -332,6 +334,7 @@
                     transition:unset;
                     }
             }
+           
             .store-textbox{
                 width: 50%;
                 height: 100%;
@@ -339,11 +342,12 @@
                 position: absolute;
                 left: -50%;
                 transition: all 1.5s;
-
+                
                 @include rwd(768px){
-                    width: 70%;
-                    height: 100%;
-                    left: -100%;
+                    // width: 70%;
+                    // height: 100%;
+                    // left: -100%;
+                        }
                     }
                 @include rwd(428px){
                     width: 80%;
@@ -501,8 +505,8 @@
                     }
                 }
             }
-        }
-    }
+        
+    
     .title-box-pos2{
         margin-top: 160px;
 
@@ -669,4 +673,4 @@
                 }
         }
     }
-}
+    
