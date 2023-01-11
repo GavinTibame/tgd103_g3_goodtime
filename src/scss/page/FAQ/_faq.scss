@@ -261,7 +261,6 @@ main.FAQ {
     }
 
     .nav-block {
-
         cursor: pointer;
 
         @include rwd(850px) {
@@ -303,7 +302,7 @@ main.FAQ {
             &:hover {
                 background-color: #f6e6cf;
             }
-        }
+        }        
 
         .title-eng {
             font-size: $h5;

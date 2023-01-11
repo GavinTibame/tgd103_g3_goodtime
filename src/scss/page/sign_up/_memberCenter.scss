@@ -141,7 +141,7 @@
              margin-bottom: 3rem;
 
              nav.nav-bg {
-                 padding: 2rem 3rem 6rem;
+                 padding: 2rem 2.5rem 2rem;
                  height: fit-content;
                  position: sticky;
                  top: 120px;
@@ -340,6 +340,17 @@
          outline: none;
          margin-top: -.5px;
 
+
+         //..........................
+         div.alert_pop {
+             font-size: 16px;
+             line-height: 2;
+
+             div.alert_pop_out {
+                 display: flex;
+             }
+         }
+
          div.pwd-tab {
              @include rwd(745px) {
                  padding: 3rem 1rem 3rem 4rem;
@@ -429,8 +440,17 @@
              }
          }
 
+         input.addr_text {
+             width: 300px;
+             font-size: 16px;
+
+             @include rwd(576px) {
+                 font-size: 14px;
+             }
+         }
+
          &>input {
-            //  display: none;
+             //  display: none;
              min-width: 300px;
              line-height: 1.5rem;
              border: solid 2px $brown-color;
@@ -461,17 +481,17 @@
              }
          }
 
-         .new_label{
-            width: auto;
-            margin-right: 0rem;
+         .new_label {
+             width: auto;
+             margin-right: 0rem;
          }
 
-         .new_task_name{
-            margin-right: 1.8rem;
+         .new_task_name {
+             margin-right: 1.8rem;
          }
 
-         .new-edit-addr{
-            padding-top: 17px;
+         .new-edit-addr {
+             padding-top: 17px;
          }
 
      }

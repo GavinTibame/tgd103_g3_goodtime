@@ -543,6 +543,14 @@ main.aboutAs {
             }
         }
 
+        @include rwd(651px) {
+            display: block;
+
+            img {
+                display: none;
+            }
+        }
+
         @include width_428 {
             p {
                 font-size: 12px;
@@ -566,9 +574,27 @@ main.aboutAs {
                 }
             }
 
+            @include rwd(736px) {
+                p {
+                    margin: 50px 0 50px 10px;
+                }
+            }
+
             @include rwd(716px) {
                 p {
                     margin: 50px 40px 50px 20px;
+                }
+            }
+
+            @include rwd(650px) {
+                p {
+                    margin: 50px 40px 50px 60px;
+                }
+            }
+
+            @include rwd(458px) {
+                p {
+                    margin: 50px 40px 50px 30px;
                 }
             }
 
@@ -591,15 +617,21 @@ main.aboutAs {
                 margin: 30px 40px 0 40px;
             }
 
-            @include width_768 {
-                p {
-                    margin: 30px 0 0 35px;
-                }
-            }
-
             @include rwd(768px) {
                 p {
                     margin: 30px 0 0 14px;
+                }
+            }
+
+            @include rwd(650px) {
+                p {
+                    margin: 30px 0 0 60px;
+                }
+            }
+
+            @include rwd(458px) {
+                p {
+                    margin: 30px 0 0 30px;
                 }
             }
 
@@ -641,6 +673,10 @@ main.aboutAs {
 
             }
 
+            @include rwd(458px) {
+                padding: 0;
+            }
+
 
             @include width_428 {
                 font-size: 12px;
@@ -655,6 +691,10 @@ main.aboutAs {
     img.about__goodtime__para2_img2 {
         display: none;
         margin-top: 30px;
+
+        @include rwd(651px) {
+            display: block;
+        }
 
         @include width_428 {
             display: block;
