@@ -1,5 +1,4 @@
 .sign_up-wrapper{
-    
     .sign_up-bg{
         background-image: url(../../../../src/img/log_in/bg.png);
         background-repeat: no-repeat;
@@ -35,7 +34,6 @@
                 letter-spacing: .68rem;
                 position: relative;
                 white-space:nowrap; 
-
                 &::after{
                     content: '';
                     height: 3px;
@@ -45,7 +43,6 @@
                     position: absolute;
                     right: 61%;
                     bottom: 37px;
-                
                 }
             }
       
@@ -74,7 +71,7 @@
                     text-decoration: none;
     
                     h6.sign_up-h3{
-                        font-size: $p;
+                        font-family: $our-font;
                         position: relative;
                         margin: 0 auto;
                         text-align: center;
@@ -82,13 +79,14 @@
                         text-decoration: none;
                         font-size: 20px;
                         letter-spacing: 0.1rem;
-                        white-space:nowrap; 
+                        white-space:nowrap;
+                        letter-spacing: 2px; 
                     }
     
                     .sign_up-h3::before{
                         content: url(../img/log_in/google\ icon.png);
                         position: absolute;
-                        left: 12%;
+                        left: 22%;
                         top: 15%;
                     }
                 }
@@ -97,6 +95,7 @@
                     margin-bottom: 20px;
                     margin-top: 20px;
                     color: $secondary4-color;
+                    font-family: $our-font;
                 }
                 .sign_up-dotted-line{
                     display: block;
@@ -110,6 +109,7 @@
                         width: 90%;
                         margin-top: 20px;
                         margin-bottom: 10px;
+                        font-family: $our-font;
                     }
 
                     input{
@@ -141,6 +141,9 @@
                 .btn-ctn .button{
                     margin-top: 0;
                     padding: 20px 55px 20px 70px;
+                    span{
+                        font-family: $our-font;
+                    }
                 }
 
                 .sign_up-last-line{
@@ -153,11 +156,13 @@
 
                     a{
                         color: #C09351;
+                        font-family: $our-font;
                     }
 
                     .log_in-singin{
                         text-decoration: none;
                         color: #261C0D;
+                        font-family: $our-font;
                     }
 
                 } 
@@ -168,31 +173,58 @@
         }
 
     }
-
 }
-
-
+@media all and (max-width: 1650px) {
+    .sign_up-wrapper{
+        .sign_up-bg{
+            .sign_up-login-content{
+                .sign_up-login-width{
+                    .sign_up-google-btn{
+                        .sign_up-h3{
+                            &::before{
+                                left: 15%;
+                            }
+                        }
+                    } 
+                } 
+            }
+        }
+    }
+}
+@media all and (max-width: 1330px) {
+    .sign_up-wrapper{
+        .sign_up-bg{
+            .sign_up-login-content{
+                .sign_up-login-width{
+                    .sign_up-google-btn{
+                        .sign_up-h3{
+                            &::before{
+                                content: url(../img/log_in/google\ icon30px.png);
+                                left: 10%;
+                            }
+                        }
+                    } 
+                } 
+            }
+        }
+    }
+}
 @media all and (max-width: $tablet-width) {
-    
     .sign_up-wrapper{
         width: 100%;
-
         .sign_up-bg{
             background-image: url(../../../../src/img/sign_up/bg1024.jpg);
             height: 1145px;
-
             .sign_up-login-box{
                 height: 135px;
-
+                margin-bottom: 60px;
                 h2{
                     font-size: 28px;
                 }
-                
                 h3{
                     font-size: 28px;
                 }
             }
-
             .sign_up-login-content{
                 padding-top: 45px;
                 height: 900px;
@@ -202,12 +234,12 @@
                     .sign_up-google-btn{
                         height: 50px;
 
-                        .sign_up-h3{
+                        h6.sign_up-h3{
                             font-size: 14px;
                             line-height: 50px;
                         }
                         .sign_up-h3::before{
-                            top: 6%;
+                            top: 20%;
                         }
                     }
 
@@ -229,12 +261,33 @@
                     }
                 }
             }
-    
         }   
     }
-
 }
-
+@media all and (max-width: 856px) {
+    .sign_up-wrapper{
+        .sign_up-bg{
+            margin-top: 60px;
+        }
+    }
+}
+@media all and (max-width: 830px) {
+    .sign_up-wrapper{
+        .sign_up-bg{
+            .sign_up-login-content{
+                .sign_up-login-width{
+                    .sign_up-google-btn{
+                        .sign_up-h3{
+                            &::before{
+                                left: 5%;
+                            }
+                        }
+                    } 
+                } 
+            }
+        }
+    }
+}
 @media all and (max-width: 768px){
     .sign_up-wrapper {
         .sign_up-bg {
@@ -248,15 +301,15 @@
                     }
                 }
             }
+            .sign_up-login-content{
+                width: 80%;
+            }
         }
     }
 }
-
 @media all and (max-width: 600px){
-
     .sign_up-wrapper{
         .sign_up-bg{
-            margin-top: 70px;
             .sign_up-login-box{
                 height: 100px;
                 width: 350px;
@@ -280,9 +333,13 @@
                 width: 70%;
                 height: 830px;
                 .sign_up-login-width{
-
+                    .btn__ctn{
+                        .button{
+                            padding: 10px 24px 10px 40px;
+                            font-size: 16px;
+                        }
+                    } 
                     .sign_up-dotted-line{
-
                         p{
                             margin-bottom: 10px;
                         }
@@ -291,18 +348,26 @@
                             font-size: 14px;
                         }
                     }
+                    .sign_up-last-line{
+                        a{
+                            font-size: 14px;
+                        }
+                    } 
                 }
             }
         }
     }
 
 }
-
-@media all and (max-width: 428px){
+@media all and (max-width: 470px){
     .sign_up-wrapper{
         .sign_up-bg{
+            .sign_up-login-box{
+                margin-left: 0;
+                width: 100%;
+            }
             .sign_up-login-content{
-                width: 80%;
+                width: 90%;
             }
         }
     }
