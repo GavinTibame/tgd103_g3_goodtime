@@ -13,7 +13,7 @@
     // $phone = "0987654321";
     // $address = "110台北市信義區莊敬路334號1樓";
 
-    function getMemberList($email){ // 檢查email重覆
+    function getMemberList($email){ // 1. 檢查email重覆
         $sql = "SELECT * from member WHERE email = :email";
 
         $statement = connectDB()->prepare($sql);
@@ -24,7 +24,7 @@
         return $data;
     }
     
-    function addAddress($email, $address){ // 新增bind地址
+    function addAddress($email, $address){ // 3. 新增bind地址
         $data = getMemberList($email);
         
         $mid = $data[0]["ID"];
@@ -39,7 +39,7 @@
     }
 
     function joinMember($email, $pwd, $username, $phone, $address){
-        // 會員註冊
+        // 2. 會員註冊
         $sql = "INSERT INTO member(email, `password`, username, phone)
                 VALUES(:email, :pwd, :username, :phone)";
 
@@ -59,6 +59,6 @@
         echo "已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。";
     }else{
         joinMember($email, $pwd, $username, $phone, $address);
-        echo "會員註冊成功，請重新登入"
+        echo "會員註冊成功，請重新登入";
     }
 ?>
