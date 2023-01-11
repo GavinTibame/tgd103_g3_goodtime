@@ -7,18 +7,17 @@ const createApp = Vue.createApp({
         }
     }, methods: {
         selectSpec(e) {
-            this.selectSpec = e.target.id;
+            this.spec = e.target.id;
+            console.log(this.spec);
         },
         passToCart() { // 加入購物車
-            if (this.selectSpec != "") {
+            if (this.spec != 0) { // 
                 axios.post("../../php/frontend/cartAdd.php",
-                    `pid=${this.productDetail.ID}&
-                    buyQty=${this.orderQty}&
-                    spec=${this.selectSpec}`)
+                    `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.spec}`)
                     .then(res => {
                         if (res.status === 200) {
                             // console.log(res);
-                            window.open("../html/shopping_cart01.html", "shoppingCart01");
+                            window.open("../html/shopping_cart01.html");
                         }
                     })
                     .catch(err => console.log("[cart add]", err));

@@ -6,7 +6,7 @@ $pid = $_POST["pid"];
 $buyQty = $_POST["buyQty"];
 $spec = $_POST["spec"];
 $mid = "5"; // 會員編號先寫死去測
-
+// print_r($_POST);
 function getCart($pdo, $mid, $pid, $spec){
 
     $sql = "SELECT * 
@@ -38,7 +38,8 @@ function updateCart($pdo, $newQty, $cartPid, $mid, $spec){
     $statement->bindValue(":cartPid", $cartPid);
     $statement->bindValue(":mid", $mid);
     $statement->bindValue(":spec", $spec);
-    $statement->execute();
+    $data = $statement->execute();
+    // print_r($data);
 }
 
 function insertCart($pdo, $qty, $mid, $pid, $spec){
@@ -69,9 +70,9 @@ if (count($data) > 0){
     }
 
     $newQty = $buyQty + $previousQty;
-    
-    updateCart(connectDB(), $newQty, $cartPid, $mid, $spec);
-    // updateCart(connectDB(), $newQty, $cartPid, getMemberID());
+    // print_r($cartPid);
+    updateCart(connectDB(), $newQty, $pid, $mid, $spec);
+    // updateCart(connectDB(), $newQty, $cartPid, getMemberID(), $spec);
 
 }else{
     insertCart(connectDB(), $buyQty, $mid, $pid, $spec);

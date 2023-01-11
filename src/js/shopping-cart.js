@@ -24,22 +24,24 @@ const createApp = Vue.createApp({
                 this.selectAll = true;
             } else { this.selectAll = false; }
         }, atDelete(idx, id) {
-            const deleteItem = this.wantList.splice(idx, 1);
-            this.cartList = this.cartList.filter(product => product.id !== id);
-            console.log(deleteItem);
+            const deleteItem = JSON.parse( // 把Proxy轉成Object
+                JSON.stringify(
+                    this.wantList.splice(idx, 1)))[0];
             axios.post("../../php/frontend/cartRemove.php",
-                ``).then(res => {
-                    console.log(res);
-                    // if (res) { }
-                });
-            this.renderCart();
+                `mid=${deleteItem.FK_CART_MEMBER_ID}&pid=${deleteItem.FK_CART_PRODUCT_ID}&sid=${deleteItem.FK_CART_PRODUCT_SPEC_ID}`)
+                .then(res => {
+                    if (res.data === 1) {
+                        console.log("已從購物車移除商品");
+                    }
+                }).catch(err => console.log("[cart remove]", err));
+            this.wantList = this.wantList.filter(product => product.id !== id);
             this.isSelectAll();
+            console.log(this.wantList);
         }, renderCart() {
             axios.get("../../php/frontend/cart.php")
                 .then(res => {
                     this.wantList = res.data;
-                    // console.log(this.wantList);
-                })
+                }).catch(err => console.log("[cart render]", err));
         }
     }, created() {
         this.renderCart()
