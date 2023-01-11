@@ -73,9 +73,7 @@
                     text-decoration: none;
 
                     .log_in-h3 {
-                        // display: block;
                         position: relative;
-                        // width: 44%;
                         margin: 0 auto;
                         white-space:nowrap; 
                         font-size: $p;
@@ -105,7 +103,8 @@
                     p {
                         font-size: 16px;
                         color: $secondary4-color;
-                        margin-left: 20px;
+                        width: 90%;
+                        margin: 0 auto;
                         margin-top: 20px;
                         margin-bottom: 10px;
                     }
@@ -120,7 +119,7 @@
                         margin-bottom: 20px;
                         font-size: 16px;
                         padding-left: 5px;
-                        border:1px solid #261C0D;
+                        border:1px solid $secondary4-color;
                     }
 
                 }
