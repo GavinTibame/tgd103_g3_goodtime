@@ -6,17 +6,15 @@ const createApp = Vue.createApp({
             spec: ""
         }
     }, methods: {
-        selectSpec(spec) {
-            console.log(spec);
-            this.selectSpec = spec;
+        selectSpec(e) {
+            this.selectSpec = e.target.id;
         },
         passToCart() { // 加入購物車
-            console.log(this.selectSpec);
             if (this.selectSpec != "") {
                 axios.post("../../php/frontend/cartAdd.php", `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.selectSpec}`).then(res => {
-                    console.log(res);
                     if (res.status === 200) {
-                        window.open("../html/shopping_cart01.html", "shoppingCart01");
+                        console.log(res);
+                        // window.open("../html/shopping_cart01.html", "shoppingCart01");
                     }
                 }).catch(err => console.log("[cart add]", err));
             }
