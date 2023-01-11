@@ -24,14 +24,24 @@ const createApp = Vue.createApp({
                 this.selectAll = true;
             } else { this.selectAll = false; }
         }, atDelete(idx, id) {
-            this.wantList.splice(idx, 1);
+            const deleteItem = this.wantList.splice(idx, 1);
             this.cartList = this.cartList.filter(product => product.id !== id);
+            console.log(deleteItem);
+            axios.post("../../php/frontend/cartRemove.php",
+                ``).then(res => {
+                    console.log(res);
+                    // if (res) { }
+                });
+            this.renderCart();
             this.isSelectAll();
+        }, renderCart() {
+            axios.get("../../php/frontend/cart.php")
+                .then(res => {
+                    this.wantList = res.data;
+                    // console.log(this.wantList);
+                })
         }
     }, created() {
-        axios.get("../../php/frontend/cart.php").then(res => {
-            this.wantList = res.data;
-            console.log(this.wantList);
-        })
+        this.renderCart()
     }
 }).mount("#shoppingCart1");
