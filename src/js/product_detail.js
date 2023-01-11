@@ -12,7 +12,9 @@ const createApp = Vue.createApp({
         passToCart() { // 加入購物車
             if (this.selectSpec != "") {
                 axios.post("../../php/frontend/cartAdd.php",
-                    `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.selectSpec}`)
+                    `pid=${this.productDetail.ID}&
+                    buyQty=${this.orderQty}&
+                    spec=${this.selectSpec}`)
                     .then(res => {
                         if (res.status === 200) {
                             // console.log(res);
