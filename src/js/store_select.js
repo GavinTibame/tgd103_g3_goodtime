@@ -1,181 +1,160 @@
 
-// let countDownDate = new Date("Feb 9, 2023 12:00:00").getTime();
-// let x = setInterval(function() {
-
-// 	// Get today's date and time
-// 	let now = new Date().getTime();
-  
-// 	// Find the distance between now and the count down date
-// 	let distance = countDownDate - now;
-  
-// 	// Time calculations for days, hours, minutes and seconds
-// 	let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  
-// 	// Display the result in the element with id="demo"
-// 	$("#timer").html(days);
-  
-// 	// If the count down is finished, write some text
-// 	if (distance < 0) {
-// 	  clearInterval(x);
-// 	  $("#timer").html("EXPIRED");
-// 	}
-//   }, 1000);
 
 // ==== 下拉選單的篩選sorting by 活動名稱
 
 let data = [
     {
-        "event": "《Lindsayooo》新興插畫家展",
-		"model": "手繪限定油畫",
-		"price": "$2,000",
-		"image": "../img/store/store01.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "《Lindsayooo》新興插畫家展",
+		model: "手繪限定油畫",
+		price: "$2,000",
+		image: "../img/store/store01.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "韶光限定",
-		"model": "自訂款迷你保溫瓶",
-		"price": "$590",
-		"image": "../img/store/store02.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "自訂款迷你保溫瓶",
+		price: "$590",
+		image: "../img/store/store02.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "日本畫展",
-		"model": "畫家限定簽名",
-		"price": "$5,600",
-		"image": "../img/store/store03.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "畫家限定簽名",
+		price: "$5,600",
+		image: "../img/store/store03.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "日本畫展",
-		"model": "蒙娜麗莎貓貓掛畫",
-		"price": "$960",
-		"image": "../img/store/store04.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "蒙娜麗莎貓貓掛畫",
+		price: "$960",
+		image: "../img/store/store04.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "日本畫展",
-		"model": "貓貓洗頭掛畫",
-		"price": "$900",
-		"image": "../img/store/store05.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "貓貓洗頭掛畫",
+		price: "$900",
+		image: "../img/store/store05.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "韶光限定",
-		"model": "格魯特時鐘",
-		"price": "$560",
-		"image": "../img/store/store06.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "格魯特時鐘",
+		price: "$560",
+		image: "../img/store/store06.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "韶光限定",
-		"model": "惡夢去去捕夢網",
-		"price": "$450",
-		"image": "../img/store/store07.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "惡夢去去捕夢網",
+		price: "$450",
+		image: "../img/store/store07.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "日本畫展",
-		"model": "手繪限量明信片組",
-		"price": "$990",
-		"image": "../img/store/store08.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "手繪限量明信片組",
+		price: "$990",
+		image: "../img/store/store08.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "《Lindsayooo》新興插畫家展",
-		"model": "手繪限量明信片",
-		"price": "$560",
-		"image": "../img/store/store09.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "《Lindsayooo》新興插畫家展",
+		model: "手繪限量明信片",
+		price: "$560",
+		image: "../img/store/store09.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "《ヒグチユウコ》台灣限定特展",
-		"model": "限量手繪絲巾",
-		"price": "$1,600",
-		"image": "../img/store/store10.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "《ヒグチユウコ》台灣限定特展",
+		model: "限量手繪絲巾",
+		price: "$1,600",
+		image: "../img/store/store10.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "日本畫展",
-		"model": "水彩風手繪小卡組",
-		"price": "$560",
-		"image": "../img/store/store11.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "水彩風手繪小卡組",
+		price: "$560",
+		image: "../img/store/store11.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     },
     {
-        "event": "韶光限定",
-		"model": "自訂手工餐盤",
-		"price": "$700",
-		"image": "../img/store/store12.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "自訂手工餐盤",
+		price: "$700",
+		image: "../img/store/store12.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "韶光限定",
-		"model": "限定手繡毛巾",
-		"price": "$560",
-		"image": "../img/store/store13.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "限定手繡毛巾",
+		price: "$560",
+		image: "../img/store/store13.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "韶光限定",
-		"model": "文青手帳本",
-		"price": "$400",
-		"image": "../img/store/store14.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "文青手帳本",
+		price: "$400",
+		image: "../img/store/store14.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "韶光限定",
-		"model": "創作者御用顏料",
-		"price": "$560",
-		"image": "../img/store/store15.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "創作者御用顏料",
+		price: "$560",
+		image: "../img/store/store15.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "韶光限定",
-		"model": "DIY毛線聖誕樹",
-		"price": "$560",
-		"image": "../img/store/store16.jpg",
-		"type": "韶光限定",
-		"countdown": "",
-		"events_only": ""
+        event: "韶光限定",
+		model: "DIY毛線聖誕樹",
+		price: "$560",
+		image: "../img/store/store16.jpg",
+		type: "韶光限定",
+		countdown: "",
+		events_only: ""
     },
     {
-        "event": "日本畫展",
-		"model": "山形實木杯墊",
-		"price": "$560",
-		"image": "../img/store/store17.jpg",
-		"type": "展覽限定",
-		"countdown": "倒數3天",
-		"events_only": "Y"
+        event: "日本畫展",
+		model: "山形實木杯墊",
+		price: "$560",
+		image: "../img/store/store17.jpg",
+		type: "展覽限定",
+		countdown: "倒數3天",
+		events_only: "Y"
     }    
 ];
 
@@ -192,6 +171,8 @@ for (let i = 0; i < data.length; i++) {
 		type = data[i].type,
 		countdown = data[i].countdown,
 		events_only = data[i].events_only;
+
+
 	
 	//create product cards
 	products += `
@@ -260,3 +241,6 @@ $(".filter").on("change",function() {
 // =====================
 
 
+
+
+ 
