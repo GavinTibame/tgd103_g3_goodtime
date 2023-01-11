@@ -65,25 +65,28 @@
                 .log_in-google-btn {
                     display: block;
                     margin: 0 auto;
-                    height: 70px;
+                    width: 90%;
+                    line-height: 60px;
                     background-color: #CFB58F;
+                    color: #fff;
                     text-align: center;
-                    line-height: 70px;
                     text-decoration: none;
 
                     .log_in-h3 {
-                        display: block;
+                        // display: block;
                         position: relative;
-                        width: 44%;
+                        // width: 44%;
                         margin: 0 auto;
                         white-space:nowrap; 
+                        font-size: $p;
+                        // border: 1px solid red;
                     }
 
                     .log_in-h3::before {
                         content: url(../img/log_in/google\ icon.png);
                         position: absolute;
-                        left: -55px;
-                        top: 18%;
+                        left: 20%;
+                        top: 15%;
                     }
                 }
 
@@ -91,6 +94,7 @@
                     text-align: center;
                     margin-bottom: 20px;
                     margin-top: 20px;
+                    color: $secondary4-color;
                 }
 
                 .log_in-dotted-line {
@@ -100,50 +104,65 @@
 
                     p {
                         font-size: 16px;
+                        color: $secondary4-color;
                         margin-left: 20px;
-                        margin-top: 15px;
-                        margin-bottom: 25px;
+                        margin-top: 20px;
+                        margin-bottom: 10px;
                     }
 
                     input {
                         display: block;
+                        outline: 0;
                         margin: 0 auto;
-                        width: 95%;
-                        height: 50px;
+                        width: 90%;
+                        height: 30px;
                         border-radius: 3px;
                         margin-bottom: 20px;
                         font-size: 16px;
-                        border-color: #261C0D;
+                        padding-left: 5px;
+                        border:1px solid #261C0D;
                     }
 
                 }
 
-                button {
-                    display: block;
-                    margin: 0 auto;
-                    width: 200px;
-                    height: 50px;
-                    background-color: #533C1B;
-                    border: none;
-                    color: #fff;
-                    font-size: 16px;
+                // button {
+                //     display: block;
+                //     margin: 0 auto;
+                //     width: 200px;
+                //     height: 50px;
+                //     background-color: #533C1B;
+                //     border: none;
+                //     color: #fff;
+                //     font-size: 16px;
+                // }
+
+                .btn__ctn .button, 
+                .btn-ctn .button{
+                    margin-top: 0;
+                    padding: 20px 55px 20px 70px;
                 }
 
                 .log_in-last-line {
-                    padding-top: 25px;
-                    width: 200px;
-                    display: block;
                     margin: 0 auto;
+                    margin-top: 25px;
+                    // border: 1px solid red;
 
-                    .log_in-singin {
-                        float: left;
-                        text-decoration: none;
+                    ul{
+                        display: flex;
+                        justify-content: space-between;   
+                        
+                        li a.log_in-signup {
+                            text-decoration: none;
+                            color: $primary2-color;
+                        }
+    
+                        li a.log_in-foreget-pwd {
+                            text-decoration: none;
+                            color: $primary2-color;
+                        }
                     }
 
-                    .log_in-foreget-pwd {
-                        float: right;
-                        text-decoration: none;
-                    }
+
 
                 }
 
@@ -155,29 +174,30 @@
     }
 
 }
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-foreget-pwd {
-    float: right;
-    text-decoration: none;
-    transform: scale(1.2);
-    color: #C09351;
-}
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn {
-    display: block;
-    margin: 0 auto;
-    height: 70px;
-    background-color: #CFB58F;
-    text-align: center;
-    line-height: 70px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0.1rem;
-}
-.log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-singin{
-    transform: scale(1.2);
-    color: #C09351;
-}
+// .log_in-wrapper .log_in-bg .log_in-login-content 
+//.log_in-login-width .log_in-last-line .log_in-foreget-pwd {
+//     float: right;
+//     text-decoration: none;
+//     transform: scale(1.2);
+//     color: #C09351;
+// }
+// .log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-google-btn {
+//     display: block;
+//     margin: 0 auto;
+//     height: 70px;
+//     background-color: #CFB58F;
+//     text-align: center;
+//     line-height: 70px;
+//     color: #fff;
+//     text-decoration: none;
+//     font-weight: 700;
+//     font-size: 20px;
+//     letter-spacing: 0.1rem;
+// }
+// .log_in-wrapper .log_in-bg .log_in-login-content .log_in-login-width .log_in-last-line .log_in-signup{
+//     transform: scale(1.2);
+//     color: #C09351;
+// }
 @media all and (max-width: $tablet-width) {
     
     .log_in-wrapper{
