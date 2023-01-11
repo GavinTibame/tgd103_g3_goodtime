@@ -182,7 +182,24 @@
         }
     }
 }
-@media all and (max-width: $mobile-width){
+@media all and (max-width: 630px){
+    .footer{
+        .top-group-position{
+            .top-group{
+                .footer-btn-group{
+                    ul{
+                        li{
+                            a{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 547px){
     .footer {
         height: 395px;
         .logo-box{
@@ -198,7 +215,6 @@
             flex-wrap: wrap;
             .social-btn-group{
                 display: block;
-                font-size: 24px;
                 position: absolute;
                 left: 44px;
                 top: 117px;

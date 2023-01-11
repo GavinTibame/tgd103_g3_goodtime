@@ -15,6 +15,14 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+  <!-- 月曆 -->
+  <!-- jQuery-->
+  <!-- Moment.js v2.20.0 -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.0/moment.min.js"></script>
+  <!-- FullCalendar v3.8.1 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css" rel="stylesheet"  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css" rel="stylesheet" media="print"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js"></script>  
   <title>首頁 - 韶光文創園區</title>
 </head>
 
@@ -27,28 +35,41 @@
           <img src="../img/logo/logo2.png" alt="">
         </a>
       </div>
-      <ul class="topbar-btn-group" id="topbar-btn-group">
-        <li><a href="about.html">關於韶光</a></li>
-        <li><a href="new.html">最新消息</a></li>
-        <li><a href="event.html">展演活動</a></li>
-        <li><a href="rental.html">場地租借</a></li>
-        <li><a href="shops.html">風格好店</a></li>
-        <li><a href="store.html">文創商城</a></li>
-        <li><a href="faq.html">常見問題</a></li>
-      </ul>
-      <div class="dividing-line"></div>
-      <div class="member-icon-box">
-        <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
-        <ul>
-          <li><a href="memberCenter.html">交易查詢</a></li>
-          <li><a href="memberCenter.html">會員資料</a></li>
-          <li><a href="memberCenter.html">會員登出</a></li>
+        <ul class="topbar-btn-group" id="topbar-btn-group">
+          <li><a href="about.html">關於韶光</a></li>
+          <li><a href="new.html">最新消息</a></li>
+          <li><a href="event.html">展演活動</a></li>
+          <li><a href="rental.html">場地租借</a></li>
+          <li><a href="shops.html">風格好店</a></li>
+          <li><a href="store.html">文創商城</a></li>
+          <li><a href="faq.html">常見問題</a></li>
         </ul>
-      </div>
-      <div class="menu-icon-box" id="menu-icon-box">
-        <a>
-          <i class="fa-solid fa-bars"></i>
-        </a>
+        <div class="dividing-line"></div>
+        <div class="member-icon-box-2" id="member-icon-box-2">
+          <a class="head"><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i></a>
+          <ul id="ul" class="ul">
+              <li class="li"><a href="memberCenter.html">交易查詢</a></li>
+              <li class="li"><a href="memberCenter.html">會員資料</a></li>
+              <li class="li"><a href="memberCenter.html">會員登出</a></li>
+          </ul>
+        </div>
+        <div class="menu-icon-box" id="menu-icon-box">
+          <a>
+            <i class="fa-solid fa-bars"></i>
+          </a>
+        </div>
+        <div class="member-icon-box">
+          <a class="head" href="memberCenter.html"><i class="fa-solid fa-user member-icon"></i></a>
+          <ul>
+            <li><a href="memberCenter.html">交易查詢</a></li>
+            <li><a href="memberCenter.html">會員資料</a></li>
+            <li><a href="memberCenter.html">會員登出</a></li>
+          </ul>
+        </div>
+        <div class="cart-icon-box">
+          <a href="shopping_cart01.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+          </a>
       </div>
     </div>
     <div class="left-area">
@@ -79,13 +100,6 @@
         <p>← BACK TO TOP</p>
       </a>
     </div>
-    <!-- <div class="Bread-crumbs">
-          <ul>
-              <li><a href="">崖上的波妞特展</a></li>
-              <li><i class="fa-solid fa-caret-right"></i></li>
-              <li><a href="">展演活動</a></li>
-          </ul>
-      </div> -->
   </header>
   <div class="index-wrapper">
     <div id="anchor0" class="carousel">
@@ -194,9 +208,7 @@
       <h3 class="title-1">EVENT CALENDAR</h3>
       <h3 class="title-2">精彩活動</h3>
     </div>
-    <div id="calendar" class="calendar">
-      <img src="../img/index/event-calendar.png" alt="">
-    </div>
+    <div id="example" class="example"></div>
   </div>
   <div class="index-aboutus" id="anchor3">
     <div class="aboutus-left">
@@ -212,11 +224,26 @@
         希望來此的遊客能體會單純美好的幸福<br>
         並在駐足的過程中<br>
         創造只屬於自己的溫馨時光與回憶</p>
+      <div class="wrapper primary-ctn">
+        <div class="btn-primary">
+            <a href="">
+                <div class="btn-text">
+                    <p>View More</p>
+                </div>
+                <div class="btn-circle"></div>
+                <div class="btn-line"></div>
+                <div class="btn-arrow"></div>
+                <span class="btn-inner"></span>
+            </a>
+        </div>
+      </div>    
     </div>
   </div>
   <div class="index-shops" id="anchor4">
-    <h3 class="title-1">SHOPS</h3>
-    <h3 class="title-2">風格好店</h3>
+    <div class="title">
+      <h3 class="title-1">SHOPS</h3>
+      <h3 class="title-2">風格好店</h3>  
+    </div>
     <div class="owl-two owl-carousel">
       <div class="item">
         <div>
@@ -301,14 +328,10 @@
 
   <div id="footer"></div>
   <script>
-    // $('#calendar').fullCalendar();
 
     $(() => {
-      // $("#header").load("topbar.html");
       $("#footer").load("footer.html");
     });
-
-
 
     //輪播
     $(document).ready(function () {
@@ -387,10 +410,6 @@
 
     const desc = document.querySelectorAll('.desc');
 
-    // for (var i = 0; i < news_data.length; i++) {
-    //     desc[i].innerHTML = news_data[i].substring(0, 100) + '...';
-    // }
-
     //限制字數
     if (window.screen.width <= 430) {
       for (var i = 0; i < news_data.length; i++) {
@@ -411,6 +430,47 @@
     backToTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
+
+    //月曆
+    $( "#example" ).fullCalendar({
+          // 參數設定[註1]
+        header: { // 頂部排版
+            left: "prev,next today", // 左邊放置上一頁、下一頁和今天
+            center: "title", // 中間放置標題
+            right: "month,basicWeek,basicDay" // 右邊放置月、周、天
+        },
+        defaultDate: "2023-01-1", // 起始日期
+        weekends: true, // 顯示星期六跟星期日
+        editable: true,  // 啟動拖曳調整日期
+        locale:'zh-tw',
+        events: [ // 事件
+            { // 事件
+                title: "約會",
+                start: "2023-01-01"
+            },
+            { // 事件(包含開始時間)
+                title: "中餐",
+                start: "2023-01-12T12:00:00"
+                      },
+            { // 事件(包含跨日開始時間、結束時間)
+                title: "音樂節",
+                start: "2023-01-07",
+                end: "2023-01-10"
+            },
+            { // 事件(包含開始時間、結束時間)
+                title: "會議",
+                start: "2023-01-12T10:30:00",
+                end: "2023-01-12T12:30:00",
+                height: "20%"
+            },
+            { // 事件(設定連結)
+                title: "Click for Google",
+                src: "event_detail.html",
+                start: "2023-01-28"
+            }
+        ]
+    });
+
   </script>
   <script src="../js/topbar.js"></script>
 </body>

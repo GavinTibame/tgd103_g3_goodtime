@@ -60,26 +60,24 @@
                 display: block;
                 margin: 0 auto;
                 width: 80%;
+
                 .sign_up-google-btn{
                     display: block;
                     margin: 0 auto;
-                    height: 70px;
+                    width: 90%;
+                    line-height: 60px;
                     background-color: #CFB58F;
+                    color: #fff;
                     text-align: center;
-                    line-height: 70px;
                     text-decoration: none;
     
-                    .sign_up-h3{
-                        display: block;
+                    h6.sign_up-h3{
+                        font-size: $p;
                         position: relative;
-                        width: 44%;
                         margin: 0 auto;
-                        height: 70px;
                         text-align: center;
-                        line-height: 70px;
                         color: #fff;
                         text-decoration: none;
-                        font-weight: 700;
                         font-size: 20px;
                         letter-spacing: 0.1rem;
                         white-space:nowrap; 
@@ -88,14 +86,15 @@
                     .sign_up-h3::before{
                         content: url(../img/log_in/google\ icon.png);
                         position: absolute;
-                        left: -55px;
-                        top: 18%;
+                        left: 12%;
+                        top: 15%;
                     }
                 }
                 .sign_up-or{
                     text-align: center;
                     margin-bottom: 20px;
                     margin-top: 20px;
+                    color: $secondary4-color;
                 }
                 .sign_up-dotted-line{
                     display: block;
@@ -104,33 +103,44 @@
 
                      p{
                         font-size: 16px;
-                        margin-left: 20px;
-                        margin-top: 15px;
-                        margin-bottom: 25px;
+                        color: $secondary4-color;
+                        margin: 0 auto;
+                        width: 90%;
+                        margin-top: 20px;
+                        margin-bottom: 10px;
                     }
 
                     input{
                         display: block;
+                        outline: 0;
                         margin: 0 auto;
-                        width: 95%;
-                        height: 50px;
+                        width: 90%;
+                        height: 30px;
                         border-radius: 3px;
                         margin-bottom: 20px;
                         font-size: 16px;
-                        border-color: #261C0D;
+                        padding-left: 5px;
+                        border:1px solid $secondary4-color;
                     }
 
                 }
-                button{
-                    display: block;
-                    margin: 0 auto;
-                    width: 200px;
-                    height: 50px;
-                    background-color: #533C1B;
-                    border: none;
-                    color: #fff;
-                    font-size: 16px;
+                // button{
+                //     display: block;
+                //     margin: 0 auto;
+                //     width: 200px;
+                //     height: 50px;
+                //     background-color: #533C1B;
+                //     border: none;
+                //     color: #fff;
+                //     font-size: 16px;
+                // }
+
+                .btn__ctn .button, 
+                .btn-ctn .button{
+                    margin-top: 0;
+                    padding: 20px 55px 20px 70px;
                 }
+
                 .sign_up-last-line{
                     padding-top: 25px;
                     width: 200px;
