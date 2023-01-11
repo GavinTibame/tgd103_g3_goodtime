@@ -78,12 +78,12 @@
 
 .topbar {
     .top-area{
-        height: 60px;
-        .member-icon-box-2{
-            ul{
-                display: none;
-            }
-        }
+        height: 80px;
+        // .member-icon-box-2{
+        //     ul{
+        //         display: none;
+        //     }
+        // }
     }
     .member-icon-box-2{
         display: none;
@@ -396,13 +396,11 @@
     /* border-right: #533C1B solid 1px; */
 }
 
-.topbar .top-area .on {
-    right: 0;
-    transition: all 1s;
-}
-.topbar .top-area .member-icon-box-2 .memberOn{
-    display: block;
-}
+// .topbar .top-area .on {
+//     right: 0;
+//     transition: all 1s;
+// }
+
 @media all and (max-width: 1260px) {
     .topbar {
         .logo-box {
@@ -435,7 +433,7 @@
                     width: 45px;
                     height: 45px;
                     margin-left: -35px;
-                    margin-top: 5px;
+                    margin-top: -2px;
                 }
             }
         }
@@ -457,19 +455,15 @@
             display: block;
             z-index: 5;
         }
-        }
-        .top-area_shadowbox {
-            height: 60px;
-        }
         .top-area { 
             height: 60px;
             .member-icon-box{
-                display: none;
+            display: none;
             }
             .cart-icon-box{
                 display: block;
                 position: absolute;
-                right: 10%;
+                right: 10.5%;
                 top: 20px;
                     a{
                         i{
@@ -497,14 +491,20 @@
                     }
                 }
             }
+            .topbar-btn-group.on{
+                right: 0;
+                transition: all 1s;        
+            }
             .member-icon-box-2{
                 display: block;
                 position: absolute;
                 right: 15%;
                 width: 80px;
                 text-align: center;
-                height: 110px;
+                height: 40px;                
                 margin-top: 20px;
+                transition: all 1s;
+                overflow: hidden;
                 a{
                     margin: 0 auto;
                     .member-icon-2{
@@ -512,9 +512,15 @@
                         font-size: 24px;
                     }
                 }
-                ul{
+                .ul{
                     background-color: #fff;
                     margin-top: 15px;
+                    height: 90px;
+                    position: absolute;
+                    top: 25px;
+                    left: 0px;
+                    width: 85px;
+                    transition: all 1s;
                     li{
                         margin-top: 10px;
                         margin-bottom: 10px;
@@ -523,9 +529,16 @@
                         }
                     }
                 }
-
+    
+            }
+            .member-icon-box-2.toggle{
+                height: 120px;
             }
         }
+    }
+    .top-area_shadowbox {
+        height: 60px;
+    }
     .right-area{
         .cart-icon-box{
             display: none;
