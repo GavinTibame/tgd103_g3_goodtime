@@ -423,6 +423,7 @@
       }
     }
 
+    //Back To Top
     for (var i = 0; i < news_data.length; i++) {
       desc[i].innerHTML = news_data[i].substring(0, 100) + "...";
     }
@@ -469,6 +470,21 @@
                 start: "2023-01-28"
             }
         ]
+    });
+
+    //漢堡線控制
+    let menuIcon = document.getElementById('menu-icon-box');
+    let menu = document.getElementById('topbar-btn-group');
+
+    menuIcon.addEventListener('click', function () {
+      document.getElementById('topbar-btn-group').classList.toggle('on');
+    });
+
+
+    //member-icon-2控制
+    let memberIcon2 = document.getElementById('member-icon-2');
+    memberIcon2.addEventListener('click',function(){
+    document.getElementById('member-icon-box-2').classList.toggle("toggle");
     });
 
   </script>

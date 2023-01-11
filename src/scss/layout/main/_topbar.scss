@@ -8,7 +8,6 @@
     height: 80px;
     box-shadow: 0px 10px 20px 0px rgba(160, 160, 160, 0.2);
 }
-
 .topbar .top-area {
     position: fixed;
     top: 0;
@@ -17,7 +16,6 @@
     background: linear-gradient(180deg, rgb(240, 240, 240), #fff);
     z-index: 100;
 }
-
 .topbar .logo-box {
     display: inline-block;
     margin-top: 15px;
@@ -26,24 +24,20 @@
     height: 50px;
     transition: all 0.5s;
 }
-
 .topbar .logo-box:hover {
     transform: scale(1.1);
 }
-
 .topbar .logo-box>a {
     display: block;
     width: 100%;
     height: 100%;
 }
-
 .topbar .logo-box>a>img {
     display: inline-block;
     width: 100%;
     height: 100%;
     /* border-right: #533C1B solid 1px; */
 }
-
 .topbar .topbar-btn-group {
     position: absolute;
     top: 0;
@@ -51,18 +45,15 @@
     width: 60%;
     height: 100%;
 }
-
 .topbar .topbar-btn-group>li {
     display: inline-block;
     margin-top: 30px;
     /* 這邊好像可以少一點 跟logo對齊 20左右?*/
     margin-left: 20px;
 }
-
 .topbar .topbar-btn-group>li:first-child {
     margin-left: 40px;
 }
-
 .topbar .topbar-btn-group>li>a {
     color: #533C1B;
     text-decoration: none;
@@ -71,11 +62,9 @@
     font-weight: 700;
     transition: all 0.5s;
 }
-
 .topbar .topbar-btn-group>li>a:hover {
     color: #C09351;
 }
-
 .topbar {
     .top-area{
         height: 80px;
@@ -140,7 +129,6 @@
         display: none;
     }
 }
-
 .topbar .menu-icon-box {
     position: absolute;
     top: 16px;
@@ -149,7 +137,6 @@
     display: none;
     color: $brown-color;
 }
-
 /* left-area */
 .topbar .left-area {
     position: fixed;
@@ -162,7 +149,6 @@
     box-shadow: 0px 10px 20px 0px rgba(137, 137, 137, 0.2);
     background-color: white;
 }
-
 .topbar .left-area>p {
     position: absolute;
     top: 55%;
@@ -175,7 +161,6 @@
     transform: rotate(-90deg);
     letter-spacing: .2rem;
 }
-
 .topbar .social-btn-group {
     position: absolute;
     bottom: 0;
@@ -440,7 +425,7 @@
         .member-icon-box {
             background-color:rgba(255,0,0,0);
             top: 15px;
-            right: 15%;
+            right: 18%;
             width: 44px;
             height: 38px;
                 .head{
@@ -454,6 +439,7 @@
         .menu-icon-box {
             display: block;
             z-index: 5;
+            right: 20px;
         }
         .top-area { 
             height: 60px;
@@ -463,7 +449,7 @@
             .cart-icon-box{
                 display: block;
                 position: absolute;
-                right: 10.5%;
+                right: 84px;
                 top: 20px;
                     a{
                         i{
@@ -498,7 +484,7 @@
             .member-icon-box-2{
                 display: block;
                 position: absolute;
-                right: 15%;
+                right: 120px;
                 width: 80px;
                 text-align: center;
                 height: 40px;                
