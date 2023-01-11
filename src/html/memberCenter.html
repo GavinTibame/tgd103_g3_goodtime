@@ -50,7 +50,6 @@
                   <div>
                     <h6 class="title-eng">Coupon</h6>
                     <p class="title-zh">優惠券</p>
-                    <div class="title"></div>
                   </div>
                 </li>
               </ul>
@@ -69,39 +68,51 @@
                   </button>
                 </li>
               </ul>
-              <!--------------------------------------------------->
+              <!---------------------------修改地址----------------------------->
               <div class="tab-content" id="item_acc-block">
-                <div class="addr-tab">
+                <div class="alert_pop" v-if="popup !== false">
+                  確定要刪除此地址嗎？
+                  <div class="alert_pop_out">
+                    <div class="alert_pop_yes" @click="confirm()">Yes</div>
+                    <div class="alert_pop_no" @click="popup = false">No</div>
+                  </div>
+                </div>
+                <div class="addr-tab" v-if="currentTab === 'tab1'">
                   <!--             item= 陣列裡的第幾筆   index=整個陣列資料-->
-                  <component
-                    v-for="(item, index) in addr"
-                  >
+                  <component v-for="(item, index) in addr">
                     <div class="addr-col">
                       <!--             v-if = true 顯示資料，所以edit = true，edit可以自己取名 -->
-                      <label for="addr1" >
+                      <label :for="'addr'+index">
                         <input
                           type="radio"
                           name="addr"
-                          id="addr1"
-                          value="addr1" 
+                          :id="'addr'+index"
+                          :value="'addr'+index"
                         />
-                        <!--                    資料    地址 -->
-                        <div id="memberAddr1" v-if="item.clickId === 'edit'">{{item.addrText}}</div>
+                        <!--                         資料    地址 -->
+                        <div id="memberAddr1" v-if="item.clickId === 'edit'">
+                          {{item.addrText}}
+                        </div>
+                        <input
+                          type="text"
+                          name=""
+                          class="addr_text"
+                          id=""
+                          placeholder=""
+                          v-if="item.clickId !== 'edit'"
+                          v-model="item.addrText"
+                        />
                       </label>
-                      <input
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder=""
-                        v-if="item.clickId !== 'edit'"
-                        v-model="item.addrText"
-                      />
                       <button class="edit-addr" @click="changehtml(index)">
                         <span class="material-symbols-outlined">
                           edit_note
                         </span>
                       </button>
-                      <button class="edit-addr" @click="deletehtml(index)">
+                      <button
+                        class="edit-addr"
+                        @click="deletehtml(index)"
+                        :disabled="addr.length===1"
+                      >
                         <span class="material-symbols-outlined"> delete </span>
                       </button>
                     </div>
@@ -112,25 +123,25 @@
                       <span>新增地址</span>
                     </button>
                   </div>
+                </div>
                 <!----------------------------修改密碼------------------------->
-                  <div class="pwd-tab">
-                    <div>
-                      <label for="prevPwd">目前密碼</label
-                      ><input type="password" name="prevPwd" id="prevPwd" />
-                    </div>
-                    <div>
-                      <label for="newPwd">新密碼</label
-                      ><input type="password" name="newPwd" id="newPwd" />
-                    </div>
-                    <div>
-                      <label for="cfmPwd">確認新密碼</label
-                      ><input type="password" name="cfmPwd" id="cfmPwd" />
-                    </div>
-                    <div class="btn__ctn">
-                      <button id="add-addr" class="button" type="submit">
-                        <span>確認修改</span>
-                      </button>
-                    </div>
+                <div class="pwd-tab" v-if="currentTab === 'tab2'">
+                  <div>
+                    <label for="prevPwd">目前密碼</label
+                    ><input type="password" name="prevPwd" id="prevPwd" />
+                  </div>
+                  <div>
+                    <label for="newPwd">新密碼</label
+                    ><input type="password" name="newPwd" id="newPwd" />
+                  </div>
+                  <div>
+                    <label for="cfmPwd">確認新密碼</label
+                    ><input type="password" name="cfmPwd" id="cfmPwd" />
+                  </div>
+                  <div class="btn__ctn">
+                    <button id="add-addr" class="button" type="submit">
+                      <span>確認修改</span>
+                    </button>
                   </div>
                 </div>
               </div>

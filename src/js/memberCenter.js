@@ -45,6 +45,7 @@ var app = Vue.createApp({
   data() {
     return {
       currentTab: "tab1",
+      popup: false,
       tabs: [
         {
           id: "tab1",
@@ -68,13 +69,9 @@ var app = Vue.createApp({
     };
   },
   //頁籤tab切換
-  computed: {
-    current_tab_component() {
-      return this.currentTab + "_content";
-    },
-  },
+  computed: {},
   methods: {
-    //修改資料按鈕
+    //修改及確認資料按鈕
     changehtml(e) {
       // console.log(e)，這裡的e = index
       if (this.addr[e].clickId === "edit") {
@@ -82,81 +79,48 @@ var app = Vue.createApp({
       } else {
         this.addr[e].clickId = "edit";
       }
+      //使用者輸入空字串後跳出彈窗提醒
+      if (this.addr[e].addrText == "") {
+        // alert("請輸入您的地址");
+        this.addr[e].clickId = "noEdit";
+      }
     },
 
     //新增地址按鈕
     addAddr() {
-      this.addr.push({
-        addrText: "",
-        clickId: "noEdit",
-      });
+      //            抓陣列的最後一筆資料
+      if (this.addr[this.addr.length - 1].addrText != "") {
+        if (this.addr[this.addr.length - 1].clickId === "edit") {
+          this.addr.push({
+            addrText: "",
+            clickId: "noEdit",
+          });
+        } else {
+          alert("請先確認您的地址");
+        }
+      } else {
+        alert("請先輸入您的地址");
+      }
     },
+
     //刪除鈕
+
     deletehtml(e) {
-      this.addr.splice(e, 1);
+      //如果input不是空字串，移除時會跳alert
+      if (this.addr[e].addrText != "") {
+        this.popup = e; // e = index
+      } else {
+        //如果input是空字串，直接移除
+        this.addr.splice(e, 1);
+      }
+    },
+
+    //刪除確認彈窗
+    confirm() {
+      this.addr.splice(this.popup, 1);
+      this.popup = false;
     },
   },
-});
-
-/*
-app.component("tab1_content", {
-  template: `
-      <div class="addr-tab">
-        <div class="addr-col">
-          <label for="addr1"><input type="radio" name="addr" id="addr1" value="addr1">
-            <div id="memberAddr1">目前地址1</div>
-          </label>
-          <input type="text" name="" id="" placeholder="目前地址1">
-          <button class="edit-addr">
-            <span class="material-symbols-outlined"> edit_note </span>
-          </button>
-          <button class="edit-addr">
-            <span class="material-symbols-outlined"> delete </span>
-          </button></div>
-          <div class="addr-col">
-            <label for="addr2">
-              <input type="radio" name="addr" id="addr2" value="addr2">
-              <div id="memberAddr2" style="display: block;"> 104台北市中山區南京東路三段219號5樓 </div>
-            </label><input type="text" name="" id="" placeholder="104台北市中山區南京東路三段219號5樓" style="display: none;">
-            <button class="edit-addr">
-              <span class="material-symbols-outlined"> select_check_box </span>
-            </button><button class="edit-addr">
-              <span class="material-symbols-outlined"> delete </span>
-            </button></div><div class="btn__ctn">
-              <textarea name="" id="new-addr" cols="30" rows="10" placeholder="請輸入新增的地址"></textarea>
-            </div>
-            <div class="btn__ctn">
-              <button id="add-addr" class="button" >
-                <span>新增地址</span>
-                </button>
-            </div>
-            </div>
-`,
-});
-*/
-
-app.component("tab2_content", {
-  template: `
-  <div class="pwd-tab">
-            <div>
-              <label for="prevPwd">目前密碼</label
-              ><input type="password" name="prevPwd" id="prevPwd" />
-            </div>
-            <div>
-              <label for="newPwd">新密碼</label
-              ><input type="password" name="newPwd" id="newPwd" />
-            </div>
-            <div>
-              <label for="cfmPwd">確認新密碼</label
-              ><input type="password" name="cfmPwd" id="cfmPwd" />
-            </div>
-            <div class="btn__ctn">
-              <button id="add-addr" class="button" type="submit">
-                <span>確認修改</span>
-              </button>
-            </div>
-          </div>
-`,
 });
 
 app.mount("#item_acc-block");
