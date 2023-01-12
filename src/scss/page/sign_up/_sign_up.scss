@@ -3,6 +3,7 @@
         background-image: url(../../../../src/img/log_in/bg.png);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         width: 100%;
         height: 1600px;
         margin-top: 80px;
@@ -21,6 +22,10 @@
                 letter-spacing: .8rem;
                 padding: 4rem 5.2rem 1rem;
                 white-space:nowrap; 
+
+                @include rwd(1200px){
+                    font-size: 28px;
+                }
             }
 
             h3{
@@ -34,6 +39,32 @@
                 letter-spacing: .68rem;
                 position: relative;
                 white-space:nowrap; 
+
+                @include rwd(1200px){
+                    font-size: 24px;
+                    padding-left: 20vw;
+                }
+
+                @include rwd(1100px){
+                    padding-left: 22vw;
+                }
+
+                @include rwd(1000px){
+                    padding-left: 24vw;
+                }
+
+                @include rwd(950px){
+                    padding-left: 26vw;
+                }
+
+                @include rwd(850px){
+                    padding-left: 28vw;
+                }
+
+                @include rwd(700px){
+                    padding-left: 29vw;
+                }
+
                 &::after{
                     content: '';
                     height: 3px;
@@ -43,6 +74,38 @@
                     position: absolute;
                     right: 61%;
                     bottom: 37px;
+
+                    @include rwd(1200px){
+                        right: 60%;
+                    }
+
+                    @include rwd(1100px){
+                        right: 58%;
+                    }
+
+                    @include rwd(1000px){
+                        right: 52%;
+                        width: 21%;
+                        height: 2px;
+                    }
+
+                    @include rwd(950px){
+                        right: 50%;
+                    }
+
+                    @include rwd(900px){
+                        right: 49%;
+                        width: 22%;
+                    }
+
+                    @include rwd(850px){
+                        right: 47%;
+                    }
+
+                    @include rwd(800px){
+                        right: 45%;
+                    }
+
                 }
             }
       
@@ -222,7 +285,7 @@
                     font-size: 28px;
                 }
                 h3{
-                    font-size: 28px;
+                    font-size: 24px;
                 }
             }
             .sign_up-login-content{
@@ -292,12 +355,15 @@
     .sign_up-wrapper {
         .sign_up-bg {
             .sign_up-login-box {
+                h2{
+                    padding-left: 3.2rem;
+                }
                 h3 {
-                    padding-left: 19vw;
+                    padding-left: 25vw;
                     padding-right: 0;
                     &::after {
                         // display: none;
-                        width: 12%;
+                        right: 55%;
                     }
                 }
             }
@@ -307,6 +373,23 @@
         }
     }
 }
+
+@media all and (max-width: 700px){
+    .sign_up-wrapper {
+        .sign_up-bg {
+            .sign_up-login-box {
+                h3 {
+                    padding-left: 27vw;
+                    padding-right: 0;
+                    &::after {
+                        right: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+}
 @media all and (max-width: 600px){
     .sign_up-wrapper{
         .sign_up-bg{
@@ -315,13 +398,10 @@
                 width: 350px;
                 h2{
                     font-size: 20px;
-                    text-align: center;
                 }
                 
                 h3{
                     font-size: 20px;
-                    text-align: center;
-                    padding-left: 0;
                     &::after{
                         display: none;
                     }
