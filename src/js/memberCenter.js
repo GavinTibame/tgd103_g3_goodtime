@@ -326,3 +326,13 @@ app.component("tab2_content", {
 });
 
 app.mount("#item_po-block");
+
+$("button.edit-addr").on("click", function () {
+  $("div.overlay").fadeIn();
+});
+
+
+$("div.overlay > article").on("click", function (e) {
+  e.stopPropagation();
+});
+
