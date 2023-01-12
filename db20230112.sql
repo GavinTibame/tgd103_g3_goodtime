@@ -22,17 +22,23 @@ DROP TABLE IF EXISTS `ADDRESS`;
 
 CREATE TABLE `ADDRESS` (
   `ID` int NOT NULL AUTO_INCREMENT COMMENT '地址編號',
-  `ZIP` varchar(5) NOT NULL,
-  `REGION` varchar(45) NOT NULL COMMENT '省市',
-  `DISTRICT` varchar(45) NOT NULL COMMENT '區域',
+  `ZIP` varchar(5) DEFAULT NULL,
+  `REGION` varchar(45) DEFAULT NULL COMMENT '省市',
+  `DISTRICT` varchar(45) DEFAULT NULL COMMENT '區域',
   `LOCATION` varchar(256) NOT NULL COMMENT '詳細地址',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  `FK_ADDRESS_MEMBER_ID` int DEFAULT NULL COMMENT 'FK_會員編號',
+  PRIMARY KEY (`ID`),
+  KEY `FK_ADDRESS_MEMBER_ID_idx` (`FK_ADDRESS_MEMBER_ID`),
+  CONSTRAINT `FK_ADDRESS_MEMBER_ID` FOREIGN KEY (`FK_ADDRESS_MEMBER_ID`) REFERENCES `MEMBER` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `ADDRESS` */
 
-insert  into `ADDRESS`(`ID`,`ZIP`,`REGION`,`DISTRICT`,`LOCATION`) values 
-(1,'104','台北市','中山區','南京東路三段219號5樓');
+insert  into `ADDRESS`(`ID`,`ZIP`,`REGION`,`DISTRICT`,`LOCATION`,`FK_ADDRESS_MEMBER_ID`) values 
+(1,'104','台北市','中山區','南京東路三段219號5樓',5),
+(2,'','','','台北市松山區敦化北路100號2樓',5),
+(3,NULL,NULL,NULL,'110台北市信義區莊敬路334號1樓',7),
+(7,NULL,NULL,NULL,'100台北市中正區濟南路一段321號',38);
 
 /*Table structure for table `BOOKING` */
 
@@ -81,13 +87,14 @@ CREATE TABLE `CART` (
   CONSTRAINT `FK_CART_MEMBER_ID` FOREIGN KEY (`FK_CART_MEMBER_ID`) REFERENCES `MEMBER` (`ID`),
   CONSTRAINT `FK_CART_PRODUCT_ID` FOREIGN KEY (`FK_CART_PRODUCT_ID`) REFERENCES `PRODUCT` (`ID`),
   CONSTRAINT `FK_CART_PRODUCT_SPEC_ID` FOREIGN KEY (`FK_CART_PRODUCT_SPEC_ID`) REFERENCES `PRODUCT_SPEC` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `CART` */
 
 insert  into `CART`(`ID`,`QTY`,`CART_DATE`,`FK_CART_MEMBER_ID`,`FK_CART_PRODUCT_ID`,`FK_CART_PRODUCT_SPEC_ID`) values 
 (1,2,'2022-12-26 11:32:07',5,1,4),
-(2,5,'2023-01-08 15:04:04',5,2,1);
+(3,1,'2023-01-09 17:54:24',5,2,2),
+(24,3,'2023-01-12 19:27:05',5,2,1);
 
 /*Table structure for table `EXPO` */
 
@@ -195,21 +202,20 @@ CREATE TABLE `MEMBER` (
   `EMAIL` varchar(100) NOT NULL COMMENT '會員電郵',
   `PASSWORD` varchar(45) NOT NULL COMMENT '會員密碼',
   `PHONE` varchar(10) NOT NULL COMMENT '會員電話',
-  `VERIFY` tinyint(1) NOT NULL COMMENT '會員狀態',
-  `FK_ADDRESS_ID` int NOT NULL COMMENT '會員地址編號',
-  `FK_ROLE_ID` int NOT NULL COMMENT '會員權限代碼',
+  `VERIFY` tinyint(1) NOT NULL DEFAULT '0' COMMENT '會員狀態',
+  `FK_ROLE_ID` int NOT NULL DEFAULT '2' COMMENT '會員權限代碼',
   PRIMARY KEY (`ID`),
-  KEY `FK_ADDRESS_ID_idx` (`FK_ADDRESS_ID`),
   KEY `FK_ROLE_ID_idx` (`FK_ROLE_ID`),
-  CONSTRAINT `FK_ADDRESS_ID` FOREIGN KEY (`FK_ADDRESS_ID`) REFERENCES `ADDRESS` (`ID`),
   CONSTRAINT `FK_ROLE_ID` FOREIGN KEY (`FK_ROLE_ID`) REFERENCES `ROLE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `MEMBER` */
 
-insert  into `MEMBER`(`ID`,`USERNAME`,`EMAIL`,`PASSWORD`,`PHONE`,`VERIFY`,`FK_ADDRESS_ID`,`FK_ROLE_ID`) values 
-(1,'admin','admin@goodtime.com','g3_@dmin','0987654321',0,1,1),
-(5,'member1','member@goodtime.com','member1','0987654321',0,1,2);
+insert  into `MEMBER`(`ID`,`USERNAME`,`EMAIL`,`PASSWORD`,`PHONE`,`VERIFY`,`FK_ROLE_ID`) values 
+(1,'admin','admin@goodtime.com','g3_@dmin','0987654321',0,1),
+(5,'member1','member@goodtime.com','member1','0987654321',0,2),
+(7,'member2','member2@goodtime.com','member2','0987654321',0,2),
+(38,'member3','member3@goodtime.com','member3','0987654321',0,2);
 
 /*Table structure for table `PAGE` */
 
@@ -286,8 +292,8 @@ CREATE TABLE `PRODUCT` (
   `PRODUCT_NAME` varchar(100) NOT NULL COMMENT '商品名稱',
   `PERIOD` varchar(35) NOT NULL COMMENT '銷售期間',
   `STATUS` tinyint(1) NOT NULL COMMENT '商品頁狀態',
-  `HIDE` tinyint(1) NOT NULL COMMENT '隱藏賣場',
-  `PRICE` mediumint NOT NULL COMMENT '商品單價',
+  `HIDE` tinyint(1) NOT NULL DEFAULT '0' COMMENT '隱藏賣場',
+  `PRICE` mediumint NOT NULL DEFAULT '0' COMMENT '商品單價',
   `DESC` mediumtext COMMENT '商品描述',
   `MAIN_PHOTO` varchar(256) DEFAULT NULL COMMENT '商品主圖',
   `STOCK_QTY` smallint NOT NULL COMMENT '庫存數量',
@@ -450,7 +456,6 @@ DROP TABLE IF EXISTS `b_member_detail`;
  `PASSWORD` varchar(45) ,
  `PHONE` varchar(10) ,
  `VERIFY` tinyint(1) ,
- `FK_ADDRESS_ID` int ,
  `FK_ROLE_ID` int ,
  `ZIP` varchar(5) ,
  `REGION` varchar(45) ,
@@ -563,102 +568,6 @@ DROP TABLE IF EXISTS `b_rental_detail`;
  `STATUS` tinyint(1) 
 )*/;
 
-/*Table structure for table `f_cart_1` */
-
-DROP TABLE IF EXISTS `f_cart_1`;
-
-/*!50001 DROP VIEW IF EXISTS `f_cart_1` */;
-/*!50001 DROP TABLE IF EXISTS `f_cart_1` */;
-
-/*!50001 CREATE TABLE  `f_cart_1`(
- `ID` int ,
- `QTY` smallint ,
- `PRODUCT_NAME` varchar(100) ,
- `PRICE` mediumint ,
- `MAIN_PHOTO` varchar(256) ,
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PASSWORD` varchar(45) ,
- `PHONE` varchar(10) ,
- `VERIFY` tinyint(1) ,
- `FK_ADDRESS_ID` int ,
- `ZIP` varchar(5) ,
- `REGION` varchar(45) ,
- `DISTRICT` varchar(45) ,
- `LOCATION` varchar(256) 
-)*/;
-
-/*Table structure for table `f_cart_2` */
-
-DROP TABLE IF EXISTS `f_cart_2`;
-
-/*!50001 DROP VIEW IF EXISTS `f_cart_2` */;
-/*!50001 DROP TABLE IF EXISTS `f_cart_2` */;
-
-/*!50001 CREATE TABLE  `f_cart_2`(
- `ID` int ,
- `QTY` smallint ,
- `PRODUCT_NAME` varchar(100) ,
- `PRICE` mediumint ,
- `MAIN_PHOTO` varchar(256) ,
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PASSWORD` varchar(45) ,
- `PHONE` varchar(10) ,
- `VERIFY` tinyint(1) ,
- `FK_ADDRESS_ID` int ,
- `ZIP` varchar(5) ,
- `REGION` varchar(45) ,
- `DISTRICT` varchar(45) ,
- `LOCATION` varchar(256) 
-)*/;
-
-/*Table structure for table `f_cart_3` */
-
-DROP TABLE IF EXISTS `f_cart_3`;
-
-/*!50001 DROP VIEW IF EXISTS `f_cart_3` */;
-/*!50001 DROP TABLE IF EXISTS `f_cart_3` */;
-
-/*!50001 CREATE TABLE  `f_cart_3`(
- `ID` int ,
- `FREIGHT` smallint ,
- `ETD` date ,
- `SHIP_DATE` date ,
- `BL` varchar(45) ,
- `STATUS` tinyint ,
- `STATUS_DATE` timestamp ,
- `STATUS_REASON` varchar(128) ,
- `PO_NOTE` varchar(256) ,
- `CS_PO_NOTE` varchar(256) ,
- `CREATE_DATE` timestamp ,
- `FK_PO_MEMBER_ID` int ,
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PHONE` varchar(10) 
-)*/;
-
-/*Table structure for table `f_cart_base` */
-
-DROP TABLE IF EXISTS `f_cart_base`;
-
-/*!50001 DROP VIEW IF EXISTS `f_cart_base` */;
-/*!50001 DROP TABLE IF EXISTS `f_cart_base` */;
-
-/*!50001 CREATE TABLE  `f_cart_base`(
- `ID` int ,
- `QTY` smallint ,
- `PRODUCT_NAME` varchar(100) ,
- `PRICE` mediumint ,
- `MAIN_PHOTO` varchar(256) ,
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PASSWORD` varchar(45) ,
- `PHONE` varchar(10) ,
- `VERIFY` tinyint(1) ,
- `FK_ADDRESS_ID` int 
-)*/;
-
 /*Table structure for table `f_expo` */
 
 DROP TABLE IF EXISTS `f_expo`;
@@ -719,37 +628,6 @@ DROP TABLE IF EXISTS `f_index_2`;
  `TITLE` varchar(100) ,
  `EDIT_DATE` timestamp ,
  `DESC` varchar(100) 
-)*/;
-
-/*Table structure for table `f_member_center` */
-
-DROP TABLE IF EXISTS `f_member_center`;
-
-/*!50001 DROP VIEW IF EXISTS `f_member_center` */;
-/*!50001 DROP TABLE IF EXISTS `f_member_center` */;
-
-/*!50001 CREATE TABLE  `f_member_center`(
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PASSWORD` varchar(45) ,
- `PHONE` varchar(10) ,
- `VERIFY` tinyint(1) ,
- `ZIP` varchar(5) ,
- `REGION` varchar(45) ,
- `DISTRICT` varchar(45) ,
- `LOCATION` varchar(256) ,
- `ID` int ,
- `FREIGHT` smallint ,
- `ETD` date ,
- `SHIP_DATE` date ,
- `BL` varchar(45) ,
- `STATUS` tinyint ,
- `STATUS_DATE` timestamp ,
- `STATUS_REASON` varchar(128) ,
- `PO_NOTE` varchar(256) ,
- `CS_PO_NOTE` varchar(256) ,
- `CREATE_DATE` timestamp ,
- `FK_PO_MEMBER_ID` int 
 )*/;
 
 /*Table structure for table `f_news` */
@@ -873,7 +751,7 @@ DROP TABLE IF EXISTS `f_store_product`;
 /*!50001 DROP TABLE IF EXISTS `b_member_detail` */;
 /*!50001 DROP VIEW IF EXISTS `b_member_detail` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `b_member_detail` AS select `m`.`ID` AS `ID`,`m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PASSWORD` AS `PASSWORD`,`m`.`PHONE` AS `PHONE`,`m`.`VERIFY` AS `VERIFY`,`m`.`FK_ADDRESS_ID` AS `FK_ADDRESS_ID`,`m`.`FK_ROLE_ID` AS `FK_ROLE_ID`,`a`.`ZIP` AS `ZIP`,`a`.`REGION` AS `REGION`,`a`.`DISTRICT` AS `DISTRICT`,`a`.`LOCATION` AS `LOCATION` from (`member` `m` join `address` `a` on((`m`.`FK_ADDRESS_ID` = `a`.`ID`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `b_member_detail` AS select `m`.`ID` AS `ID`,`m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PASSWORD` AS `PASSWORD`,`m`.`PHONE` AS `PHONE`,`m`.`VERIFY` AS `VERIFY`,`m`.`FK_ROLE_ID` AS `FK_ROLE_ID`,`a`.`ZIP` AS `ZIP`,`a`.`REGION` AS `REGION`,`a`.`DISTRICT` AS `DISTRICT`,`a`.`LOCATION` AS `LOCATION` from (`member` `m` join `address` `a` on((`m`.`ID` = `a`.`FK_ADDRESS_MEMBER_ID`))) */;
 
 /*View structure for view b_news_detail */
 
@@ -910,34 +788,6 @@ DROP TABLE IF EXISTS `f_store_product`;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `b_rental_detail` AS select `l`.`ID` AS `ID`,`l`.`NAME` AS `NAME`,`l`.`PRICE` AS `PRICE`,`l`.`DESC` AS `DESC`,`l`.`DEVICE` AS `DEVICE`,`l`.`RULE` AS `RULE`,`l`.`AREA` AS `AREA`,`l`.`MAIN_PHOTO` AS `MAIN_PHOTO`,`l`.`LOCATED` AS `LOCATED`,`l`.`STATUS` AS `STATUS` from `location` `l` */;
 
-/*View structure for view f_cart_1 */
-
-/*!50001 DROP TABLE IF EXISTS `f_cart_1` */;
-/*!50001 DROP VIEW IF EXISTS `f_cart_1` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_cart_1` AS select `fcb`.`ID` AS `ID`,`fcb`.`QTY` AS `QTY`,`fcb`.`PRODUCT_NAME` AS `PRODUCT_NAME`,`fcb`.`PRICE` AS `PRICE`,`fcb`.`MAIN_PHOTO` AS `MAIN_PHOTO`,`fcb`.`USERNAME` AS `USERNAME`,`fcb`.`EMAIL` AS `EMAIL`,`fcb`.`PASSWORD` AS `PASSWORD`,`fcb`.`PHONE` AS `PHONE`,`fcb`.`VERIFY` AS `VERIFY`,`fcb`.`FK_ADDRESS_ID` AS `FK_ADDRESS_ID`,`a`.`ZIP` AS `ZIP`,`a`.`REGION` AS `REGION`,`a`.`DISTRICT` AS `DISTRICT`,`a`.`LOCATION` AS `LOCATION` from (`f_cart_base` `fcb` join `address` `a` on((`fcb`.`FK_ADDRESS_ID` = `a`.`ID`))) */;
-
-/*View structure for view f_cart_2 */
-
-/*!50001 DROP TABLE IF EXISTS `f_cart_2` */;
-/*!50001 DROP VIEW IF EXISTS `f_cart_2` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_cart_2` AS select `f_cart_1`.`ID` AS `ID`,`f_cart_1`.`QTY` AS `QTY`,`f_cart_1`.`PRODUCT_NAME` AS `PRODUCT_NAME`,`f_cart_1`.`PRICE` AS `PRICE`,`f_cart_1`.`MAIN_PHOTO` AS `MAIN_PHOTO`,`f_cart_1`.`USERNAME` AS `USERNAME`,`f_cart_1`.`EMAIL` AS `EMAIL`,`f_cart_1`.`PASSWORD` AS `PASSWORD`,`f_cart_1`.`PHONE` AS `PHONE`,`f_cart_1`.`VERIFY` AS `VERIFY`,`f_cart_1`.`FK_ADDRESS_ID` AS `FK_ADDRESS_ID`,`f_cart_1`.`ZIP` AS `ZIP`,`f_cart_1`.`REGION` AS `REGION`,`f_cart_1`.`DISTRICT` AS `DISTRICT`,`f_cart_1`.`LOCATION` AS `LOCATION` from `f_cart_1` */;
-
-/*View structure for view f_cart_3 */
-
-/*!50001 DROP TABLE IF EXISTS `f_cart_3` */;
-/*!50001 DROP VIEW IF EXISTS `f_cart_3` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_cart_3` AS select `po`.`ID` AS `ID`,`po`.`FREIGHT` AS `FREIGHT`,`po`.`ETD` AS `ETD`,`po`.`SHIP_DATE` AS `SHIP_DATE`,`po`.`BL` AS `BL`,`po`.`STATUS` AS `STATUS`,`po`.`STATUS_DATE` AS `STATUS_DATE`,`po`.`STATUS_REASON` AS `STATUS_REASON`,`po`.`PO_NOTE` AS `PO_NOTE`,`po`.`CS_PO_NOTE` AS `CS_PO_NOTE`,`po`.`CREATE_DATE` AS `CREATE_DATE`,`po`.`FK_PO_MEMBER_ID` AS `FK_PO_MEMBER_ID`,`m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PHONE` AS `PHONE` from (`po` join `member` `m` on((`po`.`FK_PO_MEMBER_ID` = `m`.`ID`))) where (`po`.`CREATE_DATE` = now()) */;
-
-/*View structure for view f_cart_base */
-
-/*!50001 DROP TABLE IF EXISTS `f_cart_base` */;
-/*!50001 DROP VIEW IF EXISTS `f_cart_base` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_cart_base` AS select `c`.`ID` AS `ID`,`c`.`QTY` AS `QTY`,`p`.`PRODUCT_NAME` AS `PRODUCT_NAME`,`p`.`PRICE` AS `PRICE`,`p`.`MAIN_PHOTO` AS `MAIN_PHOTO`,`m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PASSWORD` AS `PASSWORD`,`m`.`PHONE` AS `PHONE`,`m`.`VERIFY` AS `VERIFY`,`m`.`FK_ADDRESS_ID` AS `FK_ADDRESS_ID` from ((`cart` `c` join `product` `p` on((`c`.`FK_CART_PRODUCT_ID` = `p`.`ID`))) join `member` `m` on((`c`.`FK_CART_MEMBER_ID` = `m`.`ID`))) */;
-
 /*View structure for view f_expo */
 
 /*!50001 DROP TABLE IF EXISTS `f_expo` */;
@@ -965,13 +815,6 @@ DROP TABLE IF EXISTS `f_store_product`;
 /*!50001 DROP VIEW IF EXISTS `f_index_2` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_index_2` AS select `i`.`TITLE` AS `TITLE`,`i`.`EDIT_DATE` AS `EDIT_DATE`,`it`.`DESC` AS `DESC` from (`info` `i` join `info_type` `it` on((`i`.`FK_INFO_TYPE_ID` = `it`.`ID`))) */;
-
-/*View structure for view f_member_center */
-
-/*!50001 DROP TABLE IF EXISTS `f_member_center` */;
-/*!50001 DROP VIEW IF EXISTS `f_member_center` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_member_center` AS select `m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PASSWORD` AS `PASSWORD`,`m`.`PHONE` AS `PHONE`,`m`.`VERIFY` AS `VERIFY`,`a`.`ZIP` AS `ZIP`,`a`.`REGION` AS `REGION`,`a`.`DISTRICT` AS `DISTRICT`,`a`.`LOCATION` AS `LOCATION`,`po`.`ID` AS `ID`,`po`.`FREIGHT` AS `FREIGHT`,`po`.`ETD` AS `ETD`,`po`.`SHIP_DATE` AS `SHIP_DATE`,`po`.`BL` AS `BL`,`po`.`STATUS` AS `STATUS`,`po`.`STATUS_DATE` AS `STATUS_DATE`,`po`.`STATUS_REASON` AS `STATUS_REASON`,`po`.`PO_NOTE` AS `PO_NOTE`,`po`.`CS_PO_NOTE` AS `CS_PO_NOTE`,`po`.`CREATE_DATE` AS `CREATE_DATE`,`po`.`FK_PO_MEMBER_ID` AS `FK_PO_MEMBER_ID` from ((`member` `m` join `address` `a` on((`m`.`FK_ADDRESS_ID` = `a`.`ID`))) join `po` on((`po`.`FK_PO_MEMBER_ID` = `m`.`ID`))) */;
 
 /*View structure for view f_news */
 

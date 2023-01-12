@@ -2,19 +2,19 @@
 
     include("../connect.php");
 
-    $email = $_POST["email"];
-    $pwd = $_POST["pwd"];
-    $username = $_POST["username"];
-    $phone = $_POST["phone"];
-    $address = $_POST["address"];
-    // $email = "member2@goodtime.com";
-    // $pwd = "member2";    
-    // $username = "member2";
-    // $phone = "0987654321";
-    // $address = "110台北市信義區莊敬路334號1樓";
+    // $email = $_POST["email"];
+    // $pwd = $_POST["pwd"];
+    // $username = $_POST["username"];
+    // $phone = $_POST["phone"];
+    // $address = $_POST["address"];
+    $email = "member3@goodtime.com";
+    $pwd = "member3";    
+    $username = "member3";
+    $phone = "0987654321";
+    $address = "100台北市中正區濟南路一段321號";
 
     function getMemberList($email){ // 1. 檢查email重覆
-        $sql = "SELECT * from member WHERE email = :email";
+        $sql = "SELECT * from MEMBER WHERE EMAIL = :email";
 
         $statement = connectDB()->prepare($sql);
         $statement->bindValue(":email", $email);
@@ -24,33 +24,44 @@
         return $data;
     }
     
-    function addAddress($email, $address){ // 3. 新增bind地址
-        $data = getMemberList($email);
+    // function addAddress($email, $address){ // 3. 新增bind地址
+    //     $data = getMemberList($email);
         
-        $mid = $data[0]["ID"];
+    //     $mid = $data[0]["ID"];
         
-        $sql = "INSERT INTO `address`(`location`, fk_address_member_id)
-                VALUES(:address, :mid)";
-    
-        $statement = connectDB()->prepare($sql);
-        $statement->bindValue(":address", $address);
-        $statement->bindValue(":mid", $mid);
-        $statement->execute();
-    }
+        
+    // }
 
     function joinMember($email, $pwd, $username, $phone, $address){
         // 2. 會員註冊
-        $sql = "INSERT INTO member(email, `password`, username, phone)
+        $dbn = connectDB();
+        $dbn ->beginTransaction();
+        $sql = "INSERT INTO MEMBER(EMAIL, `PASSWORD`, USERNAME, PHONE)
                 VALUES(:email, :pwd, :username, :phone)";
 
-        $statement = connectDB()->prepare($sql);
+        $statement = $dbn ->prepare($sql);
         $statement->bindValue(":email", $email);
         $statement->bindValue(":pwd", $pwd);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":phone", $phone);
         $statement->execute();
-
-        addAddress($email, $address);
+        
+        // $statement = $dbn ->query("SELECT LAST_INSERT_ID()");
+        $mid = $dbn ->lastInsertId();
+        print_r( $dbn ->lastInsertId());
+        if(empty($mid)){
+            // $dbn ->rollBack();
+            echo "失敗";
+        }else{
+            $sql = "INSERT INTO `ADDRESS`(`LOCATION`, FK_ADDRESS_MEMBER_ID)
+                    VALUES(:address, :mid)";
+        
+            $statement =  $dbn->prepare($sql);
+            $statement->bindValue(":address", $address);
+            $statement->bindValue(":mid", $mid);
+            $statement->execute();
+             $dbn ->commit();
+            }
     }
 
     $data = getMemberList($email);
