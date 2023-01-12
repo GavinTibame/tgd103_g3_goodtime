@@ -7,7 +7,7 @@
     $pwd = $_POST["pwd"];
     // $email = "member2@goodtime.com";
     // $pwd = "member2";
-    $sql = "SELECT * FROM member WHERE verify = 0 AND email = :email AND `password` = :pwd";
+    $sql = "SELECT * FROM MEMBER WHERE VERIFY = 0 AND EMAIL = :email AND `PASSWORD` = :pwd";
 
     $statement = connectDB()->prepare($sql);
     $statement->bindValue(":email", $email);
