@@ -440,33 +440,28 @@
             center: "title", // 中間放置標題
             right: "month,basicWeek,basicDay" // 右邊放置月、周、天
         },
-        defaultDate: "2023-01-1", // 起始日期
+        defaultDate: "2023-01-10", // 起始日期
         weekends: true, // 顯示星期六跟星期日
-        editable: true,  // 啟動拖曳調整日期
+        editable: false,  // 啟動拖曳調整日期
         locale:'zh-tw',
         events: [ // 事件
             { // 事件
-                title: "約會",
+                title: "《名窯瓷器》琺瑯彩瓷特展",
                 start: "2023-01-01"
             },
-            { // 事件(包含開始時間)
-                title: "中餐",
-                start: "2023-01-12T12:00:00"
-                      },
             { // 事件(包含跨日開始時間、結束時間)
-                title: "音樂節",
+                title: "《流體藝術》暈染雙人流體畫展",
                 start: "2023-01-07",
                 end: "2023-01-10"
             },
             { // 事件(包含開始時間、結束時間)
-                title: "會議",
+                title: "《新海城》童話特展",
                 start: "2023-01-12T10:30:00",
                 end: "2023-01-12T12:30:00",
-                height: "20%"
             },
             { // 事件(設定連結)
-                title: "Click for Google",
-                src: "event_detail.html",
+                title: "《Lindsayooo》新興畫家特展",
+                url: "https://tibamef2e.com/tgd103/g3/dist_2/html/event_detail.html",
                 start: "2023-01-28"
             }
         ]
