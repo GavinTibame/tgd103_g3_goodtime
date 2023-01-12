@@ -2,11 +2,11 @@
 
     include("../connect.php");
 
-    $email = $_POST["email"];
-    $pwd = $_POST["pwd"];
-    $username = $_POST["username"];
-    $phone = $_POST["phone"];
-    $address = $_POST["address"];
+    $email = $_POST["user_email"];
+    $pwd = $_POST["user_password"];
+    $username = $_POST["user_name"];
+    $phone = $_POST["user_phone"];
+    $address = $_POST["user_addr"];
     // $email = "member2@goodtime.com";
     // $pwd = "member2";    
     // $username = "member2";

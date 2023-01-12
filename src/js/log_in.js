@@ -23,3 +23,18 @@ function handleCallback(response) {
   console.log(data);
 }
 
+//忘記密碼燈箱
+
+// 開啟彈跳視窗
+$("a.log_in-foreget-pwd").on("click", function () {
+  $("div.overlay").fadeIn();
+});
+
+// 確認送出按鈕
+$("button.btn_modal_close, div.overlay").on("click", function (e) {
+  $("div.overlay").fadeOut();
+});
+
+$("div.overlay > article").on("click", function (e) {
+  e.stopPropagation();
+});
