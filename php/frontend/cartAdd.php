@@ -10,11 +10,11 @@ $mid = "5"; // 會員編號先寫死去測
 function getCart($pdo, $mid, $pid, $spec){
 
     $sql = "SELECT * 
-            FROM cart, product_spec spec 
-            WHERE fk_cart_member_id = :mid 
-            AND fk_cart_product_id = :pid
-            AND cart.fk_cart_product_spec_id = :spec
-            AND cart.fk_cart_product_id = spec.fk_product_spec_product_id";
+            FROM CART, PRODUCT_SPEC SPEC 
+            WHERE FK_CART_MEMBER_ID = :mid 
+            AND FK_CART_PRODUCT_ID = :pid
+            AND CART.FK_CART_PRODUCT_SPEC_ID = :spec
+            AND CART.FK_CART_PRODUCT_ID = SPEC.FK_PRODUCT_SPEC_PRODUCT_ID";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":mid", $mid);
@@ -27,11 +27,11 @@ function getCart($pdo, $mid, $pid, $spec){
 }
 
 function updateCart($pdo, $newQty, $cartPid, $mid, $spec){
-    $sql = "UPDATE cart 
-            SET qty = :newQty, cart_date = now() 
-            WHERE fk_cart_product_id = :cartPid 
-            AND fk_cart_member_id = :mid 
-            AND fk_cart_product_spec_id = :spec";
+    $sql = "UPDATE CART 
+            SET QTY = :newQty, CART_DATE = now() 
+            WHERE FK_CART_PRODUCT_ID = :cartPid 
+            AND FK_CART_MEMBER_ID = :mid 
+            AND FK_CART_PRODUCT_SPEC_ID = :spec";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":newQty", $newQty);
@@ -43,7 +43,7 @@ function updateCart($pdo, $newQty, $cartPid, $mid, $spec){
 }
 
 function insertCart($pdo, $qty, $mid, $pid, $spec){
-    $sql = "INSERT INTO cart(qty, cart_date, fk_cart_member_id, fk_cart_product_id, fk_cart_product_spec_id)
+    $sql = "INSERT INTO CART(QTY, CART_DATE, FK_CART_MEMBER_ID, FK_CART_PRODUCT_ID, FK_CART_PRODUCT_SPEC_ID)
             values(:qty, now(), :mid, :pid, :spec)";
 
     $statement = $pdo->prepare($sql);
