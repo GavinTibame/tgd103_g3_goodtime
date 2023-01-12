@@ -55,7 +55,7 @@ function insertCart($pdo, $qty, $mid, $pid, $spec){
 }
 
 // for dev
-// if (!isset(getMemberID())){
+// if (!isset(isMemberLogin())){
 //     exit(false);
 // }
 
