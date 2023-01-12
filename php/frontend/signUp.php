@@ -2,16 +2,16 @@
 
     include("../connect.php");
 
-    // $email = $_POST["email"];
-    // $pwd = $_POST["pwd"];
-    // $username = $_POST["username"];
-    // $phone = $_POST["phone"];
-    // $address = $_POST["address"];
-    $email = "member3@goodtime.com";
-    $pwd = "member3";    
-    $username = "member3";
-    $phone = "0987654321";
-    $address = "100台北市中正區濟南路一段321號";
+    $email = $_POST["email"];
+    $pwd = $_POST["pwd"];
+    $username = $_POST["username"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+    // $email = "member3@goodtime.com";
+    // $pwd = "member3";    
+    // $username = "member3";
+    // $phone = "0987654321";
+    // $address = "100台北市中正區濟南路一段321號";
 
     function getMemberList($email){ // 1. 檢查email重覆
         $sql = "SELECT * from MEMBER WHERE EMAIL = :email";
@@ -23,14 +23,6 @@
 
         return $data;
     }
-    
-    // function addAddress($email, $address){ // 3. 新增bind地址
-    //     $data = getMemberList($email);
-        
-    //     $mid = $data[0]["ID"];
-        
-        
-    // }
 
     function joinMember($email, $pwd, $username, $phone, $address){
         // 2. 會員註冊
@@ -46,12 +38,10 @@
         $statement->bindValue(":phone", $phone);
         $statement->execute();
         
-        // $statement = $dbn ->query("SELECT LAST_INSERT_ID()");
         $mid = $dbn ->lastInsertId();
         print_r( $dbn ->lastInsertId());
         if(empty($mid)){
-            // $dbn ->rollBack();
-            echo "失敗";
+            echo "會員註冊失敗";
         }else{
             $sql = "INSERT INTO `ADDRESS`(`LOCATION`, FK_ADDRESS_MEMBER_ID)
                     VALUES(:address, :mid)";
