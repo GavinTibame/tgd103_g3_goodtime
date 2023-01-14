@@ -6,37 +6,72 @@ const createApp = Vue.createApp({
       user_confirm_password: "",
       user_name: "",
       user_phone: "",
-      user_addr: ""
+      user_addr: "",
     };
   },
   methods: {
-    selectSpec() {
-      console.log(
-        this.user_email,
-        this.user_password,
-        this.user_confirm_password
-      );
-      console.log(this.user_name, this.user_phone, this.user_addr);
-    },
     textTosend() {
-      if (this.user_password === this.user_confirm_password) {
-        // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
-        axios
-          .post(
-            "../../php/frontend/signUp.php",
-            `user_email=${this.user_email}&user_password=${this.user_password}&user_name=${this.user_confirm_password}&user_phone=${this.user_name}&user_addr=${this.user_phone}`
-          )
-
-          // then :處理 Promise返回的結果
-          .then((res) => {
-            if (res.status === 200) {
-              // console.log(res);
-              window.open("../html/log_in.html", "log_in");
-            }
-          })
-          //catch:抓取Promise 上異常
-          .catch((err) => console.log("[signup error]", err));
+      if (this.user_email == "") {
+        alert("請輸入您的電子信箱");
+        return false;
       }
+      if (
+        !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(
+          this.user_email
+        )
+      ) {
+        alert("請輸入正確的信箱格式");
+        return false;
+      }
+      if (this.user_password != this.user_confirm_password) {
+        alert("請輸入正確密碼");
+        return false;
+      }
+
+      if (this.user_name == "") {
+        alert("請輸入您的姓名");
+        return false;
+      }
+
+      if (!/^[\u0391-\uFFE5]+$/.test(this.user_name)) {
+        alert("姓名格式不正確，請重新輸入");
+        return false;
+      }
+
+      if (this.user_phone == "") {
+        alert("請輸入您的手機號碼");
+        return false;
+      }
+
+      if (!/^09[0-9]{8}$/.test(this.user_phone)) {
+        alert("手機號碼格式不正確，請重新輸入");
+        return false;
+      }
+
+      if (this.user_addr == "") {
+        alert("請輸入您的地址");
+        return false;
+      }
+
+      // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
+      axios
+        .post("../../php/frontend/signUp.php", {
+          user_email: this.user_email,
+          user_password: this.user_password,
+          user_name: this.user_name,
+          user_phone: this.user_phone,
+          user_addr: this.user_addr,
+        })
+
+        // then :處理 Promise返回的結果
+        .then((res) => {
+          if (res.status === 200) {
+            // console.log(res);
+            // window.open("../html/log_in.html", "log_in");
+          }
+        })
+        //catch:抓取Promise 上異常
+        .catch((err) => console.log("[signup error]", err));
     },
   },
 }).mount("#sign_up-login");

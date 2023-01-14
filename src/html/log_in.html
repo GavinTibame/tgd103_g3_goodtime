@@ -10,10 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -46,36 +43,50 @@
             ></div>
 
             <p class="log_in-or">or</p>
-
             <div class="log_in-dotted-line">
-              <div>
-                <p>帳號</p>
-                <input type="text" />
+              <div id="log_in">
+                <div>
+                  <p>帳號</p>
+                  <input
+                    type="text"
+                    v-model="user_email"
+                    class="user_email"
+                    name="user_email"
+                    id="user_email"
+                  />
+                </div>
+                <div>
+                  <p>密碼</p>
+                  <input
+                    type="password"
+                    v-model="user_password"
+                    class="user_password"
+                    name="user_password"
+                    id="user_password"
+                  />
+                </div>
+                <div class="btn__ctn">
+                  <button id="goApplyForm" class="button" @click="textTosend">
+                    <span>會員登入</span>
+                  </button>
+                </div>
               </div>
-              <div>
-                <p>密碼</p>
-                <input type="password" />
-              </div>
-            </div>
-            <div class="btn__ctn">
-              <button id="goApplyForm" class="button">
-                <span>會員登入</span>
-              </button>
-
               <div class="log_in-last-line">
                 <ul>
                   <li>
                     <a href="sign_up.html" class="log_in-signup">註冊會員</a>
                   </li>
                   <li>
-                    <a href="javascript:0" class="log_in-foreget-pwd">忘記密碼</a>
+                    <a href="javascript:0" class="log_in-foreget-pwd"
+                      >忘記密碼</a
+                    >
                   </li>
                 </ul>
               </div>
 
               <!----------------忘記密碼燈箱------------------>
               <div class="overlay">
-                <article>
+                <article class="overlay_article">
                   <h6 class="overlay_pwd">找回密碼</h6>
                   <p>
                     請輸入您的註冊電子郵件<br />
@@ -83,12 +94,12 @@
                   </p>
                   <h6 class="overlay_email">Email</h6>
                   <label for="email"></label>
-                  <input type="text">
+                  <input type="text" class="overlay_input"/>
                   <div class="btn__ctn">
                     <button id="goApplyForm" class="button overlay_button">
-                        <span>確認送出</span>
+                      <span>確認送出</span>
                     </button>
-                </div>
+                  </div>
                 </article>
               </div>
             </div>
@@ -99,6 +110,7 @@
     <div id="footer"></div>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
     <script src="../js/log_in.js"></script>
     <script>
       $(() => {

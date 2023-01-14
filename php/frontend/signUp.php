@@ -2,14 +2,16 @@
 
     include("../connect.php");
 
-    $email = $_POST["email"];
-    $pwd = $_POST["pwd"];
-    $username = $_POST["username"];
-    $phone = $_POST["phone"];
-    $address = $_POST["address"];
-    // $email = "member3@goodtime.com";
-    // $pwd = "member3";    
-    // $username = "member3";
+    $member = json_decode(file_get_contents("php://input"), true);
+
+    $email = $member["user_email"];
+    $pwd = $member["user_password"];
+    $username = $member["user_name"];
+    $phone = $member["user_phone"];
+    $address = $member["user_addr"];
+    // $email = "member2@goodtime.com";
+    // $pwd = "member2";    
+    // $username = "member2";
     // $phone = "0987654321";
     // $address = "100台北市中正區濟南路一段321號";
 

@@ -347,42 +347,61 @@
              width: 100%;
              height: 100vh;
              background-color: hsla(0, 0%, 0%, .8);
-             display: none;
              z-index: 999;
 
-             div.alert_pop_out{
-                display: flex;
-                justify-content: space-evenly;
 
-                .alert_pop_yes p{
-                    cursor: pointer;
-                    &:hover{
-                        color: $carmel-color;
-                    }
 
-                }
-
-                .alert_pop_no p{
-                    cursor: pointer;
-                    &:hover{
-                        color: $carmel-color;
-                    }
-
-                }
+             &.fade-enter-active,
+             &.fade-leave-active {
+                 transition: opacity 1s;
              }
 
-             article{
-                background-color: white;
-                max-width: 400px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px #ddd;
-                padding: 10px;
-                position: absolute;
-                top: 55%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 45%;
-                height: 30%;
+             &.fade-enter-from,
+             &.fade-leave-to {
+                 opacity: 0;
+             }
+
+             &.fade-enter-to,
+             &.fade-leave-from {
+                 opacity: 1;
+             }
+
+
+             div.alert_pop_out {
+                 display: flex;
+                 justify-content: space-evenly;
+
+                 .alert_pop_yes p {
+                     cursor: pointer;
+
+                     &:hover {
+                         color: $carmel-color;
+                     }
+
+                 }
+
+                 .alert_pop_no p {
+                     cursor: pointer;
+
+                     &:hover {
+                         color: $carmel-color;
+                     }
+
+                 }
+             }
+
+             article {
+                 background-color: white;
+                 max-width: 400px;
+                 border-radius: 10px;
+                 box-shadow: 0 0 10px #ddd;
+                 padding: 10px;
+                 position: absolute;
+                 top: 55%;
+                 left: 50%;
+                 transform: translate(-50%, -50%);
+                 width: 45%;
+                 height: 30%;
              }
 
              h6.overlay_confirm {
