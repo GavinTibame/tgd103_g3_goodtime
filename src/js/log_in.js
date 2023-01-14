@@ -23,3 +23,58 @@ function handleCallback(response) {
   console.log(data);
 }
 
+//忘記密碼燈箱
+
+// 開啟彈跳視窗
+$("a.log_in-foreget-pwd").on("click", function () {
+  $("div.overlay").fadeIn();
+});
+
+// 確認送出按鈕
+$("button.btn_modal_close, div.overlay").on("click", function (e) {
+  $("div.overlay").fadeOut();
+});
+
+$("div.overlay > article").on("click", function (e) {
+  e.stopPropagation();
+});
+
+/*-----------------抓取使用者輸入資料傳入後台驗證------------*/
+const createApp = Vue.createApp({
+  data() {
+    return {
+      user_email: "",
+      user_password: "",
+    };
+  },
+  methods: {
+    textTosend() {
+      if (this.user_email == "") {
+        alert("請輸入您的帳號");
+        return false;
+      }
+
+      if (this.user_password == "") {
+        alert("請輸入您的密碼");
+        return false;
+      }
+
+      // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
+      axios
+        .post("../../php/frontend/login.php", {
+          user_email: this.user_email,
+          user_password: this.user_password,
+        })
+
+        // then :處理 Promise返回的結果
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res);
+            // window.open("../html/log_in.html", "log_in");
+          }
+        })
+        //catch:抓取Promise 上異常
+        .catch((err) => console.log("[login error]", err));
+    },
+  },
+}).mount("#log_in");

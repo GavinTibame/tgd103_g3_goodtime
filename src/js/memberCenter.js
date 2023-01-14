@@ -107,9 +107,13 @@ var app = Vue.createApp({
 
     deletehtml(e) {
       //如果input不是空字串，移除時會跳alert
+      console.log(e)
+      console.log(this.addr);
       if (this.addr[e].addrText != "") {
         this.popup = e; // e = index
+        console.log(this.popup);
       } else {
+
         //如果input是空字串，直接移除
         this.addr.splice(e, 1);
       }
@@ -326,3 +330,4 @@ app.component("tab2_content", {
 });
 
 app.mount("#item_po-block");
+

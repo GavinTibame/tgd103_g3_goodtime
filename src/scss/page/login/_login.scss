@@ -22,7 +22,7 @@
                 color: #533C1B;
                 letter-spacing: .8rem;
                 padding: 4rem 5.2rem 1rem;
-                white-space:nowrap; 
+                white-space: nowrap;
             }
 
             h3 {
@@ -35,7 +35,7 @@
                 padding-right: 5.2rem;
                 letter-spacing: .68rem;
                 position: relative;
-                white-space:nowrap; 
+                white-space: nowrap;
 
                 @include rwd(1200px){
                     font-size: 24px;
@@ -118,6 +118,26 @@
                 display: block;
                 margin: 0 auto;
                 width: 80%;
+
+                .g_id_signin{
+                    border: 1px solid red;
+                    width: 90%;
+                    margin: 0 auto;
+
+                    .nsm7Bb-HzV7m-LgbsSe-MJoBVe{
+                        // left: 10px;
+                    }
+
+                    .S9gUrf-YoZ4jf{
+                        iframe#gsi_267168_730454{
+                            margin: 0 auto;
+                        }
+                    }
+                }
+
+                
+
+                
                 .log_in-google-btn {
                     display: block;
                     margin: 0 auto;
@@ -176,7 +196,7 @@
                         margin-bottom: 20px;
                         font-size: 16px;
                         padding-left: 5px;
-                        border:1px solid $secondary4-color;
+                        border: 1px solid $secondary4-color;
                     }
                 }
                 // button {
@@ -202,14 +222,14 @@
                     margin-top: 25px;
                     ul{
                         display: flex;
-                        justify-content: space-between;   
-                        
+                        justify-content: space-between;
+
                         li a.log_in-signup {
                             text-decoration: none;
                             color: $primary2-color;
                             font-family: $our-font;
                         }
-    
+
                         li a.log_in-foreget-pwd {
                             text-decoration: none;
                             color: $primary2-color;
@@ -226,7 +246,67 @@
 
         }
     }
+
+    div.overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: hsla(0, 0%, 0%, .8);
+        display: none;
+        z-index: 999;
+
+        .overlay_article h6.overlay_pwd {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 50px;
+            color: #261C0D;
+        }
+
+        .overlay_article p {
+            text-align: center;
+            margin: 20px 0;
+            line-height: 2;
+            font-size: 14px;
+            color: #261C0D;
+        }
+
+        .overlay_article h6.overlay_email {
+            margin-left: 100px;
+            font-size: 18px;
+            margin: 0 0 10px 84px;
+            color: #261C0D;
+        }
+
+        input.overlay_input {
+            width: 70%;
+            margin-left: 100px;
+            color: #261C0D;
+        }
+
+        .btn__ctn button#goApplyForm {
+            margin-top: 80px;
+        }
+    }
+
+    div.overlay>article {
+        background-color: white;
+        max-width: 800px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ddd;
+        padding: 10px;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 45%;
+        height: 80%;
+    }
+
 }
+
 // .log_in-wrapper .log_in-bg .log_in-login-content 
 //.log_in-login-width .log_in-last-line .log_in-foreget-pwd {
 //     float: right;
@@ -294,9 +374,9 @@
             .log_in-login-box{
                 height: 135px;
 
-                h2{
-                    font-size: 28px;
-                }
+                // h2{
+                //     font-size: 28px;
+                // }
                 
                 // h3{
                 //     font-size: 28px;
@@ -306,34 +386,35 @@
                 padding-top: 45px;
                 height: 530px;
 
-                .log_in-login-width{
-    
-                    .log_in-google-btn{
+                .log_in-login-width {
+
+                    .log_in-google-btn {
                         height: 50px;
 
-                        .log_in-h3{
+                        .log_in-h3 {
                             font-size: 14px;
                             line-height: 50px;
                         }
-                        .log_in-h3::before{
+
+                        .log_in-h3::before {
                             top: 6%;
                         }
                     }
 
-                    .log_in-or{
+                    .log_in-or {
                         margin: 15px 0;
                     }
 
-                    .log_in-dotted-line{
+                    .log_in-dotted-line {
                         margin-bottom: 50px;
 
-                        p{
+                        p {
                             margin-top: 12px;
                             margin-bottom: 20px;
                         }
 
-                        input{
-                                height: 40px;
+                        input {
+                            height: 40px;
                         }
                     }
                 }
@@ -387,7 +468,8 @@
         }
     }
 }
-@media all and (max-width: 768px){
+
+@media all and (max-width: 768px) {
     .log_in-wrapper {
         .log_in-bg {
             .log_in-login-box {
@@ -397,6 +479,7 @@
                 h3 {
                     padding-left: 27vw;
                     padding-right: 0;
+
                     &::after {
                         // display: none;
                         width: 25%;
@@ -430,15 +513,16 @@
                 height: 100px;
                 width: 350px;
 
-                h2{
+                h2 {
                     font-size: 20px;
                 }
-                
-                h3{
+
+                h3 {
                     font-size: 20px;
                     text-align: center;
                     padding-left: 0;
-                    &::after{
+
+                    &::after {
                         display: none;
                     }
                 }

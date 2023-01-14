@@ -3,8 +3,10 @@
     include("../connect.php");
     include("../verify.php");
 
-    $email = $_POST["email"];
-    $pwd = $_POST["pwd"];
+    $member = json_decode(file_get_contents("php://input"), true);
+
+    $email = $member["user_email"];
+    $pwd = $member["user_password"];
     // $email = "member2@goodtime.com";
     // $pwd = "member2";
     $sql = "SELECT * FROM MEMBER WHERE VERIFY = 0 AND EMAIL = :email AND `PASSWORD` = :pwd";

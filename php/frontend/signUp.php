@@ -2,14 +2,16 @@
 
     include("../connect.php");
 
-    $email = $_POST["email"];
-    $pwd = $_POST["pwd"];
-    $username = $_POST["username"];
-    $phone = $_POST["phone"];
-    $address = $_POST["address"];
-    // $email = "member3@goodtime.com";
-    // $pwd = "member3";    
-    // $username = "member3";
+    $member = json_decode(file_get_contents("php://input"), true);
+
+    $email = $member["user_email"];
+    $pwd = $member["user_password"];
+    $username = $member["user_name"];
+    $phone = $member["user_phone"];
+    $address = $member["user_addr"];
+    // $email = "member2@goodtime.com";
+    // $pwd = "member2";    
+    // $username = "member2";
     // $phone = "0987654321";
     // $address = "100台北市中正區濟南路一段321號";
 
@@ -27,11 +29,11 @@
     function joinMember($email, $pwd, $username, $phone, $address){
         // 2. 會員註冊
         $dbn = connectDB();
-        $dbn ->beginTransaction();
+        $dbn->beginTransaction();
         $sql = "INSERT INTO MEMBER(EMAIL, `PASSWORD`, USERNAME, PHONE)
                 VALUES(:email, :pwd, :username, :phone)";
 
-        $statement = $dbn ->prepare($sql);
+        $statement = $dbn->prepare($sql);
         $statement->bindValue(":email", $email);
         $statement->bindValue(":pwd", $pwd);
         $statement->bindValue(":username", $username);
@@ -39,7 +41,6 @@
         $statement->execute();
         
         $mid = $dbn ->lastInsertId();
-        print_r( $dbn ->lastInsertId());
         if(empty($mid)){
             echo "會員註冊失敗";
         }else{

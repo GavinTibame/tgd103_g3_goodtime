@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>會員中心 - 韶光文創園區</title>
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
@@ -71,13 +71,22 @@
               </ul>
               <!---------------------------修改地址----------------------------->
               <div class="tab-content" id="item_acc-block">
-                <div class="alert_pop" v-if="popup !== false">
-                  確定要刪除此地址嗎？
-                  <div class="alert_pop_out">
-                    <div class="alert_pop_yes" @click="confirm()">Yes</div>
-                    <div class="alert_pop_no" @click="popup = false">No</div>
+                <transition name="fade">
+                  <div class="overlay" v-if="popup !== false">
+                    <article>
+                      <h6 class="overlay_confirm">確定要刪除此地址嗎？</h6>
+                      <div class="alert_pop_out">
+                        <div class="alert_pop_yes" @click="confirm()">
+                          <p>Yes</p>
+                        </div>
+                        <div class="alert_pop_no" @click="popup = false">
+                          <p>No</p>
+                        </div>
+                      </div>
+                    </article>
                   </div>
-                </div>
+                </transition>
+
                 <div class="addr-tab" v-if="currentTab === 'tab1'">
                   <!--             item= 陣列裡的第幾筆   index=整個陣列資料-->
                   <component v-for="(item, index) in addr">
