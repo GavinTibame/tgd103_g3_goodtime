@@ -2,6 +2,7 @@
     include("../verify.php");
     include("initCenter.php");
     include("newAddress.php");
+    include("editAddress.php");
 
     $mid = isMemberLogin();
     $mid = "5";
@@ -21,7 +22,11 @@
                 echo initCenter($mid);
                 break;
             case "editAddress":
-
+                $selectAddress = $_POST["selectAddress"];
+                $selectAddress = "1";
+                $newAddress = $_POST["address"];
+                // $newAddress = "台北市松山區敦化北路100號2樓"; 
+                
                 echo initCenter($mid);
                 break;
             case "delAddress":
