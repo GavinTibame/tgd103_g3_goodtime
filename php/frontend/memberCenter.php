@@ -22,11 +22,11 @@
                 echo initCenter($mid);
                 break;
             case "editAddress":
-                $selectAddress = $_POST["selectAddress"];
-                $selectAddress = "1";
+                $selectID = $_POST["id"];
+                // $selectID = "2";
                 $newAddress = $_POST["address"];
                 // $newAddress = "台北市松山區敦化北路100號2樓"; 
-                
+                editAddress($newAddress, $mid, $selectID);
                 echo initCenter($mid);
                 break;
             case "delAddress":
