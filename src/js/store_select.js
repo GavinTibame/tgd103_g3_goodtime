@@ -241,6 +241,24 @@ $(".filter").on("change",function() {
 // =====================
 
 
+// function makeTimer() {
 
+// 		var endTime = new Date("09 Feb 2023 16:30:00 GMT+08:00");			
+// 			endTime = (Date.parse(endTime) / 1000);
+
+// 			var now = new Date();
+// 			now = (Date.parse(now) / 1000);
+
+// 			var timeLeft = endTime - now;
+// 			var days = Math.floor(timeLeft / 86400); 
+// 			if (hours < "10") { hours = "0" + hours; }
+
+// 			$(".countdown").html("<span>倒數</span>" + days + "<span>天</span>");
+
+// 	}
+
+// setInterval(function() { 
+// 	makeTimer();
+// }, 1000);
 
  
