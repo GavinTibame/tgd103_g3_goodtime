@@ -52,31 +52,30 @@
         // print_r($data["po"]);
         echo json_encode($data);
     }
+    // <!-- PO {
+    // ID: 1,
+    // FREIGHT: 60,
+    // STATUS: 0,
+    // CREATE_DATE: "2022-12-26 11:43:21",
+    // }
+    // PO.ID, PO.FREIGHT, PO.STATUS, PO.CREATE_DATE  
+    
+    // POD {
+    // ID: 1,
+    // UNIT_PRICE: 960,
+    // QTY: 3,
+    // }
+    // POD.ID, POD.UNIT_PRICE, POD.QTY
+    
+    // PRODUCT{
+    // PRODUCT_NAME, 
+    // MAIN_PHOTO
+    // }
+    // PRODUCT.PRODUCT_NAME, PRODUCT.MAIN_PHOTO
+    
+    // SPEC{
+    // SPEC: "30x30cm",
+    // }
+    // SPEC.SPEC
+    // -->
 ?>
-
-<!-- PO {
-ID: 1,
-FREIGHT: 60,
-STATUS: 0,
-CREATE_DATE: "2022-12-26 11:43:21",
-}
-PO.ID, PO.FREIGHT, PO.STATUS, PO.CREATE_DATE  
-
-POD {
-ID: 1,
-UNIT_PRICE: 960,
-QTY: 3,
-}
-POD.ID, POD.UNIT_PRICE, POD.QTY
-
-PRODUCT{
-PRODUCT_NAME, 
-MAIN_PHOTO
-}
-PRODUCT.PRODUCT_NAME, PRODUCT.MAIN_PHOTO
-
-SPEC{
-SPEC: "30x30cm",
-}
-SPEC.SPEC
--->
