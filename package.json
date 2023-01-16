@@ -37,6 +37,7 @@
     "sass": "^1.57.1"
   },
   "dependencies": {
-    "v-calendar": "^2.4.1"
+    "v-calendar": "^2.4.1",
+    "vue-owl-carousel": "^2.0.3"
   }
 }

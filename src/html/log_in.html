@@ -23,7 +23,7 @@
         </div>
         <div class="log_in-login-content">
           <div class="log_in-login-width">
-
+          <div class="ctrl-google">
             <!-- Google API -->
             <!-- 控制資料相關的屬性 -->
             <div
@@ -41,7 +41,7 @@
               data-logo_alignment="center"  
               data-width="400"   
             ></div>
-
+          </div>
             <p class="log_in-or">or</p>
             <div class="log_in-dotted-line">
               <div id="log_in">
@@ -69,34 +69,35 @@
                   <button id="goApplyForm" class="button" @click="textTosend">
                     <span>會員登入</span>
                   </button>
+
+                  <div class="log_in-last-line">
+                    <ul>
+                      <li>
+                        <a href="sign_up.html" class="log_in-signup">註冊會員</a>
+                      </li>
+                      <li>
+                        <a href="javascript:0" class="log_in-foreget-pwd"
+                          >忘記密碼</a>
+                      </li>
+                    </ul>
+                  </div>
+
                 </div>
               </div>
-              <div class="log_in-last-line">
-                <ul>
-                  <li>
-                    <a href="sign_up.html" class="log_in-signup">註冊會員</a>
-                  </li>
-                  <li>
-                    <a href="javascript:0" class="log_in-foreget-pwd"
-                      >忘記密碼</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
               <!----------------忘記密碼燈箱------------------>
               <div class="overlay">
                 <article class="overlay_article">
                   <h6 class="overlay_pwd">找回密碼</h6>
-                  <p>
+                  <p class="overlay_p">
                     請輸入您的註冊電子郵件<br />
                     我們將會寄送『重新設定密碼』連結給您進行密碼設定
                   </p>
                   <h6 class="overlay_email">Email</h6>
                   <label for="email"></label>
-                  <input type="text" class="overlay_input"/>
+                  <input type="text" v-model="forget_pwd" class="forget_pwd" name="forget_pwd" id="forget_pwd" />
+                  <span id="chkmsg"></span>
                   <div class="btn__ctn">
-                    <button id="goApplyForm" class="button overlay_button">
+                    <button id="goApplyForm" class="button overlay_button" @onclick="forget_pwd_btn">
                       <span>確認送出</span>
                     </button>
                   </div>
@@ -108,15 +109,9 @@
       </div>
     </div>
     <div id="footer"></div>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
-    <script src="../js/log_in.js"></script>
-    <script>
-      $(() => {
-        $("#header").load("topbar.html");
-        $("#footer").load("footer.html");
-      });
-    </script>
+    <script src="../js/LogIn.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </body>
 </html>

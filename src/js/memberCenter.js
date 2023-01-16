@@ -41,7 +41,7 @@ $(".nav-block").on("click", function () {
 
 /* ----------------修改地址、修改密碼 -----------------*/
 
-var app = Vue.createApp({
+const app = Vue.createApp({
   data() {
     return {
       currentTab: "tab1",
@@ -55,18 +55,19 @@ var app = Vue.createApp({
           id: "tab2",
           name: "修改密碼",
         },
-      ],
+      ], 
       addr: [
-        {
-          addrText: "台北市松山區敦化北路100號2樓",
-          clickId: "edit",
-        },
-        {
-          addrText: "台北市中山區南京東路三段219號5樓",
-          clickId: "edit",
-        },
+        // {
+        //   LOCATION: "台北市松山區敦化北路100號2樓",
+        //   clickId: "edit",
+        // },
+        // {
+        //   LOCATION: "台北市中山區南京東路三段219號5樓",
+        //   clickId: "edit",
+        // },
       ],
-    };
+     memberCenter:{}
+    } 
   },
   //頁籤tab切換
   computed: {},
@@ -104,7 +105,6 @@ var app = Vue.createApp({
     },
 
     //刪除鈕
-
     deletehtml(e) {
       //如果input不是空字串，移除時會跳alert
       console.log(e)
@@ -124,14 +124,40 @@ var app = Vue.createApp({
       this.addr.splice(this.popup, 1);
       this.popup = false;
     },
-  },
+
+    textTosend() {
+      // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
+      axios
+        .post("../../php/frontend/memberCenter.php", {
+          mid: 5
+        })
+
+        // then :處理 Promise返回的結果
+        .then((res) => { // 拿會員中心資料
+          this.memberCenter = {...res.data};
+          // this.memberCenter = ;
+          this.addr.push(JSON.parse(JSON.stringify(this.memberCenter.address)));
+          // clickId: "edit",
+          this.addr = this.addr[0];
+          this.addr.forEach((address)=>{
+              address["clickId"] = "edit";
+          });
+          // console.log(this.addr);
+        })
+        //catch:抓取Promise 上異常
+        .catch((err) => console.log("[login error]", err));
+    },
+
+  }, beforeMount(){
+    this.textTosend()
+  }
 });
 
 app.mount("#item_acc-block");
 
 // 訂單查詢、訂單明細區塊
 
-var app = Vue.createApp({
+const app2 = Vue.createApp({
   data() {
     return {
       currentTab: "tab1",
@@ -154,7 +180,7 @@ var app = Vue.createApp({
   },
 });
 
-app.component("tab1_content", {
+app2.component("tab1_content", {
   template: `
   <dl class="po-single">
                 <div>
@@ -211,7 +237,7 @@ app.component("tab1_content", {
 `,
 });
 
-app.component("tab2_content", {
+app2.component("tab2_content", {
   template: `
   <dl class="podetail">
                 <div>
@@ -329,5 +355,5 @@ app.component("tab2_content", {
 `,
 });
 
-app.mount("#item_po-block");
+app2.mount("#item_po-block");
 

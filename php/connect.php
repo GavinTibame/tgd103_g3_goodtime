@@ -2,7 +2,7 @@
 
 define("DB_HOST", "localhost");
 define("DB_USERNAME", "root");
-define("DB_PASSWORD", "1qaz2wsX"); 
+define("DB_PASSWORD", "password"); 
 define("DB_NAME", "GOODTIME");
 define("DB_LINK", "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8");
 
