@@ -55,7 +55,7 @@ const app = Vue.createApp({
           id: "tab2",
           name: "修改密碼",
         },
-      ], 
+      ],
       addr: [
         // {
         //   LOCATION: "台北市松山區敦化北路100號2樓",
@@ -66,8 +66,8 @@ const app = Vue.createApp({
         //   clickId: "edit",
         // },
       ],
-     memberCenter:{}
-    } 
+      memberCenter: {}
+    }
   },
   //頁籤tab切換
   computed: {},
@@ -134,13 +134,13 @@ const app = Vue.createApp({
 
         // then :處理 Promise返回的結果
         .then((res) => { // 拿會員中心資料
-          this.memberCenter = {...res.data};
+          this.memberCenter = { ...res.data };
           // this.memberCenter = ;
           this.addr.push(JSON.parse(JSON.stringify(this.memberCenter.address)));
           // clickId: "edit",
           this.addr = this.addr[0];
-          this.addr.forEach((address)=>{
-              address["clickId"] = "edit";
+          this.addr.forEach((address) => {
+            address["clickId"] = "edit";
           });
           // console.log(this.addr);
         })
@@ -148,7 +148,7 @@ const app = Vue.createApp({
         .catch((err) => console.log("[login error]", err));
     },
 
-  }, beforeMount(){
+  }, beforeMount() {
     this.textTosend()
   }
 });
