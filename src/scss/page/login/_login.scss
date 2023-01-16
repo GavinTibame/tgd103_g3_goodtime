@@ -1,6 +1,6 @@
 .log_in-wrapper {
     .log_in-bg {
-        background-image: url(../../../../src/img/log_in/bg.png);
+        background-image: url("../img/log_in/bg.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -120,7 +120,7 @@
                 width: 80%;
 
                 .g_id_signin{
-                    border: 1px solid red;
+                    border: 1px solid rgb(45, 116, 209);
                     width: 90%;
                     margin: 0 auto;
 
@@ -211,7 +211,7 @@
                 // }
                 .btn__ctn .button, 
                 .btn-ctn .button{
-                    margin-top: 0;
+                    margin-top: 40px;
                     padding: 20px 55px 20px 70px;
                     span{
                         font-family: $our-font;
@@ -236,14 +236,8 @@
                             font-family: $our-font;
                         }
                     }
-
-
-
                 }
-
             }
-
-
         }
     }
 
@@ -265,24 +259,23 @@
             color: #261C0D;
         }
 
-        .overlay_article p {
+        .overlay_article.overlay_article p.overlay_p {
             text-align: center;
-            margin: 20px 0;
+            margin: 20px auto;
             line-height: 2;
             font-size: 14px;
             color: #261C0D;
         }
 
-        .overlay_article h6.overlay_email {
+        .overlay_article.overlay_article h6.overlay_email {
             margin-left: 100px;
             font-size: 18px;
-            margin: 0 0 10px 84px;
+            margin: 0 0 10px 107px;
             color: #261C0D;
         }
 
-        input.overlay_input {
-            width: 70%;
-            margin-left: 100px;
+        .overlay_article.overlay_article input.forget_pwd {
+            width: 60%;
             color: #261C0D;
         }
 
@@ -298,7 +291,7 @@
         box-shadow: 0 0 10px #ddd;
         padding: 10px;
         position: absolute;
-        top: 55%;
+        top: 51%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 45%;
@@ -369,7 +362,7 @@
     .log_in-wrapper{
         width: 100%;
         .log_in-bg{
-            background-image: url(../../../../src/img/log_in/bg1024.jpg);
+            background-image: url("../img/log_in/bg1024.jpg");
             height: 800px;
             .log_in-login-box{
                 height: 135px;

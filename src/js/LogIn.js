@@ -1,3 +1,10 @@
+$(() => {
+  $("#header").load("topbar.html");
+  $("#footer").load("footer.html");
+});
+
+/*-----------------google api 第三方登入-----------------*/
+
 // handleCallback用來處理回傳憑證，登入後有呼叫這個function表示成功登入
 function handleCallback(response) {
   console.log(response);
@@ -23,7 +30,7 @@ function handleCallback(response) {
   console.log(data);
 }
 
-//忘記密碼燈箱
+/*-----------------------忘記密碼燈箱-----------------------*/
 
 // 開啟彈跳視窗
 $("a.log_in-foreget-pwd").on("click", function () {
@@ -38,8 +45,7 @@ $("button.btn_modal_close, div.overlay").on("click", function (e) {
 $("div.overlay > article").on("click", function (e) {
   e.stopPropagation();
 });
-
-/*-----------------抓取使用者輸入資料傳入後台驗證------------*/
+/*-------------------抓取使用者輸入資料傳入後台驗證------------------*/
 const createApp = Vue.createApp({
   data() {
     return {
@@ -51,6 +57,15 @@ const createApp = Vue.createApp({
     textTosend() {
       if (this.user_email == "") {
         alert("請輸入您的帳號");
+        return false;
+      }
+
+      if (
+        !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(
+          this.user_email
+        )
+      ) {
+        alert("請輸入正確格式");
         return false;
       }
 
@@ -68,9 +83,12 @@ const createApp = Vue.createApp({
 
         // then :處理 Promise返回的結果
         .then((res) => {
-          if (res.status === 200) {
-            console.log(res);
-            // window.open("../html/log_in.html", "log_in");
+          if (res.data === "登入成功") {
+            alert(res.data);
+            // console.log(res);
+            window.location.href = "../html/memberCenter.html";
+          } else {
+            alert(res.data);
           }
         })
         //catch:抓取Promise 上異常
