@@ -3,4 +3,3 @@ const prvIcon = '<img src="../img/index/prvarrow.png">'
 
 const shopNextIcon = '<img src="../img/index/shopprvarrow.png">'
 
-    
