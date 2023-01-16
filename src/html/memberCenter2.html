@@ -36,7 +36,7 @@
                 <div>
                   <h6 class="title-eng">Account</h6>
                   <p class="title-zh">帳號管理</p>
-                  <div class="title"></div>
+                  <div class="title -active"></div>
                 </div>
               </li>
               <li class="nav-block" data-nav="po-block">
@@ -50,7 +50,6 @@
                 <div>
                   <h6 class="title-eng">Coupon</h6>
                   <p class="title-zh">優惠券</p>
-                  <div class="title"></div>
                 </div>
               </li>
             </ul>
@@ -92,10 +91,10 @@
                       <input type="radio" name="addr" :id="'addr'+index" :value="'addr'+index" />
                       <!--                         資料    地址 -->
                       <div id="memberAddr1" v-if="item.clickId === 'edit'">
-                        {{item.LOCATION}}
+                        {{item.addrText}}
                       </div>
                       <input type="text" name="" class="addr_text" id="" placeholder="" v-if="item.clickId !== 'edit'"
-                        v-model="item.LOCATION" />
+                        v-model="item.addrText" />
                     </label>
                     <button class="edit-addr" @click="changehtml(index)">
                       <span class="material-symbols-outlined">
@@ -186,8 +185,7 @@
 
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/vue.global.js"></script>
-  <script src="../js/axios.min.js"></script>
-  <script src="../js/memberCenter.js"></script>
+  <script src="../js/memberCenter2.js"></script>
 </body>
 
 </html>

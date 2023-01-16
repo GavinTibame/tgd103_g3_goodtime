@@ -8,6 +8,7 @@ src/css/*.css
 ./.vscode/settings.json
 /.vscode/settings.json
 .vscode/settings.json
+php/connect.php
 
 # npm
 node_modules
