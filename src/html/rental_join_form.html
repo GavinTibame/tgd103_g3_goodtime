@@ -29,10 +29,9 @@
             </div>
           </div>
         </div>
-        <main class="rental_join_form">
+        <main class="rental_join_form" id="rental_join_form">
           <!----------------------表單區------------------------->
-          <section class="Join__form">
-            <form action="">
+          <section class="Join__form" >
               <div class="activity__name__out">
                 <label for="activity__name">活動名稱</label>
                 <input
@@ -40,10 +39,8 @@
                   name="activity__name"
                   class="activity__name"
                   id="activity__name"
-                  onblur="checkusrn1()"
+                  v-model="activity__name"
                 /><br />
-                <p id="checktext1"></p>
-                <p id="checktext_1"></p>
               </div>
               <div class="applicant__unit__out">
                 <label for="applicant__unit">申請單位</label>
@@ -52,10 +49,8 @@
                   name="applicant__unit"
                   class="applicant__unit"
                   id="applicant__unit"
-                  onblur="checkusrn2()"
+                  v-model="applicant__unit"
                 />
-                <p id="checktext2"></p>
-                <p id="checktext_2"></p>
               </div>
               <div class="principal__name__out">
                 <label for="principal__name">負責人姓名</label>
@@ -64,10 +59,8 @@
                   name="principal__name"
                   class="principal__name"
                   id="principal__name"
-                  onblur="checkusrn3()"
+                  v-model="principal__name"
                 />
-                <p id="checktext3"></p>
-                <p id="checktext_3"></p>
               </div>
               <!----------------------單位類別------------------------->
               <div class="unit">
@@ -163,7 +156,6 @@
                   name="Contact__name"
                   class="Contact__name"
                   id="Contact__name"
-                  onblur="checkusrn4()"
                 />
                 <p id="checktext4"></p>
                 <p id="checktext_4"></p>
@@ -176,7 +168,6 @@
                   class="Contact__phone"
                   maxlength="10"
                   id="Contact__phone"
-                  onblur="checkusrn5()"
                 />
                 <p id="checktext5"></p>
                 <p id="checktext_5"></p>
@@ -438,15 +429,13 @@
                   cols="30"
                   rows="10"
                   class="Opinion__text"
-                  required
                 ></textarea>
               </div>
               <div class="btn__ctn">
-                <button id="goApplyForm" class="button">
-                  <span>開始申請</span>
+                <button id="goApplyForm" class="button" @onclick="textTosend">
+                  <span>確認送出</span>
                 </button>
               </div>
-            </form>
           </section>
         </main>
         <footer id="footer"></footer>
@@ -454,7 +443,8 @@
 
       <!-- <script src="../js/form.js"></script> -->
       <script src="../js/jquery-3.2.1.min.js"></script>
-      <script src="../js/rental_join_form.js"></script>
+      <script src="../js/vue.global.js"></script>
+      <script src="../js/rental-join-form.js"></script>
 
       <script>
         $(() => {
