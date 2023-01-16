@@ -36,117 +36,35 @@
       <!-- 公告區 -->
       <div class="tabset">
         <!-- Tab 1 -->
-        <input type="radio" name="tabset" id="tab1" value="園區公告" @click="setStatus('園區公告')"/>
-        <label for="tab1">園區公告</label>
+        <input type="radio" name="tabset" id="tab1" @click="setStatus('園區公告')"/>
+        <label for="tab1" :class="{'-active':status_filter === '園區公告'}">園區公告</label>
         <!-- Tab 2 -->
-        <input type="radio" name="tabset" id="tab2"  @click="setStatus('展演資訊')" checked />
+        <input type="radio" name="tabset" id="tab2" @click="setStatus('展演資訊')"/>
         <label for="tab2">展演資訊</label>
         <!-- Tab 3 -->
         <input type="radio" name="tabset" id="tab3" @click="setStatus('其他消息')"/>
         <label for="tab3">其他消息</label>
       </div>
 
-      <div class="tab-panels">
-        <div class="tab-panel" >
-          <ul class="tab-panel-1" v-for="news in tabpanels"  >
-            <!-- <ul class="tab-panel-1"> -->
+      <div>
+      <div class="tab-panels" v-for="news in currentList"> 
+          <ul class="tab-panel">
             <li>
               <a :href="news.url">
                 <small>{{news.time}} | {{news.universe}}</small>
                 <h4>【{{news.universe}}】{{news.message}}</h4>
               </a>
             </li>
-            <!-- <li>
-              <a href="#"
-                ><small>2022-11-29 | 園區公告</small>
-                <h4>【園區公告】B展覽園區維修至12:00</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-29 | 園區公告</small>
-                <h4>【園區公告】C展覽園區廁所施工</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-29 | 園區公告</small>
-                <h4>【園區公告】A展覽園區廠商施工</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-29 | 園區公告</small>
-                <h4>【園區公告】D展覽園區例行維修至08:00</h4>
-              </a>
-            </li> -->
           </ul>
-        </div>
-        <div class="tab-panel">
-          <ul class="tab-panel-2" checked>
-            <!-- <li>
-              <a href="#"
-                ><small>2022-11-11 | 展演資訊</small>
-                <h4>【延期公告】漫畫展延期至12/06</h4>
-              </a>
-            </li> -->
-            <!-- <li>
-              <a href="#"
-                ><small>2022-11-12 | 展演資訊</small>
-                <h4>【展演公告】《Lindsayooo》新興插畫家展</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-13 | 展演資訊</small>
-                <h4>【展演公告】《崖下的波妞》十周年特展</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-14 | 展演資訊</small>
-                <h4>【展演公告】《ヒグチユウコ》台灣限定特展</h4>
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <div class="tab-panel">
-          <ul class="tab-panel-3">
-            <!-- <li>
-              <a href="#"
-                ><small>2022-11-27 | 其他消息</small>
-                <h4>【招租公告】C展覽園館招租中</h4>
-              </a>
-            </li> -->
-            <!-- <li>
-              <a href="#"
-                ><small>2022-11-28 | 其他消息</small>
-                <h4>【廠商公告】培可先生營業時間延長至24:00</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-29 | 其他消息</small>
-                <h4>【商城公告】線上訂購享9折</h4>
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                ><small>2022-11-30 | 其他消息</small>
-                <h4>【廠商公告】鈴芽的門鎖限定公開電影</h4>
-              </a>
-            </li> -->
-          </ul>
-        </div>
       </div>
-
-      <div id="paginator_block">
+    </div>
+      <!-- <div id="paginator_block">
         <the-paginator
           total-items="20"
           items-per-page="5"
           current-page="5"
         ></the-paginator>
-      </div>
+      </div> -->
       <!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">
@@ -164,6 +82,13 @@
         </li>
       </ul>
     </nav> -->
+    <div id="pagination">
+      <a href="#" class="btn btn-default" v-for="page_index in paginate_total" 
+      @click.prevent="updateCurrent(page_index + 1)">
+        {{ page_index + 1 }}
+      </a>
+    </div>
+    </div>
     </div>
 
     <footer id="footer"></footer>
@@ -178,29 +103,6 @@
         $("#footer").load("footer.html");
       });
 
-      //公告區
-      // $(document).ready(function () {
-      //   //頁面載入就執行的函式
-      //   $("ul.tab-panel-2").css("display", "block");
-      //   $("ul.tab-panel-1").css("display", "none");
-      //   $("ul.tab-panel-3").css("display", "none");
-      // });
-      // $("#tab1").on("click", function () {
-      //   $("ul.tab-panel-1").css("display", "block");
-      //   $("ul.tab-panel-2").css("display", "none");
-      //   $("ul.tab-panel-3").css("display", "none");
-      // });
-
-      // $("#tab2").on("click", function () {
-      //   $("ul.tab-panel-2").css("display", "block");
-      //   $("ul.tab-panel-1").css("display", "none");
-      //   $("ul.tab-panel-3").css("display", "none");
-      // });
-      // $("#tab3").on("click", function () {
-      //   $("ul.tab-panel-3").css("display", "block");
-      //   $("ul.tab-panel-1").css("display", "none");
-      //   $("ul.tab-panel-2").css("display", "none");
-      // });
     </script>
   </body>
 </html>

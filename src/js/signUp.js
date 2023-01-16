@@ -67,7 +67,10 @@ const createApp = Vue.createApp({
         .then((res) => {
           if (res.status === 200) {
             // console.log(res);
-            // window.open("../html/log_in.html", "log_in");
+            alert("會員註冊成功，請重新登入")
+            window.location.href = '../html/log_in.html';
+          }else{
+            alert("已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。")
           }
         })
         //catch:抓取Promise 上異常

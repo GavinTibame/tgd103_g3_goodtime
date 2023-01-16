@@ -101,7 +101,7 @@
                         />
                         <!--                         資料    地址 -->
                         <div id="memberAddr1" v-if="item.clickId === 'edit'">
-                          {{item.addrText}}
+                          {{item.LOCATION}}
                         </div>
                         <input
                           type="text"
@@ -110,7 +110,7 @@
                           id=""
                           placeholder=""
                           v-if="item.clickId !== 'edit'"
-                          v-model="item.addrText"
+                          v-model="item.LOCATION"
                         />
                       </label>
                       <button class="edit-addr" @click="changehtml(index)">
@@ -213,6 +213,7 @@
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script src="../js/memberCenter.js"></script>
   </body>
 </html>
