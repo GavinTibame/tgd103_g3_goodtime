@@ -24,6 +24,7 @@ const createApp = Vue.createApp({
                 this.selectAll = true;
             } else { this.selectAll = false; }
         }, atDelete(idx, id) {
+            // 開始loading畫面
             const deleteItem = JSON.parse( // 把Proxy轉成Object
                 JSON.stringify(
                     this.wantList.splice(idx, 1)))[0];
@@ -31,9 +32,13 @@ const createApp = Vue.createApp({
                 `mid=${deleteItem.FK_CART_MEMBER_ID}&pid=${deleteItem.FK_CART_PRODUCT_ID}&sid=${deleteItem.FK_CART_PRODUCT_SPEC_ID}`)
                 .then(res => {
                     if (res.data === 1) {
-                        console.log("已從購物車移除商品");
+                        // 結束loading畫面
+                        // console.log("已從購物車移除商品");
                     }
-                }).catch(err => console.log("[cart remove]", err));
+                }).catch(err => {
+                    // 結束loading畫面
+                    console.log("[cart remove]", err);
+                });
             this.wantList = this.wantList.filter(product => product.id !== id);
             this.isSelectAll();
             console.log(this.wantList);

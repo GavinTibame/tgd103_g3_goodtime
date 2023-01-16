@@ -22,23 +22,21 @@ DROP TABLE IF EXISTS `ADDRESS`;
 
 CREATE TABLE `ADDRESS` (
   `ID` int NOT NULL AUTO_INCREMENT COMMENT '地址編號',
-  `ZIP` varchar(5) DEFAULT NULL,
-  `REGION` varchar(45) DEFAULT NULL COMMENT '省市',
-  `DISTRICT` varchar(45) DEFAULT NULL COMMENT '區域',
   `LOCATION` varchar(256) NOT NULL COMMENT '詳細地址',
   `FK_ADDRESS_MEMBER_ID` int DEFAULT NULL COMMENT 'FK_會員編號',
   PRIMARY KEY (`ID`),
   KEY `FK_ADDRESS_MEMBER_ID_idx` (`FK_ADDRESS_MEMBER_ID`),
   CONSTRAINT `FK_ADDRESS_MEMBER_ID` FOREIGN KEY (`FK_ADDRESS_MEMBER_ID`) REFERENCES `MEMBER` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `ADDRESS` */
 
-insert  into `ADDRESS`(`ID`,`ZIP`,`REGION`,`DISTRICT`,`LOCATION`,`FK_ADDRESS_MEMBER_ID`) values 
-(1,'104','台北市','中山區','南京東路三段219號5樓',5),
-(2,'','','','台北市松山區敦化北路100號2樓',5),
-(3,NULL,NULL,NULL,'110台北市信義區莊敬路334號1樓',7),
-(7,NULL,NULL,NULL,'100台北市中正區濟南路一段321號',38);
+insert  into `ADDRESS`(`ID`,`LOCATION`,`FK_ADDRESS_MEMBER_ID`) values 
+(1,'台北市中山區南京東路三段219號5樓',5),
+(2,'台北市松山區敦化北路100號2樓',5),
+(3,'110台北市信義區莊敬路334號1樓',7),
+(7,'100台北市中正區濟南路一段321號',38),
+(12,'台北市松山區敦化北路100號2樓',7);
 
 /*Table structure for table `BOOKING` */
 
@@ -57,6 +55,16 @@ CREATE TABLE `BOOKING` (
   `CREATE_DATE` timestamp NOT NULL COMMENT '下單日期',
   `FK_BOOKING_MEMBER_ID` int NOT NULL COMMENT 'FK_會員編號',
   `FK_LOCATION_ID` int NOT NULL COMMENT 'FK_場地編號',
+  `ACTIVITY_NAME` varchar(64) NOT NULL COMMENT '活動名稱',
+  `APPLICANT` varchar(128) NOT NULL COMMENT '申請單位',
+  `PRINCIPAL` varchar(45) NOT NULL COMMENT '負責人姓名',
+  `GROUP_TYPE` varchar(45) NOT NULL COMMENT '單位類別',
+  `ID_PIC` varchar(256) NOT NULL COMMENT '上傳證件',
+  `CONTACT_NAME` varchar(128) NOT NULL COMMENT '聯絡人姓名',
+  `TEL` varchar(45) NOT NULL COMMENT '聯絡人電話',
+  `ACTIVITY_TYPE` varchar(45) NOT NULL COMMENT '活動性質',
+  `SEE_TYPE` varchar(45) NOT NULL COMMENT '觀賞性質',
+  `OTHER` varchar(128) DEFAULT NULL COMMENT '其他需求',
   PRIMARY KEY (`ID`),
   KEY `FK_MEMBER_ID_idx` (`FK_BOOKING_MEMBER_ID`),
   KEY `FK_LOCATION_ID_idx` (`FK_LOCATION_ID`),
@@ -66,8 +74,8 @@ CREATE TABLE `BOOKING` (
 
 /*Data for the table `BOOKING` */
 
-insert  into `BOOKING`(`ID`,`PRICE`,`STATUS`,`STATUS_DATE`,`STATUS_REASON`,`START_DATE`,`END_DATE`,`BOOKING_NOTE`,`CS_BOOKING_NOTE`,`CREATE_DATE`,`FK_BOOKING_MEMBER_ID`,`FK_LOCATION_ID`) values 
-(1,10000,0,'2022-12-25 16:54:25','','2022-12-31','2023-01-07','BOOKING_NOTE','','2022-12-25 16:54:25',5,1);
+insert  into `BOOKING`(`ID`,`PRICE`,`STATUS`,`STATUS_DATE`,`STATUS_REASON`,`START_DATE`,`END_DATE`,`BOOKING_NOTE`,`CS_BOOKING_NOTE`,`CREATE_DATE`,`FK_BOOKING_MEMBER_ID`,`FK_LOCATION_ID`,`ACTIVITY_NAME`,`APPLICANT`,`PRINCIPAL`,`GROUP_TYPE`,`ID_PIC`,`CONTACT_NAME`,`TEL`,`ACTIVITY_TYPE`,`SEE_TYPE`,`OTHER`) values 
+(1,10000,0,'2022-12-25 16:54:25','','2022-12-31','2023-01-07','BOOKING_NOTE','','2022-12-25 16:54:25',5,1,'','','','','','','','','',NULL);
 
 /*Table structure for table `CART` */
 
@@ -271,17 +279,20 @@ CREATE TABLE `PO_DETAIL` (
   `UNIT_PRICE` mediumint NOT NULL COMMENT '單價',
   `QTY` tinyint NOT NULL COMMENT '下單數量',
   `FK_PO_DETAIL_PO_ID` int NOT NULL COMMENT 'FK_訂單_訂單編號',
+  `FK_PO_PRODUCT_SPEC_ID` int NOT NULL COMMENT 'FK_商品規格編號',
   PRIMARY KEY (`ID`),
   KEY `FK_PRODUCT_ID_idx` (`FK_PO_DETAIL_PRODUCT_ID`),
   KEY `FK_PO_ID_idx` (`FK_PO_DETAIL_PO_ID`),
+  KEY `FK_PO_PRODUCT_SPEC_ID_idx` (`FK_PO_PRODUCT_SPEC_ID`),
   CONSTRAINT `FK_PO_DETAIL_PO_ID` FOREIGN KEY (`FK_PO_DETAIL_PO_ID`) REFERENCES `PO` (`ID`),
-  CONSTRAINT `FK_PO_DETAIL_PRODUCT_ID` FOREIGN KEY (`FK_PO_DETAIL_PRODUCT_ID`) REFERENCES `PRODUCT` (`ID`)
+  CONSTRAINT `FK_PO_DETAIL_PRODUCT_ID` FOREIGN KEY (`FK_PO_DETAIL_PRODUCT_ID`) REFERENCES `PRODUCT` (`ID`),
+  CONSTRAINT `FK_PO_PRODUCT_SPEC_ID` FOREIGN KEY (`FK_PO_PRODUCT_SPEC_ID`) REFERENCES `PRODUCT_SPEC` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `PO_DETAIL` */
 
-insert  into `PO_DETAIL`(`ID`,`FK_PO_DETAIL_PRODUCT_ID`,`UNIT_PRICE`,`QTY`,`FK_PO_DETAIL_PO_ID`) values 
-(1,1,960,3,1);
+insert  into `PO_DETAIL`(`ID`,`FK_PO_DETAIL_PRODUCT_ID`,`UNIT_PRICE`,`QTY`,`FK_PO_DETAIL_PO_ID`,`FK_PO_PRODUCT_SPEC_ID`) values 
+(1,1,960,3,1,4);
 
 /*Table structure for table `PRODUCT` */
 
@@ -440,27 +451,6 @@ DROP TABLE IF EXISTS `b_member`;
  `VERIFY` tinyint(1) ,
  `EMAIL` varchar(100) ,
  `DESC` varchar(45) 
-)*/;
-
-/*Table structure for table `b_member_detail` */
-
-DROP TABLE IF EXISTS `b_member_detail`;
-
-/*!50001 DROP VIEW IF EXISTS `b_member_detail` */;
-/*!50001 DROP TABLE IF EXISTS `b_member_detail` */;
-
-/*!50001 CREATE TABLE  `b_member_detail`(
- `ID` int ,
- `USERNAME` varchar(100) ,
- `EMAIL` varchar(100) ,
- `PASSWORD` varchar(45) ,
- `PHONE` varchar(10) ,
- `VERIFY` tinyint(1) ,
- `FK_ROLE_ID` int ,
- `ZIP` varchar(5) ,
- `REGION` varchar(45) ,
- `DISTRICT` varchar(45) ,
- `LOCATION` varchar(256) 
 )*/;
 
 /*Table structure for table `b_news_detail` */
@@ -745,13 +735,6 @@ DROP TABLE IF EXISTS `f_store_product`;
 /*!50001 DROP VIEW IF EXISTS `b_member` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `b_member` AS select `m`.`ID` AS `ID`,`m`.`USERNAME` AS `USERNAME`,`m`.`VERIFY` AS `VERIFY`,`m`.`EMAIL` AS `EMAIL`,`r`.`DESC` AS `DESC` from (`member` `m` join `role` `r` on((`m`.`FK_ROLE_ID` = `r`.`ID`))) */;
-
-/*View structure for view b_member_detail */
-
-/*!50001 DROP TABLE IF EXISTS `b_member_detail` */;
-/*!50001 DROP VIEW IF EXISTS `b_member_detail` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `b_member_detail` AS select `m`.`ID` AS `ID`,`m`.`USERNAME` AS `USERNAME`,`m`.`EMAIL` AS `EMAIL`,`m`.`PASSWORD` AS `PASSWORD`,`m`.`PHONE` AS `PHONE`,`m`.`VERIFY` AS `VERIFY`,`m`.`FK_ROLE_ID` AS `FK_ROLE_ID`,`a`.`ZIP` AS `ZIP`,`a`.`REGION` AS `REGION`,`a`.`DISTRICT` AS `DISTRICT`,`a`.`LOCATION` AS `LOCATION` from (`member` `m` join `address` `a` on((`m`.`ID` = `a`.`FK_ADDRESS_MEMBER_ID`))) */;
 
 /*View structure for view b_news_detail */
 

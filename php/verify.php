@@ -8,7 +8,6 @@ function isMemberLogin(){
     return isset($_SESSION["memberID"]) ? $_SESSION["memberID"] : "";
 }
 
-
 function setMemberSession($memberID, $username){
     // session是否存在都overwrite最新的會員資訊
     if(!isset($_SESSION)){
