@@ -55,7 +55,7 @@ var app = Vue.createApp({
           id: "tab2",
           name: "修改密碼",
         },
-      ],
+      ], 
       addr: [
         {
           addrText: "台北市松山區敦化北路100號2樓",
@@ -65,9 +65,9 @@ var app = Vue.createApp({
           addrText: "台北市中山區南京東路三段219號5樓",
           clickId: "edit",
         },
-      ],
-    };
-  },
+      ]
+    } // edit: {clickId: "edit"}, 
+  }, // addr.forEach(address=>{...this.edit});
   //頁籤tab切換
   computed: {},
   methods: {
