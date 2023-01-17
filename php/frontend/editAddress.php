@@ -13,6 +13,8 @@ function editAddress($newAddress, $mid, $selectID){
     $statement->bindValue(":mid", $mid);
     $statement->bindValue(":selectID", $selectID);
     $statement->execute();
+    // $data["res"] = "地址修改完成";
+    // echo $data;
 }
 
 ?>
