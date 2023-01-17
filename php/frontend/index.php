@@ -28,9 +28,15 @@
     $sql = "SELECT TITLE, `START_DATE`, END_DATE
             FROM f_expo";
     $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $data["calendar"] = $statement->fetchAll();
-
+    $test = $statement->execute();
+    $test = $statement->fetchAll();
+    $data["calendar"] = array();
+    foreach ($test as $item) {
+        $event['title'] = $item['TITLE'];
+        $event['start'] = $item['START_DATE'];
+        $event['end'] = $item['END_DATE'];
+        array_push($data['calendar'], $event);
+    }
 
     echo json_encode($data);
 ?>
