@@ -3,6 +3,8 @@ $(() => {
   $("#footer").load("footer.html");
 });
 
+console.log("aacccccca")
+
 /*-----------------google api 第三方登入-----------------*/
 
 // handleCallback用來處理回傳憑證，登入後有呼叫這個function表示成功登入
@@ -51,6 +53,7 @@ const createApp = Vue.createApp({
     return {
       user_email: "",
       user_password: "",
+
     };
   },
   methods: {
@@ -86,6 +89,7 @@ const createApp = Vue.createApp({
           if (res.data === "登入成功") {
             alert(res.data);
             // console.log(res);
+            sessionStorage.setItem("login", '1')
             window.location.href = "../html/memberCenter.html";
           } else {
             alert(res.data);

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>場地申請表 - 韶光文創園區</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <body>
@@ -31,7 +31,8 @@
         </div>
         <main class="rental_join_form" id="rental_join_form">
           <!----------------------表單區------------------------->
-          <section class="Join__form" >
+          <form @submit.prevent="handleSubmit">
+            <section class="Join__form">
               <div class="activity__name__out">
                 <label for="activity__name">活動名稱</label>
                 <input
@@ -72,7 +73,8 @@
                       name="unit__radio"
                       type="radio"
                       id="unit__1"
-                      value="1"
+                      value="個人"
+                      v-model="unit__spacing"
                     />
                     <label for="unit__1">個人</label>
                   </div>
@@ -82,7 +84,8 @@
                       name="unit__radio"
                       type="radio"
                       id="unit__2"
-                      value="2"
+                      value="藝文團體"
+                      v-model="unit__spacing"
                     />
                     <label for="unit__2">藝文團體</label>
                   </div>
@@ -92,7 +95,8 @@
                       name="unit__radio"
                       type="radio"
                       id="unit__3"
-                      value="3"
+                      value="一般團體"
+                      v-model="unit__spacing"
                     />
                     <label for="unit__3">一般團體</label>
                   </div>
@@ -102,7 +106,8 @@
                       name="unit__radio"
                       type="radio"
                       id="unit__4"
-                      value="4"
+                      value="學校"
+                      v-model="unit__spacing"
                     />
                     <label for="unit__4">學校</label>
                   </div>
@@ -112,7 +117,8 @@
                       name="unit__radio"
                       type="radio"
                       id="unit__5"
-                      value="5"
+                      value="公部門"
+                      v-model="unit__spacing"
                     />
                     <label for="unit__5">公部門</label>
                   </div>
@@ -137,13 +143,11 @@
                     id="file"
                     multiple="multiple"
                     onchange="document.getElementById('textfield').value=this.value"
-                    onblur="checkfile()"
                   />
 
                   <div class="file-box">
-                      <!-- 存放檔案預覽區 -->
+                    <!-- 存放檔案預覽區 -->
                   </div>
-
                 </div>
                 <p id="checktext6"></p>
                 <p id="checktext_6"></p>
@@ -262,70 +266,70 @@
                       class="with-gap validate[required]"
                       name="nature__activity__1"
                       type="checkbox"
-                      id="nature__activity__1"
-                      value="1"
+                      id="nature__activity[0]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__1">座談會/研討會</label>
+                    <label for="nature__activity[0]">座談會/研討會</label>
                   </div>
                   <div class="nature__activity__2 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__2"
                       type="checkbox"
-                      id="nature__activity__2"
-                      value="2"
+                      id="nature__activity[1]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__2">個展/畢展</label>
+                    <label for="nature__activity[1]">個展/畢展</label>
                   </div>
                   <div class="nature__activity__3 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__3"
                       type="checkbox"
-                      id="nature__activity__3"
-                      value="3"
+                      id="nature__activity[2]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__3">同人/社團活動</label>
+                    <label for="nature__activity[2]">同人/社團活動</label>
                   </div>
                   <div class="nature__activity__4 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__4"
                       type="checkbox"
-                      id="nature__activity__4"
-                      value="4"
+                      id="nature__activity[3]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__4">大型展覽/聯展</label>
+                    <label for="nature__activity[3]">大型展覽/聯展</label>
                   </div>
                   <div class="nature__activity__5 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__5"
                       type="checkbox"
-                      id="nature__activity__5"
-                      value="5"
+                      id="nature__activity[4]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__5">服裝/彩妝走秀</label>
+                    <label for="nature__activity[4]">服裝/彩妝走秀</label>
                   </div>
                   <div class="nature__activity__6 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__6"
                       type="checkbox"
-                      id="nature__activity__6"
-                      value="6"
+                      id="nature__activity[5]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__6">園遊會/市集</label>
+                    <label for="nature__activity[5]">園遊會/市集</label>
                   </div>
                   <div class="nature__activity__7 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="nature__activity__7"
                       type="checkbox"
-                      id="nature__activity__7"
-                      value="7"
+                      id="nature__activity[6]"
+                      v-model="nature__activity"
                     />
-                    <label for="nature__activity__7">其他</label>
+                    <label for="nature__activity[6]">其他</label>
                   </div>
                 </div>
                 <p id="checktext6"></p>
@@ -432,11 +436,12 @@
                 ></textarea>
               </div>
               <div class="btn__ctn">
-                <button id="goApplyForm" class="button" @onclick="textTosend">
+                <button id="goApplyForm" class="button" @onclick="rentalTosend">
                   <span>確認送出</span>
                 </button>
               </div>
-          </section>
+            </section>
+          </form>
         </main>
         <footer id="footer"></footer>
       </div>
