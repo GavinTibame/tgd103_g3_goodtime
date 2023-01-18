@@ -20,7 +20,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.0/moment.min.js"></script>
   <!-- FullCalendar v3.8.1 -->
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css" rel="stylesheet"  /> -->
-  <link rel="stylesheet" href="../css/fullcalendar.css">
+  <!-- <link rel="stylesheet" href="../css/fullcalendar.css"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css" rel="stylesheet" media="print"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js"></script>  
   <link rel="stylesheet" href="../css/style.css">
@@ -376,12 +376,15 @@
         $( "#example" ).fullCalendar({
           header: { // 頂部排版
               left: "prev,next today",
-              center: "title",
+              center: "prev,title,next",
               right: "month,basicWeek,basicDay"
           },
           // defaultDate: "2023-01-10", 
           weekends: true,
           editable: false,  // 啟動拖曳調整日期
+          // eventTextColor: "black", 
+          eventBackgroundColor: "#C09351", 
+          eventBorderColor:"#C09351",
           validRange: function(nowDate) {
             return {
               start: '2023-01-18',
@@ -393,9 +396,10 @@
           //     { // 事件(包含跨日開始時間、結束時間)
           //         title: "《流體藝術》暈染雙人流體畫展",
           //         start: "2023-01-07",
-          //         end: "2023-01-10"
+          //         end: "2023-01-10",
           //         url: "https://tibamef2e.com/tgd103/g3/dist_2/html/event_detail.html",
-          //     }
+          //        color: black
+        //        }
           // ]
         });
       }
@@ -404,7 +408,10 @@
         axios.get("../../php/frontend/index.php")
         .then(res => {
           this.dataList = {...res.data};
-          this.events=JSON.parse(JSON.stringify(this.dataList.calendar))
+          this.events=JSON.parse(JSON.stringify(this.dataList.calendar));
+          // this.events.forEach(element => {
+          //   element.color = "";
+          // });
           console.log(this.events);
           this.create_calendar()
         }).catch(err => {

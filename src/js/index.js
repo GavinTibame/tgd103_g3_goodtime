@@ -7,7 +7,6 @@ const shopNextIcon = '<img src="../img/index/shopprvarrow.png">'
 $(() => {
     $("#footer").load("footer.html");
 });
-<<<<<<< HEAD
 
 
 //Calendar event color
@@ -28,5 +27,3 @@ $(() => {
     
 
 
-=======
->>>>>>> dev

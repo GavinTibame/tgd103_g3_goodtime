@@ -273,8 +273,14 @@
             .fc-right{
                 display: none;
             }
+            &> * > :first-child {
+                margin-left: 0;
+                display: flex;
+            }
             .fc-left{
                 float: right;
+                display:none;
+
                 .fc-button-group{
                     .fc-corner-left{
                         border: 1px solid $brown-color;
@@ -292,14 +298,21 @@
             }
             .fc-center{
                 color: $brown-color;
-                margin-left: 110px;
+                // margin-left: 110px;
                 h2{
                     font-size: 30px;
                     font-family: $our-font;
+                    margin:0px 2rem 0 2rem;
                 }
             }
         }
     }
+}
+.fc-sat, .fc-sun{
+    color:#C09351;
+}
+.fc th{
+    padding:10px;
 }
 .index-aboutus {
     display: block;
@@ -307,6 +320,8 @@
     height: 500px;
     margin: 0 auto;
     margin-top: 100px;
+
+
     .aboutus-left {
         float: left;
         width: 50%;
@@ -1003,4 +1018,15 @@
             right: 19%;
         }
     }
+}
+
+.fc-icon:after, 
+.fc-toolbar button {
+    position: relative;
+    background-color: white;
+    border:0;
+    color:#C09351;
+}
+.fc-toolbar button{
+    outline: solid 1px #C09351;
 }
