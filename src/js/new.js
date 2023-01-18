@@ -1,4 +1,3 @@
-
 const newApp = Vue.createApp({
   data() {
     return {

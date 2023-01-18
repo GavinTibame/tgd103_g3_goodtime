@@ -12,6 +12,7 @@ const eventDetailApp = Vue.createApp({
             this.price = e.target.value;
             console.log(this.price);
         },
+       
         passToCart() { // 加入購物車
             if (this.price != 0) { 
                 axios.post("../../php/frontend/cartAdd.php",

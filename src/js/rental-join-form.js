@@ -1,4 +1,4 @@
-
+console.log("bbbbb")
 /*------------------------檔案上傳-----------------------*/
 function file() {
   var that = this;
@@ -45,6 +45,11 @@ const rentalJoinFormApp = Vue.createApp({
     };
   },
   methods: {
+    demands_change(){
+      if(this.other__demands.includes('無代售需求')){
+        this.other__demands=['無代售需求']
+      }
+    },
 
     rentalTosend() {
       if (this.activity__name == "") {
