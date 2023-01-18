@@ -1,4 +1,4 @@
-const createApp = Vue.createApp({
+const createApp_event_detail = Vue.createApp({
     data() {
         return {
             eventDetail: {},

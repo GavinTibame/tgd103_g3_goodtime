@@ -1,4 +1,4 @@
-const createApp = Vue.createApp({
+const createApp_shopping_cart = Vue.createApp({
     data() {
         return {
             selectAll: false,

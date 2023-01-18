@@ -1,4 +1,5 @@
-const createApp = Vue.createApp({
+
+const createApp_new = Vue.createApp({
   data() {
     return {
       current: 1,    //設定要顯示的頁數:1頁
