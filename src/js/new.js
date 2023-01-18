@@ -1,11 +1,11 @@
 const createApp = Vue.createApp({
   data() {
     return {
-      current: 1,
-      paginate: 4,
+      current: 1,    //要顯示的頁數
+      paginate: 4,  //每頁要顯示幾筆資料
       paginate_total: 0,
       status_filter: "",
-      currentList: [],
+      currentList: [], //接不同三個universe的空陣列
       tabpanels: [
         {
           time: "2011-11-29",
@@ -130,54 +130,58 @@ const createApp = Vue.createApp({
       ],
     };
   },
-  created() {
-    this.paginate_total = this.currentList.length/this.paginate;
-  },
   mounted(){
-  //  console.log('hi');
+    this.setStatus("")
+  
   },
   updated(){
     this.updatePaginate();
   },
   methods: {
-    getData(){
-        this.currentList  = this.tabpanels
-        // this.setStatus('')
-    },
+    // getData(){
+    //     this.currentList  = this.tabpanels;
+    //     this.setStatus('');
+    // },
     setPaginate(i) {
       if (this.current == 1) {
+        // console.log(this.current);
         return i < this.paginate;
       } else {
+        // console.log((
+        //   i >= this.paginate * (this.current - 1) &&
+        //   i < this.current * this.paginate
+        // ));
+
         return (
           i >= this.paginate * (this.current - 1) &&
           i < this.current * this.paginate
         );
-      }
+      }   
     },
     setStatus(status) {
       this.status_filter = status;
-      this.currentList = this.tabpanels.filter((news) => {
-        if (this.status_filter == "") {
-          this.currentList = this.tabpanels;
-        } else {
-          return news.universe == this.status_filter;
-        }
-      });
-    //   console.log(this.currentList);
+      if (this.status_filter == "") {
+        this.currentList = this.tabpanels;
+      }else{
+        this.currentList = this.tabpanels.filter((news) => {
+            return news.universe == this.status_filter;
+        });
+      }
+   
+      // console.log(this.currentList);
       //   this.currentList.forEach((current)=>console.log(current));
     },
     updateCurrent(i) {
       this.current = i;
     },
     updatePaginate() {
-      this.current = 1;
       this.paginate_total = Math.ceil(
-        document.querySelectorAll(".tab-panel li").length / this.paginate
+      document.querySelectorAll(".tab-panel li").length / this.paginate
       );
       // console.log(Math.ceil(document.querySelectorAll(".tab-panel li").length / this.paginate));
-      console.log(this.paginate_total);
       // console.log(this.currentList);
     },
+
   },
 
 }).mount("#news");
