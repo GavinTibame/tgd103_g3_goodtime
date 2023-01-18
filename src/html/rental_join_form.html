@@ -144,13 +144,7 @@
                     multiple="multiple"
                     onchange="document.getElementById('textfield').value=this.value"
                   />
-
-                  <div class="file-box">
-                    <!-- 存放檔案預覽區 -->
-                  </div>
                 </div>
-                <p id="checktext6"></p>
-                <p id="checktext_6"></p>
               </div>
               <!----------------------聯絡人姓名與電話------------------------->
               <div class="Contact__name">
@@ -160,6 +154,7 @@
                   name="Contact__name"
                   class="Contact__name"
                   id="Contact__name"
+                  v-model="Contact__name"
                 />
                 <p id="checktext4"></p>
                 <p id="checktext_4"></p>
@@ -172,6 +167,7 @@
                   class="Contact__phone"
                   maxlength="10"
                   id="Contact__phone"
+                  v-model="Contact__phone"
                 />
                 <p id="checktext5"></p>
                 <p id="checktext_5"></p>
@@ -186,7 +182,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__1"
-                      value="1"
+                      value="A館"
+                      v-model="place__spacing"
                     />
                     <label for="place__1">A館</label>
                   </div>
@@ -196,7 +193,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__2"
-                      value="2"
+                      value="B館"
+                      v-model="place__spacing"
                     />
                     <label for="place__2">B館</label>
                   </div>
@@ -206,7 +204,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__3"
-                      value="3"
+                      value="C館"
+                      v-model="place__spacing"
                     />
                     <label for="place__3">C館</label>
                   </div>
@@ -216,7 +215,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__4"
-                      value="4"
+                      value="D館"
+                      v-model="place__spacing"
                     />
                     <label for="place__4">D館</label>
                   </div>
@@ -226,7 +226,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__5"
-                      value="5"
+                      value="E區(文創大街)"
+                      v-model="place__spacing"
                     />
                     <label for="place__5">E區(文創大街)</label>
                   </div>
@@ -236,7 +237,8 @@
                       name="ContactGender"
                       type="radio"
                       id="place__6"
-                      value="6"
+                      value="周邊攤位"
+                      v-model="place__spacing"
                     />
                     <label for="place__6">周邊攤位</label>
                   </div>
@@ -250,11 +252,17 @@
                     type="date"
                     id="date_pick__from"
                     name="date_pick__from"
+                    v-model="date_pick__from"
                   />
                 </div>
                 <div class="date_pick__to">
                   <label for="date_pick__to">活動結束時間</label>
-                  <input type="date" id="date_pick__to" name="date_pick__to" />
+                  <input
+                    type="date"
+                    id="date_pick__to"
+                    name="date_pick__to"
+                    v-model="date_pick__to"
+                  />
                 </div>
               </div>
               <!----------------------活動性質------------------------->
@@ -267,6 +275,7 @@
                       name="nature__activity__1"
                       type="checkbox"
                       id="nature__activity[0]"
+                      value="座談會/研討會"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[0]">座談會/研討會</label>
@@ -277,6 +286,7 @@
                       name="nature__activity__2"
                       type="checkbox"
                       id="nature__activity[1]"
+                      value="個展/畢展"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[1]">個展/畢展</label>
@@ -287,6 +297,7 @@
                       name="nature__activity__3"
                       type="checkbox"
                       id="nature__activity[2]"
+                      value="同人/社團活動"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[2]">同人/社團活動</label>
@@ -297,6 +308,7 @@
                       name="nature__activity__4"
                       type="checkbox"
                       id="nature__activity[3]"
+                      value="大型展覽/聯展"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[3]">大型展覽/聯展</label>
@@ -307,6 +319,7 @@
                       name="nature__activity__5"
                       type="checkbox"
                       id="nature__activity[4]"
+                      value="服裝/彩妝走秀"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[4]">服裝/彩妝走秀</label>
@@ -317,6 +330,7 @@
                       name="nature__activity__6"
                       type="checkbox"
                       id="nature__activity[5]"
+                      value="園遊會/市集"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[5]">園遊會/市集</label>
@@ -327,6 +341,7 @@
                       name="nature__activity__7"
                       type="checkbox"
                       id="nature__activity[6]"
+                      value="其他"
                       v-model="nature__activity"
                     />
                     <label for="nature__activity[6]">其他</label>
@@ -346,7 +361,8 @@
                       name="ContactGender"
                       type="radio"
                       id="ornamental__nature__1"
-                      value="1"
+                      value="不開放"
+                      v-model="ornamental__nature"
                     />
                     <label for="ornamental__nature__1">不開放</label>
                   </div>
@@ -358,7 +374,8 @@
                       name="ContactGender"
                       type="radio"
                       id="ornamental__nature__2"
-                      value="2"
+                      value="自由入場"
+                      v-model="ornamental__nature"
                     />
                     <label for="ornamental__nature__2">自由入場</label>
                   </div>
@@ -370,7 +387,8 @@
                       name="ContactGender"
                       type="radio"
                       id="ornamental__nature__3"
-                      value="3"
+                      value="索票/邀請函"
+                      v-model="ornamental__nature"
                     />
                     <label for="ornamental__nature__3">索票/邀請函</label>
                   </div>
@@ -382,7 +400,8 @@
                       name="ContactGender"
                       type="radio"
                       id="ornamental__nature__4"
-                      value="4"
+                      value="售票"
+                      v-model="ornamental__nature"
                     />
                     <label for="ornamental__nature__4">售票</label>
                   </div>
@@ -398,7 +417,9 @@
                       name="nature__activity__1"
                       type="checkbox"
                       id="other__demands__1"
-                      value="1"
+                      value="代售門票"
+                      v-model="other__demands"
+                      :disabled="other__demands.includes('無代售需求')"
                     />
                     <label for="other__demands__1">代售門票</label>
                   </div>
@@ -408,7 +429,9 @@
                       name="nature__activity__1"
                       type="checkbox"
                       id="other__demands__2"
-                      value="2"
+                      value="代售周邊商品"
+                      v-model="other__demands"
+                      :disabled="other__demands.includes('無代售需求')"
                     />
                     <label for="other__demands__2">代售周邊商品</label>
                   </div>
@@ -418,7 +441,8 @@
                       name="nature__activity__3"
                       type="checkbox"
                       id="other__demands__3"
-                      value="3"
+                      value="無代售需求"
+                      v-model="other__demands"
                     />
                     <label for="other__demands__3">無代售需求</label>
                   </div>
@@ -433,6 +457,7 @@
                   cols="30"
                   rows="10"
                   class="Opinion__text"
+                  v-model="Opinion"
                 ></textarea>
               </div>
               <div class="btn__ctn">
@@ -443,20 +468,14 @@
             </section>
           </form>
         </main>
-        <footer id="footer"></footer>
       </div>
 
       <!-- <script src="../js/form.js"></script> -->
       <script src="../js/jquery-3.2.1.min.js"></script>
       <script src="../js/vue.global.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
       <script src="../js/rental-join-form.js"></script>
 
-      <script>
-        $(() => {
-          $("#header").load("topbar.html");
-          $("#footer").load("footer.html");
-        });
-      </script>
     </body>
   </body>
 </html>

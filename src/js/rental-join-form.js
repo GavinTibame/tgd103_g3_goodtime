@@ -31,12 +31,20 @@ const createApp = Vue.createApp({
       activity__name: "",
       applicant__unit: "",
       principal__name: "",
-      nature__activity: [],
       unit__spacing:"",
-
+      Contact__name:"",
+      Contact__phone:"",
+      nature__activity:[],
+      place__spacing:"",
+      ornamental__nature:"",
+      other__demands:[],
+      Opinion:"",
+      date_pick__from:"",
+      date_pick__to:"",
     };
   },
   methods: {
+
     rentalTosend() {
       if (this.activity__name == "") {
         alert("請輸入您的活動名稱");
@@ -77,6 +85,17 @@ const createApp = Vue.createApp({
       console.log("申請單位:", this.activity__name);
       console.log("負責人姓名:", this.applicant__unit);
       console.log("單位類別:", this.unit__spacing);
+      console.log("聯絡人姓名:", this.Contact__name);
+      console.log("聯絡人電話:", this.Contact__phone);
+      console.log("選擇場地:", this.place__spacing);
+      console.log("活動開始時間:", this.date_pick__from);
+      console.log("活動開始時間:", this.date_pick__to);
+      console.log("活動性質:", this.nature__activity);
+      console.log("觀賞性質:", this.ornamental__nature);
+      console.log("其他需求:", this.other__demands);
+      console.log("意見回饋:", this.Opinion);
     },
   },
 }).mount("#rental_join_form");
+
+

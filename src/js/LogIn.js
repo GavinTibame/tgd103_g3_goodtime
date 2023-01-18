@@ -3,8 +3,6 @@ $(() => {
   $("#footer").load("footer.html");
 });
 
-console.log("aacccccca")
-
 /*-----------------google api 第三方登入-----------------*/
 
 // handleCallback用來處理回傳憑證，登入後有呼叫這個function表示成功登入
