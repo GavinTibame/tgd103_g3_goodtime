@@ -24,7 +24,7 @@ const createApp = Vue.createApp({
             }
         }
     }, created() {
-        axios.get("../../php/frontend/product.php?pid=" + 2)
+        axios.get("../../php/frontend/product.php?pid=" + 1)
             .then(res => { // 拿商品頁的資料
                 this.productDetail = res.data[0];
                 this.productDetail.FEATURED = this.productDetail.FEATURED.split(",");

@@ -14,7 +14,7 @@
 
 <body>
   <header id="header"></header>
-  <main class="memberCenter">
+  <main class="memberCenter" id="memberCenter">
     <ul class="breadcrumb">
       <li><a href="./index.html">首頁</a></li>
       <li><a href="./memberCenter.html">會員中心</a></li>
@@ -32,24 +32,25 @@
         <aside class="side-nav">
           <nav class="nav-bg">
             <ul class="nav-ctn">
-              <li class="nav-block" data-nav="acc-block">
+              <li class="nav-block" data-nav="acc-block" @click="switchActive('acc')">
                 <div>
                   <h6 class="title-eng">Account</h6>
                   <p class="title-zh">帳號管理</p>
-                  <div class="title -active"></div>
+                  <div class="title" :class="activeBlock === 'acc' ? '-active':''"></div>
                 </div>
               </li>
-              <li class="nav-block" data-nav="po-block">
+              <li class="nav-block" data-nav="po-block" @click="switchActive('po')">
                 <div>
                   <h6 class="title-eng">Shopping List</h6>
                   <p class="title-zh">購買清單</p>
-                  <div class="title"></div>
+                  <div class="title" :class="activeBlock === 'po' ? '-active':''"></div>
                 </div>
               </li>
-              <li class="nav-block" data-nav="cpn-block">
+              <li class="nav-block" data-nav="cpn-block" @click="switchActive('cpn')">
                 <div>
                   <h6 class="title-eng">Coupon</h6>
                   <p class="title-zh">優惠券</p>
+                  <div class="title" :class="activeBlock === 'cpn' ? '-active':''"></div>
                 </div>
               </li>
             </ul>
@@ -59,13 +60,13 @@
           <div class="tab-block" id="item_acc-block">
             <ul class="tab-list">
               <li>
-                <button v-for="tab in tabs" :class="{active: currentTab == tab.id}" @click="currentTab = tab.id">
+                <button v-for="tab in tabs1" :class="{active: currentTab1 == tab.id}" @click="currentTab1 = tab.id">
                   {{ tab.name }}
                 </button>
               </li>
             </ul>
             <!---------------------------修改地址----------------------------->
-            <div class="tab-content" id="item_acc-block">
+            <div class="tab-content">
               <transition name="fade">
                 <div class="overlay" v-if="popup !== false">
                   <article>
@@ -82,7 +83,7 @@
                 </div>
               </transition>
 
-              <div class="addr-tab" v-if="currentTab === 'tab1'">
+              <div class="addr-tab" v-if="currentTab1 === 'tab1'">
                 <!--             item= 陣列裡的第幾筆   index=整個陣列資料-->
                 <component v-for="(item, index) in addr">
                   <div class="addr-col">
@@ -91,10 +92,10 @@
                       <input type="radio" name="addr" :id="'addr'+index" :value="'addr'+index" />
                       <!--                         資料    地址 -->
                       <div id="memberAddr1" v-if="item.clickId === 'edit'">
-                        {{item.addrText}}
+                        {{item.LOCATION}}
                       </div>
                       <input type="text" name="" class="addr_text" id="" placeholder="" v-if="item.clickId !== 'edit'"
-                        v-model="item.addrText" />
+                        v-model="item.LOCATION" />
                     </label>
                     <button class="edit-addr" @click="changehtml(index)">
                       <span class="material-symbols-outlined">
@@ -114,7 +115,7 @@
                 </div>
               </div>
               <!----------------------------修改密碼------------------------->
-              <div class="pwd-tab" v-if="currentTab === 'tab2'">
+              <div class="pwd-tab" v-if="currentTab1 === 'tab2'">
                 <div>
                   <label for="prevPwd">目前密碼</label><input type="password" name="prevPwd" id="prevPwd" />
                 </div>
@@ -135,14 +136,22 @@
           <!-----------------------訂單查詢與訂單明細---------------------------->
           <div class="tab-block" id="item_po-block">
             <ul class="tab-list">
-              <button v-for="tab in tabs" :class="{active: currentTab == tab.id}" @click="currentTab = tab.id">
+              <button v-for="tab in tabs2" :class="{active: currentTab2 == tab.id}" @click="currentTab2 = tab.id"
+                :disabled="tab.id === 'tab2'">
                 {{ tab.name }}
               </button>
             </ul>
             <div class="tab-content">
               <div class="po-tab">
                 <div class="po-list">
-                  <component v-bind:is="current_tab_component"></component>
+                  <!-- <component :is="current_tab_component"></component> -->
+                  <template v-for="pod in poDetail">
+                    <tab1-content v-if="current_tab_component === 'tab1-content'" :podProps="pod"
+                      @select-evt="selectEvt">
+                    </tab1-content>
+                    <tab2-content v-if="current_tab_component === 'tab2-content'" :podProps="pod">
+                    </tab2-content>
+                  </template>
                 </div>
               </div>
             </div>
@@ -185,7 +194,8 @@
 
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/vue.global.js"></script>
-  <script src="../js/memberCenter2.js"></script>
+  <script src="../js/axios.min.js"></script>
+  <script src="../js/memberCenter2.js" type="module"></script>
 </body>
 
 </html>

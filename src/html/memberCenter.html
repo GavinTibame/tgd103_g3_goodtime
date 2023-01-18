@@ -14,7 +14,7 @@
 
 <body>
   <header id="header"></header>
-  <main class="memberCenter">
+  <main class="memberCenter" id="memberCenter">
     <ul class="breadcrumb">
       <li><a href="./index.html">首頁</a></li>
       <li><a href="./memberCenter.html">會員中心</a></li>
@@ -36,7 +36,7 @@
                 <div>
                   <h6 class="title-eng">Account</h6>
                   <p class="title-zh">帳號管理</p>
-                  <div class="title"></div>
+                  <div class="title -active"></div>
                 </div>
               </li>
               <li class="nav-block" data-nav="po-block">
@@ -60,13 +60,13 @@
           <div class="tab-block" id="item_acc-block">
             <ul class="tab-list">
               <li>
-                <button v-for="tab in tabs" :class="{active: currentTab == tab.id}" @click="currentTab = tab.id">
+                <button v-for="tab in tabs1" :class="{active: currentTab1 == tab.id}" @click="currentTab1 = tab.id">
                   {{ tab.name }}
                 </button>
               </li>
             </ul>
             <!---------------------------修改地址----------------------------->
-            <div class="tab-content" id="item_acc-block">
+            <div class="tab-content">
               <transition name="fade">
                 <div class="overlay" v-if="popup !== false">
                   <article>
@@ -83,7 +83,7 @@
                 </div>
               </transition>
 
-              <div class="addr-tab" v-if="currentTab === 'tab1'">
+              <div class="addr-tab" v-if="currentTab1 === 'tab1'">
                 <!--             item= 陣列裡的第幾筆   index=整個陣列資料-->
                 <component v-for="(item, index) in addr">
                   <div class="addr-col">
@@ -115,7 +115,7 @@
                 </div>
               </div>
               <!----------------------------修改密碼------------------------->
-              <div class="pwd-tab" v-if="currentTab === 'tab2'">
+              <div class="pwd-tab" v-if="currentTab1 === 'tab2'">
                 <div>
                   <label for="prevPwd">目前密碼</label><input type="password" name="prevPwd" id="prevPwd" />
                 </div>
@@ -136,14 +136,15 @@
           <!-----------------------訂單查詢與訂單明細---------------------------->
           <div class="tab-block" id="item_po-block">
             <ul class="tab-list">
-              <button v-for="tab in tabs" :class="{active: currentTab == tab.id}" @click="currentTab = tab.id">
+              <button v-for="tab in tabs2" :class="{active: currentTab2 == tab.id}" @click="currentTab2 = tab.id"
+                :disabled="tab.id === 'tab2'">
                 {{ tab.name }}
               </button>
             </ul>
             <div class="tab-content">
               <div class="po-tab">
                 <div class="po-list">
-                  <component v-bind:is="current_tab_component"></component>
+                  <component :is="current_tab_component"></component>
                 </div>
               </div>
             </div>
@@ -187,7 +188,7 @@
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/vue.global.js"></script>
   <script src="../js/axios.min.js"></script>
-  <script src="../js/memberCenter.js"></script>
+  <script src="../js/memberCenter2.js"></script>
 </body>
 
 </html>

@@ -44,9 +44,9 @@ $(".nav-block").on("click", function () {
 const app = Vue.createApp({
   data() {
     return {
-      currentTab: "tab1",
+      currentTab1: "tab1",
       popup: false,
-      tabs: [
+      tabs1: [
         {
           id: "tab1",
           name: "修改地址",
@@ -66,23 +66,40 @@ const app = Vue.createApp({
         //   clickId: "edit",
         // },
       ],
-      memberCenter: {}
+      memberCenter: {},
+      currentTab2: "tab1",
+      tabs2: [
+        {
+          id: "tab1",
+          name: "訂單查詢",
+        },
+        {
+          id: "tab2",
+          name: "訂單明細",
+        },
+      ],
     }
   },
   //頁籤tab切換
-  computed: {},
+  computed: {
+    current_tab_component() {
+      return this.currentTab2 + "_content";
+    }
+  },
   methods: {
     //修改及確認資料按鈕
     changehtml(e) {
       // console.log(e)，這裡的e = index
+      // console.log(this.addr[e]);
+      this.addr[e].LOCATION = this.addr[e].LOCATION.trim();
       if (this.addr[e].clickId === "edit") {
         this.addr[e].clickId = "noEdit";
       } else {
         this.addr[e].clickId = "edit";
       }
       //使用者輸入空字串後跳出彈窗提醒
-      if (this.addr[e].addrText == "") {
-        // alert("請輸入您的地址");
+      if (this.addr[e].LOCATION === "") {
+        alert("請輸入您的地址");
         this.addr[e].clickId = "noEdit";
       }
     },
@@ -113,7 +130,6 @@ const app = Vue.createApp({
         this.popup = e; // e = index
         console.log(this.popup);
       } else {
-
         //如果input是空字串，直接移除
         this.addr.splice(e, 1);
       }
@@ -153,34 +169,10 @@ const app = Vue.createApp({
   }
 });
 
-app.mount("#item_acc-block");
 
 // 訂單查詢、訂單明細區塊
 
-const app2 = Vue.createApp({
-  data() {
-    return {
-      currentTab: "tab1",
-      tabs: [
-        {
-          id: "tab1",
-          name: "訂單查詢",
-        },
-        {
-          id: "tab2",
-          name: "訂單明細",
-        },
-      ],
-    };
-  },
-  computed: {
-    current_tab_component() {
-      return this.currentTab + "_content";
-    },
-  },
-});
-
-app2.component("tab1_content", {
+app.component("tab1_content", {
   template: `
   <dl class="po-single">
                 <div>
@@ -237,7 +229,7 @@ app2.component("tab1_content", {
 `,
 });
 
-app2.component("tab2_content", {
+app.component("tab2_content", {
   template: `
   <dl class="podetail">
                 <div>
@@ -355,5 +347,6 @@ app2.component("tab2_content", {
 `,
 });
 
-app2.mount("#item_po-block");
+// app2.mount("#item_po-block");
 
+app.mount("#memberCenter");
