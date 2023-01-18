@@ -1,9 +1,9 @@
 const createApp = Vue.createApp({
   data() {
     return {
-      current: 1,    //要顯示的頁數
-      paginate: 4,  //每頁要顯示幾筆資料
-      paginate_total: 0,
+      current: 1,    //設定要顯示的頁數:1頁
+      paginate: 4,  //每頁要顯示4筆資料
+      paginate_total: 0, //總筆數
       status_filter: "",
       currentList: [], //接不同三個universe的空陣列
       tabpanels: [
@@ -131,32 +131,24 @@ const createApp = Vue.createApp({
     };
   },
   mounted(){
-    this.setStatus("")
-  
+    this.setStatus("");
   },
   updated(){
     this.updatePaginate();
   },
   methods: {
-    // getData(){
-    //     this.currentList  = this.tabpanels;
-    //     this.setStatus('');
-    // },
     setPaginate(i) {
+      // console.log(i);
       if (this.current == 1) {
-        // console.log(this.current);
-        return i < this.paginate;
+        return i < this.paginate;  // i小於4筆資料(ture)則回傳
       } else {
-        // console.log((
-        //   i >= this.paginate * (this.current - 1) &&
-        //   i < this.current * this.paginate
-        // ));
 
         return (
-          i >= this.paginate * (this.current - 1) &&
-          i < this.current * this.paginate
+          i >= this.paginate * (this.current - 1) &&  //i大於當於4筆*當前頁數-1
+          i < this.current * this.paginate   // i小於1頁
         );
-      }   
+      }  
+      
     },
     setStatus(status) {
       this.status_filter = status;
@@ -167,12 +159,12 @@ const createApp = Vue.createApp({
             return news.universe == this.status_filter;
         });
       }
-   
+      //  console.log(this.status_filter);
       // console.log(this.currentList);
-      //   this.currentList.forEach((current)=>console.log(current));
     },
     updateCurrent(i) {
-      this.current = i;
+      this.current = i;  
+      // console.log(this.current = i);
     },
     updatePaginate() {
       this.paginate_total = Math.ceil(
