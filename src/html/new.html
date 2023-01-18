@@ -12,7 +12,8 @@
     />
     <!-- <link rel="stylesheet" href="/css/new.css" /> -->
     <link rel="stylesheet" href="../css/style.css" />
-    <title>NEW</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <title>最新消息 - 韶光文創園區</title>
   </head>
 
   <body>
@@ -45,9 +46,7 @@
           id="tab1"
           @click="setStatus('園區公告')"
         />
-        <label for="tab1" :class="{'-active':status_filter === '園區公告'}"
-          >園區公告</label
-        >
+        <label for="tab1">園區公告</label>
         <!-- Tab 2 -->
         <input
           type="radio"
@@ -66,55 +65,25 @@
         <label for="tab3">其他消息</label>
       </div>
 
-      <div>
-        <div class="tab-panels">
-          <ul class="tab-panel">
-            <li v-for="news in currentList">
-    
-              <a :href="news.url">
-                <small>{{news.time}} | {{news.universe}}</small>
-                <h4>【{{news.universe}}】{{news.message}}</h4>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- <div id="paginator_block">
-        <the-paginator
-          total-items="20"
-          items-per-page="5"
-          current-page="5"
-        ></the-paginator>
-      </div> -->
-      <!-- <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
+      <div class="tab-panels">
+        <ul class="tab-panel">
+          <li v-for="(news,index) in currentList" v-show="setPaginate(index)"> <!-- v-show渲染該頁的畫面 -->
+            <a :href="news.url">
+              <small>{{news.time}} | {{news.universe}}</small>
+              <h4>【{{news.universe}}】{{news.message}}</h4>
             </a>
           </li>
-        <li class="page-ctn"><a class="page-num" href="#">1</a></li>
-        <li class="page-ctn"><a class="page-num" href="#">2</a></li>
-        <li class="page-ctn"><a class="page-num" href="#">3</a></li>
-        <li class="page-ctn">
-          <a class="page-num" href="#">
-            <span aria-hidden="true"></span>
-          </a>
-        </li>
-      </ul>
-    </nav> -->
+        </ul>
+      </div>
+      
       <div id="pagination">
-        <a
-          href="#"
-          class="btn btn-default"
-          v-for="page_index in paginate_total"
-          @click.prevent="updateCurrent(page_index + 1)"
-        >
-          {{ page_index + 1 }}
+        <a href="#" class="btn btn-default" v-for="page_index in paginate_total"
+          @click.prevent="updateCurrent(page_index)">
+          {{ page_index }}
         </a>
+        <a href="#"  @click.prevent="setPaginate(this.current + 1)">></a>
       </div>
     </div>
-    <!-- </div> -->
 
     <footer id="footer"></footer>
 
