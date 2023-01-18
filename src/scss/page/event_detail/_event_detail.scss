@@ -24,14 +24,19 @@
             margin-bottom: 0;
         }
 
-        .btn__ctn,
-        .btn-ctn {
-            width: fit-content;
-            margin: 0 auto;
+        // .btn__ctn,
+        // .btn-ctn {
+        //     width: fit-content;
+        //     margin: 0 auto;
 
             .button {
                 letter-spacing: 5px;
                 padding: 20px 90px;
+                background-color: $primary1-color;
+                color: white;
+                border: 0;
+                display: block;
+                width: 100%;
 
                 @include rwd(1270px) {
                     padding: 20px 80px;
@@ -141,15 +146,15 @@
                     height: 0%;
                 }
 
-                &:hover {
+                // &:hover {
 
-                    span {
-                        color: white;
-                    }
-                }
+                //     span {
+                //         color: white;
+                //     }
+                // }
 
 
-            }
+            // }
         }
 
         .event_detail-banner {
@@ -269,11 +274,12 @@
 
                 .event_detail-price {
                     display: block;
-                    float: right;
+                    text-align: right;
+                    // float: right;
                     /* font-size: 40px; */
                     color: #618985;
                     font-weight: bold;
-                    margin-right: 8%;
+                    // margin-right: 8%;
                     font-size: 32px;
 
                     @include rwd(1085px) {
@@ -349,7 +355,7 @@
                     }
 
                     .qty {
-                        margin: -5px;
+                        // margin: -5px;
                         padding: 0px;
                         height: 100%;
                         width: 79%;

@@ -3,13 +3,14 @@ const createApp = Vue.createApp({
         return {
             eventDetail: {},
             orderQty: 1,
-            content: 0,
+            spec: 0,
+            selected_price: "300",
         }
     }, 
     methods: {
-        selectContent(e) {
-            this.content = e.target.id;
-            console.log(this.content);
+        selectSpec(e) {
+            this.spec = e.target.id;
+            console.log(this.spec);
         },
         passToCart() { // 加入購物車
             if (this.content != 0) { 
@@ -29,12 +30,10 @@ const createApp = Vue.createApp({
         axios.get("../../php/frontend/expo.php")
             .then(res => { // 拿商品頁的資料
                 this.eventDetail = res.data[0];
-                this.eventDetail
+
             }).catch(err => console.log("[product info]", err));
     }
 }).mount("#eventDetail");
-
-
 
 
 

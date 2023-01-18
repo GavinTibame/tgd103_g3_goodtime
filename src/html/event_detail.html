@@ -37,9 +37,8 @@
             <p>{{eventDetail.CONTENT}}</p>
           </div>
           <div class="event_detail-main-content-right">
-            <div class="event_detail-main-content-right-wrap" id="eventDetail">
-              <div class="event_detail-price">NT${{ selected_price }}</div>
-              <div style="clear: both"></div>
+            <div class="event_detail-main-content-right-wrap" >
+              <div class="event_detail-price">NT${{selected_price}}</div>
               <div>票種</div>
               <select
                 v-model="selected_price"
@@ -47,22 +46,20 @@
                 id="ticket-type"
                 class="event_detail-ticket-type"
               >
-                <option value=300>一般票</option>
-                <option value=250>學生票</option>
-                <option value=230>團體票</option>
+                <option value=300 selected @click="selectSpec">一般票</option>
+                <option value=250 @click="selectSpec">學生票</option>
+                <option value=230 @click="selectSpec">團體票</option>
               </select>
+
               <div>數量</div>
               <div class="event_detail-number-button">
-                <button class="qtyminus" id="qtyminus">-</button>
-                <input type="text" name="quantity" value="1" class="qty" />
-                <button class="qtyplus" id="qtyplus">+</button>
+                <button class="qtyminus" @click="orderQty--" :disabled="orderQty===1">-</button>
+                <input type="text" name="quantity" :value="orderQty" class="qty" disabled/>
+                <button class="qtyplus" @click="orderQty++" :disabled="orderQty===20">+</button>
               </div>
-              <br />
-              <div class="btn__ctn">
-                <button id="goApplyForm" class="button">
-                  <span>加入購物車</span>
-                </button>
-              </div>
+              <!-- <div class="btn__ctn"> -->
+                <button id="goApplyForm" class="button" @click="passToCart">加入購物車</button>
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -132,21 +129,24 @@
     <script src="../js/axios.min.js"></script>
     <script src="../js/event_detail.js"></script>
     <script>
+      // 載入header & footer
       $(() => {
         $("#header").load("topbar.html");
         $("#footer").load("footer.html");
       });
 
-      const RootComponent = {
-        data() {
-          return {
-            selected_price: "300",
-          };
-        },
-      };
+      // select price
+      // const RootComponent = {
+      //   data() {
+      //     return {
+            
+      //     };
+      //   },
+      // };
 
-      console.log(RootComponent);
-      Vue.createApp(RootComponent).mount("#my_app");
+      // console.log(RootComponent);
+      // Vue.createApp(RootComponent).mount("#my_app");
+
     </script>
   </body>
 </html>
