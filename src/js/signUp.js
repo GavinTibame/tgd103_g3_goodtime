@@ -1,4 +1,4 @@
-const createApp_signUp = Vue.createApp({
+const signUpApp = Vue.createApp({
   data() {
     return {
       user_email: "",

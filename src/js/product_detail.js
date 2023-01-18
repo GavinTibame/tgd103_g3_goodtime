@@ -1,4 +1,4 @@
-const createApp_product_detail = Vue.createApp({
+const productDetailApp = Vue.createApp({
     data() {
         return {
             productDetail: {},

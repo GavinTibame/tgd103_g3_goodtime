@@ -26,7 +26,7 @@ function file() {
 
 /*-----------------------資料串接-----------------------*/
 
-const createApp_rental_joinform = Vue.createApp({
+const rentalJoinFormApp = Vue.createApp({
   data() {
     return {
       activity__name: "",

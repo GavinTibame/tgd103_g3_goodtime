@@ -79,7 +79,7 @@ window.addEventListener("scroll", () => {
 //     console.log(a.id);
 // }
 
-const createApp_topbar = Vue.createApp({
+const topbarApp = Vue.createApp({
   data() {
     return {
       login: "0", //出現

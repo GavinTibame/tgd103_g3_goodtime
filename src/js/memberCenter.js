@@ -41,7 +41,7 @@ $(".nav-block").on("click", function () {
 
 /* ----------------修改地址、修改密碼 -----------------*/
 
-const createApp_memberCenter = Vue.createApp({
+const memberCenterApp = Vue.createApp({
   data() {
     return {
       currentTab: "tab1",
