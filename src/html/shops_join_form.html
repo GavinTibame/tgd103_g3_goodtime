@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>進駐申請 - 韶光文創園區</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <body>
@@ -17,7 +17,9 @@
           <ul class="breadcrumb">
             <li class="breadcrumb__a"><a href="./index.html">首頁</a></li>
             <li class="breadcrumb__a"><a href="./event.html">風格好店</a></li>
-            <li class="breadcrumb__b"><a href="./event_detail.html">進駐韶光</a></li>
+            <li class="breadcrumb__b">
+              <a href="./event_detail.html">進駐韶光</a>
+            </li>
           </ul>
           <!--------------------banner圖片----------------------->
           <ul class="banner">
@@ -31,24 +33,44 @@
             <div class="join__application__title__zh">進駐申請</div>
           </div>
           <!----------------------表單區------------------------->
-          <section class="Join__form">
-            <form action="">
+          <section class="Join__form" id="Join__form">
+            <form @submit.prevent="handleSubmit">
               <div class="shop__name__out">
                 <label for="shop__name">品 牌 名 稱</label>
-                <input type="text" name="name" class="shop__name" />
+                <input
+                  type="text"
+                  name="name"
+                  class="shop__name"
+                  v-model="shop__name"
+                />
               </div>
-                <div class="name__out">
-              <label for="name">負責人姓名</label>
-              <input type="text" name="name" class="name" />
-                </div>
-                <div class="phone__out">
-              <label for="phone">負責人電話</label>
-              <input type="text" name="phone" class="phone" />
-                </div>
-                <div class="email__out">
-              <label for="email">負責人信箱</label>
-              <input type="text" name="email" class="email" />
-                </div>
+              <div class="name__out">
+                <label for="name">負責人姓名</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="name"
+                  v-model="principal_name"
+                />
+              </div>
+              <div class="phone__out">
+                <label for="phone">負責人電話</label>
+                <input
+                  type="text"
+                  name="phone"
+                  class="phone"
+                  v-model="principal_phone"
+                />
+              </div>
+              <div class="email__out">
+                <label for="email">負責人信箱</label>
+                <input
+                  type="text"
+                  name="email"
+                  class="email"
+                  v-model="principal_email"
+                />
+              </div>
               <div class="shopstay__time">
                 <p>預計駐園時長</p>
                 <div class="shopstay__time__1">
@@ -57,7 +79,8 @@
                     name="ContactGender"
                     type="radio"
                     id="time_1"
-                    value="1"
+                    value="半年"
+                    v-model="shopstay__time"
                   />
                   <label for="time_1">半年</label>
                 </div>
@@ -67,7 +90,8 @@
                     name="ContactGender"
                     type="radio"
                     id="time_2"
-                    value="2"
+                    value="一年"
+                    v-model="shopstay__time"
                   />
                   <label for="time_2">一年</label>
                 </div>
@@ -77,7 +101,8 @@
                     name="ContactGender"
                     type="radio"
                     id="time_3"
-                    value="3"
+                    value="兩年"
+                    v-model="shopstay__time"
                   />
                   <label for="time_3">兩年</label>
                 </div>
@@ -110,14 +135,18 @@
                 cols="30"
                 rows="10"
                 class="Opinion__text"
-                required
+                v-model="Opinion"
               ></textarea
               ><br />
               <div class="btn__ctn">
-                <button id="goApplyForm" class="button">
-                    <span>確認送出</span>
+                <button
+                  id="goApplyForm"
+                  class="button"
+                  @onclick="ShopJoinTosend"
+                >
+                  <span>確認送出</span>
                 </button>
-            </div>
+              </div>
             </form>
           </section>
         </main>
@@ -125,13 +154,14 @@
       </div>
 
       <script src="../js/jquery-3.2.1.min.js"></script>
+      <script src="../js/vue.global.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+      <script src="../js/shops_join_form.js"></script>
       <script>
         $(() => {
           $("#header").load("topbar.html");
           $("#footer").load("footer.html");
         });
-
-        
       </script>
     </body>
   </body>

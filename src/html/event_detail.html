@@ -18,12 +18,13 @@
   </head>
   <body>
     <div id="header"></div>
-    <div class="event_detail-wrapper">
+    <div class="event_detail-wrapper" id="eventDetail">
+      <!-- 麵包屑 -->
       <ul class="breadcrumb">
         <li class="breadcrumb__a"><a href="./index.html">首頁</a></li>
         <li class="breadcrumb__a"><a href="./event.html">展演活動</a></li>
         <li class="breadcrumb__b">
-          <a href="./event_detail.html">《Lindsayooo》新興畫家特展</a>
+          <a href="./event_detail.html">{{eventDetail.TITLE}}</a>
         </li>
       </ul>
       <main>
@@ -32,42 +33,34 @@
         </div>
         <div class="event_detail-main-content">
           <div class="event_detail-main-content-left">
-            <h3>《Lindsayooo》新興畫家特展</h3>
-            <p>
-              最近在Instagram點擊量爆增粉絲人數達百萬最熱門的新創插畫家
-              Lindsayoo，畫家細膩的筆觸與寫實的作畫風格，短時間快速達到
-              百萬人數訂閱，應許多粉絲留言要求，多次連繫畫家展出活動接洽
-              此次為韶光文創園區特別限定期間展出，千萬不要錯過好機會！
-              限定期間2024.12.01~2024.12.32 ，購票即送限量明信片。
-            </p>
+            <h3>{{eventDetail.TITLE}}</h3>
+            <p>{{eventDetail.CONTENT}}</p>
           </div>
           <div class="event_detail-main-content-right">
-            <div class="event_detail-main-content-right-wrap" id="my_app">
-              <div class="event_detail-price">NT${{ selected_price }}</div>
-              <div style="clear: both"></div>
+            <div class="event_detail-main-content-right-wrap" >
+              <div class="event_detail-price">NT${{selected_price}}</div>
               <div>票種</div>
               <select
                 v-model="selected_price"
                 name="ticket-type"
                 id="ticket-type"
                 class="event_detail-ticket-type"
+                @change="selectValue"
               >
-                <option value=300>一般票</option>
-                <option value=250>團體票</option>
-                <option value=230>敬老票</option>
+                <option value=300 selected>一般票</option>
+                <option value=250>學生票</option>
+                <option value=230>團體票</option>
               </select>
+
               <div>數量</div>
               <div class="event_detail-number-button">
-                <button class="qtyminus" id="qtyminus">-</button>
-                <input type="text" name="quantity" value="1" class="qty" />
-                <button class="qtyplus" id="qtyplus">+</button>
+                <button class="qtyminus" @click="orderQty--" :disabled="orderQty===1">-</button>
+                <input type="text" name="quantity" :value="orderQty" class="qty" disabled/>
+                <button class="qtyplus" @click="orderQty++" :disabled="orderQty===20">+</button>
               </div>
-              <br />
-              <div class="btn__ctn">
-                <button id="goApplyForm" class="button">
-                  <span>加入購物車</span>
-                </button>
-              </div>
+              <!-- <div class="btn__ctn"> -->
+                <button id="goApplyForm" class="button" @click="passToCart">加入購物車</button>
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -137,21 +130,24 @@
     <script src="../js/axios.min.js"></script>
     <script src="../js/event_detail.js"></script>
     <script>
+      // 載入header & footer
       $(() => {
         $("#header").load("topbar.html");
         $("#footer").load("footer.html");
       });
 
-      const RootComponent = {
-        data() {
-          return {
-            selected_price: "300",
-          };
-        },
-      };
+      // select price
+      // const RootComponent = {
+      //   data() {
+      //     return {
+            
+      //     };
+      //   },
+      // };
 
-      console.log(RootComponent)
-      Vue.createApp(RootComponent).mount("#my_app");
+      // console.log(RootComponent);
+      // Vue.createApp(RootComponent).mount("#my_app");
+
     </script>
   </body>
 </html>
