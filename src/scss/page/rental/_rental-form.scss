@@ -436,6 +436,7 @@ main.rental_join_form {
             width: 600px;
             margin-top: 20px;
             resize: none;
+            font-size: 16px;
 
             @include width_768 {
                 width: 100%;

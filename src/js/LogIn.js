@@ -46,11 +46,12 @@ $("div.overlay > article").on("click", function (e) {
   e.stopPropagation();
 });
 /*-------------------抓取使用者輸入資料傳入後台驗證------------------*/
-const createApp = Vue.createApp({
+const loginApp = Vue.createApp({
   data() {
     return {
       user_email: "",
       user_password: "",
+
     };
   },
   methods: {
@@ -86,6 +87,7 @@ const createApp = Vue.createApp({
           if (res.data === "登入成功") {
             alert(res.data);
             // console.log(res);
+            sessionStorage.setItem("login", '1')
             window.location.href = "../html/memberCenter.html";
           } else {
             alert(res.data);
