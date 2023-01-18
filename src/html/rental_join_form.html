@@ -419,6 +419,7 @@
                       id="other__demands__1"
                       value="代售門票"
                       v-model="other__demands"
+                      @change="demands_change()"
                       :disabled="other__demands.includes('無代售需求')"
                     />
                     <label for="other__demands__1">代售門票</label>
@@ -431,6 +432,8 @@
                       id="other__demands__2"
                       value="代售周邊商品"
                       v-model="other__demands"
+                      @change="demands_change()"
+
                       :disabled="other__demands.includes('無代售需求')"
                     />
                     <label for="other__demands__2">代售周邊商品</label>
@@ -442,6 +445,8 @@
                       type="checkbox"
                       id="other__demands__3"
                       value="無代售需求"
+                      @change="demands_change()"
+
                       v-model="other__demands"
                     />
                     <label for="other__demands__3">無代售需求</label>
@@ -474,7 +479,7 @@
       <script src="../js/jquery-3.2.1.min.js"></script>
       <script src="../js/vue.global.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
-      <script src="../js/rental-joinform.js"></script>
+      <script src="../js/rental-join-form.js"></script>
       <script>
         $(() => {
           $("#header").load("topbar.html");
