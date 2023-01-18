@@ -37,6 +37,8 @@
         $event['end'] = $item['END_DATE'];
         array_push($data['calendar'], $event);
     }
+    
+
 
     echo json_encode($data);
 ?>

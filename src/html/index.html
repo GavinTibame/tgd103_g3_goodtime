@@ -11,7 +11,6 @@
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script src="../js/index.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
@@ -20,11 +19,11 @@
   <!-- Moment.js v2.20.0 -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.0/moment.min.js"></script>
   <!-- FullCalendar v3.8.1 -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css" rel="stylesheet"  />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css" rel="stylesheet"  /> -->
+  <link rel="stylesheet" href="../css/fullcalendar.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css" rel="stylesheet" media="print"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js"></script>  
-
-  
+  <link rel="stylesheet" href="../css/style.css">
   <title>首頁 - 韶光文創園區</title>
 </head>
 
@@ -107,7 +106,7 @@
     <div id="anchor0" class="carousel">
       <div class="owl-one owl-carousel owl-theme">
         <div class="item">
-          <a>
+          <a href="event_detail.html">
             <h1>1</h1>
             <img src="../img/index/bannerimg1.jpg"/>
             <p class="desc"></p>
@@ -115,30 +114,30 @@
         </div>
       <!-- </template> -->
         <div class="item">
-          <a>
+          <a href="event_detail.html">
             <h1>2</h1>
             <img src="../img/index/bannerimg2.jpg" alt="" />
             <p class="desc"></p>
           </a>
         </div>
         <div class="item">
-          <a>
+          <a href="event_detail.html">
             <h1>3</h1>
             <img src="../img/index/bannerimg3.jpg" alt="" />
             <p class="desc"></p>
           </a>
         </div>
         <div class="item">
-          <a>
+          <a href="event_detail.html">
             <h1>4</h1>
-            <img src="../img/index/bannerimg1.jpg" alt="" />
+            <img src="../img/index/bannerimg4.jpg" alt="" />
             <p class="desc"></p>
           </a>
         </div>
         <div class="item">
-          <a>
+          <a href="event_detail.html">
             <h1>5</h1>
-            <img src="../img/index/bannerimg2.jpg" alt="" />
+            <img src="../img/index/bannerimg5.jpg" alt="" />
             <p class="desc"></p>
           </a>
         </div>
@@ -344,8 +343,6 @@
     backToTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
-
-    //月曆
  
 
     //漢堡線控制
@@ -365,124 +362,123 @@
   </script>
   <script src="../js/topbar.js"></script>
   <script src="../js/vue.global.js"></script>
-  <script src='https://unpkg.com/vue/dist/vue.js'></script>
   <script src="../js/axios.min.js"></script>
-  <script src='https://unpkg.com/v-calendar'></script>
   <script>
   //掛載資料庫
-        const member = Vue.createApp({
-            data() {
-              return {
-                  dataList: [],
-                  events:[]
+  const index = Vue.createApp({
+    data() {
+      return {
+          dataList: [],
+          events:[]
+      }
+    }, methods:{
+      create_calendar(){
+        $( "#example" ).fullCalendar({
+          header: { // 頂部排版
+              left: "prev,next today",
+              center: "title",
+              right: "month,basicWeek,basicDay"
+          },
+          // defaultDate: "2023-01-10", 
+          weekends: true,
+          editable: false,  // 啟動拖曳調整日期
+          validRange: function(nowDate) {
+            return {
+              start: '2023-01-18',
+              end: nowDate.clone().add(1, 'months')
+            };
+          },
+          events: this.events
+          // [ // 事件
+          //     { // 事件(包含跨日開始時間、結束時間)
+          //         title: "《流體藝術》暈染雙人流體畫展",
+          //         start: "2023-01-07",
+          //         end: "2023-01-10"
+          //         url: "https://tibamef2e.com/tgd103/g3/dist_2/html/event_detail.html",
+          //     }
+          // ]
+        });
+      }
+        }, beforeCreate() {
+        // 查詢資料
+        axios.get("../../php/frontend/index.php")
+        .then(res => {
+          this.dataList = {...res.data};
+          this.events=JSON.parse(JSON.stringify(this.dataList.calendar))
+          console.log(this.events);
+          this.create_calendar()
+        }).catch(err => {
+          console.log(err);
+        });
+      }
+      }).mount("#anchor1");
+      // 輪播
+      $(document).ready(function () {
+          $('.owl-one').owlCarousel({
+            autoplay: true,
+            autoplayTimeout: 4000,
+            autoplayHoverPause: true,
+            center: true,
+            loop: true,
+            margin: 30,
+            mouseDrag: false,
+            touchDrag: false,
+            nav: true,
+            navText: [
+              prvIcon,
+              nextIcon
+            ],
+            responsive: {
+              0: {
+                items: 1.1,
+                margin: 5
+              },
+              768: {
+                items: 2,
+                margin: 5
+              },
+              1000: {
+                items: 2.2,
               }
-            }, methods:{
-              create_calendar(){
-                $( "#example" ).fullCalendar({
-                  header: { // 頂部排版
-                      left: "prev,next today",
-                      center: "title",
-                      right: "month,basicWeek,basicDay"
-                  },
-                  defaultDate: "2023-01-10", // 起始日期
-                  weekends: true, // 顯示星期六跟星期日
-                  editable: false,  // 啟動拖曳調整日期
-                  events: this.events
-                  // [ // 事件
-                  //     { // 事件(包含跨日開始時間、結束時間)
-                  //         title: "《流體藝術》暈染雙人流體畫展",
-                  //         start: "2023-01-07",
-                  //         end: "2023-01-10"
-                  //         url: "https://tibamef2e.com/tgd103/g3/dist_2/html/event_detail.html",
-                  //     }
-                  // ]
-            });
+            }
+          });
+          $('.owl-two').owlCarousel({
+            items: 3,
+            loop: true,
+            center: true,
+            margin: 30,
+            autoplayHoverPause: true,
+            // startPosition: 0,
+            merge: true,
+            nav: true,
+            mouseDrag: false,
+            touchDrag: false,
+            navText: [
+              prvIcon,
+              shopNextIcon
+            ],
+            responsive: {
+              0: {
+                items: 1,
+                margin: 10
+              },
+              400: {
+                items: 1
+              },
+              500: {
+                items: 2
+              },
+              770: {
+                items: 3
+              },
+              1242: {
+                items: 3.5,
+                margin: 10
               }
-            }, beforeCreate() {
-               // 查詢資料
-               axios.get("../../php/frontend/index.php")
-               .then(res => {
-                  this.dataList = {...res.data};
-                  this.events=JSON.parse(JSON.stringify(this.dataList.calendar))
-                  console.log(this.events);
-                  // {  事件
-                  //         title: "《名窯瓷器》琺瑯彩瓷特展",
-                  //         start: "2023-01-01",
-                  //         end: "2023-01-10"
-                  //     },
-                  this.create_calendar()
-                    }).catch(err => {
-                        console.log(err);
-                    });
-              }
-              }).mount("#anchor1");
+            }
+          });
+      })
   
-  // 輪播
-        $(document).ready(function () {
-            $('.owl-one').owlCarousel({
-              autoplay: true,
-              autoplayTimeout: 4000,
-              autoplayHoverPause: true,
-              center: true,
-              loop: true,
-              margin: 30,
-              nav: true,
-              navText: [
-                prvIcon,
-                nextIcon
-              ],
-              responsive: {
-                0: {
-                  items: 1.1,
-                  margin: 5
-                },
-                768: {
-                  items: 2,
-                  margin: 5
-                },
-                1000: {
-                  items: 2.2,
-                }
-              }
-            });
-            $('.owl-two').owlCarousel({
-              items: 3,
-              loop: true,
-              center: true,
-              margin: 30,
-              autoplayHoverPause: true,
-              // startPosition: 0,
-              merge: true,
-              nav: true,
-              mouseDrag: false,
-              touchDrag: false,
-              navText: [
-                prvIcon,
-                shopNextIcon
-              ],
-              responsive: {
-                0: {
-                  items: 1,
-                  margin: 10
-                },
-                400: {
-                  items: 1
-                },
-                500: {
-                  items: 2
-                },
-                770: {
-                  items: 3
-                },
-                1242: {
-                  items: 3.5,
-                  margin: 10
-                }
-              }
-            });
-          })
-
- 
 </script>
 </body>
 

@@ -474,7 +474,13 @@
       <script src="../js/jquery-3.2.1.min.js"></script>
       <script src="../js/vue.global.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
-      <script src="../js/rental-join-form.js"></script>
+      <script src="../js/rental-joinform.js"></script>
+      <script>
+        $(() => {
+          $("#header").load("topbar.html");
+          $("#footer").load("footer.html");
+        });
+      </script>
 
     </body>
   </body>

@@ -1,5 +1,4 @@
-//錨點
-console.log("tttt")
+console.log("aaaa")
 const navLinkList = document.querySelectorAll(
     ".anchor-box li a.scrollDetectorJS"
   ),
@@ -80,7 +79,7 @@ window.addEventListener("scroll", () => {
 //     console.log(a.id);
 // }
 
-const createApp = Vue.createApp({
+const topbarApp = Vue.createApp({
   data() {
     return {
       login: "0", //出現
@@ -93,8 +92,6 @@ const createApp = Vue.createApp({
   mounted() {
     console.log("mounted");
     this.login = sessionStorage.getItem("login");
-    //console.log(this.mytext);
-    //console.log(this.$refs.my_input.getAttribute("data-text"));
   },
   methods: {
     // 进入元素
@@ -118,6 +115,13 @@ const createApp = Vue.createApp({
         window.location.href = "../html/log_in.html";
       }
     },
+    log_phone() {
+      if (sessionStorage.getItem("login") === "1") {
+        window.location.href = "#";
+      }else{
+        window.location.href = "../html/log_in.html";
+      }
+    },
     logOut() {
       sessionStorage.removeItem("login");
       alert("登出成功");
@@ -125,4 +129,5 @@ const createApp = Vue.createApp({
     },
   },
 }).mount(".member-icon-box-out");
+
 

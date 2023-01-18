@@ -46,7 +46,7 @@ $("div.overlay > article").on("click", function (e) {
   e.stopPropagation();
 });
 /*-------------------抓取使用者輸入資料傳入後台驗證------------------*/
-const createApp = Vue.createApp({
+const loginApp = Vue.createApp({
   data() {
     return {
       user_email: "",

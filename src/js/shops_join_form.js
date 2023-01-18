@@ -1,6 +1,6 @@
 console.log("aaaa");
 
-const createApp = Vue.createApp({
+const shopsJoinFormApp = Vue.createApp({
   data() {
     return {
       shop__name: "",

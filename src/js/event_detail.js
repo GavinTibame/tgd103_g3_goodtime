@@ -3,12 +3,12 @@ const eventDetailApp = Vue.createApp({
         return {
             eventDetail: {},
             orderQty: 1,
-            spec: 0,
+            price: 0,
             selected_price: "300",
         }
     }, 
     methods: {
-        selectValue(e){
+        selectValue(e){ // 印出票價
             this.price = e.target.value;
             console.log(this.price);
         },

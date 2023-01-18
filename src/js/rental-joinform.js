@@ -1,3 +1,4 @@
+
 /*------------------------檔案上傳-----------------------*/
 function file() {
   var that = this;
@@ -25,7 +26,7 @@ function file() {
 
 /*-----------------------資料串接-----------------------*/
 
-const createApp = Vue.createApp({
+const rentalJoinFormApp = Vue.createApp({
   data() {
     return {
       activity__name: "",
