@@ -8,7 +8,7 @@ const createApp = Vue.createApp({
     }, methods: {
         selectSpec(e) {
             this.spec = e.target.id;
-            console.log(this.spec);
+            // console.log(this.spec);
         },
         passToCart() { // 加入購物車
             if (this.spec != 0) { // 
@@ -16,8 +16,9 @@ const createApp = Vue.createApp({
                     `pid=${this.productDetail.ID}&buyQty=${this.orderQty}&spec=${this.spec}`)
                     .then(res => {
                         if (res.status === 200) {
-                            // console.log(res);
+                            console.log(res);
                             window.open("../html/shopping_cart01.html");
+                            console.log(this.productDetail.ID);
                         }
                     })
                     .catch(err => console.log("[cart add]", err));

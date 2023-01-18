@@ -45,10 +45,11 @@
                 name="ticket-type"
                 id="ticket-type"
                 class="event_detail-ticket-type"
+                @change="selectValue"
               >
-                <option value=300 selected @click="selectSpec">一般票</option>
-                <option value=250 @click="selectSpec">學生票</option>
-                <option value=230 @click="selectSpec">團體票</option>
+                <option value=300 selected>一般票</option>
+                <option value=250>學生票</option>
+                <option value=230>團體票</option>
               </select>
 
               <div>數量</div>

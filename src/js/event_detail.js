@@ -1,4 +1,4 @@
-const createApp = Vue.createApp({
+const eventDetailApp = Vue.createApp({
     data() {
         return {
             eventDetail: {},
@@ -8,14 +8,15 @@ const createApp = Vue.createApp({
         }
     }, 
     methods: {
-        selectSpec(e) {
-            this.spec = e.target.id;
-            console.log(this.spec);
+        selectValue(e){
+            this.price = e.target.value;
+            console.log(this.price);
         },
+       
         passToCart() { // 加入購物車
-            if (this.content != 0) { 
+            if (this.price != 0) { 
                 axios.post("../../php/frontend/cartAdd.php",
-                    `eid=${this.eventDetail.ID}&buyQty=${this.orderQty}&content=${this.content}`)
+                    `pid=${this.eventDetail.ID}&buyQty=${this.orderQty}&spec=${this.price}`)
                     .then(res => {
                         if (res.status === 200) {
                             // console.log(res);
