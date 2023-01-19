@@ -307,9 +307,6 @@
       </div>
     </div>
   </div>
-
- 
-
   <div id="footer"></div>
   
   <script>
@@ -371,7 +368,8 @@
           dataList: [],
           events:[]
       }
-    }, methods:{
+    }, 
+    methods:{
       create_calendar(){
         $( "#example" ).fullCalendar({
           header: { // 頂部排版
@@ -382,7 +380,6 @@
           // defaultDate: "2023-01-10", 
           weekends: true,
           editable: false,  // 啟動拖曳調整日期
-          // eventTextColor: "black", 
           eventBackgroundColor: "#C09351", 
           eventBorderColor:"#C09351",
           validRange: function(nowDate) {
@@ -403,7 +400,8 @@
           // ]
         });
       }
-        }, beforeCreate() {
+    }, 
+    beforeCreate() {
         // 查詢資料
         axios.get("../../php/frontend/index.php")
         .then(res => {
@@ -417,8 +415,8 @@
         }).catch(err => {
           console.log(err);
         });
-      }
-      }).mount("#anchor1");
+  }
+}).mount("#anchor1");
       // 輪播
       $(document).ready(function () {
           $('.owl-one').owlCarousel({
