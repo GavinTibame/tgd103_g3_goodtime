@@ -34,11 +34,6 @@ $(function () {
   });
 });
 
-/* 標籤-active切換 */
-
-$(".nav-block").on("click", function () {
-
-});
 
 /* ----------------修改地址、修改密碼 -----------------*/
 
@@ -79,13 +74,16 @@ const memberCenterApp = Vue.createApp({
           id: "tab2",
           name: "訂單明細",
         },
-      ], poDetail: {},
+      ], poList: {}, poDetail: {}
     }
   },
   //頁籤tab切換
   computed: {
     current_tab_component() {
-      return this.currentTab2 + "-content";
+      if (this.currentTab2 == "tab1") {
+        this.poDetail = this.poList;
+      }
+      return this.currentTab2;
     }
   },
   methods: {
@@ -105,7 +103,6 @@ const memberCenterApp = Vue.createApp({
         this.addr[e].clickId = "noEdit";
       }
     },
-
     //新增地址按鈕
     addAddr() {
       //            抓陣列的最後一筆資料
@@ -122,7 +119,6 @@ const memberCenterApp = Vue.createApp({
         alert("請先輸入您的地址");
       }
     },
-
     //刪除鈕
     deletehtml(e) {
       //如果input不是空字串，移除時會跳alert
@@ -136,44 +132,44 @@ const memberCenterApp = Vue.createApp({
         this.addr.splice(e, 1);
       }
     },
-
     //刪除確認彈窗
     confirm() {
       this.addr.splice(this.popup, 1);
       this.popup = false;
     },
-
     textTosend() {
       // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
       axios
         .post("../../php/frontend/memberCenter.php", {
           mid: 5
         })
-
         // then :處理 Promise返回的結果
         .then((res) => { // 拿會員中心資料
           this.memberCenter = { ...res.data };
-          // this.memberCenter = ;
-          this.addr.push(JSON.parse(JSON.stringify(this.memberCenter.address)));
-          // clickId: "edit",
-          this.addr = this.addr[0];
+          this.addr = [...JSON.parse(JSON.stringify(this.memberCenter.address))];
           this.addr.forEach((address) => {
             address["clickId"] = "edit";
           });
-          this.poDetail = this.memberCenter.po;
-          console.log(this.memberCenter.po);
+          this.poList = this.memberCenter.po;
+          this.poDetail = this.poList;
         })
         //catch:抓取Promise 上異常
         .catch((err) => console.log("[login error]", err));
     }, switchActive(string) {
+      /* 標籤-active切換 */
       this.activeBlock = string;
-    }, selectEvt(idx) {
+    }, switchTab2(idx) {
+      this.poDetail = this.poList[idx];
+      console.log(this.poDetail);
       this.currentTab2 = "tab2";
     }
 
   }, beforeMount() {
-    this.textTosend()
+    this.textTosend();
   }
+  // , beforeUpdate() {
+  //   this.textTosend();
+  // }
 });
 
 
@@ -358,6 +354,4 @@ memberCenterApp.component("tab2-content", Tab2Content
   //   }
 );
 
-// app2.mount("#item_po-block");
-// memberCenterApp.config.isCustomElement = tag => tag.startsWith('');
 memberCenterApp.mount("#memberCenter");

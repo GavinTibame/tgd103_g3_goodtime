@@ -35,9 +35,5 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.57.1"
-  },
-  "dependencies": {
-    "v-calendar": "^2.4.1",
-    "vue-owl-carousel": "^2.0.3"
   }
 }

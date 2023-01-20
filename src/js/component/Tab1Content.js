@@ -1,6 +1,6 @@
 export default {
-  props: { podprops: Object },
-  emits: ["selectEvt"],
+  props: { poprops: Object },
+  emits: ["selOrder"],
   data() {
     return {
       // dataList: poDetailProps
@@ -8,13 +8,14 @@ export default {
   },
   computed: {
     totalAmt() {
-      let amt = this.podprops.FREIGHT;
-      for (const item in this.podprops.POD) {
-        amt += parseInt(this.podprops.POD[item].QTY) * parseInt(this.podprops.POD[item].UNIT_PRICE);
+      let amt = this.poprops.FREIGHT;
+      // console.log(this.poprops.PO_ID);
+      for (const item in this.poprops.POD) {
+        amt += parseInt(this.poprops.POD[item].QTY) * parseInt(this.poprops.POD[item].UNIT_PRICE);
       }
       return amt;
     }, poStatus() {
-      switch (this.podprops.STATUS) {
+      switch (this.poprops.STATUS) {
         case 1: {
           return "訂單已確認";
         }
@@ -39,17 +40,16 @@ export default {
   mounted() { //poDetailProps被視為attr的傳進來
   },
   template: `
-    <dl class="po-single">
+    <dl class="po-single" @click="$emit('selOrder', poprops.PO_ID)">
       <div>
         <dt class="po-key">購買日期</dt>
-        <dd class="po-value">{{podprops.CREATE_DATE}}</dd>
+        <dd class="po-value">{{poprops.CREATE_DATE}}</dd>
       </div>
       <div>
         <dt class="po-key">主單編號</dt>
         <dd class="po-value">
-          <button type="button" 
-            @click="$emit('selectEvt', podprops.PO_ID)">
-              {{podprops.PO_ID}}
+          <button type="button">
+              {{poprops.PO_ID}}
           </button>
         </dd>
       </div>

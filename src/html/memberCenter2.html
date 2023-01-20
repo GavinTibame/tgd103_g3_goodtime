@@ -60,7 +60,8 @@
           <div class="tab-block" id="item_acc-block">
             <ul class="tab-list">
               <li>
-                <button v-for="tab in tabs1" :class="{active: currentTab1 == tab.id}" @click="currentTab1 = tab.id">
+                <button v-for="tab in tabs1" :class="{'active': currentTab1 == tab.id}" @click="currentTab1 = tab.id"
+                  :key="'m'+tab.id">
                   {{ tab.name }}
                 </button>
               </li>
@@ -85,7 +86,7 @@
 
               <div class="addr-tab" v-if="currentTab1 === 'tab1'">
                 <!--             item= 陣列裡的第幾筆   index=整個陣列資料-->
-                <component v-for="(item, index) in addr">
+                <template v-for="(item, index) in addr" :key="'a'+index">
                   <div class="addr-col">
                     <!--             v-if = true 顯示資料，所以edit = true，edit可以自己取名 -->
                     <label :for="'addr'+index">
@@ -106,7 +107,7 @@
                       <span class="material-symbols-outlined"> delete </span>
                     </button>
                   </div>
-                </component>
+                </template>
 
                 <div class="btn__ctn" @click="addAddr">
                   <button id="add-addr" class="button">
@@ -136,8 +137,8 @@
           <!-----------------------訂單查詢與訂單明細---------------------------->
           <div class="tab-block" id="item_po-block">
             <ul class="tab-list">
-              <button v-for="tab in tabs2" :class="{active: currentTab2 == tab.id}" @click="currentTab2 = tab.id"
-                :disabled="tab.id === 'tab2'">
+              <button v-for="(tab, idx) in tabs2" :class="{'active': currentTab2 == tab.id}"
+                @click="currentTab2 = tab.id" :key="'p'+idx">
                 {{ tab.name }}
               </button>
             </ul>
@@ -145,11 +146,12 @@
               <div class="po-tab">
                 <div class="po-list">
                   <!-- <component :is="current_tab_component"></component> -->
-                  <template v-for="pod in poDetail">
-                    <tab1-content v-if="current_tab_component === 'tab1-content'" :podProps="pod"
-                      @select-evt="selectEvt">
+                  <template v-for="(po, idx) in poList" :key="'o'+idx">
+                    <tab1-content v-if="current_tab_component == 'tab1'" :poProps="po" @sel-order="switchTab2(idx)">
                     </tab1-content>
-                    <tab2-content v-if="current_tab_component === 'tab2-content'" :podProps="pod">
+                  </template>
+                  <template v-if="current_tab_component == 'tab2'" :key="'pod'">
+                    <tab2-content :podProps="poDetail">
                     </tab2-content>
                   </template>
                 </div>
@@ -191,7 +193,6 @@
     </div>
   </main>
   <footer id="footer"></footer>
-
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../js/vue.global.js"></script>
   <script src="../js/axios.min.js"></script>
