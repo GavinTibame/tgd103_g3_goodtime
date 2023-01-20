@@ -1,9 +1,9 @@
 <?php
 include("../connect.php");
 
-$pid = isset($_GET["pid"]) ? $_GET["pid"] : "";
+$pid = isset($_GET["pid"]) ? $_GET["pid"] : "1";
 
-$pid = 2;
+// $pid = 1;
 function getProductInfo($pid, $pdo){
     $sql = "SELECT PRODUCT.*, 
                 group_concat(PIC.PATH) as path, 

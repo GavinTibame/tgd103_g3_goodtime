@@ -261,3 +261,10 @@ $(".filter").on("change", function () {
 // 	makeTimer();
 // }, 1000);
 
+//  const storeSelectApp = Vue.createApp({
+// 	data(){
+// 		return{
+
+// 		}
+// 	}
+//  }).mount("#");
