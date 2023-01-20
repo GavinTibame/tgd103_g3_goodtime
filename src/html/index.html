@@ -406,6 +406,7 @@
         axios.get("../../php/frontend/index.php")
         .then(res => {
           this.dataList = {...res.data};
+          console.log(this.dataList);
           this.events=JSON.parse(JSON.stringify(this.dataList.calendar));
           // this.events.forEach(element => {
           //   element.color = "";
@@ -415,8 +416,8 @@
         }).catch(err => {
           console.log(err);
         });
-  }
-}).mount("#anchor1");
+    }
+  }).mount("#anchor1");
       // 輪播
       $(document).ready(function () {
           $('.owl-one').owlCarousel({

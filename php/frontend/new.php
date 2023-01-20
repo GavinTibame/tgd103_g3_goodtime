@@ -11,7 +11,7 @@
             order by EDIT_DATE desc ";
     $statement = $pdo->prepare($sql);
     $statement->execute();
-    $data["news"] = $statement->fetchAll();
+    $data = $statement->fetchAll();
 
     echo json_encode($data);
 ?>
