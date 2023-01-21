@@ -16,7 +16,7 @@ const eventDetailApp = Vue.createApp({
         passToCart() { // 加入購物車
             if (this.price != 0) { 
                 axios.post("../../php/frontend/cartAdd.php",
-                    `pid=${this.eventDetail.ID}&buyQty=${this.orderQty}&spec=${this.price}`)
+                    `eid=${this.eventDetail.ID}&buyQty=${this.orderQty}&spec=${this.price}`)
                     .then(res => {
                         if (res.status === 200) {
                             // console.log(res);
@@ -31,7 +31,7 @@ const eventDetailApp = Vue.createApp({
         axios.get("../../php/frontend/expo.php")
             .then(res => { // 拿商品頁的資料
                 this.eventDetail = res.data[0];
-
+                
             }).catch(err => console.log("[product info]", err));
     }
 }).mount("#eventDetail");
