@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>《Lindsayooo》新興畫家特展 - 韶光文創園區</title>
+    <title>展演活動內容 - 韶光文創園區</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
@@ -29,7 +29,7 @@
       </ul>
       <main>
         <div class="event_detail-banner">
-          <img src="../img/event_detail/banner.png" alt="" />
+          <img :src="eventDetail.BANNER_PHOTO" alt="" />
         </div>
         <div class="event_detail-main-content">
           <div class="event_detail-main-content-left">
@@ -47,9 +47,9 @@
                 class="event_detail-ticket-type"
                 @change="selectValue"
               >
-                <option value=300 selected>一般票</option>
-                <option value=250>學生票</option>
-                <option value=230>團體票</option>
+                <option :value="eventDetail.ADULT_PRICE" selected>一般票</option>
+                <option :value="eventDetail.CONC_PRICE">學生票</option>
+                <option :value="eventDetail.GROUP_PRICE">團體票</option>
               </select>
 
               <div>數量</div>
@@ -70,9 +70,9 @@
           <em>票務資訊</em>
         </h3>
         <ul>
-          <li>一般票300元</li>
-          <li>學生票250元</li>
-          <li>團體票230元</li>
+          <li>一般票{{eventDetail.ADULT_PRICE}}元</li>
+          <li>學生票{{eventDetail.CONC_PRICE}}元</li>
+          <li>團體票{{eventDetail.GROUP_PRICE}}元</li>
         </ul>
       </section>
       <section class="event_detail-ticket-info">
@@ -80,9 +80,9 @@
           <em>展覽資訊</em>
         </h3>
         <ul>
-          <li>展覽日期：2022/12/16(五)-2022/12/31(六)</li>
+          <li>展覽日期：{{eventDetail.START_DATE}}-{{eventDetail.END_DATE}}</li>
           <li>展覽時間：週一至日11:00-19:00（17:30停止售票及入場）</li>
-          <li>展覽地點：韶光文創園區 A館</li>
+          <li>展覽地點：韶光文創園區 {{eventDetail.FK_EXPO_LOCATION_ID}}館</li>
           <li>主辦單位：AAA國際股份有限公司</li>
           <li>合作夥伴：BBB股份有限公司、CCC企業有限公司</li>
           <li>官方網站：https://AAA.com/</li>
