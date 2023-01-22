@@ -161,7 +161,6 @@ const memberCenterApp = Vue.createApp({
     }, switchTab2(idx) {
       this.poDetail = this.poList[idx];
       console.log(this.poDetail);
-      this.currentTab2 = "tab2";
     }
 
   }, beforeMount() {
