@@ -174,9 +174,9 @@ const newApp = Vue.createApp({
           this.updateCurrent(1);
         })
         
-        // this.currentList = this.currentList.filter((news) => {
-        //     return news.DESC == this.status_filter;
-        // });
+        this.currentList = this.currentList.filter((news) => {
+            return news.DESC == this.status_filter;
+        });
       }
       //  console.log(this.status_filter);
       // console.log(this.currentList);

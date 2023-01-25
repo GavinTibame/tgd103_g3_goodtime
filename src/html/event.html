@@ -19,13 +19,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/style.css" />
-    <title>event</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <title>展演活動 - 韶光文創園區</title>
   </head>
 
   <body>
     <header id="header"></header>
 
-    <div class="warpper-event-all">
+    <div id="event" class="warpper-event-all">
       <!-- 麵包屑 -->
       <ul class="breadcrumb">
         <li><a href="./index.html">首頁</a></li>
@@ -83,8 +84,8 @@
       <!-- 展演區 -->
       <div class="exhibition-event">
         <ul class="eventshow-1">
-          <li>
-            <a href="./event_detail.html">
+          <li v-for="page_index in tab-panels"  v-show="setPaginate(page_index)">
+            <a :href="event.url">
               <img src="../img/event/event1.png" alt="" />
               <p>插畫特展</p>
               <p>插畫明信片</p>
@@ -229,30 +230,25 @@
       </div>
 
       <!-- 按紐 -->
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="./event.html">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="./event.html">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="./event.html">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="./event.html" aria-label="Next">
-              <span aria-hidden="true">></span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div id="pagination">
+        <a href="#" v-if="this.current == paginate_total" @click.prevent="current--"><</a>
+        <a href="#" class="btn btn-default" :class="{'-on': this.current == page_index}"
+          v-for="page_index in paginate_total" @click.prevent="updateCurrent(page_index)">
+          {{ page_index }}
+        </a>
+
+        <a href="#" v-if="this.current != paginate_total" @click.prevent="current++">></a>
+      </div>
     </div>
 
     <footer id="footer"></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/event.js"></script>
+
     <!-- Initialize Swiper輪播 -->
     <script>
       const swiper = new Swiper(".mySwiper", {
