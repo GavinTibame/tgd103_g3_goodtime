@@ -3,8 +3,7 @@ const eventDetailApp = Vue.createApp({
         return {
             eventDetail: {},
             orderQty: 1,
-            price: 0,
-            selected_price: 0,
+            price: 0
         }
     },
     methods: {
@@ -12,15 +11,15 @@ const eventDetailApp = Vue.createApp({
             this.price = e.target.value;
             console.log(this.price);
         },
-
         passToCart() { // 加入購物車
             if (this.price != 0) {
-                axios.post("../../php/frontend/cartAdd.php",
-                    `eid=${this.eventDetail.ID}&buyQty=${this.orderQty}&spec=${this.price}`)
+                // console.log(`eid=${this.eventDetail.ID}&buyQty=${this.orderQty}&price=${this.price}`);
+                axios.post("../../php/frontend/ticketAdd.php",
+                    `eid=${this.eventDetail.ID}&buyQty=${this.orderQty}&price=${this.price}`)
                     .then(res => {
                         if (res.status === 200) {
                             // console.log(res);
-                            window.open("../html/shopping_cart01.html");
+                            window.location.href = "../html/shopping_cart01.html";
                         }
                     })
                     .catch(err => console.log("[cart add]", err));
@@ -33,8 +32,8 @@ const eventDetailApp = Vue.createApp({
                 // console.log(window.location.search);
                 this.eventDetail = res.data[0];
                 console.log(this.eventDetail);
-                this.selected_price = this.eventDetail.ADULT_PRICE
-            }).catch(err => console.log("[product info]", err));
+                this.price = this.eventDetail.ADULT_PRICE
+            }).catch(err => console.log("[expo info]", err));
     }
 }).mount("#eventDetail");
 
