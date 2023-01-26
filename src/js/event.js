@@ -107,7 +107,7 @@ const eventApp = Vue.createApp({
     }, created() {
         axios.get("../../php/frontend/eventList.php")
             .then(res => { // 拿今天進行中展演展覽的資料
-                this.eventList.push(res.data[0]);
+                this.eventList = [...res.data];
                 console.log(this.eventList);
             })
             .catch(err => console.log("[event list]", err));

@@ -28,16 +28,11 @@
     <!-- 輪播圖 -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <a href="http://localhost:5500/src/html/event_detail.html" class="swiper-slide"
-          style="background-image: url(../img/event/event-main1.png)"></a>
-        <a href="http://localhost:5500/src/html/event_detail.html" class="swiper-slide"
-          style="background-image: url(../img/event/event-main2.png)"></a>
-        <a href="http://localhost:5500/src/html/event_detail.html" class="swiper-slide"
-          style="background-image: url(../img/event/event-main3.png)"></a>
-        <a href="http://localhost:5500/src/html/event_detail.html" class="swiper-slide"
-          style="background-image: url(../img/event/event-main4.png)"></a>
-        <a href="http://localhost:5500/src/html/event_detail.html" class="swiper-slide"
-          style="background-image: url(../img/event/event-main5.png)"></a>
+        <a href="#" class="swiper-slide" style="background-image: url(../img/event/event-main1.png)"></a>
+        <a href="#" class="swiper-slide" style="background-image: url(../img/event/event-main2.png)"></a>
+        <a href="#" class="swiper-slide" style="background-image: url(../img/event/event-main3.png)"></a>
+        <a href="#" class="swiper-slide" style="background-image: url(../img/event/event-main4.png)"></a>
+        <a href="#" class="swiper-slide" style="background-image: url(../img/event/event-main5.png)"></a>
       </div>
       <div class="swiper-button-next">
         <i class="fa-solid fa-circle-arrow-right"></i>
@@ -60,7 +55,7 @@
 
     <!-- 展演區 -->
     <div class="exhibition-event" id="eventApp">
-      <template v-for="(event, idx) in fakeEvtList" :key="'evt'+idx">
+      <template v-for="(event, idx) in eventList" :key="'evt'+idx">
         <ul class="eventshow">
           <li>
             <a :href="'./event_detail.html?eid=' + event.ID">
