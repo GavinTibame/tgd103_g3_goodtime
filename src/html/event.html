@@ -63,7 +63,7 @@
       <template v-for="(event, idx) in fakeEvtList" :key="'evt'+idx">
         <ul class="eventshow">
           <li>
-            <a :href=`./event_detail.html?eid=${event.ID}`>
+            <a :href="'./event_detail.html?eid=' + event.ID">
               <img :src="event.MAIN_PHOTO" alt="" />
               <p>{{event.TAG1}}</p>
               <p>{{event.TAG2}}</p>
@@ -74,7 +74,7 @@
           </li>
         </ul>
       </template>
-    
+      <!--     
         <ul class="eventshow-2">
         <li>
           <a href="./event_detail.html">
@@ -206,8 +206,8 @@
             <p>11:00AM - 7:00PM</p>
           </a>
         </li>
-      </ul> 
-  
+      </ul>  -->
+
     </div>
 
     <!-- 按紐 -->

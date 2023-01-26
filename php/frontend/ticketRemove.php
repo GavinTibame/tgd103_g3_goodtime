@@ -4,16 +4,16 @@
 
     // $mid = $_POST["mid"];
     $mid = 5; 
-    $pid = $_POST["pid"];
-    $sid = $_POST["sid"];
+    $eid = $_POST["eid"];
+    $price = $_POST["price"];
 
-    $sql = "DELETE FROM CART WHERE FK_CART_MEMBER_ID = :mid AND FK_CART_PRODUCT_ID = :pid AND FK_CART_PRODUCT_SPEC_ID = :sid";
+    $sql = "DELETE FROM TICKET WHERE MEMBER_ID = :mid AND EXPO_ID = :eid AND EXPO_PRICE = :price";
 
     $statement = connectDB()->prepare($sql);
     $statement->bindValue(":mid", $mid);
     // $statement->bindValue(":mid", getMemberID());
-    $statement->bindValue(":pid", $pid);
-    $statement->bindValue(":sid", $sid);
+    $statement->bindValue(":eid", $eid);
+    $statement->bindValue(":price", $price);
     $statement->execute(); 
     $data = $statement;
 
