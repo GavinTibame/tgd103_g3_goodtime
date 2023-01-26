@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>展覽詳細資料</title>
-    <link rel="stylesheet" href="../css/reset.css">
+    <title>展覽管理</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -14,32 +13,41 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-event">
+    <div class="b-event" id="event">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <p class="text">展覽查詢</p>
                     <p class="gray-text">*以下欄位如留空則預設為全部</p>
                     <div class="search-bar">
-                        <p>查詢條件</p>
+                        <p style="font-weight: 800;
+                        letter-spacing: .2rem;">查詢條件</p>
                         <ul>                
                             <li>
                                 <p>時間區間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="expostart"  min="2020-01-01" max="2050-12-31" class="timeform" v-model="expostart">
                                 <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="expoend"   min="2020-01-01" max="2050-12-31" class="timeform" v-model="expoend">
+                            </li>
+                            <li>
+                                <p>展覽頁狀態</p>
+                                <form action="" class="po-confirm">
+                                    <input type="radio" name="time-area" value="%" v-model="expostatus" id="expostatus" checked><label class="time-area_label" for="">不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="expostatus" id="expostatus"><label class="time-area_label" for="">刊登</label>
+                                    <input type="radio" name="time-area" value="2" v-model="expostatus" id="expostatus"><label class="time-area_label" for="">下架</label>
+                                </form>
                             </li>
                             <li>
                                 <p>展覽編號</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="expoid" v-model="expoid">
                             </li>
                             <li>
                                 <p>展覽標題</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="exponame" v-model="exponame">
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="search-btn">查詢</button>
+                            <button class="search-btn"@click="axiosPost()">查詢</button>
                             <button class="create-btn"><a href="b-event-create.html">新增</a></button>
                         </div>
                     </div>
@@ -59,44 +67,14 @@
                                                 <div><h6>操作</h6></div>
                                             </div> 
                                         </li>
-                                        <li class="">
-                                            <a href="./b-event-detail.html">
+                                        <li class="" v-for="(b_event, index) in dataList" :key="index">
+                                            <a :href="'b-event-detail.html?ID='+b_event.ID">
                                                 <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>崖上的波妞特展</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>2022/12/06 00:00</h6></div>
-                                                    <div><h6>500<br>450<br>400</h6></div>
-                                                    <div>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯展覽資訊</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除展覽資訊</button>
-                                                    </div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a href="./b-event-detail.html">
-                                                <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>崖上的波妞特展</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>2022/12/06 00:00</h6></div>
-                                                    <div><h6>500<br>450<br>400</h6></div>
-                                                    <div>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯展覽資訊</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除展覽資訊</button>
-                                                    </div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a href="./b-event-detail.html">
-                                                <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>崖上的波妞特展</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>2022/12/06 00:00</h6></div>
-                                                    <div><h6>500<br>450<br>400</h6></div>
+                                                    <div><div class="fakeimg">{{ b_event.MAIN_PHOTO }}</div><h6>{{ b_event.ID }}</h6></div>
+                                                    <div><h6>{{ b_event.TITLE }}</h6></div>
+                                                    <div><h6>{{ b_event.START_DATE }}<br>|<br>{{ b_event.END_DATE }}</h6></div>
+                                                    <div><h6>{{ b_event.CREATE_DATE }}<br>{{ b_event.EDIT_DATE }}</h6></div>
+                                                    <div><h6>{{ b_event.ADULT_PRICE }}<br>{{ b_event.CONC_PRICE }}<br>{{ b_event.GROUP_PRICE }}</h6></div>
                                                     <div>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯展覽資訊</button>
                                                         <button><i class="fa-solid fa-trash-can"></i> 刪除展覽資訊</button>
@@ -116,10 +94,72 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
+        // 連接header
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        //掛載資料庫
+        const expo = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    mark: [],
+                    exponame: "",
+                    expoid: "",
+                    expostatus: "%",
+                    expostart: "2020-01-01",
+                    expoend: "2050-12-31"
+                }
+            }, methods:{
+                axiosPost() {
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/exposearch.php',
+                    responseType:'json',
+                    data: {
+                        exponame: this.exponame,
+                        expoid: this.expoid,
+                        expostatus: this.expostatus,
+                        expostart: this.expostart,
+                        expoend: this.expoend,
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                },
+            }, created() {
+               // 查詢資料
+                    axios.get("../../php/backend/expo.php").then(res => {
+                        this.dataList = res.data;
+                        console.log(this.dataList);
+
+                        let mark_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mark_arr.push("1")
+                            }else{
+                                mark_arr.push("2")
+                            }
+                        })
+                        console.log(mark_arr);
+
+                        this.mark = mark_arr;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+            }
+        }).mount("#event");
     </script>
 </body>
 </html>

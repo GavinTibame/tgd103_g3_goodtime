@@ -5,109 +5,129 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .showbtn{
+            display: inline-block;
+        }
+        .hidebtn{
+            display: none !important; 
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-detail">
+    <div class="b-detail" id="product-detail">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <p class="item-name">商品明細</p>
-                    <p class="gray-text">吃甜甜賺大錢 | 零食派對箱 12款零食</p>
-                    <div class="b-detail_infobox">
+                    <p class="gray-text"></p>
+                    <div class="b-detail_infobox" v-for="(productdetail, index) in dataList" :key="index">
                         <ul>
                             <li>
                                 <p>商品主圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="file" accept=".png, .jpg, .jpeg" disabled id="productpic"></input>
+                                <img id="mainpic" src="#" alt="" >
+                                <button class="change-btn" @click="changeimg">更改</button>
+                                <button class="change-btn hidebtn" @click="hideimg">確認</button>
                             </li>
                             <li>
                                 <p>商品頁編號</p>
-                                <span>00001</span>
+                                <span>{{ productdetail.FK_PRODUCT_PAGE_ID }}</span>
                             </li>
                             <li>
                                 <p>商品編號</p>
-                                <span>MC221205Z00001</span>
+                                <span>{{ productdetail.ID }}</span>
                             </li>
                             <li>
                                 <p>商品名稱</p>
-                                <span>吃甜甜賺大錢 | 零食派對箱 12款零食</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="productname" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>銷售期間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="start" name="trip-start" v-model="start" min="2020-01-01" max="2050-12-31" class="timeform">
                                 <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="end" name="trip-start"  v-model="end" min="2020-01-01" max="2050-12-31" class="timeform">
                             </li>
                             <li>
                                 <p>商品頁狀態</p>
-                                <span>三角抬腿枕 純棉材質 人體工學設計 台灣製</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="radio" v-model="status" disabled name="status" value="1" id="status1"></input>
+                                <label class="time-area_label" for="status1">開啟</label>
+                                <input type="radio" v-model="status" disabled name="status" value="2" id="status2"></input>
+                                <label class="time-area_label" for="status2">關閉</label>
+                                <button class="change-btn" @click="changeradio">更改</button>
+                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>商品定價</p>
-                                <span>1000</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="productprice" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>隱藏賣場</p>
-                                <span>TWD864</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="radio" v-model="hided" disabled name="hide" value="1" id="hide1"></input>
+                                <label class="time-area_label" for="hide1">開啟</label>
+                                <input type="radio" v-model="hided" disabled name="hide" value="2" id="hide2"></input>
+                                <label class="time-area_label" for="hide2">關閉</label>
+                                <button class="change-btn" @click="changeradio">更改</button>
+                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>展場</p>
-                                <span>《崖上的波妞》十周年特展</span>
-                                <button class="change-btn"></i>更改</button>
-                            </li>
-                            <li>
-                                <p>展場編號</p>
-                                <span>20221205</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="title" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>產品規格</p>
-                                <span>XL/L/S/M</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="size1"></input>
+                                <input v-model="size2"></input>
+                                <input v-model="size3"></input>
+                                <button class="change-btn">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>商品分類</p>
-                                <span>零食/伴手禮</span>
-                                <button class="change-btn"></i>更改</button>
+                                <!-- <input type="" v-model="producttype" disabled></input> -->
+                                <select name="product-kind" class="product-kind" v-model="kind" id="kind" disabled>
+                                    <option v-for="(b_product_type, index) in dataList4"  :value="b_product_type.ID">{{ b_product_type.PRODUCT_TYPE_NAME }}</option>
+                                </select>   
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>貨運方式</p>
-                                <span>低溫宅配</span>
-                                <button class="change-btn"></i>更改</button>
+                                <span>宅配</span>
                             </li>
                             <li>
                                 <p>庫存數量</p>
-                                <span>9999</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="stock" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
-                                <button class="change-btn"></i>更改</button>
                                 <p>商品描述</p>
-                                <div class="span-box">
-                                    <span>鬆軟好吃的波妞造型麻糬，讓你愛不釋手，包含最熱門的芝麻、抹茶、草莓三種口味内餡，大飽眼福及口福</span>
-                                </div>
+                                <input v-model="featured" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <p>商品圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
-                            </li>
+                                <div class="imgbox" v-for="(productdetailpic, index) in dataList3" :key="index"><img src="" alt=""></div>
+                                <button class="change-btn" >更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                            </li> -->
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-product.html">儲存</a></button>
+                            <button class="big-btn" @click="submit">儲存</button>
                         </div>
                     </div>
                 </div>
@@ -117,10 +137,335 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        const productdetail = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    dataList2: [],
+                    dataList3: [],
+                    dataList4: [],
+                    idarr: "",
+                    productname: "",
+                    productprice: "",
+                    title: "",
+                    producttype: "",
+                    stock: "",
+                    desc: "",
+                    start: "",
+                    end: "",
+                    status: "",
+                    hided: "",
+                    kind: "",
+                    featured: "",
+                    // table product_spec資料承接
+                    size1: "",
+                    size2: "",
+                    size3: "",
+                    productpic: ""
+                }
+            }, methods:{
+                geturl(){
+                    // var url = location.href;
+                    // if(url.indexOf('?') !=-1 )
+                    // {
+                    //     var arr = url.split('?');
+                    //     var id = arr[1];  
+                    // }
+
+                    // const test = document.getElementById("test");
+                    // test.innerHTML = "" + id + "";
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let getid = urlParams.get("ID");
+                    // console.log(id);
+                    this.idarr = getid;
+                },
+                // wdata(){
+                //     console.log(this.dataList);
+                // },
+                change(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeradio(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+                    let input2 = changebtn.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                    }
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeimg(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                hide(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideradio(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    let input2 = hidebtn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                        input2.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideimg(e){
+                    let pic = e.target.previousSibling.previousSibling.previousSibling.files[0].name;
+                    let picbox = String(pic);
+                    this.productpic = picbox;
+                    // console.log(this.productpic);
+
+                    let picfile = e.target.previousSibling.previousSibling.previousSibling.files[0];
+                    // console.log(picfile);
+                    var reader = new FileReader;
+                    reader.onload = function(e) {
+                        $('#mainpic').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(picfile);
+
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                },
+                submit(){
+
+                    this.geturl();    
+
+                    // 資料庫product
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail-submit.php',
+                    responseType:'json',
+                    data: {
+                        productname: this.productname,
+                        productprice: this.productprice,
+                        // title: this.title,
+                        // producttype: this.producttype,
+                        stock: this.stock,
+                        start: this.start,
+                        end: this.end,
+                        status: this.status,
+                        hided: this.hided,
+                        kind: this.kind,
+                        featured: this.featured,
+                        productpic: this.productpic,
+                        // desc: this.desc,
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    // 資料庫product_spec
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail-spec-submit.php',
+                    responseType:'json',
+                    data: {
+                        size1: this.size1,
+                        size2: this.size2,
+                        size3: this.size3,
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    location.reload(); //重整網頁
+                }
+            }, created(){
+
+                this.geturl();
+                
+                // 查詢資料
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail.php',
+                    responseType:'json',
+                    data: {
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        this.productname = this.dataList[0].PRODUCT_NAME;
+                        this.productprice = this.dataList[0].PRICE;
+                        this.title = this.dataList[0].TITLE;
+                        this.producttype = this.dataList[0].PRODUCT_TYPE_NAME;
+                        this.stock = this.dataList[0].STOCK_QTY;
+                        this.desc = this.dataList[0].PRODUCT_DETAIL_DESC;
+                        this.start = this.dataList[0].START;
+                        this.end = this.dataList[0].END;
+                        this.status = this.dataList[0].STATUS;
+                        this.hided = this.dataList[0].HIDE;
+                        this.kind = this.dataList[0].FK_PRODUCT_TYPE_ID;
+                        this.featured = this.dataList[0].FEATURED;
+
+                        // let status_arr = [];
+                        // res.data.forEach((item, i) => {
+                        //     if(item.STATUS == "1"){
+                        //         status_arr.push("y")
+                        //     }else{
+                        //         status_arr.push("n")
+                        //     }
+                        // })
+                        // console.log(status_arr);
+
+                        // this.status = status_arr;
+
+                        console.log(res.data);
+                        // console.log(this.idarr);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail-size.php',
+                    responseType:'json',
+                    data: {
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList2 = res.data;
+                        this.size1 = this.dataList2[0].SPEC;
+                        this.size2 = this.dataList2[1].SPEC;
+                        this.size3 = this.dataList2[2].SPEC;
+                        console.log(res.data);
+                        // console.log(this.idarr);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail-pic.php',
+                    responseType:'json',
+                    data: {
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList3 = res.data;
+                        console.log(res.data);
+                        // console.log(this.idarr);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/product-detail-type.php',
+                    responseType:'json',
+                    }).then(res => {
+                        this.dataList4 = res.data;
+                        console.log(res.data);
+                        // console.log(this.idarr);
+                        // console.log(this.dataList);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                    
+            }
+        }).mount("#product-detail");
+    </script>
+    <script>
+
+        
+
+        // console.log(id);
+        // let changebtn = document.querySelector(".change-btn");
+        // console.log(changebtn);
+        // for(let i=0; i<changebtn.length; i++){
+        //     changebtn[i].onclick = function(){
+        //         console.log('yes');
+        //     }
+        // }
+
     </script>
 </body>
 </html>

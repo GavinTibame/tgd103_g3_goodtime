@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>場地管理</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-rental">
+    <div class="b-rental" id="rental">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -31,116 +31,21 @@
                                     <div><h6>操作</h6></div>
                                 </div> 
                             </li>
-                            <li class="">
-                                <a href="b-rental-detail.html">
+                            <li class="" v-for="(b_rental, index) in dataList" :key="index">
+                                <a :href="'b-rental-detail.html?ID='+b_rental.ID">
                                     <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                        <div><h6>1號倉庫<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
+                                        <div><div class="fakeimg">{{ b_rental.MAIN_PHOTO }}</div><h6>{{ b_rental.ID }}</h6></div>
+                                        <div><h6>{{ b_rental.NAME }}<br>{{ b_rental.DESC }}</h6></div>
+                                        <div><h6>{{ b_rental.LOCATED }}</h6></div>
                                         <div><h6>
-                                            <input type="radio" name="open" checked><label class="" for="">開啟</label>
+                                            <input type="radio" v-model="mark[index]" value="y" :id="b_rental.ID + 'y'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'y'">開啟</label>
                                             <br>
-                                            <input type="radio" name="open"><label class="" for="">關閉</label>
+                                            <input type="radio" v-model="mark[index]" value="n" :id="b_rental.ID + 'n'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'n'">關閉</label>
                                         </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
+                                        <div><h6>{{ b_rental.PRICE }}</h6></div>
                                         <div>
                                             <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
-                                        </div>
-                                    </div>
-                                </a> 
-                            </li>
-                            <li class="">
-                                <a>
-                                    <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00002</h6></div>
-                                        <div><h6>2號倉庫<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
-                                        <div><h6>
-                                            <input type="radio" name="open2" checked><label class="" for="">開啟</label>
-                                            <br>
-                                            <input type="radio" name="open2"><label class="" for="">關閉</label>
-                                        </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
-                                        <div>
-                                            <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
-                                        </div>
-                                    </div>
-                                </a> 
-                            </li>
-                            <li class="">
-                                <a>
-                                    <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00003</h6></div>
-                                        <div><h6>3號倉庫<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
-                                        <div><h6>
-                                            <input type="radio" name="open3" checked><label class="" for="">開啟</label>
-                                            <br>
-                                            <input type="radio" name="open3"><label class="" for="">關閉</label>
-                                        </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
-                                        <div>
-                                            <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
-                                        </div>
-                                    </div>
-                                </a> 
-                            </li>
-                            <li class="">
-                                <a>
-                                    <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00004</h6></div>
-                                        <div><h6>4號倉庫<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
-                                        <div><h6>
-                                            <input type="radio" name="open4" checked><label class="" for="">開啟</label>
-                                            <br>
-                                            <input type="radio" name="open4"><label class="" for="">關閉</label>
-                                        </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
-                                        <div>
-                                            <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
-                                        </div>
-                                    </div>
-                                </a> 
-                            </li>
-                            <li class="">
-                                <a>
-                                    <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00005</h6></div>
-                                        <div><h6>5號倉庫<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
-                                        <div><h6>
-                                            <input type="radio" name="open5" checked><label class="" for="">開啟</label>
-                                            <br>
-                                            <input type="radio" name="open5"><label class="" for="">關閉</label>
-                                        </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
-                                        <div>
-                                            <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
-                                        </div>
-                                    </div>
-                                </a> 
-                            </li>
-                            <li class="">
-                                <a>
-                                    <div class="flex-box">
-                                        <div><div class="fakeimg"></div><h6>00006</h6></div>
-                                        <div><h6>中央廣場<br>多用途空間，適合任何類型的展覽</h6></div>
-                                        <div><h6>園區最北端</h6></div>
-                                        <div><h6>
-                                            <input type="radio" name="open6" checked><label class="" for="">開啟</label>
-                                            <br>
-                                            <input type="radio" name="open6"><label class="" for="">關閉</label>
-                                        </h6></div>
-                                        <div><h6>TWD10,000</h6></div>
-                                        <div>
-                                            <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約日期</button>
+                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約狀態</button>
                                         </div>
                                     </div>
                                 </a> 
@@ -154,10 +59,48 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
+        // 連接header
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        //掛載資料庫
+        const rental = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    mark: []
+                }
+            }, methods:{
+                atClick(){
+
+                }
+            }, created() {
+               // 查詢資料
+                    axios.get("../../php/backend/location.php").then(res => {
+                        this.dataList = res.data;
+                        console.log(this.dataList[0].ID);
+
+                        let mark_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mark_arr.push("y")
+                            }else{
+                                mark_arr.push("n")
+                            }
+                        })
+                        console.log(mark_arr);
+
+                        this.mark = mark_arr;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+            }
+        }).mount("#rental");
     </script>
 </body>
 </html>

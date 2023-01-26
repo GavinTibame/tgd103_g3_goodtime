@@ -5,82 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .AAA{
+            background-color: yellowgreen;
+        }
+        .BBB{
+            background-color: cornflowerblue;
+        }
+        .AAA:not([disabled]):hover{
+            background-color: rgb(130, 173, 43);
+        }
+        .BBB:not([disabled]):hover{
+            background-color: rgb(89, 131, 211);
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-detail">
+    <div class="b-detail" id="product-create">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="item-name">商品明細</p>
-                    <p class="gray-text">吃甜甜賺大錢 | 零食派對箱 12款零食</p>
+                    <p class="item-name">新增商品</p>
                     <div class="b-detail_infobox">
                         <ul>
                             <li>
                                 <p>商品主圖</p>
-                                <button class="change-btn"></i>新增圖片</button>
+                                <input type="text" id="mainphoto" v-model="mainphoto" maxlength="4">
                             </li>
                             <li>
                                 <p>商品頁編號</p>
+                                <p>系統自動生成</p>
                             </li>
                             <li>
                                 <p>商品編號</p>
+                                <p>系統自動生成</p>
                             </li>
                             <li>
                                 <p>商品名稱</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="productname" v-model="productname">
                             </li>
                             <li>
                                 <p>銷售期間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" name="trip-start" min="2022-01-01" max="2022-12-31" class="timeform" v-model="startdate">
                                 <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" name="trip-start" min="2022-01-01" max="2022-12-31" class="timeform" v-model="enddate">
                             </li>
                             <li>
                                 <p>商品頁狀態</p>
-                                <input type="text" class="long-input">
+                                <input type="radio" name="productpage" id="productpage" v-model="productpage" value="0">
+                                <input type="radio" name="productpage" id="productpage" v-model="productpage" value="1">
                             </li>
                             <li>
                                 <p>商品定價</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="productprice" v-model="productprice">
                             </li>
                             <li>
                                 <p>隱藏賣場</p>
-                                <input type="text" class="long-input">
+                                <input type="radio" name="hide" id="hide" v-model="hide" value="0">
+                                <input type="radio" name="hide" id="hide" v-model="hide" value="1">
                             </li>
                             <li>
                                 <p>展場</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="" v-model="eventName">
                             </li>
                             <li>
                                 <p>展場編號</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="eventnum" v-model="eventnum">
                             </li>
                             <li>
                                 <p>產品規格</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="productstyle" v-model="productstyle">
                             </li>
                             <li>
                                 <p>商品分類</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="producttag" v-model="producttag">
                             </li>
                             <li>
                                 <p>貨運方式</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="transport" v-model="transport">
                             </li>
                             <li>
                                 <p>庫存數量</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="productnum" v-model="productnum">
                             </li>
                             <li>
                                 <p>商品描述</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="productdetail" v-model="productdetail">
                             </li>
                             <li>
                                 <p>商品圖</p>
@@ -88,7 +104,7 @@
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-product.html">上架</a></button>
+                            <button class="big-btn" @click="axiosPost()">上架</button>
                         </div>
                     </div>
                 </div>
@@ -98,10 +114,108 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
+
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+
+        const createApp = Vue.createApp({
+            data() {
+                return {
+                    mainphoto:"",
+                    productname:"",
+                    startdate:"",
+                    enddate:"",
+                    productpage:"",
+                    productprice:"",
+                    hide:"",
+                    eventName:"",
+                    eventnum:"",
+                    productstyle:"",
+                    producttag:"",
+                    transport:"",
+                    productnum:"",
+                    productdetail:"",
+                    dataList: []
+                }
+            }, methods: {
+                axiosPost(){ // 更新資料 string MD5 php 
+                // acc == input的id / aaa == user填入的資料
+                if (this.productname == '') {
+                    alert("請輸入[商品名稱]");
+                    return false;
+                }
+                else if (this.productpage == "") {
+                    alert("請選擇[商品頁狀態]");
+                    return false;
+                }
+                else if (this.hide == '') {
+                    alert("請選擇[隱藏賣場]");
+                    return false;
+                }
+                else if (this.productprice == '') {
+                    alert("請輸入[商品價格]");
+                    return false;
+                }
+                else if (this.productdetail == '') {
+                    alert("請輸入[商品描述]");
+                    return false;
+                }
+                else if (this.mainphoto == '') {
+                    alert("請選擇[商品主圖]");
+                    return false;
+                }
+                else if (this.productnum == '') {
+                    alert("請輸入[商品數量]");
+                    return false;
+                }
+                else if (this.producttag == '') {
+                    alert("請選擇[商品分類]");
+                    return false;
+                }
+                else if (this.eventnum == '') {
+                    alert("請輸入[展場編號]");
+                    return false;
+                }
+                else{
+                    const string = `mainphoto=${this.mainphoto}&productname=${this.productname}&start=${this.startdate}&end=${this.enddate}&productpage=${this.productpage}&productprice=${this.productprice}&hide=${this.hide}&event=${this.event}&eventnum=${this.eventnum}&productstyle=${this.productstyle}& producttag=${this. producttag}&etransport=${this.transport}&productnum=${this.productnum}&productdetail=${this.productdetail}`;
+                    axios.post("../../php/backend/product-create.php", string).then(res => {
+                        console.log(res);
+                        swal({
+                            icon: "success",
+                            title: "添加成功",
+                            text: "您已成功添加一筆商品",
+                            buttons: {
+                            A: {
+                                text: "繼續新增商品",
+                                value: "./b-product-create.html",
+                                className:'AAA',
+                                visible: true,
+                            },
+                            B: {
+                                text: "回商品管理頁面",
+                                visible: true,
+                                className:'BBB',
+                                value: "./b-product.html"
+                            }
+                            }
+                        }).then((value) => {
+                            location.assign(`${value}`)
+                        });
+                    // this.dataList = res.data;
+                    }).catch(err => {
+                        console.log(err);
+                        alert("上架失敗，請再次檢查資料");
+                    })
+                }          
+                }
+            }
+        }).mount("#product-create");
     </script>
 </body>
 </html>
