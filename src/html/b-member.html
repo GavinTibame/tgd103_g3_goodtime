@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
+    <title>會員管理</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -14,7 +13,7 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-member" id="app">
+    <div class="b-member" id="member">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -28,12 +27,8 @@
                                 <p>會員分類</p>
                                 <select name="news-kind" class="news-kind">
                                     <option value="" selected>會員種類選擇</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
+                                    <option value="">管理員</option>
+                                    <option value="">普通會員</option>
                                 </select>   
                             </li>
                             <li>
@@ -73,75 +68,18 @@
                                                 <div><h6>操作</h6></div>
                                             </div> 
                                         </li>
-                                        <li class="">
+                                        <li class="" v-for="(v_member, index) in dataList" :key="index">
                                             <a href="b-member-detail.html">
                                                 <div class="flex-box">
-                                                    <div><h6>00001</h6></div>
-                                                    <div><h6>Hui Ho Man</h6></div>
-                                                    <div><h6>普通會員</h6></div>
+                                                    <div><h6>{{ v_member.ID }}</h6></div>
+                                                    <div><h6>{{ v_member.USERNAME }}</h6></div>
+                                                    <div><h6>{{ v_member.FK_ROLE_ID }}</h6></div>
                                                     <div><h6>
-                                                        <input type="radio" name="member-state" checked><label class="" for="">開啟</label>
+                                                        <input type="radio" v-model="abc[index]" value="b" :id="v_member.ID + 'a'" :name=v_member.ID><label class="" :for="v_member.ID + 'a'">開啟</label>
                                                         <br>
-                                                        <input type="radio" name="member-state"><label class="" for="">關閉</label>
+                                                        <input type="radio" v-model="abc[index]" value="a" :id="v_member.ID + 'b'" :name=v_member.ID><label class="" :for="v_member.ID + 'b'">關閉</label>
                                                     </h6></div>
-                                                    <div><h6>ITDoGavin@gmail.com</h6></div>
-                                                    <div><h6>
-                                                        <button><i class="fa-solid fa-magnifying-glass"></i> 查看會員</button>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯會員狀態</button>
-                                                    </h6></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="flex-box">
-                                                    <div><h6>00001</h6></div>
-                                                    <div><h6>Hui Ho Man</h6></div>
-                                                    <div><h6>普通會員</h6></div>
-                                                    <div><h6>
-                                                        <input type="radio" name="member-state2" checked><label class="" for="">開啟</label>
-                                                        <br>
-                                                        <input type="radio" name="member-state2"><label class="" for="">關閉</label>
-                                                    </h6></div>
-                                                    <div><h6>ITDoGavin@gmail.com</h6></div>
-                                                    <div><h6>
-                                                        <button><i class="fa-solid fa-magnifying-glass"></i> 查看會員</button>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯會員狀態</button>
-                                                    </h6></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="flex-box">
-                                                    <div><h6>00001</h6></div>
-                                                    <div><h6>Hui Ho Man</h6></div>
-                                                    <div><h6>普通會員</h6></div>
-                                                    <div><h6>
-                                                        <input type="radio" name="member-state3" checked><label class="" for="">開啟</label>
-                                                        <br>
-                                                        <input type="radio" name="member-state3"><label class="" for="">關閉</label>
-                                                    </h6></div>
-                                                    <div><h6>ITDoGavin@gmail.com</h6></div>
-                                                    <div><h6>
-                                                        <button><i class="fa-solid fa-magnifying-glass"></i> 查看會員</button>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯會員狀態</button>
-                                                    </h6></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="flex-box">
-                                                    <div><h6>00001</h6></div>
-                                                    <div><h6>Hui Ho Man</h6></div>
-                                                    <div><h6>普通會員</h6></div>
-                                                    <div><h6>
-                                                        <input type="radio" name="member-state4" checked><label class="" for="">開啟</label>
-                                                        <br>
-                                                        <input type="radio" name="member-state4"><label class="" for="">關閉</label>
-                                                    </h6></div>
-                                                    <div><h6>ITDoGavin@gmail.com</h6></div>
+                                                    <div><h6>{{ v_member.EMAIL }}</h6></div>
                                                     <div><h6>
                                                         <button><i class="fa-solid fa-magnifying-glass"></i> 查看會員</button>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯會員狀態</button>
@@ -162,6 +100,7 @@
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         // 連接header
         $(() => {
@@ -169,38 +108,39 @@
         });
 
         //掛載資料庫
-        const app = Vue.createApp({
-            data(){
-                return{
-                apiUrl: "../../.vscode/api/b-member.php",
-                memberArr: []
-                };
-            },
-            watch: {
-                // priceRange(newPriceRange, oldPriceRange){
-                // this.getProducts();
-                // }
-            },
-            computed: {
-                // priceRangeStr(){
-                // this.priceRange.sort(function(a, b){
-                //     return parseInt(a) - parseInt(b);
-                // });
-                // return this.priceRange.join(",");
-                // }
-            },
-            mounted(){
-                this.getMember();
-            },
-            methods: {
-                getMember(){
-                fetch(`${this.apiUrl}?price_range=${this.priceRangeStr}`).then(res => res.json()).then(data => {
-                    //console.log(data);
-                    this.memberArr = data;
-                });
+        const member = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    abc: []
                 }
+            }, methods:{
+                atClick(){
+
+                }
+            }, created() {
+               // 查詢資料
+                    axios.get("../../php/backend/member.php").then(res => {
+                        this.dataList = res.data;
+                        console.log(this.dataList);
+
+
+                        let abc_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.VERIFY == "1"){
+                                abc_arr.push("a")
+                            }else{
+                                abc_arr.push("b")
+                            }
+                        })
+                        console.log(abc_arr);
+
+                        this.abc = abc_arr;
+                    }).catch(err => {
+                        console.log(err);
+                    });
             }
-        }).mount("#app");
+        }).mount("#member");
     </script>
 </body>
 </html>

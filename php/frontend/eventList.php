@@ -10,7 +10,7 @@ function getEventList($pdo){
     $statement = $pdo->prepare($sql); 
     $statement->execute();
     $data = $statement->fetchAll();
-    echo json_encode($data);
+    print_r(json_encode($data));
 }
 
 getEventList(connectDB()); 

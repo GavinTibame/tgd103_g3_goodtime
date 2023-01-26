@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>消息管理</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -13,7 +13,7 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-news">
+    <div class="b-news" id="new">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -25,45 +25,40 @@
                         <ul>
                             <li>
                                 <p>消息分類</p>
-                                <select name="news-kind" class="news-kind">
-                                    <option value="" selected>消息種類選擇</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
+                                <select name="news-kind" class="news-kind" v-model="newskind" id="newskind">
+                                    <option value="%" selected>消息種類選擇</option>
+                                    <option v-for="(newskind, index) in dataList2"  :value="newskind.ID">{{ newskind.DESC }}</option>
                                 </select>   
                             </li>
                             <li>
-                                <p>上架期間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <p>發布期間</p>
+                                <input type="date" id="newsstart"  min="2020-01-01" max="2050-12-31" class="timeform" v-model="newsstart">
                                 <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="newsend"   min="2020-01-01" max="2050-12-31" class="timeform" v-model="newsend">
                             </li>
                             <li>
                                 <p>消息頁狀態</p>
-                                <form action="" class="news-state">
-                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">不指定</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">開啟</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">關閉</label>
+                                <form action="" class="po-confirm">
+                                    <input type="radio" name="time-area" value="%" v-model="newsstatus" id="newsstatus" checked><label class="time-area_label" for="">不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="newsstatus" id="newsstatus"><label class="time-area_label" for="">刊登</label>
+                                    <input type="radio" name="time-area" value="2" v-model="newsstatus" id="newsstatus"><label class="time-area_label" for="">下架</label>
                                 </form>
                             </li>
                             <li>
                                 <p>消息編號</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="newsid" v-model="newsid">
                             </li>
                             <li>
                                 <p>消息標題</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="newsname" v-model="newsname">
                             </li>
-                            <li>
+                            <!-- <li>
                                 <p>消息頁編號</p>
                                 <input type="text" class="long-input">
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="btn-group">
-                            <button class="search-btn">查詢</button>
+                            <button class="search-btn" @click="axiosPost()">查詢</button>
                             <button class="create-btn"><a href="b-new-create.html">新增</a></button>
                         </div>
                     </div>
@@ -83,61 +78,20 @@
                                                 <div><h6>操作</h6></div>
                                             </div> 
                                         </li>
-                                        <li class="">
-                                            <a href="b-new-detail.html">
+                                        <li class="" v-for="(b_new, index) in dataList" :key="index">
+                                            <a :href="'b-new-detail.html?ID='+b_new.ID">
                                                 <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！<br>2</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
+                                                    <div><div class="fakeimg">{{ b_new.MAIN_PHOTO }}</div><h6>{{ b_new.ID }}</h6></div>
+                                                    <div><h6>{{ b_new.TITLE }}<br>{{ b_new.FK_INFO_PAGE_ID }}</h6></div>
+                                                    <div><h6>{{ b_new.START }}<br>|<br>{{ b_new.END }}</h6></div>
                                                     <div><h6>
-                                                        <input type="radio" name="publish" checked><label class="time-area_label" for="">刊登</label>
+                                                        <input type="radio" v-model="mark[index]" value="1" :id="b_new.ID + 'y'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'y'">刊登</label>
                                                         <br>
-                                                        <input type="radio" name="publish"><label class="time-area_label" for="">下架</label>
+                                                        <input type="radio" v-model="mark[index]" value="2" :id="b_new.ID + 'n'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'n'">下架</label>
                                                     </h6></div>
-                                                    <div><h6>許浩文<br>2022/12/07 23:59</h6></div>
+                                                    <div><h6>{{ b_new.EDIT_DATE }}</h6></div>
                                                     <div><h6>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯消息</button>
-                                                        <button></i> <i class="fa-solid fa-pen"></i> 修改消息</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除消息</button>
-                                                    </h6></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！<br>2</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
-                                                    <div><h6>
-                                                        <input type="radio" name="publish2" checked><label class="time-area_label" for="">刊登</label>
-                                                        <br>
-                                                        <input type="radio" name="publish2"><label class="time-area_label" for="">下架</label>
-                                                    </h6></div>
-                                                    <div><h6>許浩文<br>2022/12/07 23:59</h6></div>
-                                                    <div><h6>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯消息</button>
-                                                        <button></i> <i class="fa-solid fa-pen"></i> 修改消息</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除消息</button>
-                                                    </h6></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="flex-box">
-                                                    <div><div class="fakeimg"></div><h6>00001</h6></div>
-                                                    <div><h6>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！<br>2</h6></div>
-                                                    <div><h6>2022/12/06 00:00<br>|<br>2046/12/06 23:59</h6></div>
-                                                    <div><h6>
-                                                        <input type="radio" name="publish3" checked><label class="time-area_label" for="">刊登</label>
-                                                        <br>
-                                                        <input type="radio" name="publish3"><label class="time-area_label" for="">下架</label>
-                                                    </h6></div>
-                                                    <div><h6>許浩文<br>2022/12/07 23:59</h6></div>
-                                                    <div><h6>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯消息</button>
-                                                        <button></i> <i class="fa-solid fa-pen"></i> 修改消息</button>
                                                         <button><i class="fa-solid fa-trash-can"></i> 刪除消息</button>
                                                     </h6></div>
                                                 </div>
@@ -155,10 +109,94 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
+        // 連接header
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        //掛載資料庫
+        const news = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    dataList2: [],
+                    mark: [],
+                    newsname: "",
+                    newsid: "",
+                    newsstatus: "%",
+                    newskind: "%",
+                    newsstart: "2020-01-01",
+                    newsend: "2050-12-31"
+                }
+            }, methods:{
+                axiosPost() {
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/newsearch.php',
+                    responseType:'json',
+                    data: {
+                        newsname: this.newsname,
+                        newsid: this.newsid,
+                        newsstatus: this.newsstatus,
+                        newskind: this.newskind,
+                        newsstart: this.newsstart,
+                        newsend: this.newsend,
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                        
+                        let mark_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mark_arr.push("1")
+                            }else{
+                                mark_arr.push("2")
+                            }
+                        })
+                        console.log(mark_arr);
+
+                        this.mark = mark_arr;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                },
+            }, created() {
+               // 查詢資料
+                    axios.get("../../php/backend/new.php").then(res => {
+                        this.dataList = res.data;
+                        console.log(this.dataList);
+
+                        let mark_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mark_arr.push("1")
+                            }else{
+                                mark_arr.push("2")
+                            }
+                        })
+                        console.log(mark_arr);
+
+                        this.mark = mark_arr;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios.get("../../php/backend/new-searchbar-fix.php").then(res => {
+                        this.dataList2 = res.data;
+                        // console.log(this.dataList[0].ID);
+                        console.log(this.dataList2);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+            }
+        }).mount("#new");
     </script>
 </body>
 </html>
