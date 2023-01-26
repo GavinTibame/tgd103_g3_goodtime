@@ -10,80 +10,99 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .showbtn{
+            display: inline-block;
+        }
+        .hidebtn{
+            display: none !important; 
+        }
+        .hideselectbox{
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-detail">
+    <div class="b-detail" id="news-detail">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <p class="item-name">消息明細</p>
-                    <div class="b-detail_infobox">
+                    <div class="b-detail_infobox" v-for="(newsdetail, index) in dataList" :key="index">
                         <ul>
                             <li>
                                 <p>消息主圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="file" accept=".png, .jpg, .jpeg" disabled id="newspic" class="hideselectbox"></input>
+                                <img id="mainpic" :src="newsdetail.MAIN_PHOTO" alt="" >
+                                <button class="change-btn" @click="changeimg">更改</button>
+                                <button class="change-btn hidebtn" @click="hideimg">確認更改與預覽圖片</button>
                             </li>
                             <li>
                                 <p>消息頁編號</p>
-                                <span>00001</span>
+                                <span>{{ newsdetail.FK_INFO_PAGE_ID }}</span>
                             </li>
                             <li>
                                 <p>消息編號</p>
-                                <span>2022121202</span>
+                                <span>{{ newsdetail.ID }}</span>
                             </li>
                             <li>
                                 <p>消息標題</p>
-                                <div class="span-box">
-                                    <span>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！</span>
-                                </div>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="newsname" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>消息分類</p>
-                                <span>展覽</span>
-                                <button class="change-btn"></i>更改</button>
+                                <select name="news-kind" class="news-kind" v-model="newskind" id="newskind" disabled>
+                                    <option v-for="(newdetailtype, index) in dataList2"  :value="newdetailtype.ID">{{ newdetailtype.DESC }}</option>
+                                </select>   
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>公告期間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="newsstart" name="trip-start" v-model="newsstart" min="2020-01-01" max="2050-12-31" class="timeform">
                                 <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <input type="date" id="newsend" name="trip-start"  v-model="newsend" min="2020-01-01" max="2050-12-31" class="timeform">
                             </li>
                             <li>
                                 <p>消息頁狀態</p>
-                                <span>刊登</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="radio" v-model="newsstatus" disabled name="newsstatus" value="1" id="newsstatus1"></input>
+                                <label class="time-area_label" for="newsstatus1">開啟</label>
+                                <input type="radio" v-model="newsstatus" disabled name="newsstatus" value="2" id="newsstatus2"></input>
+                                <label class="time-area_label" for="newsstatus2">關閉</label>
+                                <button class="change-btn" @click="changeradio">更改</button>
+                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>新增日期</p>
-                                <span>2022/12/06 11:32</span>
+                                <span>{{ newsdetail.CREATE_DATE }}</span>
                             </li>
                             <li>
                                 <p>最後編輯日期</p>
-                                <span>2022/12/07 23:59</span>
+                                <span>{{ newsdetail.EDIT_DATE }}</span>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <p>展場編號</p>
                                 <span>20221205</span>
                                 <button class="change-btn"></i>更改</button>
-                            </li>
+                            </li> -->
                             <li>
                                 <p>消息內文</p>
-                                <div class="span-box">
-                                    <span>動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！動了感情卻到不了愛情？展覽《你被愛情小魔遮眼了嗎？》解除你對戀愛的各種意亂情迷！</span>
-                                </div>  
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="newscontent" disabled></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <p>消息圖</p>
                                 <div class="new_detail_imgbox"><img src="" alt=""></div>
                                 <button class="change-btn"></i>更改</button>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-new.html">儲存</a></button>
+                            <button class="big-btn" @click="submit">儲存</button>
                         </div>
                     </div>
                 </div>
@@ -93,10 +112,221 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        const newdetail = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    dataList2: [],
+                    idarr: "",
+
+                    newsname: "",
+                    newskind: "",
+                    newsstart: "",
+                    newsend: "",
+                    newsedit: "",
+                    newscontent: "",
+                    newspic: ""
+                }
+            }, methods:{
+                geturl(){
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let getid = urlParams.get("ID");
+                    this.idarr = getid;
+                },
+                // wdata(){
+                //     console.log(this.dataList);
+                // },
+                change(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeradio(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+                    let input2 = changebtn.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                    }
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeimg(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                        input.classList.remove("hideselectbox")
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                hide(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideradio(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    let input2 = hidebtn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                        input2.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideimg(e){
+                    let pic = e.target.previousSibling.previousSibling.previousSibling.files[0].name;
+                    let picbox = String(pic);
+                    this.newspic = picbox;
+                    // console.log(this.newspic);
+
+                    let picfile = e.target.previousSibling.previousSibling.previousSibling.files[0];
+                    // console.log(picfile);
+                    var reader = new FileReader;
+                    reader.onload = function(e) {
+                        $('#mainpic').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(picfile);
+
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                },
+                submit(){
+
+                    this.geturl();    
+
+                    // 資料庫product
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/new-detail-submit.php',
+                    responseType:'json',
+                    data: {
+                        newsname: this.newsname,
+                        newskind: this.newskind,
+                        newsstart: this.newsstart,
+                        newsend: this.newsend,
+                        newsstatus: this.newsstatus,
+                        newsedit: this.newsedit,
+                        newscontent: this.newscontent,
+                        newspic: this.newspic,
+
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    location.reload();
+                }
+            }, created(){
+
+                this.geturl();
+                
+                // 查詢資料
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/new-detail.php',
+                    responseType:'json',
+                    data: {
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        this.newsname = this.dataList[0].TITLE;
+                        this.newskind = this.dataList[0].FK_INFO_TYPE_ID;
+                        this.newsstart = this.dataList[0].START;
+                        this.newsend = this.dataList[0].END;
+                        this.newsstatus = this.dataList[0].STATUS;
+                        this.newscreate = this.dataList[0].CREATE_DATE;
+                        this.newsedit = this.dataList[0].EDIT_DATE;
+                        this.newscontent = this.dataList[0].CONTENT;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/new-detail-type.php',
+                    responseType:'json',
+                    }).then(res => {
+                        this.dataList2 = res.data;
+                        console.log(res.data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                    
+            }
+        }).mount("#news-detail");
     </script>
 </body>
 </html>

@@ -5,75 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>展覽查詢</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .showbtn{
+            display: inline-block;
+        }
+        .hidebtn{
+            display: none !important; 
+        }
+        .hideselectbox{
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-detail">
+    <div class="b-detail" id="expo-detail">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <p class="item-name">展覽明細</p>
-                    <p class="gray-text">崖上的波妞特展</p>
-                    <div class="b-detail_infobox">
+                    <div class="b-detail_infobox" v-for="(expodetail, index) in dataList" :key="index">
                         <ul>
                             <li>
                                 <p>展覽主圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <input type="file" accept=".png, .jpg, .jpeg" disabled id="expopic" class="hideselectbox"></input>
+                                <img id="mainpic" :src="expodetail.MAIN_PHOTO" alt="" >
+                                <button class="change-btn" @click="changeimg">更改</button>
+                                <button class="change-btn hidebtn" @click="hideimg">確認更改與預覽圖片</button>
+                            </li>
+                            <li>
+                                <p>展覽頁編號</p>
+                                <span>{{ expodetail.FK_EXPO_PAGE_ID }}</span>
+                            </li>
+                            <li>
+                                <p>展覽編號</p>
+                                <span>{{ expodetail.ID }}</span>
                             </li>
                             <li>
                                 <p>展覽標題</p>
-                                <span>崖上的波妞特展</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="exponame" disabled maxlength="128"></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>展覽內文</p>
-                                <div class="span-box">
-                                    <span>Yuko Higuchi 是一位活躍於廣泛領域的畫家，不僅創作作品，還出版了圖畫書，其自由的想法和触覺在幻想與現實之間交替。我們將從1000件作品中介紹樋口裕子的繪畫作品，其中包括自2019年以來作為首次大型個展初次移至台灣展出。
-                                    請享受由樋口裕子繪製的馬戲團（CIRCUS）的世界，貓、女孩、蘑菇和來自這個世界的奇怪生物展開</span>
-                                </div>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="expocontent" disabled maxlength="256"></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
-                                <p>開始日期</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <p>公告期間</p>
+                                <input type="date" id="expostart" name="trip-start" v-model="expostart" min="2020-01-01" max="2050-12-31" class="timeform">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="date" id="expoend" name="trip-start"  v-model="expoend" min="2020-01-01" max="2050-12-31" class="timeform">
                             </li>
                             <li>
-                                <p>最後日期</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <p>消息頁狀態</p>
+                                <input type="radio" v-model="expostatus" disabled name="expostatus" value="1" id="expostatus1"></input>
+                                <label class="time-area_label" for="expostatus1">開啟</label>
+                                <input type="radio" v-model="expostatus" disabled name="expostatus" value="2" id="expostatus2"></input>
+                                <label class="time-area_label" for="expostatus2">關閉</label>
+                                <button class="change-btn" @click="changeradio">更改</button>
+                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>新增日期</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <span>{{ expodetail.CREATE_DATE }}</span>
                             </li>
                             <li>
                                 <p>最後編輯日期</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <span>{{ expodetail.EDIT_DATE }}</span>
                             </li>
                             <li>
                                 <p>成人價格</p>
-                                <span>500</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="adultprice" disabled maxlength="128"></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>優惠價格</p>
-                                <span>450</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="concprice" disabled maxlength="128"></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>團體價格</p>
-                                <span>400</span>
-                                <button class="change-btn"></i>更改</button>
+                                <input v-model="groupprice" disabled maxlength="128"></input>
+                                <button class="change-btn" @click="change">更改</button>
+                                <button class="change-btn hidebtn" @click="hide">確認</button>
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-event.html">儲存</a></button>
+                            <button class="big-btn"  @click="submit">儲存</button>
                         </div>
                     </div>
                 </div>
@@ -83,10 +112,224 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        const newdetail = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    dataList2: [],
+                    idarr: "",
+
+                    exponame: "",
+                    expocontent: "",
+                    expostart: "",
+                    expoend: "",
+                    expostatus: "",
+                    adultprice: "",
+                    concprice: "",
+                    groupprice: "",
+                    expopic: ""
+                }
+            }, methods:{
+                geturl(){
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let getid = urlParams.get("ID");
+                    this.idarr = getid;
+                },
+                // wdata(){
+                //     console.log(this.dataList);
+                // },
+                change(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeradio(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                    }
+                    let input2 = changebtn.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                    }
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                changeimg(e){
+                    let changebtn = e.target;
+                    let input = changebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                        input.classList.remove("hideselectbox")
+                    }else{
+                    }
+
+                    let send = changebtn.nextSibling;
+                    // let btnstyle = send.style;
+                    // console.log(btnstyle);
+                    if(disabled){
+                        send.classList.toggle("hidebtn");
+                    }else{
+                    }
+                },
+                hide(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideradio(e){
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                    let input2 = hidebtn.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+                    let disabled2 = input2.disabled;
+                    if(disabled2){
+                        input2.removeAttribute('disabled');
+                    }else{
+                        input2.setAttribute('disabled','disabled');
+                    }
+                    // let li = changebtn.parentNode;
+                    // input.setAttribute('disabled','strId');
+                },
+                hideimg(e){
+                    let pic = e.target.previousSibling.previousSibling.previousSibling.files[0].name;
+                    let picbox = String(pic);
+                    this.expopic = picbox;
+                    // console.log(this.newspic);
+
+                    let picfile = e.target.previousSibling.previousSibling.previousSibling.files[0];
+                    // console.log(picfile);
+                    var reader = new FileReader;
+                    reader.onload = function(e) {
+                        $('#mainpic').attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(picfile);
+
+                    let hidebtn = e.target;
+                    hidebtn.classList.toggle("hidebtn");
+                    let input = hidebtn.previousSibling.previousSibling.previousSibling;
+                    let disabled = input.disabled;
+                    if(disabled){
+                        input.removeAttribute('disabled');
+                    }else{
+                        input.setAttribute('disabled','disabled');
+                    }
+                },
+                submit(){
+
+                    this.geturl();    
+
+                    // 資料庫product
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/expo-detail-submit.php',
+                    responseType:'json',
+                    data: {
+                        exponame: this.exponame,
+                        expocontent: this.expocontent,
+                        expostart: this.expostart,
+                        expoend: this.expoend,
+                        expostatus: this.expostatus,
+                        adultprice: this.adultprice,
+                        concprice: this.concprice,
+                        groupprice: this.groupprice,
+                        expopic: this.expopic,
+
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    location.reload();
+                }
+            }, created(){
+
+                this.geturl();
+                
+                // 查詢資料
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/epxo-detail.php',
+                    responseType:'json',
+                    data: {
+                        id: this.idarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        this.exponame = this.dataList[0].TITLE;
+                        this.expostart = this.dataList[0].START_DATE;
+                        this.expoend = this.dataList[0].END_DATE;
+                        this.expostatus = this.dataList[0].STATUS;
+                        this.expocontent = this.dataList[0].CONTENT;
+                        this.adultprice = this.dataList[0].ADULT_PRICE;
+                        this.concprice = this.dataList[0].CONC_PRICE;
+                        this.groupprice = this.dataList[0].GROUP_PRICE;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/new-detail-type.php',
+                    responseType:'json',
+                    }).then(res => {
+                        this.dataList2 = res.data;
+                        console.log(res.data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                    
+            }
+        }).mount("#expo-detail");
     </script>
 </body>
 </html>
