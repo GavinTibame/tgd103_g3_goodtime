@@ -9,7 +9,7 @@
     $pwd = $member["user_password"];
     // $email = "member2@goodtime.com";
     // $pwd = "member2";
-    $sql = "SELECT * FROM MEMBER WHERE VERIFY = 0 AND EMAIL = :email AND `PASSWORD` = :pwd";
+    $sql = "SELECT * FROM MEMBER WHERE VERIFY = 1 AND EMAIL = :email AND `PASSWORD` = :pwd";
 
     $statement = connectDB()->prepare($sql);
     $statement->bindValue(":email", $email);
