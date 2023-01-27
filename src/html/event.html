@@ -55,7 +55,7 @@
 
     <!-- 展演區 -->
     <div class="exhibition-event" id="eventApp">
-      <template v-for="(event, idx) in eventList" :key="'evt'+idx">
+      <template v-for="(event, idx) in eventList" :key="'evt'+idx" v-show="setPaginate(index)">
         <ul class="eventshow">
           <li>
             <a :href="'./event_detail.html?eid=' + event.ID">
@@ -206,24 +206,15 @@
     </div>
 
     <!-- 按紐 -->
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" href="./event.html">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="./event.html">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="./event.html">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="./event.html" aria-label="Next">
-            <span aria-hidden="true">></span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div id="pagination">
+      <a href="#" v-if="this.current == paginate_total" @click.prevent="current--"><</a>
+      <a href="#" class="btn btn-default" :class="{'-on': this.current == page_index}"
+        v-for="page_index in paginate_total" @click.prevent="updateCurrent(page_index)">
+        {{ page_index }}
+      </a>
+
+      <a href="#" v-if="this.current != paginate_total" @click.prevent="current++">></a>
+    </div>
   </div>
 
   <footer id="footer"></footer>
