@@ -53,7 +53,7 @@
       <div class="tab-panels">
         <ul class="tab-panel">
           <li v-for="(news,index) in currentList"  v-show="setPaginate(index)"><!-- v-show渲染該頁的畫面 -->
-            <a :href="news.url">
+            <a :href="'./news_detail.html?eid=' + news.ID">
               <small>{{news.EDIT_DATE}} | {{news.DESC}}</small>
               <h4>【{{news.DESC}}】{{news.TITLE}}</h4>
             </a>
@@ -62,7 +62,7 @@
       </div>
 
       <div id="pagination">
-        <a href="#" v-if="this.current == paginate_total" @click.prevent="current--"></a>
+        <a href="#" v-if="this.current == paginate_total" @click.prevent="current--"><</a>
         <a href="#" class="btn btn-default" :class="{'-on': this.current == page_index}"
           v-for="page_index in paginate_total" @click.prevent="updateCurrent(page_index)">
           {{ page_index }}
