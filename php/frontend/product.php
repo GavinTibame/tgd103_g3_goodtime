@@ -13,8 +13,8 @@ function getProductInfo($pid, $pdo){
             WHERE PRODUCT.ID = :pid
                 AND PIC.FK_PRODUCT_PIC_PRODUCT_ID = PRODUCT.ID
                 AND PRODUCT.ID = SPEC.FK_PRODUCT_SPEC_PRODUCT_ID
-                AND PRODUCT.STATUS = 0 
-                AND PRODUCT.HIDE = 0;";
+                AND PRODUCT.STATUS = 1 
+                AND PRODUCT.HIDE = 1;";
 
 
     $statement = $pdo->prepare($sql); 
