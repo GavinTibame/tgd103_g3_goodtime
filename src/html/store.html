@@ -27,7 +27,7 @@
 
     <header id="header"></header>
 
-    <main class="store__wrapper">
+    <main class="store__wrapper" id="store">
 
         <!-- 麵包屑 -->
         <div class="crumb">
@@ -85,23 +85,23 @@
         <!-- 商品陳列區 -->
         <div class="product__display results" id="parent">
             <ul id="products">
-                <!-- <li class="events" data-filter-event="《Lindsayooo》新興插畫家展">
-                    <a href="#">
+                <li class="events">
+                    <a :href="'./store.html?eid=' + store.ID">
                         <div class="shop__pic">
-                            <img src="../img/store/store01.jpg" alt="">
+                            <img :src="store.MAIN_PHOTO" alt=""/>
                             <div class="shop__type">展覽限定</div>
                             <div class="countdown">倒數3天</div>
                         </div>
 
                         <div class="shop__text">
-                            <small>《Lindsayooo》新興插畫家展</small>
-                            <h6>手繪限定油畫</h6>
-                            <h6>$2,000</h6>
+                            <small>{{store.TAG1}}</small>
+                            <h6>{{store.PRODUCT_NAME}}</h6>
+                            <h6>{{store.PRICE}}</h6>
                         </div>
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <div class="shop__pic">
                             <img src="../img/store/store02.jpg" alt="">
@@ -343,8 +343,11 @@
 
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="../js/store_select.js"></script>
-    <script src="../js/store_filter.js"></script>
+    <!-- <script src="../js/store_select.js"></script>
+    <script src="../js/store_filter.js"></script> -->
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/store.js"></script>
 
     <script>
         // header & footer
