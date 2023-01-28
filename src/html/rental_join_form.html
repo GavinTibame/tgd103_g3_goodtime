@@ -31,7 +31,7 @@
         </div>
         <main class="rental_join_form" id="rental_join_form">
           <!----------------------表單區------------------------->
-          <form @submit.prevent="handleSubmit">
+
             <section class="Join__form">
               <div class="activity__name__out">
                 <label for="activity__name">活動名稱</label>
@@ -78,7 +78,7 @@
                     />
                     <label for="unit__1">個人</label>
                   </div>
-                  <div class="unit__2 unit__spacing">
+                  <div class="unit__2 unit__spacing unit__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="unit__radio"
@@ -89,7 +89,7 @@
                     />
                     <label for="unit__2">藝文團體</label>
                   </div>
-                  <div class="unit__3 unit__spacing">
+                  <div class="unit__3 unit__spacing unit__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="unit__radio"
@@ -100,7 +100,7 @@
                     />
                     <label for="unit__3">一般團體</label>
                   </div>
-                  <div class="unit__4 unit__spacing">
+                  <div class="unit__4 unit__spacing unit__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="unit__radio"
@@ -111,7 +111,7 @@
                     />
                     <label for="unit__4">學校</label>
                   </div>
-                  <div class="unit__5 unit__spacing">
+                  <div class="unit__5 unit__spacing unit__spacing">
                     <input
                       class="with-gap validate[required]"
                       name="unit__radio"
@@ -272,7 +272,7 @@
                   <div class="nature__activity__1 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__1"
+                      name="nature__activity[i]"
                       type="checkbox"
                       id="nature__activity[0]"
                       value="座談會/研討會"
@@ -283,7 +283,7 @@
                   <div class="nature__activity__2 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__2"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[1]"
                       value="個展/畢展"
@@ -294,7 +294,7 @@
                   <div class="nature__activity__3 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__3"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[2]"
                       value="同人/社團活動"
@@ -305,7 +305,7 @@
                   <div class="nature__activity__4 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__4"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[3]"
                       value="大型展覽/聯展"
@@ -316,7 +316,7 @@
                   <div class="nature__activity__5 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__5"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[4]"
                       value="服裝/彩妝走秀"
@@ -327,7 +327,7 @@
                   <div class="nature__activity__6 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__6"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[5]"
                       value="園遊會/市集"
@@ -338,7 +338,7 @@
                   <div class="nature__activity__7 nature__activity__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__7"
+                      name="nature__activity[]"
                       type="checkbox"
                       id="nature__activity[6]"
                       value="其他"
@@ -358,7 +358,7 @@
                   >
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="ornamental__nature"
                       type="radio"
                       id="ornamental__nature__1"
                       value="不開放"
@@ -371,7 +371,7 @@
                   >
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="ornamental__nature"
                       type="radio"
                       id="ornamental__nature__2"
                       value="自由入場"
@@ -384,7 +384,7 @@
                   >
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="ornamental__nature"
                       type="radio"
                       id="ornamental__nature__3"
                       value="索票/邀請函"
@@ -397,7 +397,7 @@
                   >
                     <input
                       class="with-gap validate[required]"
-                      name="ContactGender"
+                      name="ornamental__nature"
                       type="radio"
                       id="ornamental__nature__4"
                       value="售票"
@@ -414,7 +414,7 @@
                   <div class="other__demands__1 other__demands__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__1"
+                      name="other__demands[]"
                       type="checkbox"
                       id="other__demands__1"
                       value="代售門票"
@@ -427,7 +427,7 @@
                   <div class="other__demands__2 other__demands__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__1"
+                      name="other__demands[]"
                       type="checkbox"
                       id="other__demands__2"
                       value="代售周邊商品"
@@ -441,7 +441,7 @@
                   <div class="other__demands__3 other__demands__spacing">
                     <input
                       class="with-gap validate[required]"
-                      name="nature__activity__3"
+                      name="other__demands[]"
                       type="checkbox"
                       id="other__demands__3"
                       value="無代售需求"
@@ -457,8 +457,8 @@
               <div class="Opinion">
                 <p>意見回饋</p>
                 <textarea
-                  name="note"
-                  id="mote"
+                  name="Opinion"
+                  id="Opinion"
                   cols="30"
                   rows="10"
                   class="Opinion__text"
@@ -466,12 +466,11 @@
                 ></textarea>
               </div>
               <div class="btn__ctn">
-                <button id="goApplyForm" class="button" @onclick="rentalTosend">
+                <button id="goApplyForm" class="button" @click="rentalTosend">
                   <span>確認送出</span>
                 </button>
               </div>
             </section>
-          </form>
         </main>
       </div>
 
