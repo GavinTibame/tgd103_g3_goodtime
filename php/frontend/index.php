@@ -12,9 +12,9 @@
     $statement->execute();
     $data["slider"] = $statement->fetchAll();
     
-    //news
+    //news 渲染
     $pdo = connectDB();
-    $sql = "SELECT TITLE, DATE(EDIT_DATE) as EDIT_DATE, `DESC`
+    $sql = "SELECT TITLE, DATE(EDIT_DATE) as EDIT_DATE, `DESC`, ID
             FROM GOODTIME.f_index_2
             -- 依照EDIT_DATE升冪排列
             order by EDIT_DATE desc 
@@ -38,7 +38,5 @@
         array_push($data['calendar'], $event);
     }
     
-
-
     echo json_encode($data);
 ?>

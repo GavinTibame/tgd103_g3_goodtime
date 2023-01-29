@@ -53,7 +53,7 @@
       <div class="tab-panels">
         <ul class="tab-panel">
           <li v-for="(news,index) in currentList"  v-show="setPaginate(index)"><!-- v-show渲染該頁的畫面 -->
-            <a :href="'./news_detail.html?eid=' + news.ID">
+            <a :href="'news_detail.html?ID='+news.ID">
               <small>{{news.EDIT_DATE}} | {{news.DESC}}</small>
               <h4>【{{news.DESC}}】{{news.TITLE}}</h4>
             </a>
