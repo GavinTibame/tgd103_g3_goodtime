@@ -205,20 +205,20 @@
             <div class="contact__us__title__eng">CONTACT US</div>
             <div class="contact__us__title__zh">聯絡我們</div>
           </div>
-          <form action="#" method="get" class="contact__us__form">
+          <div class="contact__us__form">
             <label for="name">姓名</label>
             <input
               type="text"
               placeholder="請輸入您的姓名"
               name="name"
-              required
+              v-model="name"
             />
             <label for="tel">電話</label>
             <input
               type="tel"
               placeholder="請輸入您的聯絡電話"
               name="phone"
-              required
+              v-model="phone"
               maxlength="10"
             />
             <label for="email">Email</label>
@@ -226,29 +226,31 @@
               type="email"
               placeholder="請輸入您的電子信箱"
               name="email"
-              required
+              v-model="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             />
             <textarea
-              name="note"
+              name="Opinion"
               id="mote"
               cols="30"
               rows="10"
               placeholder="請留下您的寶貴意見"
-              required
+              v-model="Opinion"
             ></textarea>
             <div class="btn__ctn">
-              <button id="goApplyForm" class="button">
+              <button id="goApplyForm" class="button" @click="contactUsSend">
                 <span>確認送出</span>
               </button>
             </div>
-          </form>
+          </div>
         </section>
       </main>
       <footer id="footer"></footer>
     </div>
 
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
 
     <script>
       //初始化地圖資訊
@@ -352,27 +354,71 @@
         $("#header").load("topbar.html");
         $("#footer").load("footer.html");
       });
-
-      /* 表單紅框綠框驗證
-      var inputs = document.querySelectorAll("input");
-      inputs.forEach((input) => {
-        input.addEventListener("input", function () {
-          if (input.checkValidity()) {
-            input.classList.add("valid");
-            input.classList.remove("invalid");
-          } else {
-            input.classList.remove("valid");
-            input.classList.add("invalid");
-          }
-        });
-      });
-      */
     </script>
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVqXpwGS1pXBy7kNJqh6dDXEtrZka2LA&callback=initMap"
     ></script>
-    ;
+
+    <script>
+      const contactUsApp = Vue.createApp({
+        data() {
+          return {
+            name:"",
+            phone:"",
+            email:"",
+            Opinion:"",
+          };
+        },
+        methods: {
+          contactUsSend() {
+            if (this.name == "") {
+              alert("請輸入您的姓名");
+              return false;
+            }
+
+            if (this.phone == "") {
+              alert("請輸入您的電話");
+              return false;
+            }
+
+            if (this.email == "") {
+              alert("請輸入您的信箱");
+              return false;
+            }
+
+            if (this.Opinion == "") {
+              alert("請輸入您的意見回饋");
+              return false;
+            }
+
+            // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
+            axios
+              .post("../../php/frontend/contactUs.php", {
+                name: this.name,
+                phone: this.phone,
+                email: this.email,
+                Opinion: this.Opinion,
+              })
+
+              // then :處理 Promise返回的結果
+              .then((res) => {
+                if (res.status === 200) {
+                  alert("送出成功");
+                  // console.log(res);
+                  window.location.href = "../html/about.html";
+
+                } else {
+                  alert(res.data);
+                }
+              })
+              //catch:抓取Promise 上異常
+              .catch((err) => console.log("[about error]", err));
+          },
+        },
+      }).mount(".contact__us");
+
+    </script>
   </body>
 </html>
