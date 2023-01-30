@@ -84,22 +84,25 @@
 
         <!-- 商品陳列區 -->
         <div class="product__display results" id="parent">
-            <ul id="products">
-                <li class="events">
-                    <a :href="'./store.html?eid=' + store.ID">
-                        <div class="shop__pic">
-                            <img :src="store.MAIN_PHOTO" alt=""/>
-                            <div class="shop__type">展覽限定</div>
-                            <div class="countdown">倒數3天</div>
-                        </div>
+            <template v-for="(store, idx) in storeList" :key="'store'+idx">
+                <ul id="products">
+                    <li class="events">
+                        <a :href="'./store.html?eid=' + store.ID">
+                            <div class="shop__pic">
+                                <img :src="store.MAIN_PHOTO" alt=""/>
+                                <div class="shop__type">{{store.TAG1}}</div>
+                                <!-- <div class="countdown">倒數3天</div> -->
+                            </div>
 
-                        <div class="shop__text">
-                            <small>{{store.TAG1}}</small>
-                            <h6>{{store.PRODUCT_NAME}}</h6>
-                            <h6>{{store.PRICE}}</h6>
-                        </div>
-                    </a>
-                </li>
+                            <div class="shop__text">
+                                <small>{{store.TAG2}}</small>
+                                <h6>{{store.PRODUCT_NAME}}</h6>
+                                <h6>{{store.PRICE}}</h6>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </template>
 
                 <!-- <li>
                     <a href="#">
@@ -333,7 +336,7 @@
                     </a>
                 </li> -->
 
-            </ul>
+            <!-- </ul> -->
         </div>
 
 
