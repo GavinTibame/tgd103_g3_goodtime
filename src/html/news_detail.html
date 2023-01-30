@@ -17,7 +17,7 @@
         <ul class="breadcrumb" v-for="(news_detail, index) in dataList">
             <li><a href="index.html">首頁</a></li>
             <li><a href="new.html">最新消息</a></li>
-            <li><a href="news_detail.html">{{news_detail.DESC}}</a></li>
+            <li><a href="new.html">{{news_detail.DESC}}</a></li>
         </ul>
     
         
@@ -38,7 +38,7 @@
         </div> -->
         <!-- 換頁 -->
         <div class="change-next-page" id="change-next-page" v-for="(news_detail, index) in dataList">
-            <ul>
+            <ul :class="{'no_line': idarr == '1' , 'no_linel': idarr == '12'}">
                 <a :href="'news_detail.html?ID='+(news_detail.ID-1)" id="arrow-left"><li class="arrow-left"></li>PREV</a>
                 <a href="new.html#"><li></li>BACK TO LIST</a>
                 <a :href="'news_detail.html?ID='+(news_detail.ID+1)" id="arrow-right">NEXT<li class="arrow-right" ></li></a>
@@ -78,28 +78,28 @@
                 let getid = urlParams.get("ID");
                 this.idarr = getid;
                 console.log('get ID');
+
+                // if(getid == "1"){
+                //     console.log("ttt")
+                //     this.$refs.myList.classList.add("no_line");
+                // }
             },
             readIdarr(){
                 //隱藏消息頁頁首頁尾箭頭
                 console.log(this.idarr);
                 if (this.idarr == '1'){
                     document.querySelector('#arrow-left').style.visibility = "hidden";
-                    // let element = document.getElementById('change-next-page');
-                    // let elementAfter = window.getComputedStyle(element, "::after");
-                    // elementAfter.style.visibility = "hidden";
-                    // console.log(elementAfter) ;
-
-                    // window.getComputedStyle(element,':after').style.visibility = "hidden";
                 }
                 if (this.idarr == '12'){
                     document.querySelector('#arrow-right').style.visibility = "hidden";
                 }
             }
         },
-        created(){
+        mounted(){
             this.geturl();
             
             //資料庫
+            
             axios({
                 method: 'post',
                 url: '../../php/frontend/news_detail.php',
@@ -113,6 +113,7 @@
             }).catch(err => {
                 console.log(err);
             });
+            
             
         },
         updated(){

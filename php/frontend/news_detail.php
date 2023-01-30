@@ -18,6 +18,19 @@ include("../connect.php");
     $statement ->bindValue(1 , $id);
     $statement->execute();
     $data = $statement->fetchAll();
+    // $data["GETID"] = $statement->fetchAll();
+
+
+//get MAX ID
+    // $pdo = connectDB();
+    // $sql = "SELECT max(ID) FROM GOODTIME.f_news_inner";
+    // $statement = $pdo->prepare($sql);
+    // $statement ->bindValue(1 , $id);
+    // $statement->execute();
+    // $data = $statement->fetchAll();
+
+
+
 
     echo json_encode($data);
 ?>

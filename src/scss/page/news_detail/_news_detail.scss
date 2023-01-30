@@ -220,3 +220,10 @@
         }
     }
 }
+
+ul.no_line::before{
+    visibility: hidden;
+}
+ul.no_linel::after{
+    visibility: hidden;
+}
