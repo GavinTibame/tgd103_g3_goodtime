@@ -15,38 +15,63 @@
   </head>
   <body>
     <div id="header"></div>
-    <div class="log_in-wrapper">
-      <div class="log_in-bg">
-        <div class="log_in-login-box">
+    <div class="forgot-pwd-wrapper">
+      <div class="forgot-pwd-bg">
+        <div class="forgot-pwd-box">
           <h2>Forgot Password</h2>
           <h3>忘記密碼</h3>
         </div>
-        <div class="log_in-login-content">
-          <div class="log_in-login-width">
-            <div class="log_in-dotted-line">
-              <div id="log_in">
+        <div class="forgot-pwd-content">
+          <div class="forgot-pwd-width">
+            <div class="forgot-pwd-line">
+              <div id="forgot-pwd">
                 <div>
-                  <p>新密碼</p>
                   <input
                     type="text"
                     v-model="user_email"
                     class="user_email"
                     name="user_email"
                     id="user_email"
+                    placeholder="請輸入您的電子信箱"
+                  />
+                  <input type="button" class="btn_s_default" value="送出" @click ="emailConfirm" :disabled="isDisabl">
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    v-model="user_verify"
+                    class="user_verify"
+                    name="user_verify"
+                    id="user_verify"
+                    placeholder="請輸入您的驗證碼"
                   />
                 </div>
                 <div>
-                  <p>確認新密碼</p>
+                  <input
+                    type="text"
+                    v-model="user_pwd"
+                    class="user_pwd"
+                    name="user_pwd"
+                    id="user_pwd"
+                    placeholder="請輸入您的新密碼"
+                    @blur="check_password1"
+                  />
+                  <div class="error" v-text="message1"></div>
+                </div>
+                <div>
                   <input
                     type="password"
-                    v-model="user_password"
-                    class="user_password"
-                    name="user_password"
-                    id="user_password"
+                    v-model="user_repwd"
+                    class="user_repwd"
+                    name="user_repwd"
+                    id="user_repwd"
+                    placeholder="請再次輸入您的新密碼"
+                    @blur="check_password2"
                   />
+                  <div class="error" v-text="message2"></div>
                 </div>
                 <div class="btn__ctn">
-                  <button id="goApplyForm" class="button" @click="textTosend">
+                  <button id="goApplyForm" class="button" @click="correct">
                     <span>確認</span>
                   </button>
                 </div>
@@ -59,6 +84,8 @@
     <div id="footer"></div>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+    <script src="../js/forgotPwd.js"></script>
     <script>
       $(() => {
         $("#header").load("topbar.html");

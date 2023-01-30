@@ -15,6 +15,7 @@ $hided = $_POST["hided"];
 $kind = $_POST["kind"];
 $featured = $_POST["featured"];
 $productpic = $_POST["productpic"];
+$expo = $_POST["expo"];
 // $desc = $_POST["desc"];
 $id = $_POST["id"];
 
@@ -33,7 +34,8 @@ STOCK_QTY = ?,
 `HIDE` = ?,
 FK_PRODUCT_TYPE_ID = ?,
 FEATURED = ?,
-MAIN_PHOTO = ?
+MAIN_PHOTO = ?,
+FK_EXPO_ID = ?
 -- PRODUCT_DETAIL_DESC = ?
 where ID = ?";
 $statement = $pdo->prepare($sql);
@@ -48,9 +50,10 @@ $statement->bindValue(6 , $status);
 $statement->bindValue(7 , $hided);
 $statement->bindValue(8 , $kind);
 $statement->bindValue(9 , $featured);
-$statement->bindValue(10 , '../img/product/'.$productpic);
+$statement->bindValue(10 , '../img/product_detail/'.$productpic);
+$statement->bindValue(11 , $expo);
 // $statement->bindValue(4 , $desc);
-$statement->bindValue(11 , $id);
+$statement->bindValue(12 , $id);
 $statement->execute();
 $data = $statement->fetchAll();
 

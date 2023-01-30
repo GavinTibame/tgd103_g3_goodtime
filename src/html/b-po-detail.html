@@ -13,96 +13,68 @@
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-detail">
+    <div class="b-detail" id="po-detail">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="item-name">商品明細</p>
-                    <p class="gray-text">吃甜甜賺大錢 | 零食派對箱 12款零食</p>
-                    <div class="b-detail_infobox">
+                    <p class="item-name">訂單明細</p>
+                    <div class="b-detail_infobox" v-for="(podetail, index) in dataList" :key="index">
                         <ul>
                             <li>
-                                <p>商品主圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <p>訂單編號</p>
+                                <span>{{ podetail.SUBID }}</span>
                             </li>
                             <li>
-                                <p>商品頁編號</p>
-                                <span>00001</span>
+                                <p>主訂單編號</p>
+                                <span>{{ podetail.ID }}</span>
+                            </li>
+                            <li>
+                                <p>訂單商品</p>
+                                <span>{{ podetail.PRODUCT_NAME }}</span>
                             </li>
                             <li>
                                 <p>商品編號</p>
-                                <span>MC221205Z00001</span>
+                                <span>{{ podetail.PRODUCTID }}</span>
                             </li>
                             <li>
-                                <p>商品名稱</p>
-                                <span>吃甜甜賺大錢 | 零食派對箱 12款零食</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>商品價格</p>
+                                <span>{{ podetail.PRICE }}</span>
                             </li>
                             <li>
-                                <p>銷售期間</p>
-                                <input type="date" id="start" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
-                                <i class="fa-solid fa-minus"></i>
-                                <input type="date" id="end" name="trip-start" value="2022-12-25" min="2022-01-01" max="2022-12-31" class="timeform">
+                                <p>商品數量</p>
+                                <span>{{ podetail.QTY }}</span>
                             </li>
                             <li>
-                                <p>商品頁狀態</p>
-                                <span>三角抬腿枕 純棉材質 人體工學設計 台灣製</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>訂單金額</p>
+                                <span>{{ podetail.PRICE * podetail.QTY }}</span>
                             </li>
                             <li>
-                                <p>商品定價</p>
-                                <span>1000</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>運費</p>
+                                <span>{{ podetail.FREIGHT }}</span>
                             </li>
                             <li>
-                                <p>隱藏賣場</p>
-                                <span>TWD864</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>訂單總金額</p>
+                                <span>{{ podetail.PRICE * podetail.QTY + podetail.FREIGHT }}</span>
                             </li>
                             <li>
-                                <p>展場</p>
-                                <span>《崖上的波妞》十周年特展</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>訂購會員</p>
+                                <span>{{ podetail.USERNAME }}</span>
                             </li>
                             <li>
-                                <p>展場編號</p>
-                                <span>20221205</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>會員編號</p>
+                                <span>{{ podetail.MEMBERID }}</span>
                             </li>
                             <li>
-                                <p>產品規格</p>
-                                <span>XL/L/S/M</span>
-                                <button class="change-btn"></i>更改</button>
+                                <p>訂單備註</p>
+                                <span>{{ podetail.PO_NOTE }}</span>
                             </li>
                             <li>
-                                <p>商品分類</p>
-                                <span>零食/伴手禮</span>
-                                <button class="change-btn"></i>更改</button>
-                            </li>
-                            <li>
-                                <p>貨運方式</p>
-                                <span>低溫宅配</span>
-                                <button class="change-btn"></i>更改</button>
-                            </li>
-                            <li>
-                                <p>庫存數量</p>
-                                <span>9999</span>
-                            </li>
-                            <li>
-                                <p>商品描述</p>
-                                <span>鬆軟好吃的波妞造型麻糬，讓你愛不釋手，包含最熱門的芝麻、抹茶、草莓三種口味内餡，大飽眼福及口福</span>
-                            </li>
-                            <li>
-                                <p>商品圖</p>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <div class="imgbox"><img src="" alt=""></div>
-                                <button class="change-btn"></i>更改</button>
+                                <p>客服訂單備註</p>
+                                <span>{{ podetail.CS_PO_NOTE }}</span>
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="big-btn"><a href="b-po.html">儲存</a></button>
+                            <button class="big-btn"><a :href="'b-po-id-detail.html?ID='+podetail.ID">同主單查詢</a></button>
                         </div>
                     </div>
                 </div>
@@ -112,10 +84,49 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        const podetail = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    subidarr: ""
+                }
+            }, methods:{
+                geturl(){
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let getid = urlParams.get("SUBID");
+                    this.subidarr = getid;
+                },
+                // wdata(){
+                //     console.log(this.dataList);
+                // },
+            },created(){
+
+                this.geturl();
+                
+                // 查詢資料
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/po-detail.php',
+                    responseType:'json',
+                    data: {
+                        subid: this.subidarr
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+            }
+        }).mount("#po-detail");
     </script>
 </body>
 </html>

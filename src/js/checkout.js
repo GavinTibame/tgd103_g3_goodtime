@@ -3,7 +3,8 @@ const checkoutApp = Vue.createApp({
         return {
             itm: [],
             tkt: [],
-            checkoutList: []
+            checkoutList: [],
+            ttlAmt: 0
         }
     }, methods: {
         ticketType(expoObj) {
@@ -26,10 +27,11 @@ const checkoutApp = Vue.createApp({
             });
             const cart = JSON.stringify(itmList),
                 passport = JSON.stringify(tktList);
-            console.log(cart);
+            // console.log(typeof (cart));
             axios.post("../../php/frontend/checkoutCart.php", cart)
                 .then(res => {
-
+                    this.ttlAmt = res.data;
+                    console.log(this.ttlAmt);
                 }).catch(err => console.log("[checkout cart]", err));
             // axios.post("../../php/frontend/checkoutTkt.php", passport)
             //     .then(res => {

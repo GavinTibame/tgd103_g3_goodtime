@@ -37,7 +37,7 @@
                                 <input type="file" accept=".png, .jpg, .jpeg" disabled id="expopic" class="hideselectbox"></input>
                                 <img id="mainpic" :src="expodetail.MAIN_PHOTO" alt="" >
                                 <button class="change-btn" @click="changeimg">更改</button>
-                                <button class="change-btn hidebtn" @click="hideimg">確認更改與預覽圖片</button>
+                                <button class="change-btn2 hidebtn" @click="hideimg" id="mianimgbtn">確認更改與預覽圖片</button>
                             </li>
                             <li>
                                 <p>展覽頁編號</p>
@@ -49,15 +49,15 @@
                             </li>
                             <li>
                                 <p>展覽標題</p>
-                                <input v-model="exponame" disabled maxlength="128"></input>
+                                <input v-model="exponame" disabled maxlength="128" class="large-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>展覽內文</p>
-                                <input v-model="expocontent" disabled maxlength="256"></input>
+                                <textarea v-model="expocontent" disabled maxlength="256" class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>公告期間</p>
@@ -66,13 +66,13 @@
                                 <input type="date" id="expoend" name="trip-start"  v-model="expoend" min="2020-01-01" max="2050-12-31" class="timeform">
                             </li>
                             <li>
-                                <p>消息頁狀態</p>
+                                <p>展覽頁狀態</p>
                                 <input type="radio" v-model="expostatus" disabled name="expostatus" value="1" id="expostatus1"></input>
                                 <label class="time-area_label" for="expostatus1">開啟</label>
                                 <input type="radio" v-model="expostatus" disabled name="expostatus" value="2" id="expostatus2"></input>
                                 <label class="time-area_label" for="expostatus2">關閉</label>
                                 <button class="change-btn" @click="changeradio">更改</button>
-                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>新增日期</p>
@@ -84,21 +84,21 @@
                             </li>
                             <li>
                                 <p>成人價格</p>
-                                <input v-model="adultprice" disabled maxlength="128"></input>
+                                <input v-model="adultprice" disabled maxlength="128" class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>優惠價格</p>
-                                <input v-model="concprice" disabled maxlength="128"></input>
+                                <input v-model="concprice" disabled maxlength="128" class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>團體價格</p>
-                                <input v-model="groupprice" disabled maxlength="128"></input>
+                                <input v-model="groupprice" disabled maxlength="128" class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                         </ul>
                         <div class="btn-group">
@@ -134,7 +134,9 @@
                     adultprice: "",
                     concprice: "",
                     groupprice: "",
-                    expopic: ""
+                    expopic: "",
+
+                    file: ""
                 }
             }, methods:{
                 geturl(){
@@ -261,7 +263,39 @@
                 },
                 submit(){
 
-                    this.geturl();    
+                    this.geturl();
+
+
+                    let str = this.expopic;
+                    let substr = "event_detail";
+                    console.log(this.expopic)
+                    let test = console.log(str.includes(substr));
+                    if(test = true){
+                        let cut = this.expopic.split("/");
+                        let laststring = cut[cut.length - 1]
+                        this.expopic = laststring;
+                    }else{
+                    }
+
+
+                    let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
+
+                    console.log(this.file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/event-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        // 'Authorization': localStorage.getItem("authorization")
+                        }
+                    })
+
 
                     // 資料庫product
                     axios({
@@ -312,6 +346,7 @@
                         this.adultprice = this.dataList[0].ADULT_PRICE;
                         this.concprice = this.dataList[0].CONC_PRICE;
                         this.groupprice = this.dataList[0].GROUP_PRICE;
+                        this.expopic = this.dataList[0].MAIN_PHOTO;
 
                     }).catch(err => {
                         console.log(err);

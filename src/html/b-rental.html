@@ -34,13 +34,14 @@
                             <li class="" v-for="(b_rental, index) in dataList" :key="index">
                                 <a :href="'b-rental-detail.html?ID='+b_rental.ID">
                                     <div class="flex-box">
-                                        <div><div class="fakeimg">{{ b_rental.MAIN_PHOTO }}</div><h6>{{ b_rental.ID }}</h6></div>
+                                        <div><div class="fakeimg" style="overflow: hidden;"><img :src="b_rental.MAIN_PHOTO" alt="" style="width: 100%;"></div><h6>{{ b_rental.ID }}</h6></div>
                                         <div><h6>{{ b_rental.NAME }}<br>{{ b_rental.DESC }}</h6></div>
                                         <div><h6>{{ b_rental.LOCATED }}</h6></div>
                                         <div><h6>
-                                            <input type="radio" v-model="mark[index]" value="y" :id="b_rental.ID + 'y'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'y'">開啟</label>
+                                            <!-- <input type="radio" v-model="mark[index]" value="y" :id="b_rental.ID + 'y'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'y'">開啟</label>
                                             <br>
-                                            <input type="radio" v-model="mark[index]" value="n" :id="b_rental.ID + 'n'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'n'">關閉</label>
+                                            <input type="radio" v-model="mark[index]" value="n" :id="b_rental.ID + 'n'" :name=b_rental.ID><label class="" :for="b_rental.ID + 'n'">關閉</label> -->
+                                            <span v-for="(status, index) in mark[index]" :key="index">{{ status }}</span>
                                         </h6></div>
                                         <div><h6>{{ b_rental.PRICE }}</h6></div>
                                         <div>
@@ -87,9 +88,9 @@
                         let mark_arr = [];
                         res.data.forEach((item, i) => {
                             if(item.STATUS == "1"){
-                                mark_arr.push("y")
+                                mark_arr.push("開放預約")
                             }else{
-                                mark_arr.push("n")
+                                mark_arr.push("暫停預約")
                             }
                         })
                         console.log(mark_arr);

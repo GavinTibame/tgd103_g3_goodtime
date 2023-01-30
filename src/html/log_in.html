@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -23,26 +23,27 @@
         </div>
         <div class="log_in-login-content">
           <div class="log_in-login-width">
-          <div class="ctrl-google" style="display: none;">
-            <!-- Google API -->
-            <!-- 控制資料相關的屬性 -->
-            <div
-              id="g_id_onload"
-              data-client_id="109499045878-l5n90dtu4ugrq6h6pte165v838tt10j8.apps.googleusercontent.com"
-              data-callback="handleCallback"
-            ></div>
+            <div class="ctrl-google" style="display: none;">
+              <!-- Google API -->
+              <!-- 控制資料相關的屬性 -->
+              <div
+                id="g_id_onload"
+                data-client_id="109499045878-l5n90dtu4ugrq6h6pte165v838tt10j8.apps.googleusercontent.com"
+                data-callback="handleCallback"
+              ></div>
 
-            <!-- 控制登入按鈕的顯示 -->
-            <div
-              class="g_id_signin"
-              data-type="standard"
-              data-size="large"
-              data-text="sign_in_with"
-              data-logo_alignment="center"  
-              data-width="400"   
-            ></div>
-          </div>
-            <p class="log_in-or" style="display: none;">or</p>
+              <!-- 控制登入按鈕的顯示 -->
+              <div
+                class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="left"
+              ></div>
+            </div>
+            <p class="log_in-or" style="display: none">or</p>
             <div class="log_in-dotted-line">
               <div id="log_in">
                 <div>
@@ -73,15 +74,20 @@
                   <div class="log_in-last-line">
                     <ul>
                       <li>
-                        <a href="sign_up.html" class="log_in-signup">註冊會員</a>
+                        <a href="sign_up.html" class="log_in-signup"
+                          >註冊會員</a
+                        >
                       </li>
                       <li>
-                        <a href="javascript:0" class="log_in-foreget-pwd" @click=""
-                          >忘記密碼</a>
+                        <a
+                          href="javascript:0"
+                          class="log_in-foreget-pwd"
+                          @click=""
+                          >忘記密碼</a
+                        >
                       </li>
                     </ul>
                   </div>
-
                 </div>
               </div>
               <!----------------忘記密碼燈箱------------------>
@@ -94,10 +100,20 @@
                   </p>
                   <h6 class="overlay_email">Email</h6>
                   <label for="email"></label>
-                  <input type="text" v-model="forget_pwd" class="forget_pwd" name="forget_pwd" id="forget_pwd" />
+                  <input
+                    type="text"
+                    v-model="forget_pwd"
+                    class="forget_pwd"
+                    name="forget_pwd"
+                    id="forget_pwd"
+                  />
                   <span id="chkmsg"></span>
                   <div class="btn__ctn">
-                    <button id="goApplyForm" class="button overlay_button" @onclick="forget_pwd_btn">
+                    <button
+                      id="goApplyForm"
+                      class="button overlay_button"
+                      @onclick="forget_pwd_btn"
+                    >
                       <span>確認送出</span>
                     </button>
                   </div>
@@ -112,6 +128,5 @@
     <script src="../js/vue.global.js"></script>
     <script src="../js/logIn.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
   </body>
 </html>

@@ -720,6 +720,15 @@
          }
      }
 
+     .poSingle {
+         border-bottom: solid 2px #533C1B;
+         margin-bottom: 3.5rem;
+
+         &:last-of-type {
+             border: 0;
+         }
+     }
+
      .podetail {
          display: flex;
          flex-wrap: wrap;
@@ -831,7 +840,7 @@
          margin: 1.5rem 0;
          display: flex;
          flex-direction: column;
-         margin-right: 7rem;
+         margin-right: 3rem;
          align-items: flex-end;
 
          @include rwd(880px) {

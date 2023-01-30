@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .AAA{
+            background-color: rgb(34, 145, 48);
+            transition: all 0.3s;
+        }
+        .BBB{
+            background-color: rgb(185, 45, 68);
+            transition: all 0.3s;
+        }
+        .AAA:not([disabled]):hover{
+            background-color: rgb(25, 107, 36);
+        }
+        .BBB:not([disabled]):hover{
+            background-color: rgb(141, 35, 52);
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -32,9 +48,9 @@
                             <li>
                                 <p>展覽頁狀態</p>
                                 <form action="" class="po-confirm">
-                                    <input type="radio" name="time-area" value="%" v-model="expostatus" id="expostatus" checked><label class="time-area_label" for="">不指定</label>
-                                    <input type="radio" name="time-area" value="1" v-model="expostatus" id="expostatus"><label class="time-area_label" for="">刊登</label>
-                                    <input type="radio" name="time-area" value="2" v-model="expostatus" id="expostatus"><label class="time-area_label" for="">下架</label>
+                                    <input type="radio" name="time-area" value="%" v-model="expostatus" id="expostatus" checked><label class="time-area_label" for=""> 不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="expostatus" id="expostatus"><label class="time-area_label" for=""> 刊登</label>
+                                    <input type="radio" name="time-area" value="2" v-model="expostatus" id="expostatus"><label class="time-area_label" for=""> 下架</label>
                                 </form>
                             </li>
                             <li>
@@ -70,14 +86,14 @@
                                         <li class="" v-for="(b_event, index) in dataList" :key="index">
                                             <a :href="'b-event-detail.html?ID='+b_event.ID">
                                                 <div class="flex-box">
-                                                    <div><div class="fakeimg">{{ b_event.MAIN_PHOTO }}</div><h6>{{ b_event.ID }}</h6></div>
+                                                    <div><div class="fakeimg" style="overflow: hidden;"><img :src="b_event.MAIN_PHOTO" alt="" style="width: 100%;"></div><h6>{{ b_event.ID }}</h6></div>
                                                     <div><h6>{{ b_event.TITLE }}</h6></div>
                                                     <div><h6>{{ b_event.START_DATE }}<br>|<br>{{ b_event.END_DATE }}</h6></div>
                                                     <div><h6>{{ b_event.CREATE_DATE }}<br>{{ b_event.EDIT_DATE }}</h6></div>
                                                     <div><h6>{{ b_event.ADULT_PRICE }}<br>{{ b_event.CONC_PRICE }}<br>{{ b_event.GROUP_PRICE }}</h6></div>
                                                     <div>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯展覽資訊</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除展覽資訊</button>
+                                                        <button @click="deleteitem" :value="b_event.ID"><i class="fa-solid fa-trash-can"></i> 更改展覽狀態</button>
                                                     </div>
                                                 </div>
                                             </a> 
@@ -96,6 +112,7 @@
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
     <script src="../js/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // 連接header
         $(() => {
@@ -110,9 +127,12 @@
                     mark: [],
                     exponame: "",
                     expoid: "",
-                    expostatus: "%",
+                    expostatus: "1",
                     expostart: "2020-01-01",
-                    expoend: "2050-12-31"
+                    expoend: "2050-12-31",
+                    expoend: "2050-12-31",
+
+                    idvalue: ""
                 }
             }, methods:{
                 axiosPost() {
@@ -136,6 +156,60 @@
                         console.log(err);
                     });
                 },
+                deleteitem(e){
+
+                    e.preventDefault();
+
+                    let idvalue = e.target.value;
+
+                    swal({
+                            icon: "warning",
+                            title: "更改商品狀態",
+                            text: "您確定要更改此商品狀態嗎?",
+                            buttons: {
+                            A: {
+                                text: "上架",
+                                value: "1",
+                                className:'AAA',
+                                visible: true,
+                            },
+                            B: {
+                                text: "下架",
+                                visible: true,
+                                className:'BBB',
+                                value: "2"
+                            }
+                            }
+                        });
+                    document.querySelector(".swal-button--A").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/event-open.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
+                    document.querySelector(".swal-button--B").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/event-close.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
+                }
             }, created() {
                // 查詢資料
                     axios.get("../../php/backend/expo.php").then(res => {

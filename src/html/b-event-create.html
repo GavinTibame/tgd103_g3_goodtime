@@ -23,8 +23,8 @@
                             <li>
                                 <p>展覽主圖</p>
                                 <input type="file" accept=".png, .jpg, .jpeg" id="expopic"></input>
-                                <img id="mainpic" src="#" alt="" >
-                                <button class="change-btn hidebtn" @click="checkimg">預覽圖片</button>
+                                <img id="mainpic" src="../img/default/default.jpg" alt="" >
+                                <button class="change-btn hidebtn" @click="checkimg">確認與預覽圖片</button>
                             </li>
                             <li>
                                 <p>消息頁編號</p>
@@ -40,7 +40,7 @@
                             </li>
                             <li>
                                 <p>展覽內文</p>
-                                <input type="text" class="long-input" id="expocontent" v-model="expocontent" maxlength="256">
+                                <textarea class="large-textarea" id="expocontent" v-model="expocontent" maxlength="256"></textarea>
                             </li>
                             <li>
                                 <p>展覽期間</p>
@@ -107,7 +107,9 @@
                     concprice:"",
                     groupprice:"",
                     expopic:"",
-                    dataList: []
+                    dataList: [],
+
+                    file: ""
                 }
             }, methods: {
                 axiosPost(){
@@ -177,6 +179,25 @@
                         console.log(err);
                         alert("發布失敗，請再次檢查資料");
                     })
+
+
+                    let file = document.getElementById("expopic").files[0];
+
+                    // console.log(file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/expo-create-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        // 'Authorization': localStorage.getItem("authorization")
+                        }
+                    }) 
                 }          
                 },
                 checkimg(e){

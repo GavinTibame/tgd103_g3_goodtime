@@ -33,7 +33,7 @@ where ID = ?";
 $statement = $pdo->prepare($sql);
 $statement->bindValue(1 , $exponame);
 $statement->bindValue(2 , $expocontent);
-$statement->bindValue(3 , '../img/event/'.$expopic);
+$statement->bindValue(3 , '../img/event_detail/'.$expopic);
 $statement->bindValue(4 , $expostatus);
 $statement->bindValue(5 , $expostart);
 $statement->bindValue(6 , $expoend);
