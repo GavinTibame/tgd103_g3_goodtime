@@ -90,12 +90,12 @@
                     <a :href="'./store.html?eid=' + store.ID">
                         <div class="shop__pic">
                             <img :src="store.MAIN_PHOTO" alt=""/>
-                            <div class="shop__type">展覽限定</div>
+                            <div class="shop__type">{{store.TAG1}}</div>
                             <!-- <div class="countdown">倒數3天</div> -->
                         </div>
 
                         <div class="shop__text">
-                            <small>{{store.TAG1}}</small>
+                            <small>{{store.TAG2}}</small>
                             <h6>{{store.PRODUCT_NAME}}</h6>
                             <h6>{{store.PRICE}}</h6>
                         </div>
