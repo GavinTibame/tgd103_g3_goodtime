@@ -73,8 +73,8 @@
         <nav class="product__nav">
 
             <div class="tab" id="navbar">
-                <button class="tablinks" id="all">所有類別</button>
-                <button class="tablinks" id="events_only" >展覽商品</button>
+                <button class="tablinks" id="all" @click="all()">所有類別</button>
+                <button class="tablinks" id="events_only" @click="filter('展覽限定')">展覽商品</button>
                 <select id="event-type" data-filter="event" class="filter-event filter form-control">
 					<option value="">以展覽查詢</option>
 				</select>
@@ -97,7 +97,7 @@
                         <div class="shop__text">
                             <small>{{store.TAG2}}</small>
                             <h6>{{store.PRODUCT_NAME}}</h6>
-                            <h6>{{store.PRICE}}</h6>
+                            <h6>${{store.PRICE}}</h6>
                         </div>
                     </a>
                 </li>
