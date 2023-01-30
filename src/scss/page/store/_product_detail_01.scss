@@ -195,6 +195,7 @@
 
 .product-detail .indicator li img {
     max-width: 100%;
+    cursor: pointer;
 
     @include rwd(428px) {
         max-width: 90%;
