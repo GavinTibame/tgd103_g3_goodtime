@@ -160,6 +160,8 @@ const memberCenterApp = Vue.createApp({
       this.activeBlock = string;
     }, switchTab2(idx) {
       this.poDetail = this.poList[idx];
+      console.log(this.poList);
+      console.log(idx);
       console.log(this.poDetail);
     }
 

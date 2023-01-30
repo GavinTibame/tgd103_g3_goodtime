@@ -148,11 +148,9 @@
                   <!-- <component :is="current_tab_component"></component> -->
                   <template v-for="(po, idx) in poList" :key="'o'+idx">
                     <tab1-content v-if="current_tab_component == 'tab1'" :poProps="po"
-                      @sel-order="switchTab2(idx); currentTab2 = 'tab2'">
+                      @sel-order="currentTab2 = 'tab2'">
                     </tab1-content>
-                  </template>
-                  <template v-if="current_tab_component == 'tab2'" :key="'pod'">
-                    <tab2-content :podProps="poDetail">
+                    <tab2-content v-if="current_tab_component == 'tab2' && po" :podProps="po">
                     </tab2-content>
                   </template>
                 </div>
