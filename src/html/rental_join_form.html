@@ -31,7 +31,6 @@
         </div>
         <main class="rental_join_form" id="rental_join_form">
           <!----------------------表單區------------------------->
-
             <section class="Join__form">
               <div class="activity__name__out">
                 <label for="activity__name">活動名稱</label>
@@ -126,7 +125,7 @@
               </div>
               <!----------------------上傳證件影本------------------------->
               <label for="file__word" class="file__word">上傳證件影本</label
-              ><br /><br />
+              ><button class="file_upload" id="file_upload" @click="fileSend" >確認上傳</button><br /><br />
               <div class="file-box__out">
                 <div class="file-box">
                   <!--檔案名稱-->
@@ -141,7 +140,7 @@
                     name="file"
                     class="file"
                     id="file"
-                    multiple="multiple"
+                    ref="aaa"
                     onchange="document.getElementById('textfield').value=this.value"
                   />
                 </div>
