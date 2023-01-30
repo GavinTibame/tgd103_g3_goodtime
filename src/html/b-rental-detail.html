@@ -37,7 +37,7 @@
                                 <input type="file" accept=".png, .jpg, .jpeg" disabled id="locationpic" class="hideselectbox"></input>
                                 <img id="mainpic" :src="locationdetail.MAIN_PHOTO" alt="" >
                                 <button class="change-btn" @click="changeimg">更改</button>
-                                <button class="change-btn hidebtn" @click="hideimg">確認更改與預覽圖片</button>
+                                <button class="change-btn2 hidebtn" @click="hideimg" id="mianimgbtn">確認更改與預覽圖片</button>
                             </li>
                             <li>
                                 <p>場地編號</p>
@@ -45,15 +45,15 @@
                             </li>
                             <li>
                                 <p>場地名稱</p>
-                                <input v-model="locationname" disabled maxlength="45"></input>
+                                <input v-model="locationname" disabled maxlength="45" class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>場地概述</p>
-                                <input v-model="locationdesc" disabled maxlength="256"></input>
+                                <textarea v-model="locationdesc" disabled maxlength="256" class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>場地位置</p>
@@ -66,31 +66,31 @@
                                 <input type="radio" v-model="locationstatus" disabled name="locationstatus" value="2" id="locationstatus2"></input>
                                 <label class="time-area_label" for="locationstatus2">關閉</label>
                                 <button class="change-btn" @click="changeradio">更改</button>
-                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>單日定價</p>
-                                <input v-model="locationprice" disabled maxlength="10"></input>
+                                <input v-model="locationprice" disabled maxlength="10" class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>場地設備</p>
-                                <input v-model="locationdevice" disabled maxlength="256"></input>
+                                <textarea v-model="locationdevice" disabled maxlength="256" class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>場地空間</p>
-                                <input v-model="locationparea" disabled maxlength="256"></input>
+                                <textarea v-model="locationparea" disabled maxlength="256" class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>場地規範</p>
-                                <input v-model="locationrule" disabled maxlength="128"></input>
+                                <textarea v-model="locationrule" disabled maxlength="128" class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                         </ul>
                         <div class="btn-group">
@@ -124,7 +124,9 @@
                     locationdevice: "",
                     locationparea: "",
                     locationrule: "",
-                    locationpic: ""
+                    locationpic: "",
+
+                    file: ""
                 }
             }, methods:{
                 geturl(){
@@ -253,6 +255,37 @@
 
                     this.geturl();    
 
+                    let str = this.locationpic;
+                    let substr = "rental";
+                    console.log(this.locationpic)
+                    let test = console.log(str.includes(substr));
+                    if(test = true){
+                        let cut = this.locationpic.split("/");
+                        let laststring = cut[cut.length - 1]
+                        this.locationpic = laststring;
+                    }else{
+                    }
+
+
+                    let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
+
+                    console.log(this.file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/loaction-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        // 'Authorization': localStorage.getItem("authorization")
+                        }
+                    })
+
+
                     // 資料庫product
                     axios({
                     method: 'post',
@@ -300,6 +333,7 @@
                         this.locationdevice = this.dataList[0].DEVICE;
                         this.locationparea = this.dataList[0].AREA;
                         this.locationrule = this.dataList[0].RULE;
+                        this.locationpic = this.dataList[0].MAIN_PHOTO;
 
 
                     }).catch(err => {

@@ -1,5 +1,5 @@
 .b-event{
-    max-width: 1280px;
+    min-width: 1280px;
     margin: 0 auto;
     margin-top: 90px;
 }
@@ -230,7 +230,6 @@
                         height: 80px;
                         margin: 20px auto;
                         border: none;
-                        background-color: aquamarine;
                     }
                     div{
                         width: 16.6667%;

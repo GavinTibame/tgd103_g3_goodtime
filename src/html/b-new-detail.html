@@ -37,7 +37,7 @@
                                 <input type="file" accept=".png, .jpg, .jpeg" disabled id="newspic" class="hideselectbox"></input>
                                 <img id="mainpic" :src="newsdetail.MAIN_PHOTO" alt="" >
                                 <button class="change-btn" @click="changeimg">更改</button>
-                                <button class="change-btn hidebtn" @click="hideimg">確認更改與預覽圖片</button>
+                                <button class="change-btn2 hidebtn" @click="hideimg" id="mianimgbtn">確認更改與預覽圖片</button>
                             </li>
                             <li>
                                 <p>消息頁編號</p>
@@ -49,17 +49,17 @@
                             </li>
                             <li>
                                 <p>消息標題</p>
-                                <input v-model="newsname" disabled></input>
+                                <input v-model="newsname" disabled class="long-input"></input>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>消息分類</p>
-                                <select name="news-kind" class="news-kind" v-model="newskind" id="newskind" disabled>
+                                <select name="news-kind" class="long-input" v-model="newskind" id="newskind" disabled>
                                     <option v-for="(newdetailtype, index) in dataList2"  :value="newdetailtype.ID">{{ newdetailtype.DESC }}</option>
                                 </select>   
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <li>
                                 <p>公告期間</p>
@@ -74,7 +74,7 @@
                                 <input type="radio" v-model="newsstatus" disabled name="newsstatus" value="2" id="newsstatus2"></input>
                                 <label class="time-area_label" for="newsstatus2">關閉</label>
                                 <button class="change-btn" @click="changeradio">更改</button>
-                                <button class="change-btn hidebtn" @click="hideradio">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hideradio">確認</button>
                             </li>
                             <li>
                                 <p>新增日期</p>
@@ -91,9 +91,9 @@
                             </li> -->
                             <li>
                                 <p>消息內文</p>
-                                <input v-model="newscontent" disabled></input>
+                                <textarea v-model="newscontent" disabled class="large-textarea"></textarea>
                                 <button class="change-btn" @click="change">更改</button>
-                                <button class="change-btn hidebtn" @click="hide">確認</button>
+                                <button class="change-btn2 hidebtn" @click="hide">確認</button>
                             </li>
                             <!-- <li>
                                 <p>消息圖</p>
@@ -132,7 +132,9 @@
                     newsend: "",
                     newsedit: "",
                     newscontent: "",
-                    newspic: ""
+                    newspic: "",
+
+                    file: ""
                 }
             }, methods:{
                 geturl(){
@@ -259,7 +261,37 @@
                 },
                 submit(){
 
-                    this.geturl();    
+                    this.geturl();
+                    
+                    let str = this.newspic;
+                    let substr = "new";
+                    console.log(this.newspic)
+                    let test = console.log(str.includes(substr));
+                    if(test = true){
+                        let cut = this.newspic.split("/");
+                        let laststring = cut[cut.length - 1]
+                        this.newspic = laststring;
+                    }else{
+                    }
+
+
+                    let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
+
+                    console.log(this.file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/new-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        // 'Authorization': localStorage.getItem("authorization")
+                        }
+                    })
 
                     // 資料庫product
                     axios({
@@ -309,6 +341,7 @@
                         this.newscreate = this.dataList[0].CREATE_DATE;
                         this.newsedit = this.dataList[0].EDIT_DATE;
                         this.newscontent = this.dataList[0].CONTENT;
+                        this.newspic = this.dataList[0].MAIN_PHOTO;
 
                     }).catch(err => {
                         console.log(err);
