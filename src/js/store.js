@@ -2,6 +2,7 @@ const storeApp = Vue.createApp({
     data(){
         return{
             storeFilter:"",
+            currentFilter: 'ALL',
             currentList:[],
             storeList:[
                 // {
@@ -110,7 +111,7 @@ const storeApp = Vue.createApp({
                         // PRODUCT_NAME: "山形實木杯墊",
                         // PRICE: 280
                 // }
-            ]
+            ]  
         };
     },
     mounted(){
@@ -122,7 +123,7 @@ const storeApp = Vue.createApp({
     methods:{
         // setFilter(filter){
         //     this.storeFilter = filter;
-        //     console.log(filter)
+        //     console.log(filter);
         // }
     },
     created() {
@@ -136,3 +137,5 @@ const storeApp = Vue.createApp({
             
     }
 }).mount("#store");
+
+// ==== 下拉選單篩選功能 ====
