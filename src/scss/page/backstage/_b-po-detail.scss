@@ -1,5 +1,5 @@
 .b-detail{
-    max-width: 1280px;
+    min-width: 1280px;
     margin: 0 auto;
     margin-top: 90px;
 }
@@ -76,10 +76,10 @@
         margin-bottom: 40px;
         height: 100%;
         li{
-            margin: 20px auto;
+            margin: 20px auto 30px;
             height: auto;
             width: 80%;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             border-bottom: #ccc 2px solid;
             &:last-child{
                 border-bottom: none;
@@ -116,6 +116,10 @@
                 margin-left: 20px;
                 margin-right: 20px;
             }
+            label{
+                margin-left: 5px;
+                margin-right: 10px;
+            }
         }
     }
     .change-btn{
@@ -136,6 +140,26 @@
         &:hover{
             box-shadow: 0 0 20px #ccc;
             background-color: #333;
+        }
+    }
+    .change-btn2{
+        display: inline-block;
+        float: right;
+        background-color: rgb(17, 104, 145);
+        border: none;
+        color: rgb(255, 255, 255);
+        line-height: 18px;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 4px 10px;
+        margin-left: 20px;
+        vertical-align: top;
+        border-radius: 2px;
+        transition: all 0.3s;
+        box-shadow: 0 0 0px #ccc;
+        &:hover{
+            box-shadow: 0 0 20px #ccc;
+            background-color: rgb(14, 81, 112);
         }
     }
     .btn-group{
@@ -171,14 +195,42 @@
         }
     }
     .long-input{
-        outline: #ccc solid 2px;
+        outline: #ccc solid 1px;
         border: none;
         border-radius: 2px;
         width: 300px;
         transition: all 0.3s;
         &:focus{
-            outline: 2px solid #333;
+            outline: 1px solid #333;
             border-radius: 2px;
         }
     }
+    .large-input{
+        outline: #ccc solid 1px;
+        border: none;
+        border-radius: 1px;
+        width: 500px;
+        transition: all 0.3s;
+        &:focus{
+            outline: 1px solid #333;
+            border-radius: 2px;
+        }
+    }
+    .large-textarea{
+        box-sizing: border-box;
+        outline: #ccc solid 1px;
+        width: 500px;
+        height: 200px;
+        border: none;
+        border-radius: 1px;
+        width: 500px;
+        resize: none;
+        padding: 10px;
+        transition: all 0.3s;
+        &:focus{
+            outline: 1px solid #333;
+            border-radius: 2px;
+        }
+    }
+
 }

@@ -19,13 +19,13 @@ $end = $_POST["end"];
 
 
 $pdo = connectDB();
-$sql = "SELECT * FROM b_product where ID like ? and PRODUCT_NAME Like ? and FK_PRODUCT_PAGE_ID LIKE ? and HIDE LIKE ? and `STATUS` LIKE ? and PRODUCT_TYPE_NAME LIKE ? and `START` BETWEEN STR_TO_DATE(?, '%Y-%m-%d')AND STR_TO_DATE(?, '%Y-%m-%d') and `END` BETWEEN STR_TO_DATE(?, '%Y-%m-%d') AND STR_TO_DATE(?, '%Y-%m-%d')";
+$sql = "SELECT * FROM b_product where ID like ? and PRODUCT_NAME Like ? and FK_PRODUCT_PAGE_ID LIKE ? and HIDE LIKE ? and `STATUS` LIKE ? and PRODUCT_TYPE_NAME LIKE ? and `START` BETWEEN STR_TO_DATE(?, '%Y-%m-%d')AND STR_TO_DATE(?, '%Y-%m-%d') and `END` BETWEEN STR_TO_DATE(?, '%Y-%m-%d') AND STR_TO_DATE(?, '%Y-%m-%d') order by ID";
 $statement = $pdo->prepare($sql);
 $statement->bindValue(1 , '%'.$productid.'%');
 $statement->bindValue(2 , '%'.$productname.'%');
 $statement->bindValue(3 , '%'.$productpage.'%');
-$statement->bindValue(4 , '%'.$hide.'%');
-$statement->bindValue(5 , '%'.$status.'%');
+$statement->bindValue(4 , $hide);
+$statement->bindValue(5 , $status);
 $statement->bindValue(6 , '%'.$kind.'%');
 $statement->bindValue(7 , $start);
 $statement->bindValue(8 , $end);

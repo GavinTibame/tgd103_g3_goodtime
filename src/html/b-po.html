@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
     <header id="header"></header>
-    <div class="b-po">
+    <div class="b-po" id="po">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -23,40 +23,42 @@
                     <div class="search-bar">
                         <p style="font-weight: 800;
                         letter-spacing: .2rem;">查詢條件</p>
-                        <ul>
-                            
+                        <ul>     
                             <li>
-                                <p>時間區間</p>
-                                <form action="" class="time-area">
-                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">下單時間</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">訂單確認時間</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">預計出貨日</label>
-                                </form>
+                                <p>下單日期</p>
+                                <input type="date" id="starttime"  min="2020-01-01" max="2050-12-31" class="timeform" v-model="starttime">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="date" id="endtime"   min="2020-01-01" max="2050-12-31" class="timeform" v-model="endtime">
+                            </li>
+                            <li>
+                                <p>預計出貨日</p>
+                                <input type="date" id="starttime"  min="2020-01-01" max="2050-12-31" class="timeform" v-model="starttime2">
+                                <i class="fa-solid fa-minus"></i>
+                                <input type="date" id="endtime"   min="2020-01-01" max="2050-12-31" class="timeform" v-model="endtime2">
                             </li>
                             <li>
                                 <p>主單號碼</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="mainid" v-model="mainid">
                             </li>
                             <li>
                                 <p>訂單號碼</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="subid" v-model="subid">
                             </li>
                             <li>
                                 <p>購物車號碼</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="cartid" v-model="cartid">
                             </li>
                             <li>
-                                <p>訂單確認</p>
+                                <p>訂單狀態</p>
                                 <form action="" class="po-confirm">
-                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">下單時間</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">訂單確認時間</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">預計出貨日</label>
+                                    <input type="radio" name="time-area" value="%" v-model="status" id="status1"><label class="time-area_label" for="status1"> 不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="status" id="status2"><label class="time-area_label" for="status2"> 訂單已確認</label>
+                                    <input type="radio" name="time-area" value="2" v-model="status" id="status3"><label class="time-area_label" for="status3"> 訂單未確認</label>
                                 </form>
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="search-btn">查詢</button>
-                            <button class="show-btn">匯出查詢結果</button>
+                            <button class="search-btn" @click="axiosPost()">查詢</button>
                         </div>
                     </div>
                     <div class="container">
@@ -76,62 +78,23 @@
                                                 <div><h6>訂單備註<br>客服訂單備註</h6></div>
                                             </div> 
                                         </li>
-                                        <li class="">
-                                            <a href="b-po-detail.html">
+                                        <li class="" v-for="(b_po, index) in dataList" :key="index">
+                                            <a :href="'b-po-detail.html?SUBID='+b_po.SUBID">
                                                 <div class="top-info">
-                                                    <h6>主單號碼︰MO221206A00001</h6>
-                                                    <h6>訂單總金額︰TWD1,788</h6>
-                                                    <h6>訂單號碼︰MM221206A00001</h6>
-                                                    <h6>運費︰TWD60</h6>
-                                                    <button>單據</button>
+                                                    <h6>主單號碼︰{{ b_po.ID }}</h6>
+                                                    <h6>訂單總金額︰{{ b_po.QTY * b_po.PRICE + b_po.FREIGHT}}</h6>
+                                                    <h6>訂單號碼︰{{ b_po.SUBID }}</h6>
+                                                    <h6>運費︰{{ b_po.FREIGHT }}</h6>
                                                 </div>
                                                 <div class="flex-box">
-                                                    <div><h6>MC221205Z00001</h6></div>
-                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
-                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
-                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
-                                                    <div><h6>2<br>TWD864</h6></div>
-                                                    <div><h6>10<br>許浩文</h6></div>
-                                                    <div><button>查看</button></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="top-info">
-                                                    <h6>主單號碼︰MO221206A00001</h6>
-                                                    <h6>訂單總金額︰TWD1,788</h6>
-                                                    <h6>訂單號碼︰MM221206A00001</h6>
-                                                    <h6>運費︰TWD60</h6>
-                                                    <button>單據</button>
-                                                </div>
-                                                <div class="flex-box">
-                                                    <div><h6>MC221205Z00001</h6></div>
-                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
-                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
-                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
-                                                    <div><h6>2<br>TWD864</h6></div>
-                                                    <div><h6>10<br>許浩文</h6></div>
-                                                    <div><button>查看</button></div>
-                                                </div>
-                                            </a> 
-                                        </li>
-                                        <li class="">
-                                            <a>
-                                                <div class="top-info">
-                                                    <h6>主單號碼︰MO221206A00001</h6>
-                                                    <h6>訂單總金額︰TWD1,788</h6>
-                                                    <h6>訂單號碼︰MM221206A00001</h6>
-                                                    <h6>運費︰TWD60</h6>
-                                                    <button>單據</button>
-                                                </div>
-                                                <div class="flex-box">
-                                                    <div><h6>MC221205Z00001</h6></div>
-                                                    <div><h6>2022/12/07<br>2022/12/07<br>2022/12/07</h6></div>
-                                                    <div><h6>2022/12/06<br>訂單已確認<br>2022/12/06 12:00</h6></div>
-                                                    <div><h6>1<br>三角抬腿枕 純棉材質 人體工學設計 台灣製<br>12</h6></div>
-                                                    <div><h6>2<br>TWD864</h6></div>
-                                                    <div><h6>10<br>許浩文</h6></div>
+                                                    <div><h6>{{ b_po.SUBID }}</h6></div>
+                                                    <div><h6>{{ b_po.ETD }}<br>{{ b_po.BL }}<br>{{ b_po.SHIP_DATE }}</h6></div>
+                                                    <div><h6>{{ b_po.CREATE_DATE }}<br>
+                                                    <span v-for="status, index) in arr[index]" :key="index">{{ status }}</span>
+                                                    <br>{{ b_po.STATUS_DATE }}<br>{{ b_po.STATUS_REASON }}</h6></div>
+                                                    <div><h6>{{ b_po.PRODUCTID }}<br>{{ b_po.PRODUCT_NAME }}<br>{{ b_po.FK_PRODUCT_PAGE_ID }}</h6></div>
+                                                    <div><h6>{{ b_po.QTY }}<br>{{ b_po.PRICE }}</h6></div>
+                                                    <div><h6>{{ b_po.MEMBERID }}<br>{{ b_po.USERNAME }}</h6></div>
                                                     <div><button>查看</button></div>
                                                 </div>
                                             </a> 
@@ -148,10 +111,94 @@
 
     <!-- js -->
     <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         $(() => {
             $("#header").load("./back-header.html");
         });
+
+        const member = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    dataList2: [],
+                    arr: [],
+                    mainid: "",
+                    subid: "",
+                    cartid: "",
+                    status: "%",
+                    starttime: "2020-01-01",
+                    endtime: "2050-12-31",
+                    starttime2: "2020-01-01",
+                    endtime2: "2050-12-31"
+                }
+            }, methods:{
+                axiosPost() {
+
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/posearch.php',
+                    responseType:'json',
+                    data: {
+                        mainid: this.mainid,
+                        subid: this.subid,
+                        cartid: this.cartid,
+                        status: this.status,
+                        starttime: this.starttime,
+                        endtime: this.endtime,
+                        starttime2: this.starttime2,
+                        endtime2: this.endtime2,
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                        
+                        let mem_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mem_arr.push("訂單已確認")
+                            }else{
+                                mem_arr.push("訂單未確認")
+                            }
+                        })
+
+                        this.arr = mem_arr;
+
+                        console.log(this.memberkind);
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                },
+                axiosIDPost(e){
+                    e.preventDefault()
+                    
+                }
+            }, created() {
+               // 查詢資料
+                    axios.get("../../php/backend/po.php").then(res => {
+                        this.dataList = res.data;
+                        console.log(this.dataList);
+
+
+                        let mem_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.STATUS == "1"){
+                                mem_arr.push("訂單已確認")
+                            }else{
+                                mem_arr.push("訂單未確認")
+                            }
+                        })
+                        // console.log(mem_arr);
+
+                        this.arr = mem_arr;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+            }
+        }).mount("#po");
     </script>
 </body>
 </html>

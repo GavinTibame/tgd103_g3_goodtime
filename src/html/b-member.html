@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .AAA{
+            background-color: rgb(34, 145, 48);
+            transition: all 0.3s;
+        }
+        .BBB{
+            background-color: rgb(185, 45, 68);
+            transition: all 0.3s;
+        }
+        .AAA:not([disabled]):hover{
+            background-color: rgb(25, 107, 36);
+        }
+        .BBB:not([disabled]):hover{
+            background-color: rgb(141, 35, 52);
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -25,31 +41,30 @@
                         <ul>
                             <li>
                                 <p>會員分類</p>
-                                <select name="news-kind" class="news-kind">
-                                    <option value="" selected>會員種類選擇</option>
-                                    <option value="">管理員</option>
-                                    <option value="">普通會員</option>
-                                </select>   
+                                <select name="member-kind" class="news-kind" v-model="memberkind" id="memberkind">
+                                    <option value="%" selected>會員權限選擇</option>
+                                    <option v-for="(memberkind, index) in dataList2"  :value="memberkind.ID">{{ memberkind.DESC }}</option>
+                                </select>
                             </li>
                             <li>
                                 <p>會員狀態</p>
                                 <form action="" class="news-state">
-                                    <input type="radio" name="time-area" checked><label class="time-area_label" for="">不指定</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">開啟</label>
-                                    <input type="radio" name="time-area"><label class="time-area_label" for="">關閉</label>
+                                    <input type="radio" name="time-area" value="%" v-model="memberverify" id="memberverify1"><label class="time-area_label" for="memberverify1"> 不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="memberverify" id="memberverify2"><label class="time-area_label" for="memberverify2"> 開啟</label>
+                                    <input type="radio" name="time-area" value="2" v-model="memberverify" id="memberverify3"><label class="time-area_label" for="memberverify3"> 關閉</label>
                                 </form>
                             </li>
                             <li>
                                 <p>會員編號</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="memberid" v-model="memberid">
                             </li>
                             <li>
                                 <p>會員名稱</p>
-                                <input type="text" class="long-input">
+                                <input type="text" class="long-input" id="membername" v-model="membername">
                             </li>
                         </ul>
                         <div class="btn-group">
-                            <button class="search-btn">查詢</button>
+                            <button class="search-btn" @click="axiosPost()">查詢</button>
                         </div>
                     </div>
                     <div class="container">
@@ -68,21 +83,25 @@
                                                 <div><h6>操作</h6></div>
                                             </div> 
                                         </li>
-                                        <li class="" v-for="(v_member, index) in dataList" :key="index">
-                                            <a href="b-member-detail.html">
+                                        <li class="" v-for="(b_member, index) in dataList" :key="index">
+                                            <a :href="'b-member-detail.html?ID='+b_member.ID">
                                                 <div class="flex-box">
-                                                    <div><h6>{{ v_member.ID }}</h6></div>
-                                                    <div><h6>{{ v_member.USERNAME }}</h6></div>
-                                                    <div><h6>{{ v_member.FK_ROLE_ID }}</h6></div>
+                                                    <div><h6>{{ b_member.ID }}</h6></div>
+                                                    <div><h6>{{ b_member.USERNAME }}</h6></div>
                                                     <div><h6>
-                                                        <input type="radio" v-model="abc[index]" value="b" :id="v_member.ID + 'a'" :name=v_member.ID><label class="" :for="v_member.ID + 'a'">開啟</label>
-                                                        <br>
-                                                        <input type="radio" v-model="abc[index]" value="a" :id="v_member.ID + 'b'" :name=v_member.ID><label class="" :for="v_member.ID + 'b'">關閉</label>
+                                                        <!-- {{ b_member.FK_ROLE_ID }} -->
+                                                        <span v-for="verify, index) in arr2[index]" :key="index">{{ verify }}</span>
                                                     </h6></div>
-                                                    <div><h6>{{ v_member.EMAIL }}</h6></div>
+                                                    <div><h6>
+                                                        <!-- <input type="radio" v-model="arr[index]" value="1" :id="b_member.ID + 'a'" :name=b_member.ID><label class="" :for="b_member.ID + 'a'">開啟</label>
+                                                        <br>
+                                                        <input type="radio" v-model="arr[index]" value="2" :id="b_member.ID + 'b'" :name=b_member.ID><label class="" :for="b_member.ID + 'b'">關閉</label> -->
+                                                        <span v-for="(status, index) in arr[index]" :key="index">{{ status }}</span>
+                                                    </h6></div>
+                                                    <div><h6>{{ b_member.EMAIL }}</h6></div>
                                                     <div><h6>
                                                         <button><i class="fa-solid fa-magnifying-glass"></i> 查看會員</button>
-                                                        <button><i class="fa-solid fa-pen-nib"></i> 編輯會員狀態</button>
+                                                        <button @click="deleteitem" :value="b_member.ID"><i class="fa-solid fa-pen-nib"></i> 更改會員狀態</button>
                                                     </h6></div>
                                                 </div>
                                             </a> 
@@ -101,6 +120,7 @@
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
     <script src="../js/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // 連接header
         $(() => {
@@ -112,12 +132,114 @@
             data() {
                 return {
                     dataList: [],
-                    abc: []
+                    dataList2: [],
+                    arr: [],
+                    arr2: [],
+                    memberkind: "%",
+                    memberverify: "1",
+                    memberid: "",
+                    membername: "",
+
+                    idvalue: ""
                 }
             }, methods:{
-                atClick(){
+                axiosPost() {
 
-                }
+                    axios({
+                    method: 'post',
+                    url: '../../php/backend/membersearch.php',
+                    responseType:'json',
+                    data: {
+                        memberkind: this.memberkind,
+                        memberverify: this.memberverify,
+                        memberid: this.memberid,
+                        membername: this.membername,
+                    }
+                    }).then(res => {
+                        this.dataList = res.data;
+                        console.log(res.data);
+                        
+                        let mem_arr = [];
+                        res.data.forEach((item, i) => {
+                            if(item.VERIFY == "1"){
+                                mem_arr.push("開啟")
+                            }else{
+                                mem_arr.push("關閉")
+                            }
+                        })
+
+                        this.arr = mem_arr;
+
+                        console.log(this.memberkind);
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                },
+                deleteitem(e){
+
+                    e.preventDefault();
+
+                    let idvalue = e.target.value;
+
+                    swal({
+                            icon: "warning",
+                            title: "更改會員狀態",
+                            text: "您確定要更改此會員狀態?",
+                            buttons: {
+                            A: {
+                                text: "開啟",
+                                value: "1",
+                                className:'AAA',
+                                visible: true,
+                            },
+                            B: {
+                                text: "關閉",
+                                visible: true,
+                                className:'BBB',
+                                value: "2"
+                            }
+                            }
+                        });
+                        document.querySelector(".swal-button--A").onclick = function(e){
+                            axios({
+                            method: 'post',
+                            url: '../../php/backend/member-open.php',
+                            responseType:'json',
+                            data: {
+                                idvalue: idvalue,
+                            }
+                            }).then(res => {
+                                location.reload();
+                            }).catch(err => {
+                                console.log(err);
+                            });
+                        }
+                        document.querySelector(".swal-button--B").onclick = function(e){
+                            axios({
+                            method: 'post',
+                            url: '../../php/backend/member-close.php',
+                            responseType:'json',
+                            data: {
+                                idvalue: idvalue,
+                            }
+                            }).then(res => {
+                                location.reload();
+                            }).catch(err => {
+                                console.log(err);
+                            });
+                        }
+
+
+            // console.log(btnaaa);
+            // btnaaa.addEventListener('click', function(e){
+            //     console.log("aaa");
+            // });
+            // let btnbbb = document.getElementsByClassName("swal-button--BBB");
+            // btnaaa.addEventListener('click', function(e){
+            //     console.log("bbb");
+            // })
+            }
             }, created() {
                // 查詢資料
                     axios.get("../../php/backend/member.php").then(res => {
@@ -125,17 +247,38 @@
                         console.log(this.dataList);
 
 
-                        let abc_arr = [];
+                        let mem_arr = [];
                         res.data.forEach((item, i) => {
                             if(item.VERIFY == "1"){
-                                abc_arr.push("a")
+                                mem_arr.push("開啟")
                             }else{
-                                abc_arr.push("b")
+                                mem_arr.push("關閉")
                             }
                         })
-                        console.log(abc_arr);
+                        // console.log(mem_arr);
 
-                        this.abc = abc_arr;
+                        this.arr = mem_arr;
+
+                        let mem_arr2 = [];
+                        res.data.forEach((item, i) => {
+                            if(item.FK_ROLE_ID == "1"){
+                                mem_arr2.push("管理員")
+                            }else{
+                                mem_arr2.push("一般會員")
+                            }
+                        })
+                        // console.log(mem_arr);
+
+                        this.arr2 = mem_arr2;
+
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    axios.get("../../php/backend/member-searchbar-fix.php").then(res => {
+                        this.dataList2 = res.data;
+                        // console.log(this.dataList[0].ID);
+                        console.log(this.dataList2);
                     }).catch(err => {
                         console.log(err);
                     });

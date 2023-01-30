@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .AAA{
+            background-color: rgb(34, 145, 48);
+            transition: all 0.3s;
+        }
+        .BBB{
+            background-color: rgb(185, 45, 68);
+            transition: all 0.3s;
+        }
+        .AAA:not([disabled]):hover{
+            background-color: rgb(25, 107, 36);
+        }
+        .BBB:not([disabled]):hover{
+            background-color: rgb(141, 35, 52);
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -39,9 +55,9 @@
                             <li>
                                 <p>消息頁狀態</p>
                                 <form action="" class="po-confirm">
-                                    <input type="radio" name="time-area" value="%" v-model="newsstatus" id="newsstatus" checked><label class="time-area_label" for="">不指定</label>
-                                    <input type="radio" name="time-area" value="1" v-model="newsstatus" id="newsstatus"><label class="time-area_label" for="">刊登</label>
-                                    <input type="radio" name="time-area" value="2" v-model="newsstatus" id="newsstatus"><label class="time-area_label" for="">下架</label>
+                                    <input type="radio" name="time-area" value="%" v-model="newsstatus" id="newsstatus1" checked><label class="time-area_label" for="newsstatus1"> 不指定</label>
+                                    <input type="radio" name="time-area" value="1" v-model="newsstatus" id="newsstatus2"><label class="time-area_label" for="newsstatus2"> 刊登</label>
+                                    <input type="radio" name="time-area" value="2" v-model="newsstatus" id="newsstatus3"><label class="time-area_label" for="newsstatus3"> 下架</label>
                                 </form>
                             </li>
                             <li>
@@ -81,18 +97,19 @@
                                         <li class="" v-for="(b_new, index) in dataList" :key="index">
                                             <a :href="'b-new-detail.html?ID='+b_new.ID">
                                                 <div class="flex-box">
-                                                    <div><div class="fakeimg">{{ b_new.MAIN_PHOTO }}</div><h6>{{ b_new.ID }}</h6></div>
-                                                    <div><h6>{{ b_new.TITLE }}<br>{{ b_new.FK_INFO_PAGE_ID }}</h6></div>
+                                                    <div><div class="fakeimg" style="overflow: hidden;"><img :src="b_new.MAIN_PHOTO" alt="" style="width: 100%;"></div><h6>1</h6></div>
+                                                    <div><h6>{{ b_new.TITLE }}<br>{{ b_new.ID }}</h6></div>
                                                     <div><h6>{{ b_new.START }}<br>|<br>{{ b_new.END }}</h6></div>
                                                     <div><h6>
-                                                        <input type="radio" v-model="mark[index]" value="1" :id="b_new.ID + 'y'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'y'">刊登</label>
+                                                        <!-- <input type="radio" v-model="mark[index]" value="1" :id="b_new.ID + 'y'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'y'">刊登</label>
                                                         <br>
-                                                        <input type="radio" v-model="mark[index]" value="2" :id="b_new.ID + 'n'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'n'">下架</label>
+                                                        <input type="radio" v-model="mark[index]" value="2" :id="b_new.ID + 'n'" :name="b_new.ID + 'name'"><label class="time-area_label" :for="b_new.ID + 'n'">下架</label> -->
+                                                        <span v-for="status, index) in mark[index]" :key="index">{{ status }}</span>
                                                     </h6></div>
                                                     <div><h6>{{ b_new.EDIT_DATE }}</h6></div>
                                                     <div><h6>
                                                         <button><i class="fa-solid fa-pen-nib"></i> 編輯消息</button>
-                                                        <button><i class="fa-solid fa-trash-can"></i> 刪除消息</button>
+                                                        <button @click="deleteitem" :value="b_new.ID"><i class="fa-solid fa-trash-can"></i> 更改消息狀態</button>
                                                     </h6></div>
                                                 </div>
                                             </a> 
@@ -111,6 +128,7 @@
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
     <script src="../js/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // 連接header
         $(() => {
@@ -129,7 +147,9 @@
                     newsstatus: "%",
                     newskind: "%",
                     newsstart: "2020-01-01",
-                    newsend: "2050-12-31"
+                    newsend: "2050-12-31",
+
+                    idvalue: ""
                 }
             }, methods:{
                 axiosPost() {
@@ -166,6 +186,60 @@
                         console.log(err);
                     });
                 },
+                deleteitem(e){
+
+                    e.preventDefault();
+
+                    let idvalue = e.target.value;
+
+                    swal({
+                            icon: "warning",
+                            title: "更改消息狀態",
+                            text: "您確定要更改此商品狀態嗎?",
+                            buttons: {
+                            A: {
+                                text: "上架",
+                                value: "1",
+                                className:'AAA',
+                                visible: true,
+                            },
+                            B: {
+                                text: "下架",
+                                visible: true,
+                                className:'BBB',
+                                value: "2"
+                            }
+                            }
+                        });
+                    document.querySelector(".swal-button--A").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/new-open.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
+                    document.querySelector(".swal-button--B").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/new-close.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
+                }
             }, created() {
                // 查詢資料
                     axios.get("../../php/backend/new.php").then(res => {
@@ -175,9 +249,9 @@
                         let mark_arr = [];
                         res.data.forEach((item, i) => {
                             if(item.STATUS == "1"){
-                                mark_arr.push("1")
+                                mark_arr.push("刊登")
                             }else{
-                                mark_arr.push("2")
+                                mark_arr.push("下架")
                             }
                         })
                         console.log(mark_arr);

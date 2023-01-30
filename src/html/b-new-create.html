@@ -22,9 +22,9 @@
                         <ul>
                             <li>
                                 <p>消息主圖</p>
-                                <input type="file" accept=".png, .jpg, .jpeg" id="productpic"></input>
-                                <img id="mainpic" src="#" alt="" >
-                                <button class="change-btn hidebtn" @click="checkimg">預覽圖片</button>
+                                <input type="file" accept=".png, .jpg, .jpeg" id="newspic"></input>
+                                <img id="mainpic" src="../img/default/default.jpg" alt="" >
+                                <button class="change-btn hidebtn" @click="checkimg">確認與預覽圖片</button>
                             </li>
                             <li>
                                 <p>消息頁編號</p>
@@ -40,7 +40,7 @@
                             </li>
                             <li>
                                 <p>消息分類</p>
-                                <select name="newskind" class="newskind" v-model="newskind" id="newskind">
+                                <select name="newskind" class="long-input" v-model="newskind" id="newskind">
                                     <option v-for="(newskind, index) in dataList2" :value="newskind.ID">{{ newskind.DESC }}</option>
                                 </select>   
                             </li>
@@ -71,7 +71,7 @@
                             </li> -->
                             <li>
                                 <p>消息內文</p>
-                                <input type="text" class="long-input" id="newscontent" v-model="newscontent" maxlength="256">
+                                <textarea type="text" class="large-textarea" id="newscontent" v-model="newscontent" maxlength="256"></textarea>
                             </li>
                             <!-- <li>
                                 <p>消息圖</p>
@@ -108,7 +108,9 @@
                     newsstatus:"",
                     newspic:"",
                     dataList: [],
-                    dataList2: []
+                    dataList2: [],
+
+                    file:""
                 }
             }, methods: {
                 axiosPost(){
@@ -170,6 +172,24 @@
                         console.log(err);
                         alert("上架失敗，請再次檢查資料");
                     })
+
+                    let file = document.getElementById("newspic").files[0];
+
+                    // console.log(file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/new-create-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        // 'Authorization': localStorage.getItem("authorization")
+                        }
+                    }) 
                 }          
                 },
                 checkimg(e){
