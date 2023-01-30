@@ -16,19 +16,19 @@ export default {
       return amt;
     }, poStatus() {
       switch (this.poprops.STATUS) {
-        case 1: {
+        case 0: {
           return "訂單已確認";
         }
-        case 2: {
+        case 1: {
           return "訂單備貨中";
         }
-        case 3: {
+        case 2: {
           return "訂單已發貨";
         }
-        case 4: {
+        case 3: {
           return "訂單已完成";
         }
-        case 5: {
+        case 4: {
           return "訂單已取消";
         }
         default: {
