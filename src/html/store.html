@@ -85,12 +85,13 @@
         <!-- 商品陳列區 -->
         <div class="product__display results" id="parent">
             <ul id="products">
-                <li class="events">
+                
+                <li class="events" v-for="(store, i) in storeList" :key="store.ID">
                     <a :href="'./store.html?eid=' + store.ID">
                         <div class="shop__pic">
                             <img :src="store.MAIN_PHOTO" alt=""/>
                             <div class="shop__type">展覽限定</div>
-                            <div class="countdown">倒數3天</div>
+                            <!-- <div class="countdown">倒數3天</div> -->
                         </div>
 
                         <div class="shop__text">
