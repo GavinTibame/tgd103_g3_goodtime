@@ -4,7 +4,7 @@ const checkoutApp = Vue.createApp({
             itm: [],
             tkt: [],
             checkoutList: [],
-            ttlAmt: 0
+            prodAmt: 0, expoAmt: 0
         }
     }, methods: {
         ticketType(expoObj) {
@@ -30,13 +30,15 @@ const checkoutApp = Vue.createApp({
             // console.log(typeof (cart));
             axios.post("../../php/frontend/checkoutCart.php", cart)
                 .then(res => {
-                    this.ttlAmt = res.data;
-                    console.log(this.ttlAmt);
+                    this.prodAmt = res.data;
+                    console.log("[product]", this.prodAmt);
                 }).catch(err => console.log("[checkout cart]", err));
-            // axios.post("../../php/frontend/checkoutTkt.php", passport)
-            //     .then(res => {
+            axios.post("../../php/frontend/checkoutTkt.php", passport)
+                .then(res => {
+                    this.expoAmt = res.data;
+                    console.log("[expo]", this.expoAmt);
+                }).catch(err => console.log("[checkout ticket]", err));
 
-            //     }).catch(err => console.log("[checkout ticket]", err));
         }
     }, created() {
         let itmList = localStorage.getItem("checkoutItm"),
