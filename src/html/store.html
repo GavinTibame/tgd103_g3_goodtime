@@ -78,7 +78,11 @@
                 <select id="event-type" data-filter="event" class="filter-event filter form-control">
 					<option value="">以展覽查詢</option>
 				</select>
-            </div>
+                <!-- <select v-model="expo">
+                    <option v-for="option in expos_data" :value="option.value" :key="option.value">{{ option.text }}</option>
+                </select> -->
+
+            </div>   
 
         </nav>
 
@@ -87,7 +91,7 @@
             <ul id="products">
                 
                 <li class="events" v-for="(store, i) in storeList" :key="store.ID">
-                    <a :href="'./store.html?eid=' + store.ID">
+                    <a :href="'./product_detail_01.html?pid=' + store.ID">
                         <div class="shop__pic">
                             <img :src="store.MAIN_PHOTO" alt=""/>
                             <div class="shop__type">{{store.TAG1}}</div>
@@ -97,7 +101,7 @@
                         <div class="shop__text">
                             <small>{{store.TAG2}}</small>
                             <h6>{{store.PRODUCT_NAME}}</h6>
-                            <h6>{{store.PRICE}}</h6>
+                            <h6>NT${{store.PRICE}}</h6>
                         </div>
                     </a>
                 </li>
@@ -334,7 +338,7 @@
                     </a>
                 </li> -->
 
-            <!-- </ul> -->
+            </ul>
         </div>
 
    
