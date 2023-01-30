@@ -28,8 +28,8 @@
     <header id="header"></header>
 
     <main class="store__wrapper" id="store">
-
-        <!-- 麵包屑 -->
+    
+            <!-- 麵包屑 -->
         <div class="crumb">
             <ul class="breadcrumb">
                 <li><a href="./index.html">首頁</a></li>
@@ -84,15 +84,15 @@
 
         <!-- 商品陳列區 -->
         <div class="product__display results" id="parent">
-            <template v-for="(store, idx) in storeList" :key="'store'+idx">
-                <ul id="products">
-                    <li class="events">
-                        <a :href="'./store.html?eid=' + store.ID">
-                            <div class="shop__pic">
-                                <img :src="store.MAIN_PHOTO" alt=""/>
-                                <div class="shop__type">{{store.TAG1}}</div>
-                                <!-- <div class="countdown">倒數3天</div> -->
-                            </div>
+            <ul id="products">
+                
+                <li class="events" v-for="(store, i) in storeList" :key="store.ID">
+                    <a :href="'./store.html?eid=' + store.ID">
+                        <div class="shop__pic">
+                            <img :src="store.MAIN_PHOTO" alt=""/>
+                            <div class="shop__type">展覽限定</div>
+                            <!-- <div class="countdown">倒數3天</div> -->
+                        </div>
 
                             <div class="shop__text">
                                 <small>{{store.TAG2}}</small>
@@ -339,7 +339,7 @@
             <!-- </ul> -->
         </div>
 
-
+   
     </main>
 
     <footer id="footer"></footer>

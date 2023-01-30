@@ -111,26 +111,28 @@ const storeApp = Vue.createApp({
                         // PRICE: 280
                 // }
             ]
-        }
+        };
     },
     mounted(){
-
+        
     },
     updated(){
-
+        console.log(`TTT`);
     },
     methods:{
-        setFilter(filter){
-            this.storeFilter = filter;
-            console.log(filter);
-        }
+        // setFilter(filter){
+        //     this.storeFilter = filter;
+        //     console.log(filter)
+        // }
     },
     created() {
+        
         axios.get("../../php/frontend/store.php")
-            .then(res => { // 拿今天進行中展演展覽的資料
+        .then(res => { // 拿今天進行中展演展覽的資料
                 this.storeList = [...res.data];
-                console.log(this.storeList);
+                console.log(storeList);
             })
             .catch(err => console.log("[store list]", err));
+            
     }
 }).mount("#store");

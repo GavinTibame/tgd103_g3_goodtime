@@ -345,15 +345,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
  
-
-    //漢堡線控制
-    let menuIcon = document.getElementById('menu-icon-box');
-    let menu = document.getElementById('topbar-btn-group');
-
-    menuIcon.addEventListener('click', function () {
-      document.getElementById('topbar-btn-group').classList.toggle('on');
-    });
-
     //member-icon-2控制
     let memberIcon2 = document.getElementById('member-icon-2');
     memberIcon2.addEventListener('click',function(){
@@ -363,7 +354,7 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
-  <script src="../js/index.js"></script>
+  <!-- <script src="../js/index.js"></script> -->
   <script>
   //掛載資料庫
   const index = Vue.createApp({
@@ -423,72 +414,73 @@
         });
     }
   }).mount("#anchor1");
-      // 輪播
-      $(document).ready(function () {
-          $('.owl-one').owlCarousel({
-            autoplay: true,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            center: true,
-            loop: true,
-            margin: 30,
-            mouseDrag: false,
-            touchDrag: false,
-            nav: true,
-            navText: [
-              prvIcon,
-              nextIcon
-            ],
-            responsive: {
-              0: {
-                items: 1.1,
-                margin: 5
-              },
-              768: {
-                items: 2,
-                margin: 5
-              },
-              1000: {
-                items: 2.2,
-              }
-            }
-          });
-          $('.owl-two').owlCarousel({
-            items: 3,
-            loop: true,
-            center: true,
-            margin: 30,
-            autoplayHoverPause: true,
-            // startPosition: 0,
-            merge: true,
-            nav: true,
-            mouseDrag: false,
-            touchDrag: false,
-            navText: [
-              prvIcon,
-              shopNextIcon
-            ],
-            responsive: {
-              0: {
-                items: 1,
-                margin: 10
-              },
-              400: {
-                items: 1
-              },
-              500: {
-                items: 2
-              },
-              770: {
-                items: 3
-              },
-              1242: {
-                items: 3.5,
-                margin: 10
-              }
-            }
-          });
-      })
+
+  // 輪播
+  $(document).ready(function () {
+      $('.owl-one').owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        center: true,
+        loop: true,
+        margin: 30,
+        mouseDrag: false,
+        touchDrag: false,
+        nav: true,
+        navText: [
+          prvIcon,
+          nextIcon
+        ],
+        responsive: {
+          0: {
+            items: 1.1,
+            margin: 5
+          },
+          768: {
+            items: 2,
+            margin: 5
+          },
+          1000: {
+            items: 2.2,
+          }
+        }
+      });
+      $('.owl-two').owlCarousel({
+        items: 3,
+        loop: true,
+        center: true,
+        margin: 30,
+        autoplayHoverPause: true,
+        // startPosition: 0,
+        merge: true,
+        nav: true,
+        mouseDrag: false,
+        touchDrag: false,
+        navText: [
+          prvIcon,
+          shopNextIcon
+        ],
+        responsive: {
+          0: {
+            items: 1,
+            margin: 10
+          },
+          400: {
+            items: 1
+          },
+          500: {
+            items: 2
+          },
+          770: {
+            items: 3
+          },
+          1242: {
+            items: 3.5,
+            margin: 10
+          }
+        }
+      });
+  })
 
  const indexApp = Vue.createApp({
   data() {
@@ -501,7 +493,7 @@
     };
   },
   mounted() {
-    console.log("aaaaa");
+    // console.log("aaaaa");
     this.login = sessionStorage.getItem("login");
   },
   methods: {
@@ -540,7 +532,14 @@
     },
   },
 }).mount(".member-icon-box-out");
-  
+
+//漢堡線控制
+let menuIcon = document.getElementById('menu-icon-box');
+let menu = document.getElementById('topbar-btn-group');
+
+menuIcon.addEventListener('click', function () {
+  document.getElementById('topbar-btn-group').classList.toggle("on");
+});
 </script>
 </body>
 

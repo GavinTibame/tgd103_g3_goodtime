@@ -1,29 +1,4 @@
-console.log("ssss");
-/*------------------------檔案上傳-----------------------*/
-function file() {
-  var that = this;
-  $(".file-box").on("change", "#upload", function (e) {
-    var files = e.target.files;
-    console.log(files);
-    if (files.length > 0) {
-      for (var i = 0; i < files.length; i++) {
-        var reader = new FileReader();
-        reader.onload = function () {
-          var text = `
-       <div class="img-list">
-       <img src="${this.result}" alt="">
-       <div class="del-img">删除</div>
-       </div>
-      `;
-          $(".img-box").append(text);
-        };
-        reader.readAsDataURL(files[i]);
-        that.filesList.push(files[i]);
-      }
-    }
-  });
-}
-
+console.log("sdfdsfsdf");
 /*-----------------------資料串接-----------------------*/
 
 const rentalJoinFormApp = Vue.createApp({
@@ -42,6 +17,7 @@ const rentalJoinFormApp = Vue.createApp({
       Opinion: "",
       date_pick__from: "",
       date_pick__to: "",
+      file:"" ,
     };
   },
   methods: {
@@ -49,6 +25,28 @@ const rentalJoinFormApp = Vue.createApp({
       if (this.other__demands.includes("無代售需求")) {
         this.other__demands = ["無代售需求"];
       }
+    },
+
+    fileSend() {
+      let formData = new FormData();
+      formData.append('file',this.$refs.aaa.files[0])
+      console.log(formData);
+      axios({
+        method: "post",
+        url: "../../php/frontend/rentalFormFile.php",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          // 'Authorization': localStorage.getItem("authorization")
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          alert(res.data);
+          // window.location.href = "../html/rental_join_form.html";
+        // } else {
+          // alert(res.data);
+        }
+      });
     },
 
     rentalTosend() {
@@ -134,7 +132,7 @@ const rentalJoinFormApp = Vue.createApp({
           if (res.status === 200) {
             alert("送出成功");
             // console.log(res);
-            window.location.href = '../html/rental_join_form.html';
+            window.location.href = "../html/rental_join_form.html";
           } else {
             alert(res.data);
           }

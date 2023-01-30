@@ -1,4 +1,4 @@
-console.log("ccc");
+console.log("jjjj");
 
 const shopsJoinFormApp = Vue.createApp({
   data() {
@@ -12,6 +12,28 @@ const shopsJoinFormApp = Vue.createApp({
     };
   },
   methods: {
+    fileSend() {
+      let formData = new FormData();
+      formData.append('file',this.$refs.aaa.files[0])
+      console.log(formData);
+      axios({
+        method: "post",
+        url: "../../php/frontend/shopsFormFile.php",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          // 'Authorization': localStorage.getItem("authorization")
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          alert(res.data);
+          // window.location.href = "../html/rental_join_form.html";
+        // } else {
+          // alert(res.data);
+        }
+      });
+    },
+
     ShopJoinTosend() {
       if (this.shop__name == "") {
         alert("請輸入您的品牌名稱");

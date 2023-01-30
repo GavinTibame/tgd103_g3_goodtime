@@ -181,11 +181,61 @@ main.rental {
                     padding-left: 0.5rem;
                 }
             }
+            .zoneA{
+                box-shadow: 0 3px 10px 0 #aaa;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 134px;
+                position: absolute;
+                width: 220px;
+                top: 100;
+                top: 427px;
+                left: 137px;
+            }
+            .zoneB{
+                box-shadow: 0 3px 10px 0 #aaa;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 134px;
+                position: absolute;
+                width: 220px;
+                top: 100;
+                top: 427px;
+                left: 137px;
+            }
+            .zoneC{
+                box-shadow: 0 3px 10px 0 #aaa;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 134px;
+                position: absolute;
+                width: 220px;
+                top: 100;
+                top: 427px;
+                left: 137px;
+            }
+            .zoneD{
+                box-shadow: 0 3px 10px 0 #aaa;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 134px;
+                position: absolute;
+                width: 220px;
+                top: 100;
+                top: 427px;
+                left: 137px;
+            }
+            .zoneE{
+                box-shadow: 0 3px 10px 0 #aaa;
+                background-color: rgba(255, 255, 255, 0.7);
+                height: 134px;
+                position: absolute;
+                width: 220px;
+                top: 100;
+                top: 427px;
+                left: 137px;
+            }
         }
 
         .map {
             margin: -140px 0 -100px;
-
+            position: relative;
             @include rwd(768px) {
                 margin: -360px 0 -330px;
             }
@@ -210,9 +260,51 @@ main.rental {
             svg {
                 width: calc(80vw);
                 margin: 0 auto;
-                display: block;
+                display: block;  
+            image#圖層_6{
+                &:hover{
+                height: 20%;
+                x: 1220;
+                y: 138;
+                z-index: 99;
+                filter: invert(1%) hue-rotate(35deg) brightness(160%) contrast(240%);
+                }
             }
-        }
+            image#圖層_6-2 {
+                &:hover{
+                filter: invert(1%) hue-rotate(35deg) brightness(160%) contrast(240%);
+                height: 20%;
+                x: 923;
+                y: 46;
+                }   
+            }
+            image#圖層_6-3 {
+                &:hover{
+                filter: invert(1%) hue-rotate(35deg) brightness(160%) contrast(240%);
+                height: 20%;
+                width: 24%;
+                x: 505;
+                y: 47;
+                }
+            }
+            image#圖層_6-4 {
+                &:hover{
+                filter: invert(1%) hue-rotate(35deg) brightness(160%) contrast(240%);
+                height: 20%;
+                width: 20%;
+                x: 243;
+                y: 92;
+                }
+            }
+            image#圖層_6-5 {
+                &:hover{
+                filter: invert(1%) hue-rotate(35deg) brightness(160%) contrast(240%);
+                height: 20%;
+                width: 20%;
+                x: 151;
+                y: 278;
+                }
+            }
 
         dt {
             span {
@@ -221,4 +313,6 @@ main.rental {
         }
     }
 
+   }   
+ }
 }

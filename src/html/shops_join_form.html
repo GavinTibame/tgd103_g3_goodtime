@@ -34,118 +34,117 @@
           </div>
           <!----------------------表單區------------------------->
           <section class="Join__form" id="Join__form">
-              <div class="shop__name__out">
-                <label for="shop__name">品 牌 名 稱</label>
+            <div class="shop__name__out">
+              <label for="shop__name">品 牌 名 稱</label>
+              <input
+                type="text"
+                name="shop__name"
+                class="shop__name"
+                v-model="shop__name"
+              />
+            </div>
+            <div class="name__out">
+              <label for="name">負責人姓名</label>
+              <input
+                type="text"
+                name="principal_name"
+                class="name"
+                v-model="principal_name"
+              />
+            </div>
+            <div class="phone__out">
+              <label for="phone">負責人電話</label>
+              <input
+                type="text"
+                name="principal_phone"
+                class="phone"
+                v-model="principal_phone"
+              />
+            </div>
+            <div class="email__out">
+              <label for="email">負責人信箱</label>
+              <input
+                type="text"
+                name="email"
+                class="email"
+                v-model="principal_email"
+              />
+            </div>
+            <div class="shopstay__time">
+              <p>預計駐園時長</p>
+              <div class="shopstay__time__1">
                 <input
-                  type="text"
-                  name="shop__name"
-                  class="shop__name"
-                  v-model="shop__name"
+                  class="with-gap validate[required]"
+                  name="shopstay__time"
+                  type="radio"
+                  id="time_1"
+                  value="半年"
+                  v-model="shopstay__time"
                 />
+                <label for="time_1">半年</label>
               </div>
-              <div class="name__out">
-                <label for="name">負責人姓名</label>
+              <div class="shopstay__time__2">
                 <input
-                  type="text"
-                  name="principal_name"
-                  class="name"
-                  v-model="principal_name"
+                  class="with-gap validate[required]"
+                  name="shopstay__time"
+                  type="radio"
+                  id="time_2"
+                  value="一年"
+                  v-model="shopstay__time"
                 />
+                <label for="time_2">一年</label>
               </div>
-              <div class="phone__out">
-                <label for="phone">負責人電話</label>
+              <div class="shopstay__time__3">
                 <input
-                  type="text"
-                  name="principal_phone"
-                  class="phone"
-                  v-model="principal_phone"
+                  class="with-gap validate[required]"
+                  name="shopstay__time"
+                  type="radio"
+                  id="time_3"
+                  value="兩年"
+                  v-model="shopstay__time"
                 />
+                <label for="time_3">兩年</label>
               </div>
-              <div class="email__out">
-                <label for="email">負責人信箱</label>
-                <input
-                  type="text"
-                  name="email"
-                  class="email"
-                  v-model="principal_email"
-                />
-              </div>
-              <div class="shopstay__time">
-                <p>預計駐園時長</p>
-                <div class="shopstay__time__1">
-                  <input
-                    class="with-gap validate[required]"
-                    name="shopstay__time"
-                    type="radio"
-                    id="time_1"
-                    value="半年"
-                    v-model="shopstay__time"
-                  />
-                  <label for="time_1">半年</label>
-                </div>
-                <div class="shopstay__time__2">
-                  <input
-                    class="with-gap validate[required]"
-                    name="shopstay__time"
-                    type="radio"
-                    id="time_2"
-                    value="一年"
-                    v-model="shopstay__time"
-                  />
-                  <label for="time_2">一年</label>
-                </div>
-                <div class="shopstay__time__3">
-                  <input
-                    class="with-gap validate[required]"
-                    name="shopstay__time"
-                    type="radio"
-                    id="time_3"
-                    value="兩年"
-                    v-model="shopstay__time"
-                  />
-                  <label for="time_3">兩年</label>
-                </div>
-              </div>
-              <label for="file__word" class="file__word"
-                >上傳證件影本 & 活動企劃書</label
-              ><br /><br />
-              <div class="file-box__out">
-                <div class="file-box">
-                  <!--檔案名稱-->
-                  <input name="textfield" id="textfield" class="filename" />
+            </div>
+            <label for="file__word" class="file__word"
+              >上傳證件影本 & 活動企劃書</label
+            ><button class="file_upload" id="file_upload" @click="fileSend">
+              確認上傳</button
+            ><br /><br />
+            <div class="file-box__out">
+              <div class="file-box">
+                <!--檔案名稱-->
+                <input name="textfield" id="textfield" class="filename" />
 
-                  <!--上傳按鈕-->
-                  <input type="button" class="button" value="選取檔案 " />
+                <!--上傳按鈕-->
+                <input type="button" class="button" value="選取檔案 " />
 
-                  <!--原按鈕隱藏-->
-                  <input
-                    type="file"
-                    name="file"
-                    class="file"
-                    multiple="multiple"
-                    onchange="document.getElementById('textfield').value=this.value"
-                  />
-                </div>
+                <!--原按鈕隱藏-->
+                <input
+                  type="file"
+                  name="file"
+                  class="file"
+                  id="file"
+                  ref="aaa"
+                  onchange="document.getElementById('textfield').value=this.value"
+                />
               </div>
-              <p class="Opinion">意見回饋</p>
-              <textarea
-                name="Opinion"
-                id="mote"
-                cols="30"
-                rows="10"
-                class="Opinion__text"
-                v-model="Opinion"
-              ></textarea
-              ><br />
-              <div class="btn__ctn">
-                <button
-                  id="goApplyForm"
-                  class="button"
-                  @click="ShopJoinTosend"
-                >
-                  <span>確認送出</span>
-                </button>
-              </div>
+            </div>
+            <p class="Opinion">意見回饋</p>
+            <textarea
+              name="Opinion"
+              id="mote"
+              cols="30"
+              rows="10"
+              class="Opinion__text"
+              v-model="Opinion"
+            ></textarea
+            ><br />
+            <div class="btn__ctn">
+              <button id="goApplyForm" class="button" @click="ShopJoinTosend">
+                <span>確認送出</span>
+              </button>
+            </div>
           </section>
         </main>
         <footer id="footer"></footer>

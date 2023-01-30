@@ -43,13 +43,14 @@ const shoppingCartApp = Vue.createApp({
                     if (res.data === 1) {
                         // 結束loading畫面
                         // console.log("已從購物車移除商品");
+                        this.wantList = this.wantList.filter(product => product.id !== id);
+                        this.isSelectAll();
                     }
                 }).catch(err => {
                     // 結束loading畫面
                     console.log("[cart remove]", err);
                 });
-            this.wantList = this.wantList.filter(product => product.id !== id);
-            this.isSelectAll();
+
         }, onDelete(idx, id) {
             // 開始loading畫面
             const deleteItem = JSON.parse( // 把Proxy轉成Object
@@ -61,13 +62,14 @@ const shoppingCartApp = Vue.createApp({
                     if (res.data === 1) {
                         // 結束loading畫面
                         // console.log("已從購物車移除商品");
+                        this.loveList = this.loveList.filter(expo => expo.id !== id);
+                        this.isSelectAll();
                     }
                 }).catch(err => {
                     // 結束loading畫面
                     console.log("[ticket remove]", err);
                 });
-            this.loveList = this.loveList.filter(expo => expo.id !== id);
-            this.isSelectAll();
+
         }, renderCart() {
             axios.get("../../php/frontend/cart.php")
                 .then(res => {
@@ -76,9 +78,11 @@ const shoppingCartApp = Vue.createApp({
         }, renderTicket() {
             axios.get("../../php/frontend/ticket.php")
                 .then(res => {
-                    this.loveList = res.data;
-                    this.allList = [...this.loveList, ...this.wantList];
-                    console.log(this.allList);
+                    if (res.data) {
+                        this.loveList = res.data;
+                        this.allList = [...this.loveList, ...this.wantList];
+                        console.log(this.allList);
+                    }
                 }).catch(err => console.log("[ticket render]", err));
         }, ticketType(expoObj) {
             if (expoObj.EXPO_PRICE === expoObj.ADULT_PRICE) {
@@ -86,6 +90,20 @@ const shoppingCartApp = Vue.createApp({
             } else if (expoObj.EXPO_PRICE === expoObj.CONC_PRICE) {
                 return "優待票";
             } else { return "團體票"; }
+        }, checkout() {// 把Proxy轉成Object
+            const checkoutItm = JSON.stringify(this.cartList);
+            const checkoutTkt = JSON.stringify(this.ticketList);
+            // axios.post("../../php/frontend/checkoutCart.php", delItm)
+            //     .then(res => {
+
+            //     }).catch(err => console.log("[checkout cart]", err));
+            // axios.post("../../php/frontend/checkoutTkt.php", delTkt)
+            //     .then(res => {
+
+            //     }).catch(err => console.log("[checkout ticket]", err));
+            localStorage.setItem("checkoutItm", checkoutItm);
+            localStorage.setItem("checkoutTkt", checkoutTkt);
+            window.location.href = "../html/shopping_cart02.html";
         }
     }, created() {
         this.renderCart();

@@ -8,8 +8,8 @@ function getStoreList($pdo){
     $statement = $pdo->prepare($sql); 
     $statement->execute();
     $data = $statement->fetchAll();
-    echo json_encode($data);
-    // print_r(json_encode($data));
+    // echo json_encode($data);
+    print_r(json_encode($data));
 }
 
 getStoreList(connectDB()); 
