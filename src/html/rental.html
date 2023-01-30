@@ -155,6 +155,23 @@
   </div>
   <footer id="footer"></footer>
   <script>
+    $(function(){
+      $("image#圖層_6").hover(function(){
+        $(this).toggleClass("zoneA");
+      });
+    },function(){
+        $(this).removeClass("zoneA");
+    }
+    )
+
+
+
+
+
+
+
+
+
     $(() => {
       $("#header").load("topbar.html");
       $("#footer").load("footer.html");

@@ -195,6 +195,7 @@
 
 .product-detail .indicator li img {
     max-width: 100%;
+    cursor: pointer;
 
     @include rwd(428px) {
         max-width: 90%;
@@ -523,9 +524,12 @@
 // }
 
 .product-detail .info-page-box p {
-    padding: 10px;
-    margin-top: 20px;
-    margin-left: 40px;
+    // padding: 10px;
+    // margin-top: 20px;
+    // margin-left: 40px;
+    display: block;
+    width: 80%;
+    margin: 0 20px;
     font-size: 16px;
     line-height: 1.8;
     background-color: white;

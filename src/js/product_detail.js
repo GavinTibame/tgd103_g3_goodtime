@@ -3,7 +3,8 @@ const productDetailApp = Vue.createApp({
         return {
             productDetail: {},
             orderQty: 1,
-            spec: 0
+            spec: 0,
+            idarr: ""
         }
     }, methods: {
         selectSpec(e) {
@@ -23,10 +24,17 @@ const productDetailApp = Vue.createApp({
                     })
                     .catch(err => console.log("[cart add]", err));
             }
+        },
+        geturl(){
+            let urlParams = new URLSearchParams(window.location.search);
+            let getid = urlParams.get("ID");
+            this.idarr = getid;
+            console.log(this.idarr);
         }
     }, created() {
-        axios.get("../../php/frontend/product.php?pid=" + 2)
+        axios.get("../../php/frontend/product.php" + window.location.search)
             .then(res => { // 拿商品頁的資料
+                console.log(window.location.search);
                 this.productDetail = res.data[0];
                 this.productDetail.FEATURED = this.productDetail.FEATURED.split(",");
                 this.productDetail.path = this.productDetail.path.split(",");
@@ -40,6 +48,8 @@ const productDetailApp = Vue.createApp({
                     this.productDetail.specList[ele] = this.productDetail.SELECTED[idx];
                 });
             }).catch(err => console.log("[product info]", err));
+    }, mounted(){
+        this.geturl();
     }
 }).mount("#productDetail");
 
