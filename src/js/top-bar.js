@@ -1,4 +1,4 @@
-console.log("aaaa")
+
 const navLinkList = document.querySelectorAll(
     ".anchor-box li a.scrollDetectorJS"
   ),

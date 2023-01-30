@@ -1,4 +1,3 @@
-console.log("sdfdsfsdf");
 /*-----------------------資料串接-----------------------*/
 
 const rentalJoinFormApp = Vue.createApp({
@@ -27,10 +26,10 @@ const rentalJoinFormApp = Vue.createApp({
       }
     },
 
-    fileSend() {
+    rentalTosend() {
+
       let formData = new FormData();
       formData.append('file',this.$refs.aaa.files[0])
-      console.log(formData);
       axios({
         method: "post",
         url: "../../php/frontend/rentalFormFile.php",
@@ -41,15 +40,13 @@ const rentalJoinFormApp = Vue.createApp({
         },
       }).then((res) => {
         if (res.status === 200) {
-          alert(res.data);
+          // alert(res.data);
           // window.location.href = "../html/rental_join_form.html";
         // } else {
           // alert(res.data);
         }
       });
-    },
 
-    rentalTosend() {
       if (this.activity__name == "") {
         alert("請輸入您的活動名稱");
         return false;

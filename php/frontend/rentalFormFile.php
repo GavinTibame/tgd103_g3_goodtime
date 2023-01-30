@@ -1,6 +1,6 @@
 <?php
 
-if (move_uploaded_file($_FILES["file"]["tmp_name"], "../../src/file/rentalFile/".$_FILES['file']['name'])) {
+if (move_uploaded_file($_FILES["file"]["tmp_name"], "../../file/rentalFile/".$_FILES['file']['name'])) {
 
     echo "上傳成功";
     
