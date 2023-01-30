@@ -1,5 +1,5 @@
 /*
-SQLyog Community v13.1.5  (64 bit)
+SQLyog Community v13.2.0 (64 bit)
 MySQL - 8.0.31 : Database - GOODTIME
 *********************************************************************
 */
@@ -15,6 +15,36 @@ MySQL - 8.0.31 : Database - GOODTIME
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`GOODTIME` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `GOODTIME`;
+
+/*Table structure for table `ADDRESS` */
+
+DROP TABLE IF EXISTS `ADDRESS`;
+
+CREATE TABLE `ADDRESS` (
+  `ID` int NOT NULL AUTO_INCREMENT COMMENT '地址編號',
+  `LOCATION` varchar(256) NOT NULL COMMENT '詳細地址',
+  `FK_ADDRESS_MEMBER_ID` int DEFAULT NULL COMMENT 'FK_會員編號',
+  PRIMARY KEY (`ID`),
+  KEY `FK_ADDRESS_MEMBER_ID_idx` (`FK_ADDRESS_MEMBER_ID`),
+  CONSTRAINT `FK_ADDRESS_MEMBER_ID` FOREIGN KEY (`FK_ADDRESS_MEMBER_ID`) REFERENCES `MEMBER` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+
+/*Data for the table `ADDRESS` */
+
+insert  into `ADDRESS`(`ID`,`LOCATION`,`FK_ADDRESS_MEMBER_ID`) values 
+(1,'台北市中山區南京東路三段219號5樓',5),
+(3,'110台北市信義區莊敬路334號1樓',7),
+(7,'100台北市中正區濟南路一段321號',38),
+(12,'台北市松山區敦化北路100號2樓',7),
+(13,'台北市松山區敦化北路100號2樓',5),
+(14,'249新北市八里區頂寮一街12號',39),
+(15,'333桃園市龜山區文化一路196號',1),
+(16,'新北市新莊區鳳山街56巷',48),
+(17,'235新北市中和區中正路291號',49),
+(18,'10491台北市中山區民權東路二段145號',50),
+(19,'100台北市中正區福州街12號',51),
+(20,'106台北市大安區四維路198巷38弄2號',52),
+(21,'106台北市大安區仁愛路四段10號',53);
 
 /*Table structure for table `BOOKING` */
 
@@ -88,12 +118,13 @@ CREATE TABLE `CONTACT_US` (
   `EMAIL` varchar(45) NOT NULL,
   `FEEDBACK` varchar(256) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `CONTACT_US` */
 
 insert  into `CONTACT_US`(`ID`,`NAME`,`PHONE`,`EMAIL`,`FEEDBACK`) values 
-(1,'董怡均','0983082095','qwer777889@gmail.com','無');
+(1,'董怡均','0983082095','qwer777889@gmail.com','希望能有超商取貨的功能'),
+(3,'董文碩','0989207109','sed77735@gmail.com','希望能提供貨到付款的服務');
 
 /*Table structure for table `EXPO` */
 
@@ -128,18 +159,18 @@ CREATE TABLE `EXPO` (
 /*Data for the table `EXPO` */
 
 insert  into `EXPO`(`ID`,`TITLE`,`CONTENT`,`MAIN_PHOTO`,`FK_EXPO_PAGE_ID`,`START_DATE`,`END_DATE`,`CREATE_DATE`,`EDIT_DATE`,`ADULT_PRICE`,`CONC_PRICE`,`GROUP_PRICE`,`FK_BOOKING_ID`,`TAG1`,`TAG2`,`BANNER_PHOTO`,`INFO`,`STATUS`) values 
-(1,'《Lindsayooo》新興畫家特展','最近在Instagram點擊量爆增粉絲人數達百萬最熱門的新創插畫家Lindsayoo，畫家細膩的筆觸與寫實的作畫風格，短時間快速達到百萬人數訂閱，應許多粉絲留言要求，多次連繫畫家展出活動接洽此次為韶光文創園區特別限定期間展出，千萬不要錯過好機會！限定期間2024.12.01~2024.12.32 ，購票即送限量明信片。','../img/event/event1.png',3,'2023-01-27','2023-02-28','2022-12-26 12:36:13','2023-01-26 20:38:15',300,250,230,NULL,'活動特展','手繪限定油畫','../img/event_detail/banner.png',NULL,1),
-(2,'《國際婚紗展》2023台北國際婚紗展','2023年台北國際婚紗展-櫻の戀人婚禮博覽會，以一站式婚禮體驗帶領即將步入禮堂的新人們一同感受婚紗攝影、喜餅喜宴、婚戒、婚禮小物親自挑選的幸福感！嚴選知名婚禮品牌婚紗攝影菲菲婚紗、婚戒亞立、人氣口碑推薦中西式喜餅~坊坊、洋菓子、詩特莉、小倆口等以上品牌持續增加中。 以最齊全一站式婚禮採購平台享最優惠的價格，提供正在籌劃婚禮的準新人們。','../img/event/event2.png',3,'2023-02-01','2023-02-15','2022-01-23 16:11:25','2022-01-23 16:11:25',150,130,100,NULL,'活動特展','人氣喜餅','../img/event_detail/banner2.png',NULL,1),
-(3,'《崖下的波妞》十周年特展','由吉卜力工作室製作的動畫「崖上的波妞」，今年剛好是10週年。為此，吉卜力週邊專賣店橡子共和國推出了一系列超萌的波妞掌上玩偶，5月中起在日本全國的橡子共和國店面及網路商店販售，6月更計畫加碼推出戲水組合，結合水槍功能還有紗網收納袋。','../img/event/event3.png',3,'2023-02-17','2023-02-20','2022-01-23 16:14:28','2022-01-23 16:14:28',300,250,230,NULL,'吉卜力特展','波妞造型人氣麻糬','../img/event_detail/banner3.png',NULL,1),
-(4,'《新海誠》童話特展','新海誠展從《星之聲》到《你的名字》海外首站特展將於1月26日於台北韶光登場，完整呈現《星之聲》到《你的名字，》六部作品，且完整重現《你的名字》《言葉之庭》《秒速五公分》場景­，並首度公開新海誠親筆訊息、手繪分鏡等珍貴畫面­，喜歡新海城的您千萬不可以錯過！','../img/event/event4.png',3,'2023-03-01','2023-03-30','2022-01-23 16:16:55','2022-01-23 16:16:55',300,250,230,NULL,'電影特展','台灣限定明信片','../img/event_detail/banner4.png',NULL,1),
-(5,'《ヒグチユウコ》台灣限定特展','ヒグチユウコ(Higuchi Yuko)，樋口裕子為居住於日本的專業畫家和繪本作家。曾多次與 GUCCI 等多家公司合作。\n\n2014年出版第一本繪本《迷路的貓》。2018年首度與GUCCI 合作。2019年於東京表參道站附近開設個人的商店/畫廊「ボリス雑貨店(Boris Zakkaten)」，並定期舉辦展覽。目前，「ヒグチユウコCIRCUS (樋口裕子馬戲團)」展正在各大美術館巡迴展覽中。','../img/event/event5.png',3,'2023-03-05','2023-03-15','2022-01-23 16:18:02','2022-01-23 16:18:02',350,300,250,NULL,'插畫特展','台灣限定周邊絲巾','../img/event_detail/banner5.png',NULL,1),
-(6,'《再見梵谷》光影體驗展','首展至今十餘年，巡迴超過70個城市，《再見梵谷-光影體驗展》因應場地環境不斷蛻變，呈現大異其趣而各自精彩的面貌。製作團隊再度大膽突破展覽過去規格，巡迴十多年來首度加入黑色鏡面視覺效果，將三十多座巨幕環繞的視覺饗宴向下延伸，讓觀眾一腳踩進展區瞬間，便宛如陷入梵谷瑰麗迷幻的異境，帶給觀眾截然不同的感官震撼。','../img/event/event6.png',3,'2023-01-26','2023-03-31','2022-01-23 16:22:57','2022-01-23 16:22:57',350,300,250,NULL,'名匠特展','原稿明信片','../img/event_detail/banner8.png',NULL,1),
-(7,'《Game Show》台北國際電玩展','台北國際電玩展在世界的激烈競爭中站穩了腳步。作為全球第一檔及台灣唯一的遊戲展會，我們不畏困難，努力前行，始終走在最前端。面對世界的瞬息萬變，台北國際電玩展自2021年起以雙軌並行方式，舉辦線上暨線下展覽，並推出Taipei Game Show ONLINE，藉由線上節目讓全球注目的大作進行新訊發表，為世界各地的產業人士與玩家帶來全方位最新遊戲體驗。','../img/event/event7.png',3,'2023-02-01','2023-02-08','2022-01-23 16:26:14','2022-01-23 16:26:14',250,230,200,NULL,'國際電玩展','限定紀念品','../img/event_detail/banner6.png',NULL,1),
-(8,'《諸神黃昏》北歐神話特展','即便在北歐神話裡，諸神也並非長生不死。諸神明白所有九個國度的居住者最終全面滅亡。這意味著將會有一場巨人跟諸神之間的最後一戰，且最終會以一場熊熊火焰燃燒毀掉九個國度作為落幕。「諸神的黃昏」（Ragnarok）就是北歐神話預言中的災難日，當不幸之日來臨時，黑狼斯庫爾（Skoll）會吞食太陽，牠的兄弟哈提（Hati）則會吃掉月亮。','../img/event/event8.png',3,'2023-01-31','2023-02-23','2022-01-23 16:29:48','2022-01-23 16:29:48',250,230,200,NULL,'神話特展','神話明信片','../img/event_detail/banner7.png',NULL,1),
-(9,'《流體藝術》暈染雙人流體畫展','流體藝術是一種抽象有趣、創作簡單的的藝術形式，也是一種反傳統筆觸畫出的作品。不需畫筆的你，可以隨心所欲，透過澆灌、旋轉、拖曳、風吹、火烤等方式，使作品能呈現萬種風貌。在操作過程中感受自己的內在宇宙，釋放一切情緒，可以恣意奔放，可以成熟內斂，在沒有框條拘束下的畫布，讓心靈與流動的線條合而為一，呈現獨一無二的自己。','../img/event/event9.png',3,'2023-02-02','2023-02-28','2022-01-23 16:33:21','2022-01-23 16:33:21',250,230,200,NULL,'多媒體特展','限定印章','../img/event_detail/banner9.png',NULL,1),
-(10,'《名窯特展》琺瑯彩瓷特展','當我們看文物時，首先映入眼簾的是它的造型和裝飾紋樣；再進一步思考時，就又想要瞭解相關的時代背景和製作技術。從這個角度看清朝康熙、雍正和乾隆三個時期（1662-1795）的琺瑯彩瓷，除了推薦這是十八世紀最具代表性的瓷器之外，也想透過展覽說明因應彩料的研發與使用，以及主政者三位皇帝對官窯的不同訴求，而形成的三個階段的風格樣式。','../img/event/event10.png',3,'2023-02-05','2023-02-15','2022-01-23 16:37:45','2022-01-23 16:37:45',350,300,250,NULL,'瓷器特展','獨家小瓷器','../img/event_detail/banner10.png',NULL,1),
-(11,'《微縮人生》微型展的奇幻世界','12萬粉絲朝聖的微型展將帶著新作品再次席捲全台，這次是田中老師第二次來台舉辦大型個展，展區主題橫跨自然、冒險、旅行、工作者、運動、家庭等，在炸雞樹下乘涼、飛向切片食物宇宙、在牛仔褲海浪中乘風破浪、進入充滿機會與命運的骰子道路，最後再與愛人在鈕扣花中結為連理，跟著田中達也大師的腳步，看盡、走過人生的所有片段，喜歡微型展的您千萬不能錯過！','../img/event/event11.png',3,'2023-02-16','2023-03-31','2022-01-23 16:42:01','2022-01-23 16:42:01',300,250,230,NULL,'攝影特展','微型紀念品','../img/event_detail/banner11.png',NULL,1),
-(12,'《美食饗味》2023台灣國際美食展','專業分區 完整展出 - 定位鮮明，滿足小眾需求，成就零售未來。\n匯集28國食品展現臺灣與全球特色食品，結合食品加工/包裝機械、包裝材料及餐飲設備，完整呈現食品產業上中下游供應鏈，\n歡迎食品、飯店、餐飲設備及通路商等相關業者預先登錄參觀！','../img/event/event12.png',3,'2023-02-16','2023-02-28','2022-01-23 16:57:29','2022-01-23 16:57:29',280,250,230,NULL,'美食特展','各國美食','../img/event_detail/banner12.png',NULL,1);
+(1,'《Lindsayooo》新興畫家特展','最近在Instagram點擊量爆增粉絲人數達百萬最熱門的新創插畫家Lindsayoo，畫家細膩的筆觸與寫實的作畫風格，短時間快速達到百萬人數訂閱，應許多粉絲留言要求，多次連繫畫家展出活動接洽此次為韶光文創園區特別限定期間展出，千萬不要錯過好機會！限定期間2024.12.01~2024.12.32 ，購票即送限量明信片。','../img/event/event1.png',3,'2023-02-05','2023-02-10','2022-12-26 12:36:13','2023-01-26 20:38:15',300,250,230,NULL,'活動特展','手繪限定油畫','../img/event_detail/banner.png','A',1),
+(2,'《國際婚紗展》2023台北國際婚紗展','2023年台北國際婚紗展-櫻の戀人婚禮博覽會，以一站式婚禮體驗帶領即將步入禮堂的新人們一同感受婚紗攝影、喜餅喜宴、婚戒、婚禮小物親自挑選的幸福感！嚴選知名婚禮品牌婚紗攝影菲菲婚紗、婚戒亞立、人氣口碑推薦中西式喜餅~坊坊、洋菓子、詩特莉、小倆口等以上品牌持續增加中。 以最齊全一站式婚禮採購平台享最優惠的價格，提供正在籌劃婚禮的準新人們。','../img/event/event2.png',3,'2023-02-20','2023-02-28','2022-01-23 16:11:25','2022-01-23 16:11:25',150,130,100,NULL,'活動特展','人氣喜餅','../img/event_detail/banner2.png','B',1),
+(3,'《崖下的波妞》十周年特展','由吉卜力工作室製作的動畫「崖上的波妞」，今年剛好是10週年。為此，吉卜力週邊專賣店橡子共和國推出了一系列超萌的波妞掌上玩偶，5月中起在日本全國的橡子共和國店面及網路商店販售，6月更計畫加碼推出戲水組合，結合水槍功能還有紗網收納袋。','../img/event/event3.png',3,'2023-03-10','2023-03-15','2022-01-23 16:14:28','2022-01-23 16:14:28',300,250,230,NULL,'吉卜力特展','波妞造型人氣麻糬','../img/event_detail/banner3.png','C',1),
+(4,'《新海誠》童話特展','新海誠展從《星之聲》到《你的名字》海外首站特展將於1月26日於台北韶光登場，完整呈現《星之聲》到《你的名字，》六部作品，且完整重現《你的名字》《言葉之庭》《秒速五公分》場景­，並首度公開新海誠親筆訊息、手繪分鏡等珍貴畫面­，喜歡新海城的您千萬不可以錯過！','../img/event/event4.png',3,'2023-03-15','2023-03-25','2022-01-23 16:16:55','2022-01-23 16:16:55',300,250,230,NULL,'電影特展','台灣限定明信片','../img/event_detail/banner4.png','D',1),
+(5,'《ヒグチユウコ》台灣限定特展','ヒグチユウコ(Higuchi Yuko)，樋口裕子為居住於日本的專業畫家和繪本作家。曾多次與 GUCCI 等多家公司合作。\n\n2014年出版第一本繪本《迷路的貓》。2018年首度與GUCCI 合作。2019年於東京表參道站附近開設個人的商店/畫廊「ボリス雑貨店(Boris Zakkaten)」，並定期舉辦展覽。目前，「ヒグチユウコCIRCUS (樋口裕子馬戲團)」展正在各大美術館巡迴展覽中。','../img/event/event5.png',3,'2023-03-05','2023-03-15','2022-01-23 16:18:02','2022-01-23 16:18:02',350,300,250,NULL,'插畫特展','台灣限定周邊絲巾','../img/event_detail/banner5.png','A',1),
+(6,'《再見梵谷》光影體驗展','首展至今十餘年，巡迴超過70個城市，《再見梵谷-光影體驗展》因應場地環境不斷蛻變，呈現大異其趣而各自精彩的面貌。製作團隊再度大膽突破展覽過去規格，巡迴十多年來首度加入黑色鏡面視覺效果，將三十多座巨幕環繞的視覺饗宴向下延伸，讓觀眾一腳踩進展區瞬間，便宛如陷入梵谷瑰麗迷幻的異境，帶給觀眾截然不同的感官震撼。','../img/event/event6.png',3,'2023-04-01','2023-04-10','2022-01-23 16:22:57','2022-01-23 16:22:57',350,300,250,NULL,'名匠特展','原稿明信片','../img/event_detail/banner8.png','B',1),
+(7,'《Game Show》台北國際電玩展','台北國際電玩展在世界的激烈競爭中站穩了腳步。作為全球第一檔及台灣唯一的遊戲展會，我們不畏困難，努力前行，始終走在最前端。面對世界的瞬息萬變，台北國際電玩展自2021年起以雙軌並行方式，舉辦線上暨線下展覽，並推出Taipei Game Show ONLINE，藉由線上節目讓全球注目的大作進行新訊發表，為世界各地的產業人士與玩家帶來全方位最新遊戲體驗。','../img/event/event7.png',3,'2023-04-15','2023-04-18','2022-01-23 16:26:14','2022-01-23 16:26:14',250,230,200,NULL,'國際電玩展','限定紀念品','../img/event_detail/banner6.png','C',1),
+(8,'《諸神黃昏》北歐神話特展','即便在北歐神話裡，諸神也並非長生不死。諸神明白所有九個國度的居住者最終全面滅亡。這意味著將會有一場巨人跟諸神之間的最後一戰，且最終會以一場熊熊火焰燃燒毀掉九個國度作為落幕。「諸神的黃昏」（Ragnarok）就是北歐神話預言中的災難日，當不幸之日來臨時，黑狼斯庫爾（Skoll）會吞食太陽，牠的兄弟哈提（Hati）則會吃掉月亮。','../img/event/event8.png',3,'2023-05-05','2023-05-15','2022-01-23 16:29:48','2022-01-23 16:29:48',250,230,200,NULL,'神話特展','神話明信片','../img/event_detail/banner7.png','D',1),
+(9,'《流體藝術》暈染雙人流體畫展','流體藝術是一種抽象有趣、創作簡單的的藝術形式，也是一種反傳統筆觸畫出的作品。不需畫筆的你，可以隨心所欲，透過澆灌、旋轉、拖曳、風吹、火烤等方式，使作品能呈現萬種風貌。在操作過程中感受自己的內在宇宙，釋放一切情緒，可以恣意奔放，可以成熟內斂，在沒有框條拘束下的畫布，讓心靈與流動的線條合而為一，呈現獨一無二的自己。','../img/event/event9.png',3,'2023-05-25','2023-05-31','2022-01-23 16:33:21','2022-01-23 16:33:21',250,230,200,NULL,'多媒體特展','限定印章','../img/event_detail/banner9.png','A',1),
+(10,'《名窯特展》琺瑯彩瓷特展','當我們看文物時，首先映入眼簾的是它的造型和裝飾紋樣；再進一步思考時，就又想要瞭解相關的時代背景和製作技術。從這個角度看清朝康熙、雍正和乾隆三個時期（1662-1795）的琺瑯彩瓷，除了推薦這是十八世紀最具代表性的瓷器之外，也想透過展覽說明因應彩料的研發與使用，以及主政者三位皇帝對官窯的不同訴求，而形成的三個階段的風格樣式。','../img/event/event10.png',3,'2023-06-01','2023-06-10','2022-01-23 16:37:45','2022-01-23 16:37:45',350,300,250,NULL,'瓷器特展','獨家小瓷器','../img/event_detail/banner10.png','B',1),
+(11,'《微縮人生》微型展的奇幻世界','12萬粉絲朝聖的微型展將帶著新作品再次席捲全台，這次是田中老師第二次來台舉辦大型個展，展區主題橫跨自然、冒險、旅行、工作者、運動、家庭等，在炸雞樹下乘涼、飛向切片食物宇宙、在牛仔褲海浪中乘風破浪、進入充滿機會與命運的骰子道路，最後再與愛人在鈕扣花中結為連理，跟著田中達也大師的腳步，看盡、走過人生的所有片段，喜歡微型展的您千萬不能錯過！','../img/event/event11.png',3,'2023-06-15','2023-06-20','2022-01-23 16:42:01','2022-01-23 16:42:01',300,250,230,NULL,'攝影特展','微型紀念品','../img/event_detail/banner11.png','C',1),
+(12,'《美食饗味》2023台灣國際美食展','專業分區 完整展出 - 定位鮮明，滿足小眾需求，成就零售未來。\n匯集28國食品展現臺灣與全球特色食品，結合食品加工/包裝機械、包裝材料及餐飲設備，完整呈現食品產業上中下游供應鏈，\n歡迎食品、飯店、餐飲設備及通路商等相關業者預先登錄參觀！','../img/event/event12.png',3,'2023-07-01','2023-07-15','2022-01-23 16:57:29','2022-01-23 16:57:29',280,250,230,NULL,'美食特展','各國美食','../img/event_detail/banner12.png','D',1);
 
 /*Table structure for table `INFO` */
 
@@ -208,20 +239,25 @@ CREATE TABLE `LOCATION` (
   `ID` int NOT NULL AUTO_INCREMENT COMMENT '場地編號',
   `NAME` varchar(45) NOT NULL COMMENT '場地名稱',
   `PRICE` mediumint NOT NULL COMMENT '出租訂價',
-  `DESC` json NOT NULL COMMENT '場地描述',
+  `DESC` varchar(256) NOT NULL COMMENT '場地描述',
   `DEVICE` varchar(256) NOT NULL COMMENT '場地設備',
   `RULE` varchar(256) NOT NULL COMMENT '場地規範',
   `AREA` varchar(128) NOT NULL COMMENT '場地空間',
-  `MAIN_PHOTO` json NOT NULL COMMENT '場地主圖',
+  `MAIN_PHOTO` varchar(256) NOT NULL COMMENT '場地主圖',
   `LOCATED` varchar(64) NOT NULL COMMENT '場地位置',
   `STATUS` tinyint(1) NOT NULL COMMENT '開放預約狀態',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `LOCATION` */
 
 insert  into `LOCATION`(`ID`,`NAME`,`PRICE`,`DESC`,`DEVICE`,`RULE`,`AREA`,`MAIN_PHOTO`,`LOCATED`,`STATUS`) values 
-(1,'1號倉庫',10000,'{\"構造\": \"室內為長廊式空間，鋼骨鋼筋混凝土柱樑系統，加強磚造結構\"}','基礎照明、空調、簡易掃具','園區嚴禁使用任何火具。','141坪','{\"0\": \"場地主圖\"}','由大門進來後左轉到底即可抵達1號倉庫',0);
+(1,'A館',70000,'本場地約可容納100~200人，適合大型記者會、新品發表會、展覽活動、頒獎典禮、國際展演會場、教育訓練會場、大型講座等使用。','基礎照明、空調、給排水','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','74坪','{\"0\": \"場地主圖\"}','由韶光文創園區大門進來後左轉第一間倉庫即為A館',1),
+(2,'B館',60000,'本場地約可容納100~120人，適合產品發表會、展覽活動、講座等使用。','基礎照明、空調、給排水','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','60坪','{\"0\": \"場地主圖\"}','由韶光文創園區大門進來後左轉第二間倉庫即為B館',1),
+(3,'C館',80000,'本場地約可容納150~250人，適合記者會、座談會、小型研習會、教育訓練等使用。','基礎照明、空調、給排水','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','120坪','{\"0\": \"場地主圖\"}','由韶光文創園區大門進來後左轉第三間倉庫即為C館',1),
+(4,'D館',90000,'任何大型藝文演出、演唱會、發表會、展覽、車展等均可在此辦理。','基礎照明、空調、給排水','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','299坪','{\"0\": \"場地主圖\"}','由韶光文創園區大門進來後左轉第四間倉庫即為D館',1),
+(5,'E區(文創大街)',50000,'適合小型快閃店或市集活動等使用，禁止使用明火，戶外空間請避免餐飲調理或現場食品包裝。','基礎用電或自備發電機','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','全區租用(60*6米)','{\"0\": \"場地主圖\"}','位於韶光文創園區與台北文創大樓交界處',1),
+(6,'周邊攤位',25000,'適合市集活動，禁止使用明火。','無提供電力，可自備發電機','園區嚴禁使用任何火具，場地租借費用不含任何場地清潔，結束後需自行復原。','長60公尺、寬3公尺','{\"0\": \"場地主圖\"}','緊靠園區生態池湖畔',1);
 
 /*Table structure for table `MEMBER` */
 
@@ -233,12 +269,12 @@ CREATE TABLE `MEMBER` (
   `EMAIL` varchar(100) NOT NULL COMMENT '會員電郵',
   `PASSWORD` varchar(45) NOT NULL COMMENT '會員密碼',
   `PHONE` varchar(10) NOT NULL COMMENT '會員電話',
-  `VERIFY` tinyint(1) NOT NULL DEFAULT '0' COMMENT '會員狀態',
+  `VERIFY` tinyint(1) NOT NULL DEFAULT '1' COMMENT '會員狀態',
   `FK_ROLE_ID` int NOT NULL DEFAULT '2' COMMENT '會員權限代碼',
   PRIMARY KEY (`ID`),
   KEY `FK_ROLE_ID_idx` (`FK_ROLE_ID`),
   CONSTRAINT `FK_ROLE_ID` FOREIGN KEY (`FK_ROLE_ID`) REFERENCES `ROLE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `MEMBER` */
 
@@ -247,7 +283,13 @@ insert  into `MEMBER`(`ID`,`USERNAME`,`EMAIL`,`PASSWORD`,`PHONE`,`VERIFY`,`FK_RO
 (5,'member1','member@goodtime.com','member1','0987654321',1,2),
 (7,'member2','member2@goodtime.com','member2','0987654321',1,2),
 (38,'member3','member3@goodtime.com','member3','0987654321',1,2),
-(39,'董怡均','qwer777889@gmail.com','sed77789','0983082095',1,2);
+(39,'董怡均','qwer777889@gmail.com','sed77789','0983082095',1,2),
+(48,'王淑英','dskfhgkjdsf@gmail.com','sed74152','0987654321',1,2),
+(49,'浩文','gavin@goodtime.com','123456','0909090909',1,2),
+(50,'思平','andy@goodtime.com','123456','0909090909',1,2),
+(51,'全穀','bryan@goodtime.com','123456','0909090909',1,2),
+(52,'金玲','chin@goodtime.com','123456','0909009009',1,2),
+(53,'子瑢','vivien@goodtime.com','123456','0909090909',1,2);
 
 /*Table structure for table `PAGE` */
 
@@ -565,13 +607,12 @@ CREATE TABLE `RENTAL_FORM` (
   `OTHER_DEMANDS` varchar(45) NOT NULL,
   `FEEDBACK` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `RENTAL_FORM` */
 
 insert  into `RENTAL_FORM`(`ID`,`EVENT_NAME`,`APPLICANT_UNIT`,`PRINCIPAL_NAME`,`UNIT_TYPE`,`CONTACT_NAME`,`CONTACT_PHONE`,`LOCATION`,`START_DATE`,`END_DATE`,`NATURE_ACT`,`ORNAMENTAL_ACT`,`OTHER_DEMANDS`,`FEEDBACK`) values 
-(1,'韶光藝術展','韶光文創園區','董怡均','個人','董怡均','0983082095','A館','2023-02-01','2023-02-28','其他','不開放','無代售需求','無'),
-(90,'sadfsadf','sadfsadf','sadfsadf','一般團體','sadfsa','sadfsdf','D館','2023-01-04','2023-01-13','個展/畢展,大型展覽/聯展','自由入場','代售周邊商品','sadf');
+(1,'韶光藝術展','韶光文創園區','董怡均','個人','董怡均','0983082095','A館','2023-02-01','2023-02-28','其他','不開放','無代售需求','無');
 
 /*Table structure for table `ROLE` */
 
@@ -616,7 +657,7 @@ CREATE TABLE `SHOPS_FORM` (
   `STAY_TIME` varchar(2) NOT NULL,
   `FEEDBACK` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `SHOPS_FORM` */
 
@@ -835,8 +876,8 @@ DROP TABLE IF EXISTS `b_rental`;
  `ID` int ,
  `NAME` varchar(45) ,
  `PRICE` mediumint ,
- `DESC` json ,
- `MAIN_PHOTO` json ,
+ `DESC` varchar(256) ,
+ `MAIN_PHOTO` varchar(256) ,
  `LOCATED` varchar(64) ,
  `STATUS` tinyint(1) 
 )*/;
@@ -852,11 +893,11 @@ DROP TABLE IF EXISTS `b_rental_detail`;
  `ID` int ,
  `NAME` varchar(45) ,
  `PRICE` mediumint ,
- `DESC` json ,
+ `DESC` varchar(256) ,
  `DEVICE` varchar(256) ,
  `RULE` varchar(256) ,
  `AREA` varchar(128) ,
- `MAIN_PHOTO` json ,
+ `MAIN_PHOTO` varchar(256) ,
  `LOCATED` varchar(64) ,
  `STATUS` tinyint(1) 
 )*/;
@@ -967,11 +1008,11 @@ DROP TABLE IF EXISTS `f_rental`;
  `ID` int ,
  `NAME` varchar(45) ,
  `PRICE` mediumint ,
- `DESC` json ,
+ `DESC` varchar(256) ,
  `DEVICE` varchar(256) ,
  `RULE` varchar(256) ,
  `AREA` varchar(128) ,
- `MAIN_PHOTO` json ,
+ `MAIN_PHOTO` varchar(256) ,
  `LOCATED` varchar(64) ,
  `STATUS` tinyint(1) 
 )*/;
@@ -986,7 +1027,7 @@ DROP TABLE IF EXISTS `f_rental_inner`;
 /*!50001 CREATE TABLE  `f_rental_inner`(
  `ID` int ,
  `NAME` varchar(45) ,
- `MAIN_PHOTO` json ,
+ `MAIN_PHOTO` varchar(256) ,
  `START_DATE` date ,
  `END_DATE` date 
 )*/;

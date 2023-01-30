@@ -102,6 +102,7 @@ const memberCenterApp = Vue.createApp({
         alert("請輸入您的地址");
         this.addr[e].clickId = "noEdit";
       }
+
     },
     //新增地址按鈕
     addAddr() {
@@ -118,6 +119,7 @@ const memberCenterApp = Vue.createApp({
       } else {
         alert("請先輸入您的地址");
       }
+
     },
     //刪除鈕
     deletehtml(e) {
@@ -152,6 +154,8 @@ const memberCenterApp = Vue.createApp({
           });
           this.poList = this.memberCenter.po;
           this.poDetail = this.poList;
+          console.log(this.memberCenter);
+          // console.log(this.poDetail)
         })
         //catch:抓取Promise 上異常
         .catch((err) => console.log("[login error]", err));
