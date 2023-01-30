@@ -74,7 +74,7 @@
 
             <div class="tab" id="navbar">
                 <button class="tablinks" id="all">所有類別</button>
-                <button class="tablinks" id="events_only">展覽商品</button>
+                <button class="tablinks" id="events_only" >展覽商品</button>
                 <select id="event-type" data-filter="event" class="filter-event filter form-control">
 					<option value="">以展覽查詢</option>
 				</select>
@@ -87,7 +87,7 @@
             <ul id="products">
                 
                 <li class="events" v-for="(store, i) in storeList" :key="store.ID">
-                    <a :href="'./store.html?eid=' + store.ID">
+                    <a :href="'./product_detail_01.html?eid=' + store.ID">
                         <div class="shop__pic">
                             <img :src="store.MAIN_PHOTO" alt=""/>
                             <div class="shop__type">{{store.TAG1}}</div>
