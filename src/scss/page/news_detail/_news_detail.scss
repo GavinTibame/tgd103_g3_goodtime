@@ -93,6 +93,7 @@
         width: fit-content;
         padding-top: 60px;
         margin: 0 auto;
+        width: 90%;
 
         @include rwd(768px) {
             font-size: 14px;

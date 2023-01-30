@@ -38,7 +38,7 @@
         </div> -->
         <!-- 換頁 -->
         <div class="change-next-page" id="change-next-page" v-for="(news_detail, index) in dataList">
-            <ul :class="{'no_line': idarr == '1' , 'no_linel': idarr == '12'}">
+            <ul :class="{'no_line': idarr == '1' , 'no_linel': idarr == '15'}">
                 <a :href="'news_detail.html?ID='+(news_detail.ID-1)" id="arrow-left"><li class="arrow-left"></li>PREV</a>
                 <a href="new.html#"><li></li>BACK TO LIST</a>
                 <a :href="'news_detail.html?ID='+(news_detail.ID+1)" id="arrow-right">NEXT<li class="arrow-right" ></li></a>
@@ -90,7 +90,7 @@
                 if (this.idarr == '1'){
                     document.querySelector('#arrow-left').style.visibility = "hidden";
                 }
-                if (this.idarr == '12'){
+                if (this.idarr == '15'){
                     document.querySelector('#arrow-right').style.visibility = "hidden";
                 }
             }
