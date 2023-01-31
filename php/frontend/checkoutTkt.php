@@ -12,19 +12,7 @@ $first_key = key($array);
 $key = json_decode($first_key, true);
 // print_r($key);
 
-function checkout($dbn, $mid, $eid, $price){
 
-    $sql = "DELETE FROM TICKET 
-            WHERE MEMBER_ID = :mid 
-            AND EXPO_ID = :eid 
-            AND EXPO_PRICE = :price";
-    
-    $statement = $dbn->prepare($sql);
-    $statement->bindValue(":mid", $mid);
-    $statement->bindValue(":eid", $eid);
-    $statement->bindValue(":price", $price);
-    $statement->execute();
-}
 
 function calcAmt($dbn, $mid, $eid, $price){
     $amt = 0;
@@ -55,7 +43,7 @@ foreach($key as $eid => $priceArray){
         // print_r($price);
         // print_r("<br>");
         // $amt += calcAmt($dbn, $mid, $eid, $price);
-        $amt += calcAmt($dbn, 5, $eid, $priceArray["price"]) * $priceArray["qty"];
+        $amt += calcAmt($dbn, $mid, $eid, $priceArray["price"]) * $priceArray["qty"];
         // checkout($dbn, $mid, $eid, $price);
         // checkout($dbn, 5, $eid, $price);
     // }

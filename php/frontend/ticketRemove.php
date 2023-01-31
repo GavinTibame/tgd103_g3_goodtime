@@ -3,7 +3,8 @@
     include("../verify.php");
 
     // $mid = $_POST["mid"];
-    $mid = 5; 
+    $mid = isMemberLogin();
+    // $mid = 5; 
     $eid = $_POST["eid"];
     $price = $_POST["price"];
 
