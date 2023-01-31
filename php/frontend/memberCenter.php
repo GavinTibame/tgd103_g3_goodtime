@@ -7,7 +7,7 @@
     include("newPassword.php");
 
     $mid = isMemberLogin();
-    $mid = "5";
+    // $mid = "5";
     
     
     
