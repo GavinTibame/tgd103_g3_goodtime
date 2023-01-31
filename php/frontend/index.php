@@ -4,14 +4,15 @@
     include("../verify.php");
     
     //輪播
-//     $pdo = connectDB();
-//     $sql = "SELECT CONTENT, MAIN_PHOTO
-//             FROM EXPO
-//             limit 0, 5
-//             where `STATUS` = 1";
-//     $statement = $pdo->prepare($sql);
-//     $statement->execute();
-//     $data["slider"] = $statement->fetchAll();
+    $pdo = connectDB();
+    $sql = "SELECT CONTENT, MAIN_PHOTO,ID
+            FROM f_expo_inner
+            -- where `STATUS` = 1
+            order by END_DATE desc 
+            limit 0, 5";
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $data["slider"] = $statement->fetchAll();
     
     //news 渲染
     $pdo = connectDB();
