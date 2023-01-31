@@ -13,13 +13,17 @@ const shoppingCartApp = Vue.createApp({
     }, computed: {
         totalAmount() {
             let amt = 0;
-            this.cartList.forEach(product => {
-                amt += product.QTY * product.PRICE;
-            })
-            this.ticketList.forEach(expo => {
-                amt += expo.QTY * expo.EXPO_PRICE
-            })
-            return amt;
+            if (this.cartList != [] || this.ticketList != []) {
+                this.cartList.forEach(product => {
+                    amt += product.QTY * product.PRICE;
+                })
+                this.ticketList.forEach(expo => {
+                    amt += expo.QTY * expo.EXPO_PRICE
+                })
+                return amt;
+            } else {
+                return amt;
+            }
         }
     }, methods: {
         atSelectAll() {
