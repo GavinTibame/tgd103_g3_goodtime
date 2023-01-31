@@ -335,7 +335,7 @@
 }
 
 .product-detail .function-btn-group_btn {
-    margin-right: 10px;
+    margin-right: 5%;
     width: 60px;
     height: 30px;
     position: relative;
@@ -354,8 +354,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 4px;
-    outline: 2px solid #C3BCB1;
+    border-radius: 3px;
+    outline: 1.5px solid #C3BCB1;
     color: #C3BCB1;
     height: 30px;
     line-height: 30px;
@@ -432,7 +432,8 @@
     border: 1px solid $primary2-color;
     font-size: $p;
     color: $secondary4-color;
-    width: 100px;
+    width: 80%;
+    // width: 100px;
     line-height: 23px;
     padding: 0 3px;
 
@@ -565,13 +566,13 @@
 .product-detail .cart-btn {
     margin-top: 30px;
     margin-left: 40px;
-    width: 120px;
+    width: 150px;
     height: 40px;
     font-size: 16px;
     font-weight: 500;
     color: #533C1B;
     background-color: #fff;
-    border: #533C1B 3px solid;
+    border: #533C1B 1.5px solid;
     border-radius: 4px;
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
@@ -618,13 +619,13 @@
 .product-detail .buy-btn {
     margin-top: 20px;
     margin-left: 20px;
-    width: 120px;
+    width: 150px;
     height: 40px;
     font-size: 16px;
     font-weight: 500;
     color: #fff;
     background-color: #533C1B;
-    border: #533C1B 3px solid;
+    border: #533C1B 1.5px solid;
     border-radius: 4px;
     box-shadow: 0 0 0px #ccc;
     transition: all 0.3s;
