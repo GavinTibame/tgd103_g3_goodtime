@@ -29,7 +29,7 @@ function checkout($dbn, $mid, $pid, $sid){
 function calcAmt($dbn, $mid, $pid, $sid){
     $amt = 0;
 
-    $sql = "SELECT PRICE, QTY 
+    $sql = "SELECT PRICE 
             FROM PRODUCT, CART 
             WHERE PRODUCT.ID = CART.FK_CART_PRODUCT_ID
             AND CART.FK_CART_MEMBER_ID = :mid 
@@ -43,7 +43,7 @@ function calcAmt($dbn, $mid, $pid, $sid){
     $statement->execute();
     $charge = $statement->fetchAll();
     // print_r($charge);
-    $amt = $charge[0]["PRICE"] * $charge[0]["QTY"];
+    $amt = $charge[0]["PRICE"];
     return $amt;
 }
 
@@ -52,13 +52,16 @@ $dbn->beginTransaction();
 $amt = 0;
 foreach($key as $pid => $sidArray){
     // print_r($pid);
-    foreach($sidArray as $sid){
-        // print_r($sid);
+    //     print_r("<br>");
+    // foreach($sidArray as $sid => $qty){
+        // print_r($sidArray["sid"]);
+        // print_r($sidArray["qty"]);
+        // print_r(calcAmt($dbn, 5, 1, 5));
         // $amt += calcAmt($dbn, $mid, $pid, $sid);
-        $amt += calcAmt($dbn, 5, $pid, $sid);
+        $amt += calcAmt($dbn, 5, $pid, $sidArray["sid"]) * $sidArray["qty"];
         // checkout($dbn, $mid, $pid, $sid);
         // checkout($dbn, 5, $pid, $sid);
-    }
+    // }
     
 };
 
