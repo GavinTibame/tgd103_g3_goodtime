@@ -139,7 +139,7 @@
 
             <div class="subtotal">
                 <p>小計：</p>
-                <p>NT$590</p>
+                <p>NT${{subtotal}}</p>
             </div>
 
             <div class="freight">
@@ -149,7 +149,7 @@
 
             <div class="total">
                 <p>合計：</p>
-                <p>NT$590</p>
+                <p>NT${{subtotal +60}}</p>
             </div>
 
         </div>
@@ -167,17 +167,17 @@
 
                 <ul class="name">
                     <li>顧客姓名</li>
-                    <li class="member__info">會員姓名</li>
+                    <li class="member__info">{{member.USERNAME}}</li>
                 </ul>
 
                 <ul class="email">
                     <li>電子信箱</li>
-                    <li class="member__info">會員信箱</li>
+                    <li class="member__info">{{member.EMAIL}}</li>
                 </ul>
 
                 <ul class="mobile">
                     <li>聯絡電話</li>
-                    <li class="member__info">會員手機</li>
+                    <li class="member__info">{{member.PHONE}}</li>
                 </ul>
 
                 <!-------- 訂單備註 -------->
@@ -212,13 +212,14 @@
                 <h2>已選擇的送貨方式<span>宅配</span></h2>
 
                 <label for="check">
-                    <input type="checkbox" class="check" id="check">收件人資料與顧客資料相同
+                    <input type="checkbox" class="check" id="check" @click="atCheck"
+                        :checked="buyName === member.USERNAME && buyTel === member.PHONE">收件人資料與顧客資料相同
                 </label>
 
                 <!-- 收件人名稱 -->
                 <div class="name">
                     <h2>收件人名稱</h2>
-                    <input type="text" class="name" placeholder="收件人姓名">
+                    <input type="text" class="name" placeholder="收件人姓名" v-model="buyName">
                     <p>請填入收件人真實姓名，以確保順利收件</p>
                 </div>
 
@@ -226,7 +227,7 @@
                 <!-- 收件人電話 -->
                 <div class="phone">
                     <h2>收件人電話號碼</h2>
-                    <input type="text" class="phone" placeholder="收件人電話">
+                    <input type="text" class="phone" placeholder="收件人電話" v-model="buyTel">
                 </div>
 
 
@@ -254,7 +255,7 @@
                         </select>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <input type="text" placeholder="卡號">
                     </li>
 
@@ -268,7 +269,7 @@
 
                     <li>
                         <input type="text" placeholder="安全碼">
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -304,6 +305,7 @@
         });
     </script>
     <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script src="../js/checkout.js"></script>
 </body>
 
