@@ -8,6 +8,7 @@
     $sql = "SELECT TITLE, DATE(EDIT_DATE) as EDIT_DATE, `DESC`, ID
             FROM GOODTIME.f_index_2
             -- 依照EDIT_DATE升冪排列
+            where `STATUS` = 1
             order by EDIT_DATE desc ";
     $statement = $pdo->prepare($sql);
     $statement->execute();

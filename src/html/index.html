@@ -354,7 +354,6 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
-  <!-- <script src="../js/index.js"></script> -->
   <script>
   //掛載資料庫
   const index = Vue.createApp({
@@ -379,9 +378,8 @@
           eventBorderColor:"#C09351",
           validRange: function(nowDate) {
             return {
-              start: '2023-01-18',
+              start: '2023-02-01',
               end:'2023-12-20'
-              // end: nowDate.clone().add(1, 'months')
             };
           },
           events: this.events
@@ -553,7 +551,7 @@
                       }
                   }).mount("#viewcounter");
 </script>
-
+<script>
 //漢堡線控制
 let menuIcon = document.getElementById('menu-icon-box');
 let menu = document.getElementById('topbar-btn-group');
