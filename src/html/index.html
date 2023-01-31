@@ -251,7 +251,7 @@
             <h4>洋桔梗甜點工作室</h4>
             <p>
               甜點總是扮演著愛、甜蜜、慶祝和療傷的角色。
-              希望我的甜點可以帶給每一位滿滿的幸福！
+              希望我的甜點可以帶給每一位滿滿幸福！
             </p>
             <div class="more">More</div>
           </a>
@@ -345,16 +345,9 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
  
-    //member-icon-2控制
-    let memberIcon2 = document.getElementById('member-icon-2');
-    memberIcon2.addEventListener('click',function(){
-    document.getElementById('member-icon-box-2').classList.toggle("toggle");
-    });
-
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
-  <!-- <script src="../js/index.js"></script> -->
   <script>
   //掛載資料庫
   const index = Vue.createApp({
@@ -379,9 +372,8 @@
           eventBorderColor:"#C09351",
           validRange: function(nowDate) {
             return {
-              start: '2023-01-18',
+              start: '2023-02-01',
               end:'2023-12-20'
-              // end: nowDate.clone().add(1, 'months')
             };
           },
           events: this.events
@@ -533,33 +525,39 @@
   },
 }).mount(".member-icon-box-out");
 
-        //掛載資料庫
-          const viewcounter = Vue.createApp({
-                      data() {
-                          return {
-                          }
-                      }, methods:{
-                      }, created() {
-                        // 記數
-                        axios({
-                            method: 'post',
-                            url: '../../php/backend/viewcounter.php',
-                            responseType:'json',
-                            }).then(res => {
-                              console.log("success");
-                            }).catch(err => {
-                              console.log(err);
-                        });
-                      }
-                  }).mount("#viewcounter");
+//掛載資料庫
+  const viewcounter = Vue.createApp({
+    data() {
+        return {
+        }
+    }, methods:{
+    }, created() {
+      // 記數
+      axios({
+          method: 'post',
+          url: '../../php/backend/viewcounter.php',
+          responseType:'json',
+          }).then(res => {
+            console.log("success");
+          }).catch(err => {
+            console.log(err);
+      });
+    }
+  }).mount("#viewcounter");
 </script>
-
+<script>
 //漢堡線控制
 let menuIcon = document.getElementById('menu-icon-box');
 let menu = document.getElementById('topbar-btn-group');
 
 menuIcon.addEventListener('click', function () {
   document.getElementById('topbar-btn-group').classList.toggle("on");
+});
+
+//member-icon-2控制
+let memberIcon2 = document.getElementById('member-icon-2');
+memberIcon2.addEventListener('click',function(){
+document.getElementById('member-icon-box-2').classList.toggle("toggle");
 });
 </script>
 </body>
