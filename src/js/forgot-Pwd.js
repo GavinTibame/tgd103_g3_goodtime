@@ -1,3 +1,4 @@
+console.log("ttttt")
 const forgotPwdApp = Vue.createApp({
   data() {
     return {
@@ -9,7 +10,6 @@ const forgotPwdApp = Vue.createApp({
       user_repwd: "",
       message2: "",
       isDisabl: false,
-      Vcode: "",
       Num: "",
     };
   },
@@ -29,7 +29,7 @@ const forgotPwdApp = Vue.createApp({
         })
         .then((list) => {
           console.log(list.data);
-        //   this.sentEmail = list[0];
+          this.sentEmail = list.Email;
           // console.log(list[0].EMAIL);
           for (var i = 0; i < 6; i++) {
             this.Num += Math.floor(Math.random() * 10).toString();
@@ -38,7 +38,7 @@ const forgotPwdApp = Vue.createApp({
         });
     },
     correct() {
-      if (this.Vcode == this.Num) {
+      if (this.user_verify == this.Num) {
         if (this.message2 == "" && this.message1 == "") {
           axios
             .post("../../php/frontend/forgotPwd.php", {
@@ -47,7 +47,7 @@ const forgotPwdApp = Vue.createApp({
             })
             .then(alert("修改成功"), (location = "../html/log_in.html"));
         } else {
-          alert("請輸入有效密碼");
+          alert("密碼不相同，請重新輸入");
         }
       } else {
         alert("驗證碼錯誤");
@@ -57,11 +57,11 @@ const forgotPwdApp = Vue.createApp({
     emailGo() {
       let that = this;
     //   console.log(1234);
-      emailjs.init("DCwlXSLOdGqGTForu");
-      const serviceID = "service_95kv0br";
-      const templateID = "template_kb00bdg";
+      emailjs.init("MBmqTNGDNSS06V5eu");
+      const serviceID = "service_um2vgfn";
+      const templateID = "template_spfa30o";
       const templateParams = {
-        email: this.sentEmail,
+        email: this.email,
         message: this.Num,
       };
       emailjs.send(serviceID, templateID, templateParams).then(
@@ -76,22 +76,7 @@ const forgotPwdApp = Vue.createApp({
         }
       );
     },
-    check_password1() {
-      let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/;
-      if (reg.test(this.newpassword)) {
-        this.message1 = "";
-      } else {
-        this.message1 = "請輸入正確的密碼格式";
-      }
-    },
-    // 確認密碼
-    check_password2() {
-      if (this.newpassword !== this.reNewpassword) {
-        // console.log(1234);
-        this.message2 = "密碼不相同";
-      } else {
-        this.message2 = "";
-      }
-    },
   },
 }).mount("#forgot-pwd");
+
+

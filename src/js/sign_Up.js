@@ -1,4 +1,4 @@
-console.log("aasda");
+console.log("kkkkk");
 
 const signUpApp = Vue.createApp({
   data() {
