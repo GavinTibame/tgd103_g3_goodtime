@@ -71,7 +71,7 @@
 
     .detail-information img {
         width: 85%;
-        height: 340px;
+        height: 400px;
         display: block;
         margin: 0 auto;
 
@@ -93,7 +93,7 @@
         width: fit-content;
         padding-top: 60px;
         margin: 0 auto;
-        width: 90%;
+        width: 85%;
 
         @include rwd(768px) {
             font-size: 14px;
