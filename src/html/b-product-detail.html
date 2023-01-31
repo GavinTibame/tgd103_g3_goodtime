@@ -98,7 +98,7 @@
                             <li>
                                 <p>商品分類</p>
                                 <!-- <input type="" v-model="producttype" disabled></input> -->
-                                <select name="product-kind" class="product-kind" v-model="kind" id="kind" disabled>
+                                <select name="product-kind" class="long-input" v-model="kind" id="kind" disabled>
                                     <option v-for="(b_product_type, index) in dataList3"  :value="b_product_type.ID">{{ b_product_type.PRODUCT_TYPE_NAME }}</option>
                                 </select>   
                                 <button class="change-btn" @click="change">更改</button>

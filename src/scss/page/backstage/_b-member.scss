@@ -78,7 +78,7 @@
                 font-weight: 600;
                 transition: all 0.3s;
                 &:focus {
-                    outline: 2px solid #333;
+                    outline: 2px solid rgb(17, 104, 145);
                     border-radius: 2px;
                 }
             }
@@ -100,8 +100,8 @@
                 border-radius: 2px;
                 width: 300px;
                 transition: all 0.3s;
-                &:hover{
-                    outline: 2px solid #333;
+                &:focus{
+                    outline: 2px solid rgb(17, 104, 145);
                     border-radius: 2px;
                 }
             }
