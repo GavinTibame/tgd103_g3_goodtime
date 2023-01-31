@@ -17,10 +17,6 @@ const storeApp = Vue.createApp({
        
     },
     methods:{
-        // setFilter(filter){
-        //     this.storeFilter = filter;
-        //     console.log(filter);
-        // }
         all(){
                 axios.get("../../php/frontend/store.php")
                 .then(res => { // 拿今天進行中展演展覽的資料
@@ -29,6 +25,7 @@ const storeApp = Vue.createApp({
                     })
                     .catch(err => console.log("[store list]", err));        
         },
+        // ==== 篩選 ====
         filter(status){
                 this.status_filter = status;
                 console.log(status);
@@ -59,5 +56,3 @@ const storeApp = Vue.createApp({
             
     }
 }).mount("#store");
-
-// ==== 下拉選單篩選功能 ====
