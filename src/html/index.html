@@ -123,7 +123,7 @@
     <div id="anchor0" class="carousel">
       <div class="owl-one owl-carousel owl-theme" >
         <div class="item" v-for="(slider, index) of dataList['slider']" >
-          <a :href="'http://localhost/tgd103_g3_goodtime/src/html/event_detail.html?eid='+ slider.ID">
+          <a :href="'http://tibamef2e.com/tgd103/g3/goodtime/dist/html/event_detail.html?eid='+ slider.ID">
             <h1>{{index+1}}</h1>
             <img :src="slider.MAIN_PHOTO"/>
             <p class="desc">{{slider.CONTENT}}</p>
@@ -342,23 +342,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
   <script>
-  //掛載資料庫
+
   //渲染輪播
   const slider = Vue.createApp({
     data() {
       return {
           dataList: []
       }
-    },
-    methods:{
-      // substring(){
-      //   const self = this
-      //   const desc = document.querySelectorAll('.desc');
-      //   for (var i = 0; i <= this.dataList['slider'].length; i++) {
-      //     this.desc[i].innerHTML = this.dataList['slider'][i].CONTENT.substring(0, 5);
-      //   }
-      // }
-    },    
+    },  
     beforeCreate() {
         // 查詢資料
         axios.get("../../php/frontend/index.php")
@@ -366,7 +357,72 @@
           this.dataList = {...res.data};
           console.log(this.dataList['slider'].length);
 
-          // this.substring();
+            // 輪播
+            $(document).ready(function () {
+              $('.owl-one').owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
+                center: true,
+                loop: true,
+                margin: 30,
+                mouseDrag: false,
+                touchDrag: false,
+                nav: true,
+                navText: [
+                  prvIcon,
+                  nextIcon
+                ],
+                responsive: {
+                  0: {
+                    items: 1.1,
+                    margin: 5
+                  },
+                  768: {
+                    items: 2,
+                    margin: 5
+                  },
+                  1000: {
+                    items: 2.2,
+                  }
+                }
+              });
+              $('.owl-two').owlCarousel({
+                items: 3,
+                loop: true,
+                center: true,
+                margin: 30,
+                autoplayHoverPause: true,
+                // startPosition: 0,
+                merge: true,
+                nav: true,
+                mouseDrag: false,
+                touchDrag: false,
+                navText: [
+                  prvIcon,
+                  shopNextIcon
+                ],
+                responsive: {
+                  0: {
+                    items: 1,
+                    margin: 10
+                  },
+                  400: {
+                    items: 1
+                  },
+                  500: {
+                    items: 2
+                  },
+                  770: {
+                    items: 3
+                  },
+                  1242: {
+                    items: 3.5,
+                    margin: 10
+                  }
+                }
+              });
+          })
         }).catch(err => {
           console.log(err);
         });
@@ -420,10 +476,6 @@
           this.dataList = {...res.data};
           console.log(this.dataList);
           this.events=JSON.parse(JSON.stringify(this.dataList.calendar));
-          // this.events.forEach(element => {
-          //   element.color = "";
-          // });
-          // console.log(this.events);
           this.create_calendar()
         }).catch(err => {
           console.log(err);
@@ -432,71 +484,71 @@
   }).mount("#anchor1");
 
   // 輪播
-  $(document).ready(function () {
-      $('.owl-one').owlCarousel({
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
-        margin: 30,
-        mouseDrag: false,
-        touchDrag: false,
-        nav: true,
-        navText: [
-          prvIcon,
-          nextIcon
-        ],
-        responsive: {
-          0: {
-            items: 1.1,
-            margin: 5
-          },
-          768: {
-            items: 2,
-            margin: 5
-          },
-          1000: {
-            items: 2.2,
-          }
-        }
-      });
-      $('.owl-two').owlCarousel({
-        items: 3,
-        loop: true,
-        center: true,
-        margin: 30,
-        autoplayHoverPause: true,
-        // startPosition: 0,
-        merge: true,
-        nav: true,
-        mouseDrag: false,
-        touchDrag: false,
-        navText: [
-          prvIcon,
-          shopNextIcon
-        ],
-        responsive: {
-          0: {
-            items: 1,
-            margin: 10
-          },
-          400: {
-            items: 1
-          },
-          500: {
-            items: 2
-          },
-          770: {
-            items: 3
-          },
-          1242: {
-            items: 3.5,
-            margin: 10
-          }
-        }
-      });
-  })
+  // $(document).ready(function () {
+  //     $('.owl-one').owlCarousel({
+  //       autoplay: true,
+  //       autoplayTimeout: 4000,
+  //       autoplayHoverPause: true,
+  //       center: true,
+  //       loop: true,
+  //       margin: 30,
+  //       mouseDrag: false,
+  //       touchDrag: false,
+  //       nav: true,
+  //       navText: [
+  //         prvIcon,
+  //         nextIcon
+  //       ],
+  //       responsive: {
+  //         0: {
+  //           items: 1.1,
+  //           margin: 5
+  //         },
+  //         768: {
+  //           items: 2,
+  //           margin: 5
+  //         },
+  //         1000: {
+  //           items: 2.2,
+  //         }
+  //       }
+  //     });
+  //     $('.owl-two').owlCarousel({
+  //       items: 3,
+  //       loop: true,
+  //       center: true,
+  //       margin: 30,
+  //       autoplayHoverPause: true,
+  //       // startPosition: 0,
+  //       merge: true,
+  //       nav: true,
+  //       mouseDrag: false,
+  //       touchDrag: false,
+  //       navText: [
+  //         prvIcon,
+  //         shopNextIcon
+  //       ],
+  //       responsive: {
+  //         0: {
+  //           items: 1,
+  //           margin: 10
+  //         },
+  //         400: {
+  //           items: 1
+  //         },
+  //         500: {
+  //           items: 2
+  //         },
+  //         770: {
+  //           items: 3
+  //         },
+  //         1242: {
+  //           items: 3.5,
+  //           margin: 10
+  //         }
+  //       }
+  //     });
+  // })
 
  const indexApp = Vue.createApp({
   data() {
