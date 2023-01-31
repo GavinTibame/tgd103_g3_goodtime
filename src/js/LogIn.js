@@ -1,3 +1,4 @@
+console.log("aaa")
 $(() => {
   $("#header").load("topbar.html");
   $("#footer").load("footer.html");
