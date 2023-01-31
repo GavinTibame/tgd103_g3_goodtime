@@ -345,12 +345,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
  
-    //member-icon-2控制
-    let memberIcon2 = document.getElementById('member-icon-2');
-    memberIcon2.addEventListener('click',function(){
-    document.getElementById('member-icon-box-2').classList.toggle("toggle");
-    });
-
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
@@ -531,25 +525,25 @@
   },
 }).mount(".member-icon-box-out");
 
-        //掛載資料庫
-          const viewcounter = Vue.createApp({
-                      data() {
-                          return {
-                          }
-                      }, methods:{
-                      }, created() {
-                        // 記數
-                        axios({
-                            method: 'post',
-                            url: '../../php/backend/viewcounter.php',
-                            responseType:'json',
-                            }).then(res => {
-                              console.log("success");
-                            }).catch(err => {
-                              console.log(err);
-                        });
-                      }
-                  }).mount("#viewcounter");
+//掛載資料庫
+  const viewcounter = Vue.createApp({
+    data() {
+        return {
+        }
+    }, methods:{
+    }, created() {
+      // 記數
+      axios({
+          method: 'post',
+          url: '../../php/backend/viewcounter.php',
+          responseType:'json',
+          }).then(res => {
+            console.log("success");
+          }).catch(err => {
+            console.log(err);
+      });
+    }
+  }).mount("#viewcounter");
 </script>
 <script>
 //漢堡線控制
@@ -558,6 +552,12 @@ let menu = document.getElementById('topbar-btn-group');
 
 menuIcon.addEventListener('click', function () {
   document.getElementById('topbar-btn-group').classList.toggle("on");
+});
+
+//member-icon-2控制
+let memberIcon2 = document.getElementById('member-icon-2');
+memberIcon2.addEventListener('click',function(){
+document.getElementById('member-icon-box-2').classList.toggle("toggle");
 });
 </script>
 </body>
