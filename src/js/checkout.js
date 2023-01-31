@@ -4,9 +4,22 @@ const checkoutApp = Vue.createApp({
             itm: [],
             tkt: [],
             checkoutList: [],
-            prodAmt: 0, expoAmt: 0
+            prodAmt: 0, expoAmt: 0, member: [],
+            buyName: "", buyTel: "", sameCheck: true
         }
-    }, methods: {
+    }, computed: {
+        subtotal() {
+            let amt = 0;
+            this.tkt.forEach(ticket => {
+                amt += ticket.EXPO_PRICE * ticket.QTY
+            });
+            this.itm.forEach(prod => {
+                amt += prod.QTY * prod.PRICE
+            });
+            return amt;
+        }
+    }
+    , methods: {
         ticketType(expoObj) {
             if (expoObj.EXPO_PRICE === expoObj.ADULT_PRICE) {
                 return "一般票";
@@ -15,15 +28,18 @@ const checkoutApp = Vue.createApp({
             } else { return "團體票"; }
         }, checkout() {
             const itmList = {}, tktList = {};
+            console.log(this.tkt);
             this.itm.forEach(itm => {
                 const pid = itm.FK_CART_PRODUCT_ID,
-                    sid = itm.FK_CART_PRODUCT_SPEC_ID;
-                itmList[pid] = { sid };
+                    sid = itm.FK_CART_PRODUCT_SPEC_ID,
+                    qty = itm.QTY;
+                itmList[pid] = { sid, qty };
             });
             this.tkt.forEach(tkt => {
                 const eid = tkt.EXPO_ID,
-                    price = tkt.EXPO_PRICE;
-                tktList[eid] = { price };
+                    price = tkt.EXPO_PRICE,
+                    qty = tkt.QTY;
+                tktList[eid] = { price, qty };
             });
             const cart = JSON.stringify(itmList),
                 passport = JSON.stringify(tktList);
@@ -38,7 +54,17 @@ const checkoutApp = Vue.createApp({
                     this.expoAmt = res.data;
                     console.log("[expo]", this.expoAmt);
                 }).catch(err => console.log("[checkout ticket]", err));
-
+            sessionStorage.setItem("payment", this.prodAmt + this.expoAmt);
+            // window.location.href = "../html/checkout.html";
+        }, atCheck() {
+            this.sameCheck = !this.sameCheck;
+            if (!this.sameCheck) {
+                this.buyName = this.member.USERNAME;
+                this.buyTel = this.member.PHONE;
+            } else {
+                this.buyName = "";
+                this.buyTel = "";
+            }
         }
     }, created() {
         let itmList = localStorage.getItem("checkoutItm"),
@@ -54,5 +80,10 @@ const checkoutApp = Vue.createApp({
             tktList = JSON.parse(tktList);
             this.tkt = [...tktList];
         }
+        axios.get("../../php/frontend/memberInfo.php")
+            .then(res => {
+                this.member = res.data[0];
+                // console.log(this.member);
+            }).catch(err => console.log("[member info]", err));
     }
 }).mount("#checkout");

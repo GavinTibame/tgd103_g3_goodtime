@@ -1,7 +1,7 @@
 <?php
 include("../connect.php");
 
-$pid = isset($_GET["pid"]) ? $_GET["pid"] : "1";
+$pid = isset($_GET["pid"]) ? $_GET["pid"] : "";
 
 // $pid = 1;
 function getProductInfo($pid, $pdo){

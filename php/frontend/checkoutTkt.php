@@ -29,7 +29,7 @@ function checkout($dbn, $mid, $eid, $price){
 function calcAmt($dbn, $mid, $eid, $price){
     $amt = 0;
 
-    $sql = "SELECT EXPO_PRICE, QTY 
+    $sql = "SELECT EXPO_PRICE 
             FROM TICKET
             WHERE MEMBER_ID = :mid 
             AND EXPO_ID = :eid 
@@ -42,7 +42,7 @@ function calcAmt($dbn, $mid, $eid, $price){
     $statement->execute();
     $charge = $statement->fetchAll();
     // print_r($charge);
-    $amt = $charge[0]["EXPO_PRICE"] * $charge[0]["QTY"];
+    $amt = $charge[0]["EXPO_PRICE"];
     return $amt;
 }
 
@@ -51,13 +51,14 @@ $dbn->beginTransaction();
 $amt = 0;
 foreach($key as $eid => $priceArray){
     // print_r($eid);
-    foreach($priceArray as $price){
+    // foreach($priceArray as $price){
         // print_r($price);
+        // print_r("<br>");
         // $amt += calcAmt($dbn, $mid, $eid, $price);
-        $amt += calcAmt($dbn, 5, $eid, $price);
+        $amt += calcAmt($dbn, 5, $eid, $priceArray["price"]) * $priceArray["qty"];
         // checkout($dbn, $mid, $eid, $price);
         // checkout($dbn, 5, $eid, $price);
-    }
+    // }
     
 };
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +11,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&family=Ephesis&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&family=Ephesis&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -23,13 +26,14 @@
     <link rel="stylesheet" href="../css/style.css">
 
 </head>
+
 <body>
 
     <header id="header"></header>
 
     <main class="store__wrapper" id="store">
-    
-            <!-- 麵包屑 -->
+
+        <!-- 麵包屑 -->
         <div class="crumb">
             <ul class="breadcrumb">
                 <li><a href="./index.html">首頁</a></li>
@@ -62,11 +66,11 @@
 
         <!-- 文字標題 -->
         <div class="banner">
-                <div class="banner__textarea">
-                    <div class="banner__eng">STORE</div>
-                    <div class="banner__zh">文創商城</div>
-                </div>
+            <div class="banner__textarea">
+                <div class="banner__eng">STORE</div>
+                <div class="banner__zh">文創商城</div>
             </div>
+        </div>
         </div>
 
         <!-- 商品導覽列 -->
@@ -75,6 +79,7 @@
             <div class="tab" id="navbar">
                 <button class="tablinks" id="all" @click="all()">所有類別</button>
                 <button class="tablinks" id="events_only" @click="filter('展覽限定')">展覽商品</button>
+<<<<<<< HEAD
                 <!-- change -->
                 <select id="event-type" data-filter="event" class="filter-event filter form-control" @change="type(i)">
                     <option value="1">所有商品</option>
@@ -83,6 +88,11 @@
                     <option value="日本畫展">日本畫展</option>
                     <option value="《Lindsayooo》新興插畫家展">《Lindsayooo》新興插畫家展</option>
 				</select>
+=======
+                <select id="event-type" data-filter="event" class="filter-event filter form-control">
+                    <option value="">以展覽查詢</option>
+                </select>
+>>>>>>> gavin
             </div>
 
         </nav>
@@ -90,11 +100,11 @@
         <!-- 商品陳列區 -->
         <div class="product__display results" id="parent">
             <ul id="products">
-                
+
                 <li class="events" v-for="(store, i) in storeList" :key="store.ID">
                     <a :href="'./product_detail_01.html?pid=' + store.ID">
                         <div class="shop__pic">
-                            <img :src="store.MAIN_PHOTO" alt=""/>
+                            <img :src="store.MAIN_PHOTO" alt="" />
                             <div class="shop__type">{{store.TAG1}}</div>
                             <!-- <div class="countdown">倒數3天</div> -->
                         </div>
@@ -339,10 +349,10 @@
                     </a>
                 </li> -->
 
-            <!-- </ul> -->
+                <!-- </ul> -->
         </div>
 
-   
+
     </main>
 
     <footer id="footer"></footer>
@@ -364,21 +374,22 @@
 
         // Initialize Swiper輪播
         var swiper = new Swiper(".mySwiper", {
-        cssMode: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        mousewheel: true,
-        keyboard: true,
-        autoplay:true
-      });
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+            autoplay: true
+        });
 
 
     </script>
-    
+
 </body>
+
 </html>
