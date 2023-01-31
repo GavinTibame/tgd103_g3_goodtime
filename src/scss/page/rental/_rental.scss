@@ -229,7 +229,7 @@ main.rental {
 
         .map {
             margin: -140px 0 -100px;
-            position: relative;
+            
             @include rwd(768px) {
                 margin: -360px 0 -330px;
             }
@@ -255,6 +255,7 @@ main.rental {
                 width: calc(80vw);
                 margin: 0 auto;
                 display: block;  
+                position: relative;
             image#圖層_6{
                 &:hover{
                 height: 20%;
