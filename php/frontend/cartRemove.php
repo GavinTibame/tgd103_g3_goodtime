@@ -2,8 +2,9 @@
     include("../connect.php");
     include("../verify.php");
 
+    $mid = isMemberLogin();
     // $mid = $_POST["mid"];
-    $mid = 5; 
+    // $mid = 5; 
     $pid = $_POST["pid"];
     $sid = $_POST["sid"];
 

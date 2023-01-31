@@ -5,7 +5,8 @@ include("../verify.php");
 $pid = $_POST["pid"]; 
 $buyQty = $_POST["buyQty"];
 $spec = $_POST["spec"];
-$mid = "5"; // 會員編號先寫死去測
+    $mid = isMemberLogin();
+// $mid = "5"; // 會員編號先寫死去測
 // print_r($_POST);
 function getCart($pdo, $mid, $pid, $spec){
 

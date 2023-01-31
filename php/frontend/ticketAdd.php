@@ -9,7 +9,8 @@ $price = $_POST["price"];
 // $eid = 1;
 // $buyQty = 1; 
 // $price = 300;
-$mid = "5"; // 會員編號先寫死去測
+    $mid = isMemberLogin();
+    // $mid = "5"; // 會員編號先寫死去測
 // print_r($_POST);
 function getTicket($pdo, $mid, $eid, $price){
 

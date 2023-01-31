@@ -3,7 +3,7 @@
     include("../connect.php");
 
     $mid = isMemberLogin();
-    $mid = "5";
+    // $mid = "5";
 
     $sql = "SELECT * 
             FROM MEMBER M, ADDRESS A 
