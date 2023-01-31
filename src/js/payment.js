@@ -18,7 +18,9 @@ const emailAddress = 'cs@goodtime.com';
 async function initialize() {
     const amt = sessionStorage.getItem("payment");
     // sessionStorage.removeItem("payment");
-    const response = await fetch('../../php/frontend/payment.php', { method: "POST", amt });
+    const response = await fetch('../../php/frontend/payment.php'
+        , { method: "POST", amt }
+    );
     const { client_secret: clientSecret } = await response.json();
     // Render the form using the clientSecret
 

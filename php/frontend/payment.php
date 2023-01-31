@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 // This is your test secret API key.
 \Stripe\Stripe::setApiKey('sk_test_51HvfSXFV0g6r9YWuXcmGc1Q86lvpbpClUHPOkB8OovezzPJvxQFBzf4gmkNWu6RDoj92lkdjS9DZFSC3MGR1vm8e00yFf7kEUf');
@@ -13,16 +13,16 @@ function calculateOrderAmount(array $items): int {
 }
 
 header('Content-Type: application/json');
-print($_POST);
 try {
     // retrieve JSON from POST body
     $jsonStr = file_get_contents('php://input');
     $jsonObj = json_decode($jsonStr);
-
+    // print($jsonObj);"localStorage.setItem('key', '$value');"
+    $amt = "<script>sessionStorage.getItem("payment")</script>";
     // Create a PaymentIntent with amount and currency
     $paymentIntent = \Stripe\PaymentIntent::create([
         //家總要刷的金額
-        'amount' => 5000,
+        'amount' => $amt,
         //幣別
         'currency' => 'twd',
         'automatic_payment_methods' => [

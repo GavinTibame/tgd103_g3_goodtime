@@ -5,7 +5,7 @@ const checkoutApp = Vue.createApp({
             tkt: [],
             checkoutList: [],
             prodAmt: 0, expoAmt: 0, member: [],
-            buyName: "", buyTel: "", sameCheck: true
+            buyName: "", buyTel: "", sameCheck: true, totalAmt: 0
         }
     }, computed: {
         subtotal() {
@@ -48,14 +48,15 @@ const checkoutApp = Vue.createApp({
                 .then(res => {
                     this.prodAmt = res.data;
                     console.log("[product]", this.prodAmt);
+                    axios.post("../../php/frontend/checkoutTkt.php", passport)
+                        .then(res => {
+                            this.expoAmt = res.data;
+                            console.log("[expo]", this.expoAmt);
+                            this.totalAmt = parseInt(this.prodAmt) + parseInt(this.expoAmt) + 60;
+                            sessionStorage.setItem("payment", this.totalAmt);
+                            window.location.href = "../html/checkout.html";
+                        }).catch(err => console.log("[checkout ticket]", err));
                 }).catch(err => console.log("[checkout cart]", err));
-            axios.post("../../php/frontend/checkoutTkt.php", passport)
-                .then(res => {
-                    this.expoAmt = res.data;
-                    console.log("[expo]", this.expoAmt);
-                }).catch(err => console.log("[checkout ticket]", err));
-            sessionStorage.setItem("payment", this.prodAmt + this.expoAmt);
-            // window.location.href = "../html/checkout.html";
         }, atCheck() {
             this.sameCheck = !this.sameCheck;
             if (!this.sameCheck) {
