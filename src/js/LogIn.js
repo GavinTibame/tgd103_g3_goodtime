@@ -7,7 +7,7 @@ $(() => {
 /*-----------------google api 第三方登入-----------------*/
 
 // handleCallback用來處理回傳憑證，登入後有呼叫這個function表示成功登入
-function handleCallback(response) {
+function handleCallback1(response) {
   console.log(response);
 }
 
@@ -26,7 +26,7 @@ function parseJwt(token) {
 
   return JSON.parse(jsonPayload);
 }
-function handleCallback(response) {
+function handleCallback2(response) {
   const data = parseJwt(response.credential);
   console.log(data);
 }
