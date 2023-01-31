@@ -53,8 +53,10 @@ const checkoutApp = Vue.createApp({
                             this.expoAmt = res.data;
                             console.log("[expo]", this.expoAmt);
                             this.totalAmt = parseInt(this.prodAmt) + parseInt(this.expoAmt) + 60;
-                            sessionStorage.setItem("payment", this.totalAmt);
-                            window.location.href = "../html/checkout.html";
+                            // sessionStorage.setItem("payment", this.totalAmt);
+                            axios.post("../../php/frontend/money.php", this.totalAmt).then(res => {
+                                window.location.href = "../html/checkout.html";
+                            }).catch(err => { console.log("[pass amt]", err) });
                         }).catch(err => console.log("[checkout ticket]", err));
                 }).catch(err => console.log("[checkout cart]", err));
         }, atCheck() {

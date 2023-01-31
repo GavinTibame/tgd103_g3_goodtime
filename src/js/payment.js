@@ -19,7 +19,7 @@ async function initialize() {
     const amt = sessionStorage.getItem("payment");
     // sessionStorage.removeItem("payment");
     const response = await fetch('../../php/frontend/payment.php'
-        , { method: "POST", amt }
+        // , { method: "POST", amt: amt }
     );
     const { client_secret: clientSecret } = await response.json();
     // Render the form using the clientSecret
@@ -61,7 +61,8 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
             //完成付款(or失敗要跳轉的頁面)
-            return_url: "./success.html",
+            // return_url: "https://tibamef2e.com/tgd103/g3/tgd103_g3_goodtime/dist/html/shopping_cart03.html",
+            return_url: "http://localhost/teamwork/src/html/shopping_cart03.html",
             receipt_email: emailAddress,
         },
     });
