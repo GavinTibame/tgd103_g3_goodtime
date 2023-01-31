@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../css/b-grid.css">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .AAA{
+            background-color: rgb(34, 145, 48);
+            transition: all 0.3s;
+        }
+        .BBB{
+            background-color: rgb(185, 45, 68);
+            transition: all 0.3s;
+        }
+        .AAA:not([disabled]):hover{
+            background-color: rgb(25, 107, 36);
+        }
+        .BBB:not([disabled]):hover{
+            background-color: rgb(141, 35, 52);
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -45,7 +61,7 @@
                                         <div><h6>{{ b_rental.PRICE }}</h6></div>
                                         <div>
                                             <button><i class="fa-solid fa-pen-nib"></i> 編輯場地</button>
-                                            <button><i class="fa-solid fa-warehouse"></i> 修改預約狀態</button>
+                                            <button @click="deleteitem" :value="b_rental.ID"><i class="fa-solid fa-warehouse"></i> 修改預約狀態</button>
                                         </div>
                                     </div>
                                 </a> 
@@ -61,6 +77,7 @@
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
     <script src="../js/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         // 連接header
         $(() => {
@@ -72,11 +89,64 @@
             data() {
                 return {
                     dataList: [],
-                    mark: []
+                    mark: [],
+
+                    idvalue: ""
                 }
             }, methods:{
-                atClick(){
+                deleteitem(e){
 
+                e.preventDefault();
+
+                let idvalue = e.target.value;
+
+                    swal({
+                            icon: "warning",
+                            title: "更改場地預約狀態",
+                            text: "您確定要更改此場地預約狀態嗎?",
+                            buttons: {
+                            A: {
+                                text: "開放",
+                                value: "1",
+                                className:'AAA',
+                                visible: true,
+                            },
+                            B: {
+                                text: "暫停開放",
+                                visible: true,
+                                className:'BBB',
+                                value: "2"
+                            }
+                            }
+                        });
+                    document.querySelector(".swal-button--A").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/location-open.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
+                    document.querySelector(".swal-button--B").onclick = function(e){
+                        axios({
+                        method: 'post',
+                        url: '../../php/backend/location-close.php',
+                        responseType:'json',
+                        data: {
+                            idvalue: idvalue,
+                        }
+                        }).then(res => {
+                            location.reload();
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                    }
                 }
             }, created() {
                // 查詢資料
