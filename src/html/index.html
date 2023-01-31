@@ -357,6 +357,16 @@
           this.dataList = {...res.data};
           console.log(this.dataList['slider'].length);
 
+          const desc = document.querySelectorAll('.desc');
+
+        
+            if (window.screen.width > 430) {
+              for (var i = 0; i < this.dataList['slider'].length; i++) {
+                console.log(this.dataList['slider'][i].CONTENT);
+                this.dataList['slider'][i].CONTENT = this.dataList['slider'][i].CONTENT.substring(0, 85) + '...';
+              }
+            }
+          
             // 輪播
             $(document).ready(function () {
               $('.owl-one').owlCarousel({
