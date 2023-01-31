@@ -1,3 +1,4 @@
+
 const storeApp = Vue.createApp({
     data(){
         return{
@@ -115,21 +116,20 @@ const storeApp = Vue.createApp({
         };
     },
     mounted(){
-        
+
     },
     updated(){
         console.log(`TTT`);
     },
+    watch:{
+        
+    },
     methods:{
-        // setFilter(filter){
-        //     this.storeFilter = filter;
-        //     console.log(filter);
-        // }
         all(){
                 axios.get("../../php/frontend/store.php")
                 .then(res => { // 拿今天進行中展演展覽的資料
                         this.storeList = [...res.data];
-                        console.log(this.storeList);
+                        // console.log(this.storeList);
                     })
                     .catch(err => console.log("[store list]", err));        
         },
@@ -150,6 +150,35 @@ const storeApp = Vue.createApp({
                         });
 
                 })
+        },
+        type(){
+                let select = document.querySelector("#event-type");
+                const switchValue = select.options[select.selectedIndex].value;
+                console.log(switchValue);
+                let i = switchValue;
+                if(switchValue == "1"){
+                        axios.get("../../php/frontend/store.php")
+                        .then(res => { // 拿今天進行中展演展覽的資料
+                                this.storeList = [...res.data];
+                                console.log(this.storeList);
+                                
+                        })
+                        .catch(err => console.log("[store list]", err));         
+                }else if(switchValue == i){
+                        axios.get("../../php/frontend/store.php")
+                        .then(res => { // 拿今天進行中展演展覽的資料
+                                this.storeList = [...res.data];
+                                console.log(this.storeList);
+        
+                                let value = Object.values(this.storeList);
+                                console.log(value);
+                      
+                                this.storeList = value.filter((store) => {
+                                        return store.TAG2 == i;
+                                });
+        
+                        })  
+                }    
         }
     },
     created() {
@@ -157,11 +186,13 @@ const storeApp = Vue.createApp({
         axios.get("../../php/frontend/store.php")
         .then(res => { // 拿今天進行中展演展覽的資料
                 this.storeList = [...res.data];
-                console.log(this.storeList);
+                // console.log(this.storeList);
             })
             .catch(err => console.log("[store list]", err));
             
     }
 }).mount("#store");
+
+
 
 // ==== 下拉選單篩選功能 ====
