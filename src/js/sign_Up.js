@@ -1,3 +1,5 @@
+console.log("kkkkk");
+
 const signUpApp = Vue.createApp({
   data() {
     return {
@@ -23,6 +25,12 @@ const signUpApp = Vue.createApp({
         alert("請輸入正確的信箱格式");
         return false;
       }
+
+      if (this.user_password == "") {
+        alert("請輸入您的密碼");
+        return false;
+      }
+
       if (this.user_password != this.user_confirm_password) {
         alert("請輸入正確密碼");
         return false;
@@ -65,12 +73,14 @@ const signUpApp = Vue.createApp({
 
         // then :處理 Promise返回的結果
         .then((res) => {
-          if (res.status === 200) {
+          if (
+            res.data === "已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。"
+          ) {
             // console.log(res);
-            alert("會員註冊成功，請重新登入")
-            window.location.href = '../html/log_in.html';
-          }else{
-            alert("已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。")
+            alert("已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。");
+          } else {
+            alert("會員註冊成功，請重新登入");
+            // window.location.href = "../html/log_in.html";
           }
         })
         //catch:抓取Promise 上異常

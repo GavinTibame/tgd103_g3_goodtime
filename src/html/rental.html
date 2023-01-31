@@ -155,6 +155,81 @@
   </div>
   <footer id="footer"></footer>
   <script>
+
+// $(function (){
+// //显示隐藏
+// $("image#圖層_6").hover(function (){
+
+// var flag = $(".zoneA").is(":hidden");
+
+// if(flag){
+
+// $(".zoneA").show();
+
+// }else{
+
+// $(".zoneA").hide();
+
+// }
+
+// });
+
+
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+
+$("image#圖層_6").bind("hover", function (){
+
+var flag = $(".zoneA").is(":hidden");
+
+if(flag){
+
+$(".zoneA").show();
+
+}else{
+
+$(".zoneA").hide();
+
+}
+
+});
+
+
+//鼠标的移入移出
+
+$("image#圖層_6").mouseover(function (){
+
+$(".zoneA").show();
+
+}).mouseout(function (){
+
+$(".zoneA").hide();
+
+});
+
+
+//合成事件 hover()
+
+$("image#圖層_6").hover(function (){
+
+$(".zoneA").show();
+
+},function (){
+
+$(".zoneA").hide();
+
+});
+
+
+
+
+
+
+
+
+
+
+
     $(() => {
       $("#header").load("topbar.html");
       $("#footer").load("footer.html");

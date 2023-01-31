@@ -2,7 +2,8 @@
 include("../connect.php");
 
 $pdo = connectDB();
-$sql = "SELECT * FROM EXPO where `STATUS` = 1 order by ID desc";
+$sql = "SELECT * FROM b_po_test where  `STATUS` = 1";
+// date( CREATE_DATE ) = date(now()) and
 $statement = $pdo->prepare($sql);
 $statement->execute();
 $data = $statement->fetchAll();
