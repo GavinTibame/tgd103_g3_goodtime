@@ -29,7 +29,7 @@
 
 <body>
   <header class="topbar">
-    <div class="top-area_shadowbox"></div>
+    <div class="top-area_shadowbox" id="viewcounter"></div>
     <div class="top-area">
       <div class="logo-box">
         <a href="index.html">
@@ -532,6 +532,27 @@
     },
   },
 }).mount(".member-icon-box-out");
+
+        //掛載資料庫
+          const viewcounter = Vue.createApp({
+                      data() {
+                          return {
+                          }
+                      }, methods:{
+                      }, created() {
+                        // 記數
+                        axios({
+                            method: 'post',
+                            url: '../../php/backend/viewcounter.php',
+                            responseType:'json',
+                            }).then(res => {
+                              console.log("success");
+                            }).catch(err => {
+                              console.log(err);
+                        });
+                      }
+                  }).mount("#viewcounter");
+</script>
 
 //漢堡線控制
 let menuIcon = document.getElementById('menu-icon-box');
