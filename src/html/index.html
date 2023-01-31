@@ -351,13 +351,13 @@
       }
     },
     methods:{
-      substring(){
-        const self = this
-        const desc = document.querySelectorAll('.desc');
-        for (var i = 0; i <= this.dataList['slider'].length; i++) {
-          this.desc[i].innerHTML = this.dataList['slider'][i].CONTENT.substring(0, 5);
-        }
-      }
+      // substring(){
+      //   const self = this
+      //   const desc = document.querySelectorAll('.desc');
+      //   for (var i = 0; i <= this.dataList['slider'].length; i++) {
+      //     this.desc[i].innerHTML = this.dataList['slider'][i].CONTENT.substring(0, 5);
+      //   }
+      // }
     },    
     beforeCreate() {
         // 查詢資料
@@ -366,15 +366,7 @@
           this.dataList = {...res.data};
           console.log(this.dataList['slider'].length);
 
-          this.substring();
-          
-          // if (window.screen.width > 430) {
-          //   for (var i = 0; i <= this.dataList['slider'].length; i++) {
-          //     console.log(this.dataList['slider'][i].CONTENT);
-              // let string =  this.dataList['slider'][i].CONTENT
-              // desc[i].innerHTML = string.substring(0, 5) + '...';
-          //   }
-          // }
+          // this.substring();
         }).catch(err => {
           console.log(err);
         });
@@ -385,7 +377,8 @@
   const index = Vue.createApp({
     data() {
       return {
-          dataList: []
+          dataList: [],
+          event:[]
       }
     }, 
     methods:{
@@ -556,7 +549,6 @@
   },
 }).mount(".member-icon-box-out");
 
-//掛載資料庫
   const viewcounter = Vue.createApp({
     data() {
         return {
