@@ -9,11 +9,17 @@ export default {
   computed: {
     totalAmt() {
       let amt = this.poprops.FREIGHT;
-      // console.log(this.poprops.PO_ID);
+      // console.log(this.poprops);
       amt = parseInt(amt);
-      for (const item in this.poprops.POD) {
-        amt += parseInt(this.poprops.POD[item].QTY) * parseInt(this.poprops.POD[item].UNIT_PRICE);
-      }
+      // for (const item in this.poprops.POD.PRODUCT) {
+      //   amt += parseInt(this.poprops.POD[item].QTY) * parseInt(this.poprops.POD[item].UNIT_PRICE);
+      // }
+      this.poprops.POD.PRODUCT.forEach(itm => {
+        amt += parseInt(itm.QTY) * parseInt(itm.UNIT_PRICE);
+      });
+      this.poprops.POD.EXPO.forEach(itm => {
+        amt += parseInt(itm.QTY) * parseInt(itm.UNIT_PRICE);
+      });
       return amt;
     }, poStatus() {
       switch (this.poprops.STATUS) {

@@ -10,6 +10,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/vue.global.js"></script>
 </head>
 
 <body>
@@ -98,12 +99,15 @@
                       <input type="text" name="" class="addr_text" id="" placeholder="" v-if="item.clickId !== 'edit'"
                         v-model="item.LOCATION" />
                     </label>
-                    <button class="edit-addr" @click="changehtml(index)">
-                      <span class="material-symbols-outlined">
+                    <button class="edit-addr" @click="changehtml(item.ID, index);">
+                      <span class="material-symbols-outlined" v-if="item.clickId === 'edit'">
                         edit_note
                       </span>
+                      <span class="material-symbols-outlined" v-if="item.clickId !== 'edit'">
+                        save
+                      </span>
                     </button>
-                    <button class="edit-addr" @click="deletehtml(index)" :disabled="addr.length===1">
+                    <button class="edit-addr" @click="deletehtml(item.ID, index)" :disabled="addr.length===1">
                       <span class="material-symbols-outlined"> delete </span>
                     </button>
                   </div>
@@ -118,16 +122,16 @@
               <!----------------------------修改密碼------------------------->
               <div class="pwd-tab" v-if="currentTab1 === 'tab2'">
                 <div>
-                  <label for="prevPwd">目前密碼</label><input type="password" name="prevPwd" id="prevPwd" />
+                  <label for="prevPwd">目前密碼</label><input type="password" name="prevPwd" v-model="prevPwd" />
                 </div>
                 <div>
-                  <label for="newPwd">新密碼</label><input type="password" name="newPwd" id="newPwd" />
+                  <label for="newPwd">新密碼</label><input type="password" name="newPwd" v-model="newPwd" />
                 </div>
                 <div>
-                  <label for="cfmPwd">確認新密碼</label><input type="password" name="cfmPwd" id="cfmPwd" />
+                  <label for="cfmPwd">確認新密碼</label><input type="password" name="cfmPwd" v-model="cfmPwd" />
                 </div>
                 <div class="btn__ctn">
-                  <button id="add-addr" class="button" type="submit">
+                  <button id="add-addr" class="button" type="button" @click="newPassword">
                     <span>確認修改</span>
                   </button>
                 </div>
@@ -171,12 +175,27 @@
                       </div>
 
                       <div class="po-item">
-                        <div class="item-single" v-for="prod in po.POD">
+                        <div class="item-single" v-for="prod in po.POD.PRODUCT" v-if="po.POD.PRODUCT">
                           <img :src="prod.MAIN_PHOTO" alt="" />
                           <div class="item-detail">
                             <div>
                               <p>{{prod.PRODUCT_NAME}}</p>
                               <small>{{prod.SPEC}}</small>
+                            </div>
+                            <div>
+                              <small>數量：{{prod.QTY}}</small>
+                            </div>
+                            <div>
+                              <small>售價：NT${{prod.UNIT_PRICE * prod.QTY}}</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-single" v-for="prod in po.POD.EXPO" v-if="po.POD.EXPO">
+                          <img :src="prod.MAIN_PHOTO" alt="" />
+                          <div class="item-detail">
+                            <div>
+                              <p>{{prod.PRODUCT_NAME}}</p>
+                              <small>{{ticketType(prod)}}</small>
                             </div>
                             <div>
                               <small>數量：{{prod.QTY}}</small>
@@ -245,7 +264,6 @@
   </main>
   <footer id="footer"></footer>
   <script src="../js/jquery-3.2.1.min.js"></script>
-  <script src="../js/vue.global.js"></script>
   <script src="../js/axios.min.js"></script>
   <script src="../js/memberCenter2.js" type="module"></script>
 </body>

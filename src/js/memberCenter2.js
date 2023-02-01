@@ -1,5 +1,5 @@
 import Tab1Content from "./component/Tab1Content.js";
-import Tab2Content from "./component/Tab2Content.js";
+// import Tab2Content from "./component/Tab2Content.js";
 
 /* 頁首頁尾載入 */
 $(() => {
@@ -62,7 +62,7 @@ const memberCenterApp = Vue.createApp({
         //   LOCATION: "台北市中山區南京東路三段219號5樓",
         //   clickId: "edit",
         // },
-      ],
+      ], prevPwd: "", newPwd: "", cfmPwd: "",
       memberCenter: {},
       currentTab2: "tab1",
       tabs2: [
@@ -88,19 +88,36 @@ const memberCenterApp = Vue.createApp({
   },
   methods: {
     //修改及確認資料按鈕
-    changehtml(e) {
-      // console.log(e)，這裡的e = index
+    changehtml(id, idx) {
+      console.log(id); //，這裡的e = index
       // console.log(this.addr[e]);
-      this.addr[e].LOCATION = this.addr[e].LOCATION.trim();
-      if (this.addr[e].clickId === "edit") {
-        this.addr[e].clickId = "noEdit";
+      this.addr[idx].LOCATION = this.addr[idx].LOCATION.trim();
+      if (this.addr[idx].clickId === "edit") {
+        this.addr[idx].clickId = "noEdit";
       } else {
-        this.addr[e].clickId = "edit";
+        this.addr[idx].clickId = "edit";
       }
       //使用者輸入空字串後跳出彈窗提醒
-      if (this.addr[e].LOCATION === "") {
+      if (this.addr[idx].LOCATION === "") {
         alert("請輸入您的地址");
-        this.addr[e].clickId = "noEdit";
+        this.addr[idx].clickId = "noEdit";
+      } else {
+        if (id) {
+          axios.post("../../php/frontend/memberCenter.php", {
+            address: this.addr[idx].LOCATION,
+            action: "editAddress",
+            id: id
+          }).then(res => {
+            console.log(res);
+          }).catch(err => console.log("[edit address]", err))
+        } else {
+          axios.post("../../php/frontend/memberCenter.php", {
+            address: this.addr[idx].LOCATION,
+            action: "newAddress",
+          }).then(res => {
+          }).catch(err => console.log("[new address]", err))
+        }
+
       }
 
     },
@@ -122,13 +139,18 @@ const memberCenterApp = Vue.createApp({
 
     },
     //刪除鈕
-    deletehtml(e) {
+    deletehtml(id, e) {
       //如果input不是空字串，移除時會跳alert
       // console.log(e)
       // console.log(this.addr);
       if (this.addr[e].addrText != "") {
         this.popup = e; // e = index
         console.log(this.popup);
+        axios.post("../../php/frontend/memberCenter.php", {
+          id: id,
+          action: "delAddress",
+        }).then(res => {
+        }).catch(err => console.log("[new address]", err))
       } else {
         //如果input是空字串，直接移除
         this.addr.splice(e, 1);
@@ -138,8 +160,26 @@ const memberCenterApp = Vue.createApp({
     confirm() {
       this.addr.splice(this.popup, 1);
       this.popup = false;
-    },
-    textTosend() {
+    }, newPassword() {
+      this.prevPwd = this.prevPwd.trim();
+      this.newPwd = this.newPwd.trim();
+      this.cfmPwd = this.cfmPwd.trim();
+      if (this.prevPwd != "" || this.newPwd != "" || this.cfmPwd != "") {
+        if (this.newPwd === this.cfmPwd) {
+          axios.post("../../php/frontend/memberCenter.php", {
+            action: "newPassword",
+            pwd: this.prevPwd,
+            newPwd: this.cfmPwd
+          }).then(res => {
+            sessionStorage.removeItem("login");
+            alert("密碼修改成功，請重新登入");
+            window.location.href = "../html/log_in.html";
+          }).catch(err => console.log("[new address]", err))
+
+        }
+
+      }
+    }, textTosend() {
       // axios.post('url') = 我們要獲取的API，會回傳一個 Promise 物件
       axios
         .post("../../php/frontend/memberCenter.php", {
@@ -162,20 +202,33 @@ const memberCenterApp = Vue.createApp({
     }, switchActive(string) {
       /* 標籤-active切換 */
       this.activeBlock = string;
+    }, ticketType(expoObj) {
+      if (expoObj.EXPO_PRICE === expoObj.ADULT_PRICE) {
+        return "一般票";
+      } else if (expoObj.EXPO_PRICE === expoObj.CONC_PRICE) {
+        return "優待票";
+      } else { return "團體票"; }
     }, subtotal(obj) {
       let amt = 0;
-      obj.forEach(attr => {
+      // console.log(amt);
+      obj["EXPO"].forEach(attr => {
+        amt += attr.UNIT_PRICE * attr.QTY;
+      });
+      obj["PRODUCT"].forEach(attr => {
         amt += attr.UNIT_PRICE * attr.QTY;
       });
       return amt
     }, grandtotal(obj) {
       let ttlAmt = 0;
-      obj.forEach(attr => {
+      obj["EXPO"].forEach(attr => {
         ttlAmt += attr.UNIT_PRICE * attr.QTY;
       });
-      console.log(ttlAmt);
+      obj["PRODUCT"].forEach(attr => {
+        ttlAmt += attr.UNIT_PRICE * attr.QTY;
+      });
+      // console.log(ttlAmt);
       ttlAmt = parseInt(ttlAmt);
-      console.log(ttlAmt);
+      // console.log(ttlAmt);
       ttlAmt += 60;
       return ttlAmt;
     }
