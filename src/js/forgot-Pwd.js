@@ -1,4 +1,4 @@
-console.log("ttttt")
+console.log("ttttt");
 const forgotPwdApp = Vue.createApp({
   data() {
     return {
@@ -29,12 +29,16 @@ const forgotPwdApp = Vue.createApp({
         })
         .then((list) => {
           console.log(list.data);
-          this.sentEmail = list.Email;
-          // console.log(list[0].EMAIL);
-          for (var i = 0; i < 6; i++) {
-            this.Num += Math.floor(Math.random() * 10).toString();
+          if (list.data == "") {
+            alert("查無此信箱，請重新輸入。");
+          } else {
+            this.sentEmail = list.Email;
+            // console.log(list[0].EMAIL);
+            for (var i = 0; i < 6; i++) {
+              this.Num += Math.floor(Math.random() * 10).toString();
+            }
+            this.emailGo();
           }
-          this.emailGo();
         });
     },
     correct() {
@@ -56,7 +60,7 @@ const forgotPwdApp = Vue.createApp({
     },
     emailGo() {
       let that = this;
-    //   console.log(1234);
+      //   console.log(1234);
       emailjs.init("MBmqTNGDNSS06V5eu");
       const serviceID = "service_um2vgfn";
       const templateID = "template_spfa30o";
@@ -78,5 +82,3 @@ const forgotPwdApp = Vue.createApp({
     },
   },
 }).mount("#forgot-pwd");
-
-
