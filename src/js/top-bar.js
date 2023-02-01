@@ -90,7 +90,6 @@ const topbarApp = Vue.createApp({
     };
   },
   mounted() {
-    console.log("mounted");
     this.login = sessionStorage.getItem("login");
   },
   methods: {

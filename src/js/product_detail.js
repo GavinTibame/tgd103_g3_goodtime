@@ -18,7 +18,7 @@ const productDetailApp = Vue.createApp({
                     .then(res => {
                         if (res.status === 200) {
                             console.log(res);
-                            window.open("../html/shopping_cart01.html");
+                            window.location.href = "../html/shopping_cart01.html";
                             console.log(this.productDetail.ID);
                         }
                     })

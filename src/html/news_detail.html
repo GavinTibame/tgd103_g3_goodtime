@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Philosopher:ital@1&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Philosopher:ital@1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>消息詳情 - 韶光文創園區</title>
 </head>
+
 <body>
     <header id="header"></header>
 
@@ -19,10 +22,10 @@
             <li><a href="new.html">最新消息</a></li>
             <li><a href="new.html">{{news_detail.DESC}}</a></li>
         </ul>
-    
-        
+
+
         <!-- 消息區 -->
-        <div class="detail-information" v-for="(news_detail, index) in dataList" >
+        <div class="detail-information" v-for="(news_detail, index) in dataList">
             <small>{{news_detail.CREATE_DATE}}</small>
             <h3>{{news_detail.TITLE}}</h3>
             <img :src="news_detail.MAIN_PHOTO" alt="">
@@ -39,9 +42,14 @@
         <!-- 換頁 -->
         <div class="change-next-page" id="change-next-page" v-for="(news_detail, index) in dataList">
             <ul :class="{'no_line': idarr == '1' , 'no_linel': idarr == '15'}">
-                <a :href="'news_detail.html?ID='+(news_detail.ID-1)" id="arrow-left"><li class="arrow-left"></li>PREV</a>
-                <a href="new.html#"><li></li>BACK TO LIST</a>
-                <a :href="'news_detail.html?ID='+(news_detail.ID+1)" id="arrow-right">NEXT<li class="arrow-right" ></li></a>
+                <a :href="'news_detail.html?ID='+(news_detail.ID-1)" id="arrow-left">
+                    <li class="arrow-left"></li>PREV
+                </a>
+                <a href="new.html#">
+                    <li></li>BACK TO LIST
+                </a>
+                <a :href="'news_detail.html?ID='+(news_detail.ID+1)" id="arrow-right">NEXT<li class="arrow-right"></li>
+                </a>
             </ul>
         </div>
         <!-- <div class="change-next-page">
@@ -56,72 +64,73 @@
     <footer id="footer"></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="../js/axios.min.js"></script>
     <script src="../js/vue.global.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script>
         // header and footer
-      $(() => {
-        $("#header").load("topbar.html");
-        $("#footer").load("footer.html");
-      });
+        $(() => {
+            $("#header").load("topbar.html");
+            $("#footer").load("footer.html");
+        });
 
-      const news_detail = Vue.createApp({
-        data(){
-            return{
-                dataList:[],
-                idarr : ""
-            }
-        },
-        methods:{
-            geturl(){
-                let urlParams = new URLSearchParams(window.location.search);
-                let getid = urlParams.get("ID");
-                this.idarr = getid;
-                console.log('get ID');
-
-                // if(getid == "1"){
-                //     console.log("ttt")
-                //     this.$refs.myList.classList.add("no_line");
-                // }
+        const news_detail = Vue.createApp({
+            data() {
+                return {
+                    dataList: [],
+                    idarr: ""
+                }
             },
-            readIdarr(){
-                //隱藏消息頁頁首頁尾箭頭
-                console.log(this.idarr);
-                if (this.idarr == '1'){
-                    document.querySelector('#arrow-left').style.visibility = "hidden";
+            methods: {
+                geturl() {
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let getid = urlParams.get("ID");
+                    this.idarr = getid;
+                    console.log('get ID', this.idarr);
+
+                    // if(getid == "1"){
+                    //     console.log("ttt")
+                    //     this.$refs.myList.classList.add("no_line");
+                    // }
+                },
+                readIdarr() {
+                    //隱藏消息頁頁首頁尾箭頭
+                    console.log(this.idarr);
+                    if (this.idarr == '1') {
+                        document.querySelector('#arrow-left').style.visibility = "hidden";
+                    }
+                    if (this.idarr == '15') {
+                        document.querySelector('#arrow-right').style.visibility = "hidden";
+                    }
                 }
-                if (this.idarr == '15'){
-                    document.querySelector('#arrow-right').style.visibility = "hidden";
-                }
+            },
+            mounted() {
+                this.geturl();
+
+                //資料庫
+
+                axios({
+                    method: 'post',
+                    url: '../../php/frontend/news_detail.php',
+                    responseType: 'json',
+                    data: {
+                        id: this.idarr
+                    }
+                }).then(res => {
+                    this.dataList = res.data;
+                    console.log(this.dataList);
+                }).catch(err => {
+                    console.log(err);
+                });
+
+
+            },
+            updated() {
+                this.readIdarr();
             }
-        },
-        mounted(){
-            this.geturl();
-            
-            //資料庫
-            
-            axios({
-                method: 'post',
-                url: '../../php/frontend/news_detail.php',
-                responseType:'json',
-                data:{
-                    id: this.idarr
-                }
-            }).then(res => {
-                this.dataList = res.data;
-                console.log(this.dataList);
-            }).catch(err => {
-                console.log(err);
-            });
-            
-            
-        },
-        updated(){
-            this.readIdarr();
-        }
-        
-      }).mount("#detail-information")
+
+        }).mount("#detail-information")
 
     </script>
 </body>
+
 </html>
