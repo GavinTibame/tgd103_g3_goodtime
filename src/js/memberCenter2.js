@@ -168,6 +168,16 @@ const memberCenterApp = Vue.createApp({
         amt += attr.UNIT_PRICE * attr.QTY;
       });
       return amt
+    }, grandtotal(obj) {
+      let ttlAmt = 0;
+      obj.forEach(attr => {
+        ttlAmt += attr.UNIT_PRICE * attr.QTY;
+      });
+      console.log(ttlAmt);
+      ttlAmt = parseInt(ttlAmt);
+      console.log(ttlAmt);
+      ttlAmt += 60;
+      return ttlAmt;
     }
     // , switchTab2(idx) {
     //   this.poDetail = this.poList[idx];
