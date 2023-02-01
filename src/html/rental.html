@@ -88,11 +88,11 @@
               <image id="圖層_6-5" data-name="圖層 6" x="197" y="282" width="314" height="203"
                 xlink:href="../img/map/green-house.png" />
             </svg>
-            <!-- <div class="zoneA">A館</div>
-            <div class="zoneB">B館</div>
-            <div class="zoneC">C館</div>
-            <div class="zoneD">D館</div>
-            <div class="zoneE">E館</div> -->
+            <div class="zoneA" style="display: none;">A館<br>本場地約可容納100~200人，適合大型記者會、新品發表會、展覽活動、頒獎典禮、國際展演會場、教育訓練會場、大型講座等使用。</div>
+            <div class="zoneB" style="display: none;">B館<br>本場地約可容納100~120人，適合產品發表會、展覽活動、講座等使用。</div>
+            <div class="zoneC" style="display: none;">C館<br>本場地約可容納150~250人，適合記者會、座談會、小型研習會、教育訓練等使用。</div>
+            <div class="zoneD" style="display: none;">D館<br>任何大型藝文演出、演唱會、發表會、展覽、車展等均可在此辦理。</div>
+            <div class="zoneE" style="display: none;">E館<br>適合小型快閃店或市集活動等使用，禁止使用明火，戶外空間請避免餐飲調理或現場食品包裝。</div>
             
           </div>
         </section>
@@ -155,21 +155,121 @@
   </div>
   <footer id="footer"></footer>
   <script>
-    // $("image#圖層_6").hover(function(){
-    //   $('.zoneA').css({
-    //     'display':'black'
-    //   })
-    // });
-    // $("image#圖層_6").mouseover(function(){
-    //   $('.zoneA').css({
-    //     'display':'black'
-    //   })
-    // });
-    // $("image#圖層_6").mouseout(function(){
-    //   $('.zoneA').css({
-    //     'display':'none'
-    //   })
-    // });
+
+
+
+
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+$("image#圖層_6").bind("hover", function (){
+var flag = $(".zoneA").is(":hidden");
+if(flag){
+$(".zoneA").show();
+}else{
+$(".zoneA").hide();
+}
+});
+//鼠标的移入移出
+$("image#圖層_6").mouseover(function (){
+$(".zoneA").show();
+}).mouseout(function (){
+$(".zoneA").hide();
+});
+//合成事件 hover()
+$("image#圖層_6").hover(function (){
+$(".zoneA").show();
+},function (){
+$(".zoneA").hide();
+});
+
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+$("image#圖層_6-2").bind("hover", function (){
+var flag = $(".zoneB").is(":hidden");
+if(flag){
+$(".zoneB").show();
+}else{
+$(".zoneB").hide();
+}
+});
+//鼠标的移入移出
+$("image#圖層_6-2").mouseover(function (){
+$(".zoneB").show();
+}).mouseout(function (){
+$(".zoneB").hide();
+});
+//合成事件 hover()
+$("image#圖層_6-2").hover(function (){
+$(".zoneB").show();
+},function (){
+$(".zoneB").hide();
+});
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+$("image#圖層_6-3").bind("hover", function (){
+var flag = $(".zoneA").is(":hidden");
+if(flag){
+$(".zoneC").show();
+}else{
+$(".zoneC").hide();
+}
+});
+//鼠标的移入移出
+$("image#圖層_6-3").mouseover(function (){
+$(".zoneC").show();
+}).mouseout(function (){
+$(".zoneC").hide();
+});
+//合成事件 hover()
+$("image#圖層_6-3").hover(function (){
+$(".zoneC").show();
+},function (){
+$(".zoneC").hide();
+});
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+$("image#圖層_6-4").bind("hover", function (){
+var flag = $(".zoneD").is(":hidden");
+if(flag){
+$(".zoneD").show();
+}else{
+$(".zoneD").hide();
+}
+});
+//鼠标的移入移出
+$("image#圖層_6-4").mouseover(function (){
+$(".zoneD").show();
+}).mouseout(function (){
+$(".zoneD").hide();
+});
+//合成事件 hover()
+$("image#圖層_6-4").hover(function (){
+$(".zoneD").show();
+},function (){
+$(".zoneD").hide();
+});
+
+//使用bind的绑定事件,跟上上面的效果是一样的
+$("image#圖層_6-5").bind("hover", function (){
+var flag = $(".zoneE").is(":hidden");
+if(flag){
+$(".zoneE").show();
+}else{
+$(".zoneE").hide();
+}
+});
+//鼠标的移入移出
+$("image#圖層_6-5").mouseover(function (){
+$(".zoneE").show();
+}).mouseout(function (){
+$(".zoneE").hide();
+});
+//合成事件 hover()
+$("image#圖層_6-5").hover(function (){
+$(".zoneE").show();
+},function (){
+$(".zoneE").hide();
+});
 
 
 
