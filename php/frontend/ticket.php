@@ -3,7 +3,8 @@
 include("../connect.php");
 include("../verify.php");
 
-$mid = "5";
+    $mid = isMemberLogin();
+//     $mid = "5";
 
 $sql = "SELECT TICKET.*, EXPO.* 
         FROM TICKET, EXPO 

@@ -2,7 +2,6 @@ const shoppingCartApp = Vue.createApp({
     data() {
         return {
             selectAll: false,
-            freight: 60,
             cartList: [],
             wantList: [], // 總商品表
             ticketList: [],
@@ -23,6 +22,12 @@ const shoppingCartApp = Vue.createApp({
                 return amt;
             } else {
                 return amt;
+            }
+        }, freight() {
+            if (this.totalAmount == 0) {
+                return 0;
+            } else {
+                return 60;
             }
         }
     }, methods: {

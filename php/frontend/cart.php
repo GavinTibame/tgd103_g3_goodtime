@@ -2,7 +2,8 @@
     include("../connect.php");
     include("../verify.php");
 
-    $mid = "5"; // 會員編號先寫死去測
+    $mid = isMemberLogin();
+    // $mid = "5"; // 會員編號先寫死去測
 
     $sql = "SELECT CART.*, PRODUCT.*, S.SPEC 
             FROM CART, PRODUCT, PRODUCT_SPEC S 

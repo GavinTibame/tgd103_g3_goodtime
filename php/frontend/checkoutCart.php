@@ -44,7 +44,7 @@ foreach($key as $pid => $sidArray){
         // print_r($sidArray["qty"]);
         // print_r(calcAmt($dbn, 5, 1, 5));
         // $amt += calcAmt($dbn, $mid, $pid, $sid);
-        $amt += calcAmt($dbn, 5, $pid, $sidArray["sid"]) * $sidArray["qty"];
+        $amt += calcAmt($dbn, $mid, $pid, $sidArray["sid"]) * $sidArray["qty"];
         // checkout($dbn, $mid, $pid, $sid);
         // checkout($dbn, 5, $pid, $sid);
     // }

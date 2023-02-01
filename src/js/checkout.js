@@ -53,8 +53,12 @@ const checkoutApp = Vue.createApp({
                             this.expoAmt = res.data;
                             console.log("[expo]", this.expoAmt);
                             this.totalAmt = parseInt(this.prodAmt) + parseInt(this.expoAmt) + 60;
-                            // sessionStorage.setItem("payment", this.totalAmt);
-                            axios.post("../../php/frontend/money.php", this.totalAmt).then(res => {
+                            sessionStorage.setItem("payment", this.totalAmt);
+                            axios.post("../../php/frontend/money.php", {
+                                amt: this.totalAmt,
+                                cart: cart,
+                                passport: passport
+                            }).then(res => {
                                 window.location.href = "../html/checkout.html";
                             }).catch(err => { console.log("[pass amt]", err) });
                         }).catch(err => console.log("[checkout ticket]", err));
@@ -72,6 +76,8 @@ const checkoutApp = Vue.createApp({
     }, created() {
         let itmList = localStorage.getItem("checkoutItm"),
             tktList = localStorage.getItem("checkoutTkt");
+        localStorage.removeItem("checkoutItm");
+        localStorage.removeItem("checkoutTkt");
         if (itmList) {
             itmList = JSON.parse(itmList);
             this.itm = [...itmList];
