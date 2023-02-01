@@ -10,10 +10,13 @@ const newApp = Vue.createApp({
     };
   },
   mounted(){
-    this.setStatus("");
+    // this.setStatus("");
+
+
   },
   updated(){
     this.updatePaginate();
+    console.log('TTT');
   },
   methods: {
     setPaginate(i) {
@@ -37,23 +40,22 @@ const newApp = Vue.createApp({
       }else{
         // console.log(this.currentList);
         // this.currentList = [];
-        axios.get("../../php/frontend/new.php")
+        axios.get("../../php/frontend/index.php")
         .then(res => {
           this.currentList = {...res.data};
-          //脫掉第一層{}
-          let value = Object.values(this.currentList);
-          console.log(value);
-          
-          this.currentList = value.filter((news) => {
-            return news.DESC == this.status_filter;
-          });
           console.log(this.currentList);
+          //脫掉第一層{}
+          let value = Object.values(this.currentList['newPage']);
+          console.log(value);
+          this.currentList['newPage'] = value.filter((newPage) => {
+            return newPage.DESC == this.status_filter;
+          });
+          // console.log(this.currentList);
           this.updateCurrent(1);
         })
-        
-        this.currentList = this.currentList.filter((news) => {
-            return news.DESC == this.status_filter;
-        });
+        // this.currentList = this.currentList.filter((news) => {
+        //     return news.DESC == this.status_filter;
+        // });
       }
       //  console.log(this.status_filter);
       // console.log(this.currentList);
@@ -68,17 +70,20 @@ const newApp = Vue.createApp({
       );
       // console.log(Math.ceil(document.querySelectorAll(".tab-panel li").length / this.paginate));
       // console.log(this.currentList);
+    },
+    fix(){
+      axios.get("../../php/frontend/index.php")
+      .then(res => {
+        this.currentList = {...res.data};
+        console.log(this.currentList);
+        // console.log(this.currentList);
+        // this.tabpanels=JSON.parse(JSON.stringify(this.currentList.news));
+        // console.log(this.tabpanels);
+      }).catch(err => {
+        console.log(err);
+      });
     }
+  },created(){
+    this.fix();
   },
-  beforeCreate(){
-    axios.get("../../php/frontend/new.php")
-    .then(res => {
-      this.currentList = {...res.data};
-      // console.log(this.currentList);
-      // this.tabpanels=JSON.parse(JSON.stringify(this.currentList.news));
-      // console.log(this.tabpanels);
-    }).catch(err => {
-      console.log(err);
-    });
-  }
 }).mount("#news");

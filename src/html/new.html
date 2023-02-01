@@ -52,10 +52,10 @@
 
       <div class="tab-panels">
         <ul class="tab-panel">
-          <li v-for="(news,index) in currentList"  v-show="setPaginate(index)"><!-- v-show渲染該頁的畫面 -->
-            <a :href="'news_detail.html?ID='+news.ID">
-              <small>{{news.EDIT_DATE}} | {{news.DESC}}</small>
-              <h4>【{{news.DESC}}】{{news.TITLE}}</h4>
+          <li v-for="(newPage,index) in currentList['newPage']"  v-show="setPaginate(index)"><!-- v-show渲染該頁的畫面 -->
+            <a :href="'news_detail.html?ID='+newPage.ID">
+              <small>{{newPage.EDIT_DATE}} | {{newPage.DESC}}</small>
+              <h4>【{{newPage.DESC}}】{{newPage.TITLE}}</h4>
             </a>
           </li>
         </ul>
@@ -75,6 +75,7 @@
     <footer id="footer"></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../js//jquery-3.2.1.min.js"></script>
     <script src="../js/vue.global.js"></script>
     <script src="../js/axios.min.js"></script>
     <script src="../js/new.js"></script>
