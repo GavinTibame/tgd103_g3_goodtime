@@ -2,7 +2,7 @@
 include("../connect.php");
 
 $pdo = connectDB();
-$sql = "SELECT * FROM b_new where `STATUS` = 1 order by ID desc";
+$sql = "SELECT * FROM INFO where `STATUS` = 1 order by ID desc";
 $statement = $pdo->prepare($sql);
 $statement->execute();
 $data = $statement->fetchAll();
