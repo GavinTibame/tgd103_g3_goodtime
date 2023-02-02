@@ -28,7 +28,7 @@
 
     //日曆
     $pdo = connectDB();
-    $sql = "SELECT TITLE, `START_DATE`, END_DATE
+    $sql = "SELECT TITLE, `START_DATE`, END_DATE, ID
             FROM GOODTIME.f_index_1
             where `STATUS` = 1";
     $statement = $pdo->prepare($sql);
@@ -39,6 +39,7 @@
         $event['title'] = $item['TITLE'];
         $event['start'] = $item['START_DATE'];
         $event['end'] = $item['END_DATE'];
+        $event['url'] = $item['ID'];
         array_push($data['calendar'], $event);
     }
     
