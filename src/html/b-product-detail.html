@@ -498,7 +498,6 @@
                     }
                 },
                 submit(){
-console.log("test submit");
                     this.geturl();
 
                     // str = this.productpic.split("/").shift();
@@ -547,76 +546,72 @@ console.log("test submit");
 
                     // 上傳與暫存
 
-                    let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
+                    // let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
 
-                    console.log(this.file)
+                    // console.log(this.file)
 
-                    this.file = file;
-                    let formData = new FormData();
-                    formData.append('file', this.file);
+                    // this.file = file;
+                    // let formData = new FormData();
+                    // formData.append('file', this.file);
 
-                    axios({
-                        method: 'post',
-                        url: '../../php/backend/product-create-upload.php',
-                        data: formData,
-                        headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // 'Authorization': localStorage.getItem("authorization")
-                        }
-                    })
-
-
-                    let file1 = document.getElementById("imgbtn1").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
-
-                    this.file1 = file1;
-                    let formData1 = new FormData();
-                    formData.append('file', this.file1);
-
-                    axios({
-                        method: 'post',
-                        url: '../../php/backend/product-create-upload.php',
-                        data: formData,
-                        headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // 'Authorization': localStorage.getItem("authorization")
-                        }
-                    })
+                    // axios({
+                    //     method: 'post',
+                    //     url: '../../php/backend/product-create-upload.php',
+                    //     data: formData,
+                    //     headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    //     }
+                    // })
 
 
-                    let file2 = document.getElementById("imgbtn2").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
+                    // let file1 = document.getElementById("imgbtn1").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
 
-                    this.file2 = file2;
-                    let formData2 = new FormData();
-                    formData.append('file', this.file2);
+                    // this.file1 = file1;
+                    // let formData1 = new FormData();
+                    // formData.append('file', this.file1);
 
-                    axios({
-                        method: 'post',
-                        url: '../../php/backend/product-create-upload.php',
-                        data: formData,
-                        headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // 'Authorization': localStorage.getItem("authorization")
-                        }
-                    })
+                    // axios({
+                    //     method: 'post',
+                    //     url: '../../php/backend/product-create-upload.php',
+                    //     data: formData,
+                    //     headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    //     }
+                    // })
 
 
-                    let file3 = document.getElementById("imgbtn3").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
+                    // let file2 = document.getElementById("imgbtn2").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
 
-                    console.log(file3)
+                    // this.file2 = file2;
+                    // let formData2 = new FormData();
+                    // formData.append('file', this.file2);
 
-                    this.file3 = file3;
-                    let formData3 = new FormData();
-                    formData.append('file', this.file3);
+                    // axios({
+                    //     method: 'post',
+                    //     url: '../../php/backend/product-create-upload.php',
+                    //     data: formData,
+                    //     headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    //     }
+                    // })
 
-                    axios({
-                        method: 'post',
-                        url: '../../php/backend/product-create-upload.php',
-                        data: formData,
-                        headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // 'Authorization': localStorage.getItem("authorization")
-                        }
-                    })
+
+                    // let file3 = document.getElementById("imgbtn3").previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.files[0];
+
+                    // console.log(file3)
+
+                    // this.file3 = file3;
+                    // let formData3 = new FormData();
+                    // formData.append('file', this.file3);
+
+                    // axios({
+                    //     method: 'post',
+                    //     url: '../../php/backend/product-create-upload.php',
+                    //     data: formData,
+                    //     headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    //     }
+                    // })
 
                     // 資料庫product
                     axios({
@@ -723,6 +718,74 @@ console.log("test submit");
                     }).catch(err => {
                         console.log(err);
                     });
+
+
+                    //主圖上傳
+                    let file = document.getElementById("productpic").files[0];
+
+                    console.log(file)
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/product-create-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        }
+                    })
+
+
+                    // 子圖上傳
+                    let file1 = document.getElementById("productimg").files[0];
+
+                    this.file1 = file1;
+                    let formData1 = new FormData();
+                    formData1.append('file', this.file1);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/product-create-upload.php',
+                        data: formData1,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        }
+                    })
+
+                    let file2 = document.getElementById("productimg2").files[0];
+
+                    this.file2 = file2;
+                    let formData2 = new FormData();
+                    formData2.append('file', this.file2);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/product-create-upload.php',
+                        data: formData2,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        }
+                    })
+
+                    let file3 = document.getElementById("productimg3").files[0];
+
+                    this.file3 = file3;
+                    let formData3 = new FormData();
+                    formData3.append('file', this.file3);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/product-create-upload.php',
+                        data: formData3,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        }
+                    })
+
+
 
                     location.reload(); //重整網頁
                 }
