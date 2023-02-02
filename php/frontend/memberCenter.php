@@ -9,13 +9,17 @@
     $mid = isMemberLogin();
     // $mid = "5";
     
-    
+    $_POST = json_decode(file_get_contents("php://input"), true);
     
     if ($mid == ""){
         echo "未登入會員";
     }else{
-        // $action = $_POST["action"];
-        $action = "";
+        if(isset($_POST["action"])){
+            $action = $_POST["action"];
+            // print_r($action);
+        }else{
+            $action = "";
+        }
         switch($action){
             case "newAddress":
                 $newAddress = $_POST["address"]; 

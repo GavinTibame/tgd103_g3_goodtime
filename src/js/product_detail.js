@@ -25,7 +25,7 @@ const productDetailApp = Vue.createApp({
                     .catch(err => console.log("[cart add]", err));
             }
         },
-        geturl(){
+        geturl() {
             let urlParams = new URLSearchParams(window.location.search);
             let getid = urlParams.get("ID");
             this.idarr = getid;
@@ -47,8 +47,9 @@ const productDetailApp = Vue.createApp({
                 this.productDetail.SID.forEach((ele, idx) => {
                     this.productDetail.specList[ele] = this.productDetail.SELECTED[idx];
                 });
+                // console.log(this.productDetail.MAX_QTY);
             }).catch(err => console.log("[product info]", err));
-    }, mounted(){
+    }, mounted() {
         this.geturl();
     }
 }).mount("#productDetail");
