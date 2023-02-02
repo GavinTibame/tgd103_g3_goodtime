@@ -43,7 +43,7 @@ const newApp = Vue.createApp({
         axios.get("../../php/frontend/news.php")
           .then(res => {
             this.currentList["news"] = { ...res.data };
-            console.log(this.currentList);
+            // console.log(this.currentList);
             //脫掉第一層{}
             let value1 = Object.values(this.currentList);
             value1 = value1[0];
@@ -68,10 +68,10 @@ const newApp = Vue.createApp({
     },
     // updatePaginate() {
     //   this.paginate_total = Math.ceil(
-    //   document.querySelectorAll(".tab-panel li").length / this.paginate
+    //     this.tabpanels.length / this.paginate
     //   );
-    // console.log(Math.ceil(document.querySelectorAll(".tab-panel li").length / this.paginate));
-    // console.log(this.currentList);
+    // console.log(Math.ceil(this.tabpanels.length / this.paginate));
+    // console.log(this.tabpanels);
     // },
     fix() {
       axios.get("../../php/frontend/news.php")
@@ -84,6 +84,21 @@ const newApp = Vue.createApp({
         }).catch(err => {
           console.log(err);
         });
+    },
+    test(){
+      console.log('test');
+      axios.get("../../php/frontend/news.php")
+      .then(res => {
+        this.currentList = { ...res.data };
+        console.log(this.currentList);
+        let value1 = Object.values(this.currentList);
+        console.log(value1);
+        // console.log(this.currentList);
+        // this.tabpanels=JSON.parse(JSON.stringify(this.currentList.news));
+        // console.log(this.tabpanels);
+      }).catch(err => {
+        console.log(err);
+      });
     }
   }, created() {
     this.fix();
