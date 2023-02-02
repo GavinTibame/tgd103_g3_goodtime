@@ -1,6 +1,6 @@
 export default {
   props: { poprops: Object },
-  emits: ["selOrder"],
+  // emits: ["selOrder"],
   data() {
     return {
       // dataList: poDetailProps
@@ -9,26 +9,33 @@ export default {
   computed: {
     totalAmt() {
       let amt = this.poprops.FREIGHT;
-      // console.log(this.poprops.PO_ID);
-      for (const item in this.poprops.POD) {
-        amt += parseInt(this.poprops.POD[item].QTY) * parseInt(this.poprops.POD[item].UNIT_PRICE);
-      }
+      // console.log(this.poprops);
+      amt = parseInt(amt);
+      // for (const item in this.poprops.POD.PRODUCT) {
+      //   amt += parseInt(this.poprops.POD[item].QTY) * parseInt(this.poprops.POD[item].UNIT_PRICE);
+      // }
+      this.poprops.POD.PRODUCT.forEach(itm => {
+        amt += parseInt(itm.QTY) * parseInt(itm.UNIT_PRICE);
+      });
+      this.poprops.POD.EXPO.forEach(itm => {
+        amt += parseInt(itm.QTY) * parseInt(itm.UNIT_PRICE);
+      });
       return amt;
     }, poStatus() {
       switch (this.poprops.STATUS) {
-        case 0: {
+        case "0": {
           return "訂單已確認";
         }
-        case 1: {
+        case "1": {
           return "訂單備貨中";
         }
-        case 2: {
+        case "2": {
           return "訂單已發貨";
         }
-        case 3: {
+        case "3": {
           return "訂單已完成";
         }
-        case 4: {
+        case "4": {
           return "訂單已取消";
         }
         default: {

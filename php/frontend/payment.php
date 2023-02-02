@@ -21,7 +21,7 @@ try {
     $jsonObj = json_decode($jsonStr);
     
     $amt = $_SESSION["amt"] * 100;
-    // print_r($amt);
+    // print_r($_SESSION);
     // Create a PaymentIntent with amount and currency
     $paymentIntent = \Stripe\PaymentIntent::create([
         //家總要刷的金額

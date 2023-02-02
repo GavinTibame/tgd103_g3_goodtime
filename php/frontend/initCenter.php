@@ -35,14 +35,30 @@
                     JOIN PRODUCT ON POD.FK_PO_DETAIL_PRODUCT_ID = PRODUCT.ID
                     JOIN PRODUCT_SPEC SPEC ON POD.FK_PO_PRODUCT_SPEC_ID = SPEC.ID
                     WHERE PO.FK_PO_MEMBER_ID = :mid
-                    AND POD.FK_PO_DETAIL_PO_ID = :pid";
+                    AND POD.FK_PO_DETAIL_PO_ID = :pid
+                    AND POD.FK_PO_PRODUCT_SPEC_ID IS NOT NULL";
     
             $statement = $pdo->prepare($sql);
             $statement->bindValue(":mid", $mid);
             $statement->bindValue(":pid", $pid);
             $statement->execute();
             $insertArr = $statement->fetchAll();
-            $data["po"][$num]["POD"] = $insertArr;
+            $data["po"][$num]["POD"]["PRODUCT"] = $insertArr;
+
+            $sql = "SELECT POD.ID as POD_ID, POD.UNIT_PRICE, POD.QTY, EXPO.TITLE as PRODUCT_NAME, EXPO.MAIN_PHOTO, EXPO.ADULT_PRICE, EXPO.CONC_PRICE, EXPO.GROUP_PRICE
+                    FROM PO_DETAIL POD
+                    JOIN PO ON PO.ID = POD.FK_PO_DETAIL_PO_ID
+                    JOIN EXPO ON POD.FK_PO_DETAIL_PRODUCT_ID = EXPO.ID
+                    WHERE PO.FK_PO_MEMBER_ID = :mid
+                    AND POD.FK_PO_DETAIL_PO_ID = :pid
+                    AND POD.FK_PO_PRODUCT_SPEC_ID IS NULL";
+            
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(":mid", $mid);
+            $statement->bindValue(":pid", $pid);
+            $statement->execute();
+            $insertArr = $statement->fetchAll();
+            $data["po"][$num]["POD"]["EXPO"] = $insertArr;
             $num++;
         }
         // print_r($num);

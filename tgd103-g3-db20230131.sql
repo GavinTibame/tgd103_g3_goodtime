@@ -594,13 +594,21 @@ CREATE TABLE `PRODUCT_TYPE` (
   `PRODUCT_TYPE_NAME` varchar(45) NOT NULL COMMENT '商品類型名稱',
   `PRODUCT_DETAIL_DESC` varchar(100) DEFAULT NULL COMMENT '商品類型描述',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 /*Data for the table `PRODUCT_TYPE` */
 
 insert  into `PRODUCT_TYPE`(`ID`,`PRODUCT_TYPE_NAME`,`PRODUCT_DETAIL_DESC`) values 
-(1,'平面畫作','2D畫作不限大小'),
-(2,'生活用品','生活用品');
+(1,'紀念周邊','紀念周邊'),
+(2,'生活用品','生活用品'),
+(3,'藝術創作','藝術創作'),
+(4,'衣著服飾','衣著服飾'),
+(5,'美味食品','美味食品'),
+(6,'家居佈置','家居佈置'),
+(7,'交通相關','交通相關'),
+(8,'知識教育','知識教育'),
+(9,'電玩遊戲','電玩遊戲'),
+(10,'其他','其他');
 
 /*Table structure for table `RENTAL_FORM` */
 
@@ -1030,7 +1038,15 @@ DROP TABLE IF EXISTS `f_index_2`;
 /*!50001 CREATE TABLE  `f_index_2`(
  `ID` int ,
  `TITLE` varchar(100) ,
+ `CONTENT` mediumtext ,
+ `MAIN_PHOTO` varchar(256) ,
+ `STATUS` tinyint(1) ,
+ `CREATE_DATE` timestamp ,
  `EDIT_DATE` timestamp ,
+ `FK_INFO_PAGE_ID` int ,
+ `FK_INFO_TYPE_ID` int ,
+ `START` varchar(10) ,
+ `END` varchar(10) ,
  `DESC` varchar(100) 
 )*/;
 
@@ -1211,7 +1227,7 @@ DROP TABLE IF EXISTS `f_rental_inner`;
 /*!50001 DROP TABLE IF EXISTS `f_index_2` */;
 /*!50001 DROP VIEW IF EXISTS `f_index_2` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_index_2` AS select `i`.`ID` AS `ID`,`i`.`TITLE` AS `TITLE`,`i`.`EDIT_DATE` AS `EDIT_DATE`,`it`.`DESC` AS `DESC` from (`info` `i` join `info_type` `it` on((`i`.`FK_INFO_TYPE_ID` = `it`.`ID`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `f_index_2` AS select `i`.`ID` AS `ID`,`i`.`TITLE` AS `TITLE`,`i`.`CONTENT` AS `CONTENT`,`i`.`MAIN_PHOTO` AS `MAIN_PHOTO`,`i`.`STATUS` AS `STATUS`,`i`.`CREATE_DATE` AS `CREATE_DATE`,`i`.`EDIT_DATE` AS `EDIT_DATE`,`i`.`FK_INFO_PAGE_ID` AS `FK_INFO_PAGE_ID`,`i`.`FK_INFO_TYPE_ID` AS `FK_INFO_TYPE_ID`,`i`.`START` AS `START`,`i`.`END` AS `END`,`it`.`DESC` AS `DESC` from (`info` `i` join `info_type` `it` on((`i`.`FK_INFO_TYPE_ID` = `it`.`ID`))) */;
 
 /*View structure for view f_news */
 

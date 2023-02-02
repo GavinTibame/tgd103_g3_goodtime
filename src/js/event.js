@@ -3,7 +3,8 @@ const eventApp = Vue.createApp({
         return {
             current: 1,    
             paginate: 4,  
-            paginate_total: 0, //總筆數
+            paginate_total: 0, 
+            //總筆數
             eventList: [],
             // fakeEvtList: [
             //     // {

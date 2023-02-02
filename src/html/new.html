@@ -12,7 +12,7 @@
     />
     <!-- <link rel="stylesheet" href="/css/new.css" /> -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
     <title>最新消息 - 韶光文創園區</title>
   </head>
 
@@ -39,20 +39,42 @@
       </div>
       <!-- 公告區 -->
       <div class="tabset">
+        <!-- Tab 0 -->
+        <input type="radio" name="tabset" id="tab0" @click="test" />
+        <label for="tab0">所有消息</label>
         <!-- Tab 1 -->
-        <input type="radio" name="tabset" id="tab1" @click="setStatus('園區公告')"/>
+        <input
+          type="radio"
+          name="tabset"
+          id="tab1"
+          @click="setStatus('園區公告')"
+        />
         <label for="tab1">園區公告</label>
         <!-- Tab 2 -->
-        <input type="radio" name="tabset" id="tab2" @click="setStatus('展演資訊')"/>
+        <input
+          type="radio"
+          name="tabset"
+          id="tab2"
+          @click="setStatus('展演資訊')"
+        />
         <label for="tab2">展演資訊</label>
         <!-- Tab 3 -->
-        <input type="radio" name="tabset" id="tab3" @click="setStatus('其他消息')"/>
+        <input
+          type="radio"
+          name="tabset"
+          id="tab3"
+          @click="setStatus('其他消息')"
+        />
         <label for="tab3">其他消息</label>
       </div>
 
       <div class="tab-panels">
         <ul class="tab-panel">
-          <li v-for="(newPage,index) in currentList['newPage']"  v-show="setPaginate(index)"><!-- v-show渲染該頁的畫面 -->
+          <li
+            v-for="(newPage,index) in currentList['news']"
+            v-show="setPaginate(index)"
+          >
+            <!-- v-show渲染該頁的畫面 -->
             <a :href="'news_detail.html?ID='+newPage.ID">
               <small>{{newPage.EDIT_DATE}} | {{newPage.DESC}}</small>
               <h4>【{{newPage.DESC}}】{{newPage.TITLE}}</h4>
@@ -62,13 +84,29 @@
       </div>
 
       <div id="pagination">
-        <a href="#" v-if="this.current == paginate_total" @click.prevent="current--"><</a>
-        <a href="#" class="btn btn-default" :class="{'-on': this.current == page_index}"
-          v-for="page_index in paginate_total" @click.prevent="updateCurrent(page_index)">
+        <a
+          href="#"
+          v-if="this.current == paginate_total"
+          @click.prevent="current--"
+        >
+          <</a
+        >
+        <a
+          href="#"
+          class="btn btn-default"
+          :class="{'-on': this.current == page_index}"
+          v-for="page_index in paginate_total"
+          @click.prevent="updateCurrent(page_index)"
+        >
           {{ page_index }}
         </a>
 
-        <a href="#" v-if="this.current != paginate_total" @click.prevent="current++">></a>
+        <a
+          href="#"
+          v-if="this.current != paginate_total"
+          @click.prevent="current++"
+          >></a
+        >
       </div>
     </div>
 

@@ -182,7 +182,30 @@ main.rental {
                 }
             }
             .zoneA{
-                color:gray;
+                ul{
+                    padding-left: unset;
+                }
+                li:first-child{
+                    color: rgb(84, 79, 79);
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 2;
+                    background-color: rgba(227, 219, 110, 0.5);
+                    @include rwd(428px) {
+                        font-size: 10px;
+                        line-height: unset;
+                    }
+                }
+               li:last-child{
+                    margin-top: 5px;
+                    font-size: 15px;
+                    color: gray;
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                    }
+                }
                 box-shadow: 0 3px 10px 0 #aaa;
                 background-color: rgba(255, 255, 255, 0.7);
                 height: 134px;
@@ -190,9 +213,48 @@ main.rental {
                 width: 170px;
                 top: 356px;
                 left: 805px;
+
+                @include rwd(1024px) {
+                    top: 393px;
+                    left: 648px;
+                }
+                @include rwd(768px) {
+                    top: 448px;
+                    left: 286px;
+                }
+                @include rwd(428px) {
+                    height: 121px;
+                    width: 96px;
+                    top: 474px;
+                    left: 274px;
+                }
             }
             .zoneB{
-                color:gray;
+                ul{
+                    padding-left: unset;
+                }
+                li:first-child{
+                    color: rgb(84, 79, 79);
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 2;
+                    background-color: rgba(227, 219, 110, 0.5);
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                        line-height: unset;
+                    }
+                }
+               li:last-child{
+                    margin-top: 5px;
+                    font-size: 15px;
+                    color: gray;
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                    }
+                }
                 box-shadow: 0 3px 10px 0 #aaa;
                 background-color: rgba(255, 255, 255, 0.7);
                 height: 134px;
@@ -200,9 +262,48 @@ main.rental {
                 width: 170px;
                 top: 316px;
                 left: 631px;
+
+                @include rwd(1024px) {
+                    top: 355px;
+                    left: 518px;
+                }
+                @include rwd(768px) {
+                    top: 448px;
+                    left: 286px;
+                }
+                @include rwd(428px) {
+                    height: 121px;
+                    width: 96px;
+                    top: 464px;
+                    left: 213px;
+                }
             }
             .zoneC{
-                color:gray;
+                ul{
+                    padding-left: unset;
+                }
+                li:first-child{
+                    color: rgb(84, 79, 79);
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 2;
+                    background-color: rgba(227, 219, 110, 0.5);
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                        line-height: unset;
+                    }
+                }
+               li:last-child{
+                    margin-top: 5px;
+                    font-size: 15px;
+                    color: gray;
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                    }
+                }
                 box-shadow: 0 3px 10px 0 #aaa;
                 background-color: rgba(255, 255, 255, 0.7);
                 height: 134px;
@@ -210,9 +311,48 @@ main.rental {
                 width: 170px;
                 top: 311px;
                 left: 444px;
+
+                    @include rwd(1024px) {
+                        top: 361px;
+                        left: 358px;
+                    }
+                    @include rwd(768px) {
+                        top: 448px;
+                        left: 286px;
+                    }
+                    @include rwd(428px) {
+                        height: 121px;
+                        width: 96px;
+                        top: 462px;
+                        left: 153px;
+                    }
             }
             .zoneD{
-                color:gray;
+                ul{
+                    padding-left: unset;
+                }
+                li:first-child{
+                    color: rgb(84, 79, 79);
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 2;
+                    background-color: rgba(227, 219, 110, 0.5);
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                        line-height: unset;
+                    }
+                }
+               li:last-child{
+                    margin-top: 5px;
+                    font-size: 15px;
+                    color: gray;
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                    }
+                }
                 box-shadow: 0 3px 10px 0 #aaa;
                 background-color: rgba(255, 255, 255, 0.7);
                 height: 134px;
@@ -220,9 +360,49 @@ main.rental {
                 width: 170px;
                 top: 334px;
                 left: 279px;
+
+                @include rwd(1024px) {
+                    top: 378px;
+                    left: 232px;
+                }
+                @include rwd(768px) {
+                    top: 448px;
+                    left: 286px;
+                }
+                @include rwd(428px) {
+                    height: 121px;
+                    width: 96px;
+                    top: 471px;
+                    left: 98px;
+                }
+                
             }
             .zoneE{
-                color:gray;
+                ul{
+                    padding-left: unset;
+                }
+                li:first-child{
+                    color: rgb(84, 79, 79);
+                    font-weight: bold;
+                    font-size: 18px;
+                    text-align: center;
+                    line-height: 2;
+                    background-color: rgba(227, 219, 110, 0.5);
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                        line-height: unset;
+                    }
+                }
+               li:last-child{
+                    margin-top: 5px;
+                    font-size: 15px;
+                    color: gray;
+
+                    @include rwd(428px) {
+                        font-size: 10px;
+                    }
+                }
                 box-shadow: 0 3px 10px 0 #aaa;
                 background-color: rgba(255, 255, 255, 0.7);
                 height: 134px;
@@ -230,6 +410,21 @@ main.rental {
                 width: 170px;
                 top: 435px;
                 left: 244px;
+
+                @include rwd(1024px) {
+                    top: 454px;
+                    left: 195px;
+                }
+                @include rwd(768px) {
+                    top: 448px;
+                    left: 286px;
+                }
+                @include rwd(428px) {
+                    height: 121px;
+                    width: 96px;
+                    top: 504px;
+                    left: 81px;
+                }
         }
 
         .map {

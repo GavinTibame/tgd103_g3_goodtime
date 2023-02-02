@@ -267,23 +267,22 @@
                     }
 
 
-                    let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
+                    // let file = document.getElementById("mianimgbtn").previousSibling.previousSibling.previousSibling.files[0];
 
-                    console.log(this.file)
+                    // console.log(this.file)
 
-                    this.file = file;
-                    let formData = new FormData();
-                    formData.append('file', this.file);
+                    // this.file = file;
+                    // let formData = new FormData();
+                    // formData.append('file', this.file);
 
-                    axios({
-                        method: 'post',
-                        url: '../../php/backend/loaction-upload.php',
-                        data: formData,
-                        headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // 'Authorization': localStorage.getItem("authorization")
-                        }
-                    })
+                    // axios({
+                    //     method: 'post',
+                    //     url: '../../php/backend/loaction-upload.php',
+                    //     data: formData,
+                    //     headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    //     }
+                    // })
 
 
                     // 資料庫product
@@ -309,6 +308,24 @@
                     }).catch(err => {
                         console.log(err);
                     });
+
+
+                    //主圖上傳
+                    let file = document.getElementById("locationpic").files[0];
+
+                    this.file = file;
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+
+                    axios({
+                        method: 'post',
+                        url: '../../php/backend/loaction-upload.php',
+                        data: formData,
+                        headers: {
+                        'Content-Type': 'multipart/form-data',
+                        }
+                    })
+
 
                     location.reload();
                 }
