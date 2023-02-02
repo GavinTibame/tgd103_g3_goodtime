@@ -61,7 +61,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
             //完成付款(or失敗要跳轉的頁面)
-            return_url: "https://tibamef2e.com/tgd103/g3/goodtime/dist/html/shopping_cart03.html",
+            return_url: "https://tibamef2e.com/tgd103/g3/goodTimeDemo/dist/html/shopping_cart03.html",
             // return_url: "http://localhost/teamwork/src/html/shopping_cart03.html",
             receipt_email: emailAddress,
         },

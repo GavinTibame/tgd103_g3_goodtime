@@ -80,7 +80,7 @@ const signUpApp = Vue.createApp({
             alert("已有帳號使用此電子郵件地址。請選擇其他電子郵件地址。");
           } else {
             alert("會員註冊成功，請重新登入");
-            // window.location.href = "../html/log_in.html";
+            window.location.href = "../html/log_in.html";
           }
         })
         //catch:抓取Promise 上異常

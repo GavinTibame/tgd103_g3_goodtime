@@ -10,7 +10,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="../js/index.js"></script>
+  <!-- <script src="../js/index.js"></script> -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
@@ -21,8 +21,10 @@
   <!-- FullCalendar v3.8.1 -->
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css" rel="stylesheet"  /> -->
   <!-- <link rel="stylesheet" href="../css/fullcalendar.css"> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css" rel="stylesheet" media="print"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js"></script>  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css" rel="stylesheet"
+    media="print">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js"></script>
   <link rel="stylesheet" href="../css/style.css">
   <title>首頁 - 韶光文創園區</title>
 </head>
@@ -36,22 +38,21 @@
           <img src="../img/logo/logo2.png" alt="">
         </a>
       </div>
-        <ul class="topbar-btn-group" id="topbar-btn-group">
-          <li><a href="about.html">關於韶光</a></li>
-          <li><a href="new.html">最新消息</a></li>
-          <li><a href="event.html">展演活動</a></li>
-          <li><a href="rental.html">場地租借</a></li>
-          <li><a href="shops.html">風格好店</a></li>
-          <li><a href="store.html">文創商城</a></li>
-          <li><a href="faq.html">常見問題</a></li>
-        </ul>
-       <!------------------------------------手機板ICON------------------------------------------->
-       <component class="member-icon-box-out">
+      <ul class="topbar-btn-group" id="topbar-btn-group">
+        <li><a href="about.html">關於韶光</a></li>
+        <li><a href="new.html">最新消息</a></li>
+        <li><a href="event.html">展演活動</a></li>
+        <li><a href="rental.html">場地租借</a></li>
+        <li><a href="shops.html">風格好店</a></li>
+        <li><a href="store.html">文創商城</a></li>
+        <li><a href="faq.html">常見問題</a></li>
+      </ul>
+      <!------------------------------------手機板ICON------------------------------------------->
+      <component class="member-icon-box-out">
         <div class="dividing-line"></div>
         <div class="member-icon-box-2" id="member-icon-box-2">
-          <a class="head" href="javaScript:0" @click="log_phone"
-            ><i id="member-icon-2" class="fa-solid fa-user member-icon-2"></i
-          ></a>
+          <a class="head" href="javaScript:0" @click="log_phone"><i id="member-icon-2"
+              class="fa-solid fa-user member-icon-2"></i></a>
           <ul id="ul" class="ul">
             <li class="li"><a href="memberCenter.html">交易查詢</a></li>
             <li class="li"><a href="memberCenter.html">會員資料</a></li>
@@ -68,15 +69,8 @@
 
         <!------------------------------------網頁板ICON------------------------------------------->
 
-        <div
-          class="member-icon-box"
-          v-bind:style="styleObject"
-          @mouseenter="mouseenter"
-          @mouseleave="mouseleave"
-        >
-          <a class="head" href="javaScript:0" @click="log"
-            ><i class="fa-solid fa-user member-icon"></i
-          ></a>
+        <div class="member-icon-box" v-bind:style="styleObject" @mouseenter="mouseenter" @mouseleave="mouseleave">
+          <a class="head" href="javaScript:0" @click="log"><i class="fa-solid fa-user member-icon"></i></a>
           <ul>
             <li><a href="memberCenter.html">交易查詢</a></li>
             <li><a href="memberCenter.html">會員資料</a></li>
@@ -84,10 +78,10 @@
           </ul>
         </div>
       </component>
-        <div class="cart-icon-box">
-          <a href="shopping_cart01.html">
-              <i class="fa-solid fa-cart-shopping"></i>
-          </a>
+      <div class="cart-icon-box">
+        <a href="shopping_cart01.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
       </div>
     </div>
     <div class="left-area">
@@ -121,40 +115,19 @@
   </header>
   <div class="index-wrapper" id="slider">
     <div id="anchor0" class="carousel">
-      <div class="owl-one owl-carousel owl-theme" >
-        <div class="item" v-for="(slider, index) of dataList['slider']" >
+      <div class="owl-one owl-carousel owl-theme">
+        <div class="item" v-for="(slider, index) of dataList['slider']">
           <a :href="'http://tibamef2e.com/tgd103/g3/goodtime/dist/html/event_detail.html?eid='+ slider.ID">
             <h1>{{index+1}}</h1>
-            <img :src="slider.MAIN_PHOTO"/>
+            <img :src="slider.MAIN_PHOTO" />
             <p class="desc">{{slider.CONTENT}}</p>
           </a>
         </div>
-      <!-- </template> -->
+        <!-- </template> -->
         <!-- <div class="item">
           <a href="http://localhost/tgd103_g3_goodtime/src/html/event_detail.html?eid=5">
             <h1>2</h1>
             <img src="../img/index/bannerimg2.jpg" alt="" />
-            <p class="desc"></p>
-          </a>
-        </div>
-        <div class="item">
-          <a href="http://localhost/tgd103_g3_goodtime/src/html/event_detail.html?eid=2">
-            <h1>3</h1>
-            <img src="../img/index/bannerimg3.jpg" alt="" />
-            <p class="desc"></p>
-          </a>
-        </div>
-        <div class="item">
-          <a href="http://localhost/tgd103_g3_goodtime/src/html/event_detail.html?eid=4">
-            <h1>4</h1>
-            <img src="../img/index/bannerimg4.jpg" alt="" />
-            <p class="desc"></p>
-          </a>
-        </div>
-        <div class="item">
-          <a href="http://localhost/tgd103_g3_goodtime/src/html/event_detail.html?eid=8">
-            <h1>5</h1>
-            <img src="../img/index/bannerimg5.jpg" alt="" />
             <p class="desc"></p>
           </a>
         </div> -->
@@ -177,7 +150,7 @@
     </div>
     <div class="index-content-wrap">
       <!-- start -->
-      <div class="content" v-for="(news, index) of dataList['news']" >
+      <div class="content" v-for="(news, index) of dataList['news']">
         <div class="date-info">
           <div class="date">{{ news.EDIT_DATE }}</div>
           <div class="info">{{ news.DESC }}</div>
@@ -189,17 +162,6 @@
         </a>
       </div>
       <!-- end -->
-      <!-- <div class="content">
-        <div class="date-info">
-          <div class="date">2022-11-29</div>
-          <div class="info">展演資訊</div>
-        </div>
-        <a href="news_detail.html">
-          <div class="announcement">
-            【園區公告】假日休館假日休館假日休館假日休館<span class="material-symbols-outlined">arrow_forward_ios</span>
-          </div>
-        </a>
-      </div>-->
     </div>
   </div>
   <div id="anchor2" class="index-calendar">
@@ -225,23 +187,23 @@
         創造只屬於自己的溫馨時光與回憶</p>
       <div class="wrapper primary-ctn">
         <div class="btn-primary">
-            <a href="./about.html">
-                <div class="btn-text">
-                    <p>View More</p>
-                </div>
-                <div class="btn-circle"></div>
-                <div class="btn-line"></div>
-                <div class="btn-arrow"></div>
-                <span class="btn-inner"></span>
-            </a>
+          <a href="./about.html">
+            <div class="btn-text">
+              <p>View More</p>
+            </div>
+            <div class="btn-circle"></div>
+            <div class="btn-line"></div>
+            <div class="btn-arrow"></div>
+            <span class="btn-inner"></span>
+          </a>
         </div>
-      </div>    
+      </div>
     </div>
   </div>
   <div class="index-shops" id="anchor4">
     <div class="title">
       <h3 class="title-1">SHOPS</h3>
-      <h3 class="title-2">風格好店</h3>  
+      <h3 class="title-2">風格好店</h3>
     </div>
     <div class="owl-two owl-carousel">
       <div class="item">
@@ -313,59 +275,57 @@
     </div>
   </div>
   <div id="footer"></div>
-  
+  <script src="../js/top-bar.js"></script>
   <script>
-
-    //限制字數
-
-    const desc = document.querySelectorAll('.desc');
-
-    // if (window.screen.width <= 430) {
-    //   for (var i = 0; i < news_data.length; i++) {
-    //     desc[i].innerHTML = news_data[i].substring(0, 45) + '...';
-    //   }
-    // }
-
-    // if (window.screen.width > 430) {
-    //   for (var i = 0; i < this.slider.length; i++) {
-    //     desc[i].innerHTML = news_data[i].substring(0, 90) + '...';
-    //   }
-    // }
 
     //Back To Top
     const backToTop = document.getElementById('backToTop');
-    backToTop.addEventListener('click', function () {
+    backToTop.addEventListener('click', function (e) {
+      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     })
- 
+
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script src="../js/vue.global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
   <script>
 
-  //渲染輪播
-  const slider = Vue.createApp({
-    data() {
-      return {
+    const nextIcon = '<img src="../img/index/nextarrow.png">'
+    const prvIcon = '<img src="../img/index/prvarrow.png">'
+
+    const shopNextIcon = '<img src="../img/index/shopprvarrow.png">'
+
+    $(() => {
+      $("#footer").load("footer.html");
+    });
+
+    //渲染輪播
+    const slider = Vue.createApp({
+      data() {
+        return {
           dataList: []
-      }
-    },  
-    beforeCreate() {
+        }
+      },
+      beforeCreate() {
         // 查詢資料
         axios.get("../../php/frontend/index.php")
-        .then(res => {
-          this.dataList = {...res.data};
-          console.log(this.dataList['slider'].length);
+          .then(res => {
+            this.dataList = { ...res.data };
+            // console.log(this.dataList['slider'].length);
 
-          const desc = document.querySelectorAll('.desc');
+            const desc = document.querySelectorAll('.desc');
 
             if (window.screen.width > 430) {
               for (var i = 0; i < this.dataList['slider'].length; i++) {
-                console.log(this.dataList['slider'][i].CONTENT);
+                // console.log(this.dataList['slider'][i].CONTENT);
                 this.dataList['slider'][i].CONTENT = this.dataList['slider'][i].CONTENT.substring(0, 85) + '...';
               }
+            } else {
+              for (var i = 0; i < this.dataList['slider'].length; i++) {
+                this.dataList['slider'][i].CONTENT = this.dataList['slider'][i].CONTENT.substring(0, 45) + '...';
+              }
             }
-          
+
             // 輪播
             $(document).ready(function () {
               $('.owl-one').owlCarousel({
@@ -431,219 +391,224 @@
                   }
                 }
               });
-          })
-        }).catch(err => {
-          console.log(err);
-        });
-    }
-  }).mount("#slider");
-
-  //渲染news & calendar
-  const index = Vue.createApp({
-    data() {
-      return {
-          dataList: [],
-          event:[]
+            })
+          }).catch(err => {
+            console.log(err);
+          });
       }
-    }, 
-    methods:{
-      create_calendar(){
-        $( "#example" ).fullCalendar({
-          header: { // 頂部排版
+    }).mount("#slider");
+
+    //渲染news & calendar
+    const index = Vue.createApp({
+      data() {
+        return {
+          dataList: [],
+          event: []
+        }
+      },
+      methods: {
+        create_calendar() {
+          $("#example").fullCalendar({
+            header: { // 頂部排版
               left: "prev,next today",
               center: "prev,title,next",
               right: "month,basicWeek,basicDay"
-          },
-          // defaultDate: "2023-01-10", 
-          weekends: true,
-          editable: false,  // 啟動拖曳調整日期
-          eventBackgroundColor: "#C09351", 
-          eventBorderColor:"#C09351",
-          validRange: function(nowDate) {
-            return {
-              start: '2023-02-01',
-              end:'2023-12-20'
-            };
-          },
-          events: this.events
-          // [ // 事件
-          //     { // 事件(包含跨日開始時間、結束時間)
-          //         title: "《流體藝術》暈染雙人流體畫展",
-          //         start: "2023-01-07",
-          //         end: "2023-01-10",
-          //         url: "https://tibamef2e.com/tgd103/g3/dist_2/html/event_detail.html",
-          //        color: black
-        //        }
-          // ]
-        });
-      }
-    }, 
-    beforeCreate() {
+            },
+            // defaultDate: "2023-01-10", 
+            weekends: true,
+            editable: false,  // 啟動拖曳調整日期
+            eventBackgroundColor: "#C09351",
+            eventBorderColor: "#C09351",
+            validRange: function (nowDate) {
+              return {
+                start: '2023-02-01',
+                end: '2023-12-20'
+              };
+            },
+            events: this.events
+            // [ // 事件
+            //     { // 事件(包含跨日開始時間、結束時間)
+            //         title: "《流體藝術》暈染雙人流體畫展",
+            //         start: "2023-01-07",
+            //         end: "2023-01-10",
+            //         url: "https://tibamef2e.com/tgd103/g3/goodtime/dist/html/event_detail.html?eid=1"
+            //      }
+            // ]
+          });
+        }
+      },
+      beforeCreate() {
         // 查詢資料
         axios.get("../../php/frontend/index.php")
-        .then(res => {
-          this.dataList = {...res.data};
-          console.log(this.dataList);
-          this.events=JSON.parse(JSON.stringify(this.dataList.calendar));
-          this.create_calendar()
+          .then(res => {
+            this.dataList = { ...res.data };
+            // console.log(this.dataList);
+            this.events = JSON.parse(JSON.stringify(this.dataList.calendar));
+            // console.log(this.events.length)
+            // this.events[1].url = "./event_detail.html?eid="+this.events[1].url;
+            console.log(this.events[1].url);
+            this.events.forEach(evt => {
+              evt.url = `./event_detail.html?eid=${evt.url}`
+            });
+            // console.log(this.events)
+            this.create_calendar();
+          }).catch(err => {
+            console.log(err);
+          });
+      }
+    }).mount("#anchor1");
+
+    // 輪播
+    // $(document).ready(function () {
+    //     $('.owl-one').owlCarousel({
+    //       autoplay: true,
+    //       autoplayTimeout: 4000,
+    //       autoplayHoverPause: true,
+    //       center: true,
+    //       loop: true,
+    //       margin: 30,
+    //       mouseDrag: false,
+    //       touchDrag: false,
+    //       nav: true,
+    //       navText: [
+    //         prvIcon,
+    //         nextIcon
+    //       ],
+    //       responsive: {
+    //         0: {
+    //           items: 1.1,
+    //           margin: 5
+    //         },
+    //         768: {
+    //           items: 2,
+    //           margin: 5
+    //         },
+    //         1000: {
+    //           items: 2.2,
+    //         }
+    //       }
+    //     });
+    //     $('.owl-two').owlCarousel({
+    //       items: 3,
+    //       loop: true,
+    //       center: true,
+    //       margin: 30,
+    //       autoplayHoverPause: true,
+    //       // startPosition: 0,
+    //       merge: true,
+    //       nav: true,
+    //       mouseDrag: false,
+    //       touchDrag: false,
+    //       navText: [
+    //         prvIcon,
+    //         shopNextIcon
+    //       ],
+    //       responsive: {
+    //         0: {
+    //           items: 1,
+    //           margin: 10
+    //         },
+    //         400: {
+    //           items: 1
+    //         },
+    //         500: {
+    //           items: 2
+    //         },
+    //         770: {
+    //           items: 3
+    //         },
+    //         1242: {
+    //           items: 3.5,
+    //           margin: 10
+    //         }
+    //       }
+    //     });
+    // })
+
+    const indexApp = Vue.createApp({
+      data() {
+        return {
+          login: "0", //出現
+          styleObject: {
+            right: "-98px",
+            height: "50px",
+          },
+        };
+      },
+      mounted() {
+        this.login = sessionStorage.getItem("login");
+      },
+      methods: {
+        // 进入元素
+        mouseenter() {
+          // console.log("mouseenter",this.login);
+          if (this.login === "1") {
+            this.styleObject.right = "0px";
+            this.styleObject.height = "125px";
+          }
+        },
+        // 离开元素
+        mouseleave() {
+          //   console.log("mouseleave");
+          this.styleObject.right = "-98px";
+          this.styleObject.height = "50px";
+        },
+        log() {
+          if (sessionStorage.getItem("login") === "1") {
+            window.location.href = "../html/memberCenter.html";
+          } else {
+            window.location.href = "../html/log_in.html";
+          }
+        },
+        log_phone() {
+          if (sessionStorage.getItem("login") === "1") {
+            window.location.href = "#";
+          } else {
+            window.location.href = "../html/log_in.html";
+          }
+        },
+        logOut() {
+          sessionStorage.removeItem("login");
+          alert("登出成功");
+          window.location.href = "../html/log_in.html";
+        },
+      },
+    }).mount(".member-icon-box-out");
+
+    const viewcounter = Vue.createApp({
+      data() {
+        return {
+        }
+      }, methods: {
+      }, created() {
+        // 記數
+        axios({
+          method: 'post',
+          url: '../../php/backend/viewcounter.php',
+          responseType: 'json',
+        }).then(res => {
+          console.log("success");
         }).catch(err => {
           console.log(err);
         });
-    }
-  }).mount("#anchor1");
-
-  // 輪播
-  // $(document).ready(function () {
-  //     $('.owl-one').owlCarousel({
-  //       autoplay: true,
-  //       autoplayTimeout: 4000,
-  //       autoplayHoverPause: true,
-  //       center: true,
-  //       loop: true,
-  //       margin: 30,
-  //       mouseDrag: false,
-  //       touchDrag: false,
-  //       nav: true,
-  //       navText: [
-  //         prvIcon,
-  //         nextIcon
-  //       ],
-  //       responsive: {
-  //         0: {
-  //           items: 1.1,
-  //           margin: 5
-  //         },
-  //         768: {
-  //           items: 2,
-  //           margin: 5
-  //         },
-  //         1000: {
-  //           items: 2.2,
-  //         }
-  //       }
-  //     });
-  //     $('.owl-two').owlCarousel({
-  //       items: 3,
-  //       loop: true,
-  //       center: true,
-  //       margin: 30,
-  //       autoplayHoverPause: true,
-  //       // startPosition: 0,
-  //       merge: true,
-  //       nav: true,
-  //       mouseDrag: false,
-  //       touchDrag: false,
-  //       navText: [
-  //         prvIcon,
-  //         shopNextIcon
-  //       ],
-  //       responsive: {
-  //         0: {
-  //           items: 1,
-  //           margin: 10
-  //         },
-  //         400: {
-  //           items: 1
-  //         },
-  //         500: {
-  //           items: 2
-  //         },
-  //         770: {
-  //           items: 3
-  //         },
-  //         1242: {
-  //           items: 3.5,
-  //           margin: 10
-  //         }
-  //       }
-  //     });
-  // })
-
- const indexApp = Vue.createApp({
-  data() {
-    return {
-      login: "0", //出現
-      styleObject: {
-        right: "-98px",
-        height: "50px",
-      },
-    };
-  },
-  mounted() {
-    // console.log("aaaaa");
-    this.login = sessionStorage.getItem("login");
-  },
-  methods: {
-    // 进入元素
-    mouseenter() {
-      // console.log("mouseenter",this.login);
-      if (this.login === "1") {
-        this.styleObject.right = "0px";
-        this.styleObject.height = "125px";
       }
-    },
-    // 离开元素
-    mouseleave() {
-      //   console.log("mouseleave");
-      this.styleObject.right = "-98px";
-      this.styleObject.height = "50px";
-    },
-    log() {
-      if (sessionStorage.getItem("login") === "1") {
-        window.location.href = "../html/memberCenter.html";
-      }else{
-        window.location.href = "../html/log_in.html";
-      }
-    },
-    log_phone() {
-      if (sessionStorage.getItem("login") === "1") {
-        window.location.href = "#";
-      }else{
-        window.location.href = "../html/log_in.html";
-      }
-    },
-    logOut() {
-      sessionStorage.removeItem("login");
-      alert("登出成功");
-      window.location.href = "../html/log_in.html";
-    },
-  },
-}).mount(".member-icon-box-out");
+    }).mount("#viewcounter");
+  </script>
+  <script>
+    //漢堡線控制
+    let menuIcon = document.getElementById('menu-icon-box');
+    let menu = document.getElementById('topbar-btn-group');
 
-  const viewcounter = Vue.createApp({
-    data() {
-        return {
-        }
-    }, methods:{
-    }, created() {
-      // 記數
-      axios({
-          method: 'post',
-          url: '../../php/backend/viewcounter.php',
-          responseType:'json',
-          }).then(res => {
-            console.log("success");
-          }).catch(err => {
-            console.log(err);
-      });
-    }
-  }).mount("#viewcounter");
-</script>
-<script>
-//漢堡線控制
-let menuIcon = document.getElementById('menu-icon-box');
-let menu = document.getElementById('topbar-btn-group');
+    menuIcon.addEventListener('click', function () {
+      document.getElementById('topbar-btn-group').classList.toggle("on");
+    });
 
-menuIcon.addEventListener('click', function () {
-  document.getElementById('topbar-btn-group').classList.toggle("on");
-});
-
-//member-icon-2控制
-let memberIcon2 = document.getElementById('member-icon-2');
-memberIcon2.addEventListener('click',function(){
-document.getElementById('member-icon-box-2').classList.toggle("toggle");
-});
-</script>
+    //member-icon-2控制
+    let memberIcon2 = document.getElementById('member-icon-2');
+    memberIcon2.addEventListener('click', function () {
+      document.getElementById('member-icon-box-2').classList.toggle("toggle");
+    });
+  </script>
 </body>
 
 </html>
