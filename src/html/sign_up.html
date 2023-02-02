@@ -29,27 +29,37 @@
             <div class="sign_up-dotted-line">
               <div>
                 <p>Email</p>
-                <input v-model="user_email" type="email" class="user_email"/>
+                <input v-model="user_email" type="email" class="user_email" placeholder="請輸入完整的Email格式" />
               </div>
               <div>
                 <p>密碼</p>
-                <input v-model="user_password" type="password" class="user_password"/>
+                <input
+                  v-model="user_password"
+                  type="password"
+                  class="user_password"
+                  placeholder="請輸入您的密碼"
+                />
               </div>
               <div>
                 <p>確認密碼</p>
-                <input v-model="user_confirm_password" type="password" class="user_confirm_password"/>
+                <input
+                  v-model="user_confirm_password"
+                  type="password"
+                  class="user_confirm_password"
+                  placeholder="請再次輸入您的密碼"
+                />
               </div>
               <div>
                 <p>姓名</p>
-                <input v-model="user_name" type="text" class="user_name"/>
+                <input v-model="user_name" type="text" class="user_name" placeholder="請輸入您的中文姓名"/>
               </div>
               <div>
                 <p>手機</p>
-                <input v-model="user_phone" type="text" class="user_phone"/>
+                <input v-model="user_phone" type="text" class="user_phone" placeholder="請輸入您的手機號碼(需為09開頭)"/>
               </div>
               <div>
                 <p>地址</p>
-                <input v-model="user_addr" type="text" class="user_addr"/>
+                <input v-model="user_addr" type="text" class="user_addr" placeholder="請輸入您的完整地址"/>
               </div>
             </div>
 
