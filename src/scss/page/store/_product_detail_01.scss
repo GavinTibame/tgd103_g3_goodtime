@@ -432,7 +432,7 @@
     border: 1px solid $primary2-color;
     font-size: $p;
     color: $secondary4-color;
-    width: 80%;
+    width: 47%;
     // width: 100px;
     line-height: 23px;
     padding: 0 3px;
@@ -440,6 +440,10 @@
     @include rwd(428px) {
         width: 72%;
     }
+}
+
+.buy-btn{
+    display: none;
 }
 
 .product-detail .info-box {
@@ -566,7 +570,7 @@
 .product-detail .cart-btn {
     margin-top: 30px;
     margin-left: 40px;
-    width: 150px;
+    width: 57%;
     height: 40px;
     font-size: 16px;
     font-weight: 500;
@@ -579,35 +583,22 @@
 
     @include rwd(780px) {
         margin-left: 90px;
-    }
-
-
-    @include rwd(776px) {
-        width: 200px;
+        width: 50%;
     }
 
     @include rwd(700px) {
         margin-left: 60px;
     }
 
-    @include rwd(600px) {
-        width: 160px;
-    }
-
     @include rwd(500px) {
         margin-left: 60px;
-        width: 120px;
+        width: 55%;
         font-size: 14px;
     }
 
     @include rwd(410px) {
+        width: 79%;
         margin-left: 50px;
-        width: 120px;
-        font-size: 14px;
-    }
-
-    @include rwd(388px) {
-        width: 100px;
     }
 
 
