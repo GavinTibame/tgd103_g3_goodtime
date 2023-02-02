@@ -64,9 +64,9 @@
           </div>
           <p>數量</p>
           <div id="myform">
-            <button class="qtyminus" @click="orderQty--" :disabled="orderQty===1">-</button>
+            <button class="qtyminus" @click="orderQty--" :disabled="orderQty==1">-</button>
             <input type="text" name="quantity" :value="orderQty" class="qty" disabled />
-            <button class="qtyplus" @click="orderQty++" :disabled="orderQty===productDetail.MAX_QTY">+</button>
+            <button class="qtyplus" @click="orderQty++" :disabled="orderQty==productDetail.MAX_QTY">+</button>
           </div>
         </div>
         <button class="cart-btn" @click="passToCart">加入購物車</button>

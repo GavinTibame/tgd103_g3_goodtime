@@ -54,9 +54,9 @@
 
               <div>數量</div>
               <div class="event_detail-number-button">
-                <button class="qtyminus" @click="orderQty--" :disabled="orderQty===1">-</button>
+                <button class="qtyminus" @click="orderQty--" :disabled="orderQty==1">-</button>
                 <input type="text" name="quantity" :value="orderQty" class="qty" disabled/>
-                <button class="qtyplus" @click="orderQty++" :disabled="orderQty===20">+</button>
+                <button class="qtyplus" @click="orderQty++" :disabled="orderQty==20">+</button>
               </div>
               <!-- <div class="btn__ctn"> -->
                 <button id="goApplyForm" class="button" @click="passToCart">加入購物車</button>

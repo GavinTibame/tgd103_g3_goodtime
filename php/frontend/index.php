@@ -6,7 +6,7 @@
     //輪播
     $pdo = connectDB();
     $sql = "SELECT CONTENT, MAIN_PHOTO,ID
-            FROM GOODTIME.f_expo_inner
+            FROM f_expo_inner
         --     where `STATUS` = 1
             order by END_DATE desc 
             limit 0, 5";
@@ -17,7 +17,7 @@
     //news 渲染
     $pdo = connectDB();
     $sql = "SELECT TITLE, DATE(EDIT_DATE) as EDIT_DATE, `DESC`, ID
-            FROM GOODTIME.f_index_2
+            FROM f_index_2
             -- 依照EDIT_DATE升冪排列
             where `STATUS` = 1
             order by EDIT_DATE desc 
@@ -29,7 +29,7 @@
     //日曆
     $pdo = connectDB();
     $sql = "SELECT TITLE, `START_DATE`, END_DATE, ID
-            FROM GOODTIME.f_index_1
+            FROM f_index_1
             where `STATUS` = 1";
     $statement = $pdo->prepare($sql);
     $test = $statement->execute();
@@ -46,7 +46,7 @@
   //news
   $pdo = connectDB();
   $sql = "SELECT TITLE, DATE(EDIT_DATE) as EDIT_DATE, `DESC`, ID
-          FROM GOODTIME.f_index_2
+          FROM f_index_2
           -- 依照EDIT_DATE升冪排列
           where `STATUS` = 1
           order by EDIT_DATE desc";
